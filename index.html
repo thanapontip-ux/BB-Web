@@ -29,6 +29,24 @@
         }
     </script>
     <style>
+        /* Hide scrollbars globally but keep functionality */
+        body {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        body::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+
+        /* Utility to hide scrollbars for specific elements */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         .phase-card, .info-card, .law-card, .type-card, .eval-card {
             transition: all 0.3s ease;
         }
