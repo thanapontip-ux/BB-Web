@@ -25,13 +25,13 @@
         }
     </script>
     <style>
-        .phase-card, .info-card, .law-card, .type-card {
+        .phase-card, .info-card, .law-card, .type-card, .eval-card {
             transition: all 0.3s ease;
         }
         .phase-card:hover, .info-card:hover {
             transform: translateY(-5px);
         }
-        .law-card:hover, .type-card:hover {
+        .law-card:hover, .type-card:hover, .eval-card:hover {
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
             transform: translateY(-3px);
         }
@@ -79,6 +79,9 @@
                     </button>
                     <button onclick="switchView('laws-view')" id="nav-laws" class="nav-link font-semibold text-slate-600 hover:text-blue-500 px-1 py-4 transition-colors">
                         <i class="fa-solid fa-scale-balanced mr-1"></i> กฎหมาย
+                    </button>
+                    <button onclick="switchView('eval-view')" id="nav-eval" class="nav-link font-semibold text-slate-600 hover:text-blue-500 px-1 py-4 transition-colors">
+                        <i class="fa-solid fa-magnifying-glass-chart mr-1"></i> ประเมินผล
                     </button>
                 </div>
             </div>
@@ -381,6 +384,12 @@
                             </li>
                         </ul>
                     </div>
+                    
+                    <div class="mt-6 text-center">
+                        <button onclick="switchView('eval-view')" class="inline-flex items-center justify-center gap-2 bg-rose-100 hover:bg-rose-200 text-rose-700 py-2 px-6 rounded-lg text-sm font-bold transition-colors shadow-sm">
+                            ดูรายละเอียด: ระยะของการประเมินผลโครงการ <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </article>
 
             </div>
@@ -497,7 +506,7 @@
                                     <div>
                                         <h4 class="font-bold text-slate-800 text-lg">งบบุคลากร</h4>
                                         <div class="text-sm text-slate-600 leading-tight mt-1 space-y-1">
-                                            <p>-ถัวจ่ายกันได้ภายในงบนี้ ยกเว้น เงินเดือน / ค่าจ้างประจำ</p>
+                                            <p>ถัวจ่ายกันได้ภายในงบนี้ ยกเว้น เงินเดือน / ค่าจ้างประจำ</p>
                                             <p>อัตราตั้งใหม่ ให้จ่ายได้ตามที่ได้รับความตกลงกับสำนักงบประมาณ</p>
                                         </div>
                                     </div>
@@ -511,7 +520,7 @@
                                     <div>
                                         <h4 class="font-bold text-slate-800 text-lg">งบดำเนินงาน</h4>
                                         <div class="text-sm text-slate-600 leading-tight mt-1 space-y-1">
-                                            <p>-ถัวจ่ายกันได้ภายในงบนี้ ยกเว้น รายจ่ายประเภทค่าสาธารณูปโภค</p>
+                                            <p>ถัวจ่ายกันได้ภายในงบนี้ ยกเว้น รายจ่ายประเภทค่าสาธารณูปโภค</p>
                                             <p>จะนำ ไปใช้จ่ายประเภทอื่นได้ก็ต่อเมื่อไม่มีหนี้สาธารณูปโภคค้างชำระ</p>
                                         </div>
                                     </div>
@@ -524,7 +533,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-bold text-slate-800 text-lg">งบลงทุน</h4>
-                                        <p class="text-sm text-slate-600 leading-tight mt-1">-ให้ใช้จ่ายตามรายการและวงเงินที่ได้รับการจัดสรร</p>
+                                        <p class="text-sm text-slate-600 leading-tight mt-1">ให้ใช้จ่ายตามรายการและวงเงินที่ได้รับการจัดสรร</p>
                                     </div>
                                 </div>
 
@@ -536,8 +545,8 @@
                                     <div>
                                         <h4 class="font-bold text-slate-800 text-lg">งบเงินอุดหนุน</h4>
                                         <div class="text-sm text-slate-600 leading-tight mt-1 space-y-1">
-                                            <p>-• เงินอุดหนุนทั่วไป : ให้จ่ายตามรายการและจำ นวนเงินที่กำ หนด</p>
-                                            <p>• เงินอุดหนุนเฉพาะกิจ : ให้จ่ายตามรายการและจำ นวนเงินที่กำ หนด และหากเบิกจ่ายในลักษณะงบรายจ่ายใด (งบบุคลากร / งบดำ เนินงาน / งบลงทุน) ก็ถือปฏิบัติเหมือนงบรายจ่ายนั้น</p>
+                                            <p>เงินอุดหนุนทั่วไป : ให้จ่ายตามรายการและจำ นวนเงินที่กำ หนด</p>
+                                            <p>เงินอุดหนุนเฉพาะกิจ : ให้จ่ายตามรายการและจำ นวนเงินที่กำ หนด และหากเบิกจ่ายในลักษณะงบรายจ่ายใด (งบบุคลากร / งบดำ เนินงาน / งบลงทุน) ก็ถือปฏิบัติเหมือนงบรายจ่ายนั้น</p>
                                         </div>
                                     </div>
                                 </div>
@@ -549,7 +558,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-bold text-slate-800 text-lg">งบรายจ่ายอื่น</h4>
-                                        <p class="text-sm text-slate-600 leading-tight mt-1">-ให้ใช้ตามรายการและจำ นวนเงินที่กำ หนด และหากเบิกจ่ายในลักษณะงบรายจ่ายใด(งบบุคลากร / งบดำ เนินงาน / งบลงทุน) ก็ถือปฏิบัติเหมือนงบรายจ่ายนั้น</p>
+                                        <p class="text-sm text-slate-600 leading-tight mt-1">ให้ใช้ตามรายการและจำ นวนเงินที่กำ หนด และหากเบิกจ่ายในลักษณะงบรายจ่ายใด(งบบุคลากร / งบดำ เนินงาน / งบลงทุน) ก็ถือปฏิบัติเหมือนงบรายจ่ายนั้น</p>
                                     </div>
                                 </div>
 
@@ -756,6 +765,118 @@
             </div>
         </div>
 
+        <!-- ========================================== -->
+        <!-- VIEW 4: DEDICATED EVALUATION PAGE          -->
+        <!-- ========================================== -->
+        <div id="eval-view" class="hidden fade-in pt-4">
+            
+            <!-- Header Section for Evaluation -->
+            <div class="bg-white rounded-3xl p-6 md:p-10 shadow-xl border-t-8 border-teal-500 relative overflow-hidden mb-10">
+                <div class="absolute top-0 right-0 p-8 opacity-10">
+                    <i class="fa-solid fa-chart-line text-8xl text-teal-600"></i>
+                </div>
+                
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-3 relative z-10 flex items-center gap-3">
+                    <i class="fa-solid fa-magnifying-glass-chart text-teal-500"></i> การติดตามประเมินผลโครงการ
+                </h2>
+                <p class="text-slate-600 text-lg relative z-10">การประเมินผลโครงการสามารถแบ่งออกเป็น 3 ระยะสำคัญ ได้แก่ ก่อน ระหว่าง และหลังการใช้จ่ายงบประมาณ ดังนี้</p>
+            </div>
+
+            <!-- Phase 1: Before -->
+            <div class="mb-8">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="bg-teal-600 text-white text-2xl font-bold w-12 h-12 flex items-center justify-center rounded-xl shadow-md">1</div>
+                    <h3 class="text-2xl font-bold text-teal-700">ระยะก่อนการจัดสรรงบประมาณ</h3>
+                </div>
+                <div class="bg-teal-50 border-l-4 border-teal-500 p-4 rounded-r-xl mb-4">
+                    <p class="text-teal-800 font-semibold italic">(หมายเหตุ: กระบวนการในส่วนนี้ควรดำเนินการให้แล้วเสร็จตั้งแต่ก่อนเริ่มโครงการ)</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="eval-card bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                        <h4 class="text-lg font-bold text-slate-800 mb-3 border-b pb-2">
+                            <span class="text-teal-600"><i class="fa-solid fa-arrows-up-down"></i> ความสอดคล้อง (Alignment)</span>
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed text-base">ประเมินความสัมพันธ์แนวดิ่ง โดยตรวจสอบว่าตัวชี้วัดและวัตถุประสงค์ของโครงการมีความสอดคล้องกับแผนงานทั้ง 3 ระดับหรือไม่ ข้อมูลส่วนนี้ตรวจสอบได้จากเอกสารที่เกี่ยวข้อง</p>
+                    </div>
+                    <div class="eval-card bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                        <h4 class="text-lg font-bold text-slate-800 mb-3 border-b pb-2">
+                            <span class="text-teal-600"><i class="fa-solid fa-arrows-left-right"></i> ความเชื่อมโยง (Linkage)</span>
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed text-base">ประเมินความสัมพันธ์แนวราบ เพื่อดูความเชื่อมโยงของโครงการกับหน่วยงานภายในและหน่วยงานภายนอก รวมถึงการบูรณาการกับเอกชนและโครงการอื่นๆ เช่น ยุทธศาสตร์การพัฒนาโครงสร้างพื้นฐานด้านคมนาคมขนส่งของไทย และแผนพัฒนาการท่องเที่ยวแห่งชาติ ข้อมูลรวบรวมได้จากเอกสารและการสัมภาษณ์หน่วยรับงบประมาณ</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: During -->
+            <div class="mb-8">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="bg-amber-500 text-white text-2xl font-bold w-12 h-12 flex items-center justify-center rounded-xl shadow-md">2</div>
+                    <h3 class="text-2xl font-bold text-amber-600">ระยะระหว่างการใช้จ่ายงบประมาณ</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="eval-card bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                        <h4 class="text-lg font-bold text-slate-800 mb-3 border-b pb-2">
+                            <span class="text-amber-500"><i class="fa-solid fa-bolt"></i> ประสิทธิภาพ (Efficiency)</span>
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed text-base">มุ่งเน้นหลักการ <strong>Better, Faster, Cheaper</strong> โดยติดตามผลการดำเนินงานและผลการใช้จ่ายงบประมาณ (รวมถึงเงินกันไว้เบิกเหลื่อมปี) เทียบกับแผนที่วางไว้ ข้อมูลสามารถดึงมาจากระบบ <strong>New GFMIS</strong> และ <strong>EvMIS</strong> ของสำนักงบประมาณ</p>
+                    </div>
+                    <div class="eval-card bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                        <h4 class="text-lg font-bold text-slate-800 mb-3 border-b pb-2">
+                            <span class="text-amber-500"><i class="fa-solid fa-list-check"></i> คุณภาพการบริหารโครงการ</span>
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed text-base">ประเมินการบริหารจัดการระหว่างดำเนินการ เช่น สถิติการเกิดอุบัติเหตุจากการก่อสร้าง โดยอาศัยข้อมูลจากเอกสารและการสัมภาษณ์หน่วยรับงบประมาณ</p>
+                    </div>
+                    <div class="eval-card bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                        <h4 class="text-lg font-bold text-slate-800 mb-3 border-b pb-2">
+                            <span class="text-amber-500"><i class="fa-solid fa-chart-pie"></i> การประเมินผล</span>
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed text-base">นำข้อมูลที่ได้มาวิเคราะห์และจัดทำเป็นคะแนนแสดงผลในรูปแบบ <strong>Radar Chart</strong> (ใยแมงมุม) เพื่อให้เห็นภาพรวมของประสิทธิภาพอย่างชัดเจน</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: After -->
+            <div class="mb-8">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="bg-rose-500 text-white text-2xl font-bold w-12 h-12 flex items-center justify-center rounded-xl shadow-md">3</div>
+                    <h3 class="text-2xl font-bold text-rose-600">ระยะภายหลังจากการใช้จ่ายงบประมาณ</h3>
+                </div>
+                <div class="space-y-6">
+                    <div class="eval-card bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                        <h4 class="text-lg font-bold text-slate-800 mb-3 border-b pb-2">
+                            <span class="text-rose-500"><i class="fa-solid fa-bullseye"></i> ประสิทธิผล (Effectiveness)</span>
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed text-base">พิจารณาผลลัพธ์ (Outcome) ว่าบรรลุตามวัตถุประสงค์ของโครงการหรือไม่ เช่น ความพร้อมของท่าเทียบเรือ การรองรับเรือสำราญขนาดใหญ่ โครงสร้างพื้นฐานทางน้ำที่มีความปลอดภัยสูง หรือการป้องกันการกัดเซาะเพื่อการท่องเที่ยว ข้อมูลอ้างอิงจากเอกสาร (เช่น เอกสารขาวคาดแดง) การสัมภาษณ์หน่วยรับงบประมาณ ผู้รับบริการ และประชาชนในพื้นที่</p>
+                    </div>
+                    
+                    <div class="eval-card bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                        <h4 class="text-lg font-bold text-slate-800 mb-3 border-b pb-2">
+                            <span class="text-rose-500"><i class="fa-solid fa-water"></i> ผลกระทบ (Impact)</span>
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed text-base mb-3">ประเมินผลกระทบที่เกิดขึ้นทั้งทางบวกและทางลบ</p>
+                        <ul class="list-disc pl-5 space-y-2 text-slate-600 text-base marker:text-rose-400">
+                            <li><strong>ด้านเศรษฐกิจและสังคม:</strong> จำนวนนักท่องเที่ยว รายได้ อาชญากรรม แรงงานต่างด้าว และการเติบโตของรายได้จังหวัด (GPP)</li>
+                            <li><strong>ด้านสิ่งแวดล้อม:</strong> ผลกระทบต่อสภาพแวดล้อมและปัญหาขยะ</li>
+                            <li><strong>แหล่งข้อมูล:</strong> เอกสาร สัมภาษณ์ประชาชนในพื้นที่ และการสังเกตการณ์</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="eval-card bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                        <h4 class="text-lg font-bold text-slate-800 mb-3 border-b pb-2">
+                            <span class="text-rose-500"><i class="fa-solid fa-leaf"></i> ความยั่งยืน (Sustainability)</span>
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed text-base">ประเมินความยั่งยืน</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 pb-4">
+                <button onclick="switchView('home-view')" class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all transform hover:scale-105">
+                    <i class="fa-solid fa-arrow-left"></i> กลับสู่หน้าหลัก (วงจรงบประมาณ)
+                </button>
+            </div>
+        </div>
+
     </div>
 
     <!-- Footer -->
@@ -770,20 +891,24 @@
             const homeView = document.getElementById('home-view');
             const lawsView = document.getElementById('laws-view');
             const typesView = document.getElementById('types-view');
+            const evalView = document.getElementById('eval-view');
             
             // Get nav buttons
             const navHome = document.getElementById('nav-home');
             const navLaws = document.getElementById('nav-laws');
             const navTypes = document.getElementById('nav-types');
+            const navEval = document.getElementById('nav-eval');
             
             // Hide all views and remove active state
             homeView.classList.add('hidden');
             lawsView.classList.add('hidden');
             typesView.classList.add('hidden');
+            evalView.classList.add('hidden');
             
             navHome.classList.remove('active');
             navLaws.classList.remove('active');
             navTypes.classList.remove('active');
+            navEval.classList.remove('active');
             
             // Show requested view and set active state
             if (viewId === 'home-view') {
@@ -795,6 +920,9 @@
             } else if (viewId === 'types-view') {
                 typesView.classList.remove('hidden');
                 navTypes.classList.add('active');
+            } else if (viewId === 'eval-view') {
+                evalView.classList.remove('hidden');
+                navEval.classList.add('active');
             }
             
             // Smooth scroll to top of content
