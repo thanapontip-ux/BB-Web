@@ -25,14 +25,15 @@
         }
     </script>
     <style>
-        .phase-card, .info-card, .law-card {
+        .phase-card, .info-card, .law-card, .type-card {
             transition: all 0.3s ease;
         }
         .phase-card:hover, .info-card:hover {
             transform: translateY(-5px);
         }
-        .law-card:hover {
+        .law-card:hover, .type-card:hover {
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
         }
         .nav-link.active {
             color: #3b82f6; /* text-blue-500 */
@@ -46,6 +47,17 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* Diagram connecting lines */
+        .tree-line-v {
+            width: 2px;
+            background-color: #cbd5e1;
+            margin: 0 auto;
+        }
+        .tree-line-h {
+            height: 2px;
+            background-color: #cbd5e1;
+            width: 100%;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased pt-16">
@@ -58,12 +70,15 @@
                     <i class="fa-solid fa-building-columns text-blue-700 text-xl"></i>
                     <span class="font-bold text-slate-800 text-lg hidden sm:block">การบริหารงบประมาณ</span>
                 </div>
-                <div class="flex space-x-4 sm:space-x-8">
+                <div class="flex space-x-2 sm:space-x-6 overflow-x-auto whitespace-nowrap scrollbar-hide">
                     <button onclick="switchView('home-view')" id="nav-home" class="nav-link active font-semibold text-slate-600 hover:text-blue-500 px-1 py-4 transition-colors">
-                        <i class="fa-solid fa-arrows-spin mr-1"></i> วงจรงบประมาณ
+                        <i class="fa-solid fa-arrows-spin mr-1"></i> วงจร
+                    </button>
+                    <button onclick="switchView('types-view')" id="nav-types" class="nav-link font-semibold text-slate-600 hover:text-blue-500 px-1 py-4 transition-colors">
+                        <i class="fa-solid fa-sitemap mr-1"></i> ประเภทงบฯ
                     </button>
                     <button onclick="switchView('laws-view')" id="nav-laws" class="nav-link font-semibold text-slate-600 hover:text-blue-500 px-1 py-4 transition-colors">
-                        <i class="fa-solid fa-scale-balanced mr-1"></i> เจาะลึกกฎหมาย
+                        <i class="fa-solid fa-scale-balanced mr-1"></i> กฎหมาย
                     </button>
                 </div>
             </div>
@@ -127,13 +142,16 @@
                             <li><i class="fa-solid fa-caret-right text-blue-500 mr-2"></i>พ.ร.บ. วินัยการเงินการคลังของรัฐ พ.ศ. 2561 (87 มาตรา)</li>
                             <li><i class="fa-solid fa-caret-right text-blue-500 mr-2"></i>พ.ร.บ. วิธีการงบประมาณ พ.ศ. 2561 (61 มาตรา)</li>
                             <li><i class="fa-solid fa-caret-right text-blue-500 mr-2"></i>ระเบียบว่าด้วยการบริหารงบประมาณ พ.ศ. 2562 (38 ข้อ)</li>
-                            <li><i class="fa-solid fa-caret-right text-blue-500 mr-2"></i>ระเบียบว่าด้วยการก่อหนี้ผูกพันงบประมาณ พ.ศ. 2562 (9 ข้อ)</li>
-                            <li><i class="fa-solid fa-caret-right text-blue-500 mr-2"></i>ระเบียบการโอนงบประมาณรายจ่ายบูรณาการฯ พ.ศ. 2562 (15 ข้อ)</li>
                         </ul>
                     </div>
-                    <button onclick="switchView('laws-view')" class="inline-flex items-center justify-center gap-2 mt-4 bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 px-4 rounded-lg text-sm font-medium transition-colors w-full">
-                        เปิดหน้าเจาะลึกกฎหมายฉบับเต็ม <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+                    <div class="flex flex-col sm:flex-row gap-3 mt-4">
+                        <button onclick="switchView('types-view')" class="inline-flex items-center justify-center gap-2 bg-blue-50 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-lg text-sm font-medium transition-colors w-full border border-blue-200">
+                            ประเภทงบประมาณ <i class="fa-solid fa-sitemap"></i>
+                        </button>
+                        <button onclick="switchView('laws-view')" class="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 px-4 rounded-lg text-sm font-medium transition-colors w-full">
+                            เจาะลึกกฎหมาย <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -180,7 +198,15 @@
                         </li>
                         <li class="flex items-start gap-2">
                             <i class="fa-solid fa-check text-teal-500 mt-1"></i>
-                            <span><strong>แผนการคลังและเงื่อนไขคำขอ (28 เม.ย. 69):</strong> ครม. เห็นชอบกรอบวงเงินและโครงสร้างงบฯ ตามมติ 4 หน่วยงานเศรษฐกิจ โดยมีเงื่อนไขก่อนส่งสำนักงบฯ คือ 1) หน่วยงานศาล/องค์กรอิสระให้เสนอ ครม. ก่อน 2) รายการผูกพันข้ามปี ≥ 1,000 ล้านบาท ต้องได้รับอนุมัติจาก ครม. และ 3) รายการ ≥ 500 ล้านบาท ต้องประเมินความเสี่ยงการทุจริต</span>
+                            <div class="w-full">
+                                <strong>28 เม.ย. 69:</strong>
+                                <ul class="list-decimal pl-5 mt-2 space-y-2 text-sm text-slate-600">
+                                    <li>คณะรัฐมนตรีพิจารณาให้ความเห็นชอบการทบทวนประมาณการรายได้ กำหนด นโยบาย วงเงินงบประมาณรายจ่าย และโครงสร้างงบประมาณรายจ่ายประจำปี งบประมาณ พ.ศ. ๒๕๗๐ ตามมติที่ประชุมระหว่างกระทรวงการคลัง สำนักงานสภา พัฒนาการเศรษฐกิจและสังคมแห่งชาติ ธนาคารแห่งประเทศไทย และสำนักงบประมาณ</li>
+                                    <li>หน่วยงานของรัฐสภา ศาลยุติธรรม ศาลปกครอง ศาลรัฐธรรมนูญ องค์กรอิสระ ตามรัฐธรรมนูญ องค์กรอัยการ และหน่วยงานที่มีกฎหมายเฉพาะ นำเสนอคำขอตั้ง งบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๗๐ ต่อคณะรัฐมนตรีก่อนส่ง สำนักงบประมาณ</li>
+                                    <li>หน่วยรับงบประมาณที่ขอรับการจัดสรรงบประมาณที่มีรายการก่อหนี้ผูกพัน ข้ามปีงบประมาณ วงเงินตั้งแต่ ๑,๐๐๐ ล้านบาทขึ้นไป ให้นำเสนอคณะรัฐมนตรี พิจารณาอนุมัติก่อนส่งสำนักงบประมาณ</li>
+                                    <li>รายการที่ขอรับการจัดสรรงบประมาณที่มีวงเงินตั้งแต่ ๕๐๐ ล้านบาทขึ้นไป ให้ทำ การประเมินความเสี่ยงการทุจริตตามแผนบริหารความเสี่ยงการทุจริตก่อนส่ง รายละเอียดคำของบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๗๐</li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </article>
@@ -230,7 +256,7 @@
                     </div>
                     <h2 class="text-2xl font-bold text-purple-700 mb-4 flex items-center gap-3">
                         <span class="bg-purple-100 text-purple-700 w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0">3</span>
-                        Budget Approval<br><span class="text-lg text-slate-500 ml-2">(การอนุมัติ)</span>
+                        Budget Adoption<br><span class="text-lg text-slate-500 ml-2">(การอนุมัติ)</span>
                     </h2>
                     
                     <div class="flex flex-wrap gap-2 mb-5">
@@ -419,7 +445,120 @@
         </div>
 
         <!-- ========================================== -->
-        <!-- VIEW 2: DEDICATED LAWS PAGE                -->
+        <!-- VIEW 2: DEDICATED BUDGET TYPES PAGE        -->
+        <!-- ========================================== -->
+        <div id="types-view" class="hidden fade-in pt-4">
+            <div class="bg-white rounded-3xl p-6 md:p-10 shadow-xl border-t-8 border-blue-600 relative overflow-hidden text-slate-800">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-3 relative z-10 flex items-center gap-3">
+                    <i class="fa-solid fa-sitemap text-blue-600"></i> ประเภทของงบประมาณรายจ่าย
+                </h2>
+                <p class="text-slate-600 mb-10 text-lg relative z-10">การจำแนกประเภทงบประมาณตามลักษณะการใช้จ่าย (อ้างอิงจากโครงสร้างงบประมาณ)</p>
+
+                <!-- Structure Diagram Simulation -->
+                <div class="bg-slate-50 p-6 md:p-10 rounded-2xl border border-slate-200 mb-8">
+                    <!-- Top Level -->
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-blue-700 text-white font-bold py-3 px-10 rounded-full shadow-md text-xl md:text-2xl">
+                            งบประมาณ
+                        </div>
+                    </div>
+
+                    <!-- Split Level -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative">
+                        
+                        <!-- งบกลาง Branch -->
+                        <div class="flex flex-col items-center">
+                            <div class="tree-line-v h-8 hidden md:block"></div>
+                            <div class="type-card bg-orange-500 text-white p-6 rounded-2xl shadow-lg w-full flex flex-col items-center justify-center text-center h-full">
+                                <i class="fa-solid fa-vault text-4xl mb-3 text-orange-200"></i>
+                                <h3 class="text-2xl font-bold mb-2">งบกลาง</h3>
+                                <p class="text-sm text-orange-50 mt-2 font-light">งบประมาณที่ตั้งไว้เป็นส่วนกลาง ไม่อาจจัดสรรให้หน่วยงานใดโดยตรง เช่น เงินสำรองจ่ายเพื่อกรณีฉุกเฉินหรือจำเป็น เงินเบี้ยหวัด บำเหน็จ บำนาญ</p>
+                            </div>
+                        </div>
+
+                        <!-- งบหน่วยรับงบประมาณ Branch -->
+                        <div class="flex flex-col items-center">
+                            <div class="tree-line-v h-8 hidden md:block"></div>
+                            <div class="bg-indigo-600 text-white p-5 rounded-t-2xl shadow-md w-full text-center border-b-4 border-indigo-800 z-10 relative">
+                                <h3 class="text-xl font-bold flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-building-user text-indigo-200"></i> งบหน่วยรับงบประมาณ
+                                </h3>
+                                <p class="text-xs text-indigo-100 mt-1 font-light">งบประมาณที่จัดสรรให้หน่วยงานของรัฐเพื่อใช้จ่ายตามภารกิจ โดยแบ่งออกเป็น 5 ประเภทหลัก</p>
+                            </div>
+                            
+                            <!-- Sub-categories Grid -->
+                            <div class="bg-indigo-50 w-full p-4 rounded-b-2xl border-x border-b border-indigo-100 shadow-inner grid grid-cols-1 gap-3">
+                                
+                                <!-- 1. งบบุคลากร -->
+                                <div class="type-card bg-white p-4 rounded-xl shadow border border-slate-100 flex items-start gap-4">
+                                    <div class="bg-teal-100 text-teal-600 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-user-tie text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-lg">งบบุคลากร</h4>
+                                        <p class="text-sm text-slate-600 leading-tight mt-1">รายจ่ายที่กำหนดให้จ่ายเพื่อการบริหารงานบุคคล เช่น เงินเดือน ค่าจ้างประจำ ค่าตอบแทนพนักงานราชการ</p>
+                                    </div>
+                                </div>
+
+                                <!-- 2. งบดำเนินงาน -->
+                                <div class="type-card bg-white p-4 rounded-xl shadow border border-slate-100 flex items-start gap-4">
+                                    <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-gears text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-lg">งบดำเนินงาน</h4>
+                                        <p class="text-sm text-slate-600 leading-tight mt-1">รายจ่ายเพื่อการบริหารงานประจำ เช่น ค่าตอบแทน (ที่ไม่ใช่บุคลากร) ค่าใช้สอย ค่าวัสดุ และค่าสาธารณูปโภค</p>
+                                    </div>
+                                </div>
+
+                                <!-- 3. งบลงทุน -->
+                                <div class="type-card bg-white p-4 rounded-xl shadow border border-slate-100 flex items-start gap-4">
+                                    <div class="bg-purple-100 text-purple-600 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-city text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-lg">งบลงทุน</h4>
+                                        <p class="text-sm text-slate-600 leading-tight mt-1">รายจ่ายเพื่อการลงทุนของภาครัฐ เช่น ค่าครุภัณฑ์ ค่าที่ดิน และค่าก่อสร้างสิ่งสาธารณูปการ</p>
+                                    </div>
+                                </div>
+
+                                <!-- 4. งบเงินอุดหนุน -->
+                                <div class="type-card bg-white p-4 rounded-xl shadow border border-slate-100 flex items-start gap-4">
+                                    <div class="bg-rose-100 text-rose-600 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-hand-holding-heart text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-lg">งบเงินอุดหนุน</h4>
+                                        <p class="text-sm text-slate-600 leading-tight mt-1">รายจ่ายที่รัฐกำหนดให้จ่ายเป็นเงินอุดหนุนให้แก่หน่วยงานอื่น องค์กร หรือบุคคลภายนอก</p>
+                                    </div>
+                                </div>
+
+                                <!-- 5. งบรายจ่ายอื่น -->
+                                <div class="type-card bg-white p-4 rounded-xl shadow border border-slate-100 flex items-start gap-4">
+                                    <div class="bg-slate-200 text-slate-700 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-box-open text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-lg">งบรายจ่ายอื่น</h4>
+                                        <p class="text-sm text-slate-600 leading-tight mt-1">รายจ่ายที่ไม่สามารถจัดเข้าลักษณะประเภทงบรายจ่ายใดงบรายจ่ายหนึ่งข้างต้นได้โดยตรง</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8 pb-4">
+                    <button onclick="switchView('home-view')" class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all transform hover:scale-105">
+                        <i class="fa-solid fa-arrow-left"></i> กลับสู่หน้าหลัก (วงจรงบประมาณ)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 3: DEDICATED LAWS PAGE                -->
         <!-- ========================================== -->
         <div id="laws-view" class="hidden fade-in pt-4">
             <div class="bg-slate-900 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden text-slate-200">
@@ -621,16 +760,21 @@
             // Get views
             const homeView = document.getElementById('home-view');
             const lawsView = document.getElementById('laws-view');
+            const typesView = document.getElementById('types-view');
             
             // Get nav buttons
             const navHome = document.getElementById('nav-home');
             const navLaws = document.getElementById('nav-laws');
+            const navTypes = document.getElementById('nav-types');
             
             // Hide all views and remove active state
             homeView.classList.add('hidden');
             lawsView.classList.add('hidden');
+            typesView.classList.add('hidden');
+            
             navHome.classList.remove('active');
             navLaws.classList.remove('active');
+            navTypes.classList.remove('active');
             
             // Show requested view and set active state
             if (viewId === 'home-view') {
@@ -639,6 +783,9 @@
             } else if (viewId === 'laws-view') {
                 lawsView.classList.remove('hidden');
                 navLaws.classList.add('active');
+            } else if (viewId === 'types-view') {
+                typesView.classList.remove('hidden');
+                navTypes.classList.add('active');
             }
             
             // Smooth scroll to top of content
