@@ -14,6 +14,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative items-start">
                 
+                <!-- งบกลาง Branch -->
                 <div class="flex flex-col items-center">
                     <div class="tree-line-v h-8 hidden md:block"></div>
                     <div class="type-card bg-gradient-to-br from-orange-500 to-orange-600 text-white p-8 rounded-2xl shadow-lg w-full flex flex-col items-center justify-start text-center">
@@ -37,6 +38,7 @@
                     </div>
                 </div>
 
+                <!-- งบหน่วยรับงบประมาณ Branch -->
                 <div class="flex flex-col items-center">
                     <div class="tree-line-v h-8 hidden md:block"></div>
                     <div class="bg-indigo-600 text-white p-5 rounded-t-2xl shadow-md w-full text-center border-b-4 border-indigo-800 z-10 relative">
@@ -46,8 +48,9 @@
                         <p class="text-xs text-indigo-100 mt-1 font-light">งบประมาณที่จัดสรรให้หน่วยงานของรัฐเพื่อใช้จ่ายตามภารกิจ โดยแบ่งออกเป็น 5 ประเภทหลัก</p>
                     </div>
                     
-                    <div class="bg-indigo-50 w-full p-4 rounded-b-2xl border-x border-b border-indigo-100 shadow-inner grid grid-cols-1 gap-3">
+                    <div class="bg-indigo-50 w-full p-4 rounded-b-2xl border-x border-b border-indigo-100 shadow-inner grid grid-cols-1 gap-4">
                         
+                        <!-- 1. งบบุคลากร -->
                         <div class="type-card bg-white p-4 rounded-xl shadow border border-slate-100 flex items-start gap-4">
                             <div class="bg-teal-100 text-teal-600 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
                                 <i class="fa-solid fa-user-tie text-xl"></i>
@@ -61,6 +64,7 @@
                             </div>
                         </div>
 
+                        <!-- 2. งบดำเนินงาน -->
                         <div class="type-card bg-white p-4 rounded-xl shadow border border-slate-100 flex items-start gap-4">
                             <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
                                 <i class="fa-solid fa-gears text-xl"></i>
@@ -74,16 +78,51 @@
                             </div>
                         </div>
 
-                        <div class="type-card bg-white p-4 rounded-xl shadow border border-slate-100 flex items-start gap-4">
-                            <div class="bg-purple-100 text-purple-600 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-city text-xl"></i>
+                        <!-- 3. งบลงทุน (Expanded) -->
+                        <div class="type-card bg-white p-4 rounded-xl shadow-md border-l-4 border-l-purple-500 border-y border-r border-slate-100 flex flex-col gap-3 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 p-3 opacity-5 pointer-events-none">
+                                <i class="fa-solid fa-city text-7xl text-purple-600"></i>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-slate-800 text-lg">งบลงทุน</h4>
-                                <p class="text-sm text-slate-600 leading-tight mt-1">ให้ใช้จ่ายตามรายการและวงเงินที่ได้รับการจัดสรร</p>
+                            <div class="flex items-start gap-4">
+                                <div class="bg-purple-100 text-purple-600 w-12 h-12 rounded-lg flex items-center justify-center shrink-0 relative z-10">
+                                    <i class="fa-solid fa-city text-xl"></i>
+                                </div>
+                                <div class="relative z-10">
+                                    <h4 class="font-bold text-slate-800 text-lg">งบลงทุน</h4>
+                                    <p class="text-sm text-slate-600 leading-tight mt-1">ให้ใช้จ่ายตามรายการและวงเงินที่ได้รับการจัดสรรอย่างเคร่งครัด</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Detailed Information Box -->
+                            <div class="mt-2 bg-purple-50 p-4 rounded-lg border border-purple-100 relative z-10">
+                                <h5 class="text-sm font-bold text-purple-800 mb-2 border-b border-purple-200 pb-1">
+                                    <i class="fa-solid fa-book-open text-purple-600 mr-1"></i> นิยามจากสำนักงบประมาณ
+                                </h5>
+                                <p class="text-sm text-slate-700 mb-2"><strong>งบลงทุน</strong> หมายถึง รายจ่ายเพื่อการลงทุนที่ก่อให้เกิดทุน (Capital Formation) ซึ่งแบ่งเป็น 2 ประเภทหลัก ได้แก่:</p>
+                                <ul class="list-disc pl-5 text-sm text-slate-700 font-medium space-y-1 mb-4">
+                                    <li><span class="text-purple-700 font-bold">ค่าครุภัณฑ์</span> (เช่น เครื่องจักร, อุปกรณ์คอมพิวเตอร์, ยานพาหนะ)</li>
+                                    <li><span class="text-purple-700 font-bold">ค่าที่ดินและสิ่งก่อสร้าง</span> (เช่น การจัดซื้อที่ดิน, ก่อสร้างอาคาร, ถนน, สะพาน)</li>
+                                </ul>
+
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm mt-3">
+                                    <h5 class="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-code-compare text-blue-500"></i> ข้อแตกต่างระหว่างงบลงทุนและงบดำเนินงาน
+                                    </h5>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        <div class="bg-slate-50 p-3 rounded border border-slate-200 text-xs text-slate-600 h-full">
+                                            <strong class="text-blue-700 block mb-1 text-sm"><i class="fa-solid fa-gears mr-1"></i> งบดำเนินงาน</strong>
+                                            เป็นรายจ่ายเพื่อการ <strong class="text-slate-800">บริหารงานประจำตามปกติ</strong> (เช่น ค่าตอบแทน ใช้สอย วัสดุ สาธารณูปโภค) ซึ่งมีลักษณะเป็นสิ่งของสิ้นเปลือง ใช้แล้วหมดไป หรือมีอายุการใช้งานสั้น ไม่ก่อให้เกิดสินทรัพย์ถาวร
+                                        </div>
+                                        <div class="bg-purple-50/50 p-3 rounded border border-purple-200 text-xs text-slate-600 h-full">
+                                            <strong class="text-purple-700 block mb-1 text-sm"><i class="fa-solid fa-city mr-1"></i> งบลงทุน</strong>
+                                            เป็นรายจ่ายที่ก่อให้เกิด <strong class="text-slate-800">สินทรัพย์ถาวร (Fixed Assets)</strong> ที่มีอายุการใช้งานคงทนยืนยาว (เกินกว่า 1 ปี) และมีมูลค่าตามเกณฑ์ที่กำหนดไว้
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
+                        <!-- 4. งบเงินอุดหนุน -->
                         <div class="type-card bg-white p-4 rounded-xl shadow border border-slate-100 flex items-start gap-4">
                             <div class="bg-rose-100 text-rose-600 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
                                 <i class="fa-solid fa-hand-holding-heart text-xl"></i>
@@ -97,6 +136,7 @@
                             </div>
                         </div>
 
+                        <!-- 5. งบรายจ่ายอื่น -->
                         <div class="type-card bg-white p-4 rounded-xl shadow border border-slate-100 flex items-start gap-4">
                             <div class="bg-slate-200 text-slate-700 w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
                                 <i class="fa-solid fa-box-open text-xl"></i>
