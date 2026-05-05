@@ -15,7 +15,7 @@
             </p>
         </div>
 
-        <!-- รายละเอียดรายจ่ายประจำ และ รายจ่ายลงทุน -->
+        <!-- รายละเอียดรายจ่ายประจำ และ รายจ่ายลงทุน (Summary Summary) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10 mb-10">
             
             <!-- รายจ่ายประจำ (Current Expenditure) -->
@@ -126,7 +126,7 @@
             <i class="fa-solid fa-code-compare text-indigo-500"></i> ตารางสรุปความแตกต่าง (รายจ่ายประจำ vs รายจ่ายลงทุน)
         </h3>
         
-        <div class="relative z-10 overflow-x-auto shadow-sm rounded-xl border border-slate-300 bg-white">
+        <div class="relative z-10 overflow-x-auto shadow-sm rounded-xl border border-slate-300 bg-white mb-12">
             <table class="w-full text-left border-collapse min-w-[700px]">
                 <thead>
                     <tr class="text-center text-[15px] md:text-base leading-snug">
@@ -177,7 +177,174 @@
                 </tbody>
             </table>
         </div>
-        
+
+        <!-- NEW SECTION: Detailed GFS Breakdown -->
+        <div class="relative z-10 border-t-2 border-dashed border-slate-300 pt-10">
+            <div class="text-center mb-8">
+                <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 uppercase tracking-wider rounded-full inline-block mb-3">เจาะลึกคู่มือรหัสงบประมาณ</span>
+                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">
+                    การจำแนกประเภทรายจ่ายในระดับรายการ
+                </h3>
+                <p class="text-slate-500 mt-2 text-sm max-w-2xl mx-auto">
+                    ตามหลักการจำแนกของ Government Finance Statistics (GFS) ที่ระบุในเอกสารงบประมาณ ฉบับที่ ๘ คู่มือรหัสงบประมาณรายจ่ายประจำปีงบประมาณฯ (เล่มขาวคาดฟ้า)
+                </p>
+            </div>
+
+            <!-- Capital Expenditure Full Details -->
+            <div class="bg-purple-50/50 rounded-2xl border border-purple-200 p-6 md:p-8 mb-8 shadow-sm">
+                <div class="flex items-center gap-3 mb-4 border-b border-purple-200 pb-4">
+                    <div class="bg-purple-600 text-white w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-city text-lg"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-purple-900">รายจ่ายลงทุน (Capital Expenditure)</h4>
+                </div>
+                
+                <p class="text-sm text-slate-700 leading-relaxed mb-6 font-medium bg-white p-4 rounded-lg border border-purple-100 shadow-sm">
+                    <strong>หมายถึง:</strong> รายจ่ายที่รัฐบาลใช้จ่ายเพื่อจะสร้างความเติบโตทางเศรษฐกิจ รวมถึงเพื่อจัดหาทรัพย์สินประเภททุน ทั้งที่มีตัวตน เช่น ครุภัณฑ์ ที่ดิน อาคาร สิ่งก่อสร้างต่าง ๆ เป็นต้น และที่ไม่มีตัวตน เช่น สิทธิบัตร เครื่องหมายการค้า และสัมปทานอื่น ๆ ที่เกี่ยวกับที่ดิน เป็นต้น ตลอดจนรายจ่ายที่รัฐบาลอุดหนุนหรือโอนให้แก่บุคคล องค์กร หรือรัฐวิสาหกิจ โดยผู้รับไม่ต้องจ่ายคืนให้รัฐบาลและผู้รับนำไปใช้จัดหาทรัพย์สินประเภททุน นอกจากนี้ รายจ่ายลงทุนยังรวมถึงรายจ่ายที่รัฐบาลจ่ายอุดหนุนเพื่อชดใช้ค่าเสียหายหรือถูกทำลายของทรัพย์สินประเภททุน และรายจ่ายเพื่อการเพิ่มทุนทรัพย์ทางการเงิน โดยผู้รับตั้งใจนำไปลงทุน เป็นต้น
+                </p>
+
+                <p class="text-sm font-bold text-purple-800 mb-3">จากความหมายดังกล่าว สามารถจำแนกรายจ่ายลงทุนเป็นรายจ่ายหลักๆ ๙ ข้อ ดังนี้:</p>
+                <div class="space-y-3 text-sm text-slate-700 pl-2">
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-purple-300 transition-colors">
+                        <span class="bg-purple-200 text-purple-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๑)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายเพื่อจัดหาทรัพย์สินถาวร</strong> หมายถึง สิ่งของหรือสินค้าซึ่งมีอายุการใช้งานนานกว่า ๑ ปี และมีมูลค่าพอสมควร เช่น ครุภัณฑ์ ที่ดิน อาคารหรือสิ่งก่อสร้างต่าง ๆ ตลอดจนรายจ่ายที่ตั้งไว้เป็นค่าใช้จ่ายเพื่อให้ได้มาซึ่งทรัพย์สินถาวรดังกล่าว เช่น ภาษีครุภัณฑ์ ค่าธรรมเนียมศุลกากร ค่าสำรวจออกแบบ และค่าสำรวจพื้นที่ เป็นต้น</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-purple-300 transition-colors">
+                        <span class="bg-purple-200 text-purple-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๒)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายเงินเดือน ค่าจ้าง ค่าตอบแทน ค่าใช้สอยและวัสดุ และค่าสาธารณูปโภค</strong> ซึ่งพิจารณาได้ว่าจ่ายไปเพื่อการก่อสร้างหรือซื้อทรัพย์สินถาวร ตัวอย่างเช่น ส่วนราชการที่ดำเนินการก่อสร้างเขื่อนหรือก่อสร้างทางเอง จะมีค่าใช้จ่ายเกี่ยวกับเงินเดือน ค่าจ้าง ค่าใช้สอยและวัสดุ ฯลฯ เกิดขึ้น ค่าใช้จ่ายดังกล่าวจัดเป็นรายจ่ายลงทุน หรือในกรณีจ้างเหมาให้บริษัทเอกชนดำเนินงาน โดยส่วนราชการทำหน้าที่ควบคุมค่าใช้จ่ายในการควบคุมงานที่เกิดขึ้นจัดเป็นรายจ่ายลงทุนเช่นกัน</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-purple-300 transition-colors">
+                        <span class="bg-purple-200 text-purple-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๓)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายเพื่อปรับปรุงหรือซ่อมแซมทรัพย์สินถาวรหรือครุภัณฑ์ที่มีอยู่เดิม</strong> ให้สามารถยืดอายุการใช้งานหรือเพิ่มศักยภาพในการผลิตที่มิใช่เป็นการซ่อมแซมปกติทั่ว ๆ ไป ตัวอย่างเช่น รายจ่ายที่เกี่ยวข้องกับการบริการดูแลและบำรุงรักษาระบบ (Maintenance Service Agreement : MA) ของระบบคอมพิวเตอร์หรือระบบสารสนเทศ</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-purple-300 transition-colors">
+                        <span class="bg-purple-200 text-purple-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๔)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายที่รัฐบาลโอนให้แก่รัฐวิสาหกิจเพื่อนำไปใช้จัดหาทรัพย์สินถาวร</strong> ตลอดจนรายจ่ายของรัฐบาลที่อุดหนุนให้แก่รัฐวิสาหกิจ กรณีดำเนินการขาดทุนสะสมเป็นเวลานาน หรือขาดทุนด้วยเหตุสุดวิสัย หรือรายจ่ายโอนให้รัฐวิสาหกิจไปชำระต้นเงินกู้ที่ได้กู้ไปใช้จ่ายเพื่อการลงทุน</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-purple-300 transition-colors">
+                        <span class="bg-purple-200 text-purple-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๕)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายที่รัฐบาลโอนให้แก่ภาคเอกชนภายในประเทศ</strong> เช่น คณะกรรมการหมู่บ้าน ฯลฯ เพื่อนำไปใช้จ่ายในการก่อสร้าง หรือจัดซื้อทรัพย์สินถาวร ตัวอย่างเช่น การก่อสร้างระบบประปาหมู่บ้าน หรือการบูรณะศาสนสถาน เป็นต้น</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-purple-300 transition-colors">
+                        <span class="bg-purple-200 text-purple-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๖)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายที่รัฐบาลโอนให้แก่ต่างประเทศ</strong> เพื่อนำไปใช้ในการก่อสร้าง หรือจัดซื้อทรัพย์สินถาวร ตัวอย่างเช่น เงินอุดหนุนโครงการพัฒนาท่าอากาศยานหลวงพระบาง และค่าใช้จ่ายในการควบคุมงานและตรวจการจ้างโครงการดังกล่าว เป็นต้น</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-purple-300 transition-colors">
+                        <span class="bg-purple-200 text-purple-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๗)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายที่รัฐบาลโอนให้แก่องค์กรปกครองส่วนท้องถิ่น</strong> ได้แก่ กรุงเทพมหานคร เมืองพัทยา องค์การบริหารส่วนจังหวัด เทศบาล และองค์การบริหารส่วนตำบล เพื่อให้องค์กรปกครองส่วนท้องถิ่นเหล่านั้นนำไปใช้จ่ายเพื่อลงทุน เช่น การก่อสร้าง ปรับปรุงซ่อมแซม หรือจัดหาทรัพย์สินถาวรต่าง ๆ เป็นต้น</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-purple-300 transition-colors">
+                        <span class="bg-purple-200 text-purple-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๘)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายค่ามูลภัณฑ์ (Stock)</strong> ซึ่งเป็นรายจ่ายเพื่อซื้อสินค้าในกรณีฉุกเฉิน หรือเป็นการดำเนินการตามนโยบายรัฐบาล เช่น ค่าใช้จ่ายในการจัดหาวัคซีน</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-purple-300 transition-colors">
+                        <span class="bg-purple-200 text-purple-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๙)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายเพื่อให้ได้มาซึ่งทรัพย์สินทางการเงิน</strong> เช่น การซื้อหุ้น ซึ่งตามระบบ GFS (Government Finance Statistics) ได้จำแนกไว้ในหัวข้อ “การให้กู้ยืมหักด้วยการชำระคืน” (Lending minus repayment) ซึ่งไม่ถือเป็นรายจ่าย แต่เพื่อให้ครอบคลุมงบประมาณรายจ่ายทั้งหมด ในคู่มือนี้จึงได้กำหนดรายจ่ายนี้ไว้ภายใต้รายจ่ายลงทุน</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Expenditure Full Details -->
+            <div class="bg-blue-50/50 rounded-2xl border border-blue-200 p-6 md:p-8 mb-8 shadow-sm">
+                <div class="flex items-center gap-3 mb-4 border-b border-blue-200 pb-4">
+                    <div class="bg-blue-600 text-white w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-clock-rotate-left text-lg"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-blue-900">รายจ่ายประจำ (Current Expenditure)</h4>
+                </div>
+                
+                <p class="text-sm text-slate-700 leading-relaxed mb-6 font-medium bg-white p-4 rounded-lg border border-blue-100 shadow-sm">
+                    <strong>หมายถึง:</strong> รายจ่ายที่รัฐบาลจ่ายเพื่อให้ได้รับสิ่งตอบแทนเป็นบริการหรือสิ่งของที่มิใช่ทรัพย์สินประเภททุน หรือมิใช่สินค้าและบริการที่จะนำมาใช้ผลิตสินค้าทุน นอกจากนี้ รายจ่ายประจำยังรวมถึงรายจ่ายที่รัฐบาลอุดหนุนหรือโอนให้แก่บุคคล องค์กร หรือรัฐวิสาหกิจ โดยผู้รับไม่ต้องจ่ายคืนให้รัฐบาล และผู้รับมิได้นำเงินอุดหนุนหรือเงินโอนดังกล่าวไปใช้ในการจัดหาทรัพย์สินประเภททุน หรือชดเชยความเสียหายของทรัพย์สินประเภททุน หรือเป็นการเพิ่มมูลค่าทุนทรัพย์ทางการเงิน
+                </p>
+
+                <p class="text-sm font-bold text-blue-800 mb-3">จากความหมายดังกล่าว สามารถจำแนกรายจ่ายประจำเป็นรายจ่ายหลัก ๆ ๙ ข้อ ดังต่อไปนี้:</p>
+                <div class="space-y-3 text-sm text-slate-700 pl-2">
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-blue-300 transition-colors">
+                        <span class="bg-blue-200 text-blue-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๑)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายเงินเดือน ค่าจ้าง ค่าตอบแทน</strong> ที่ให้แก่ข้าราชการทุกประเภท (พลเรือน ทหาร ตำรวจ และตุลาการ) รวมทั้งลูกจ้างประจำ ลูกจ้างชั่วคราว และพนักงานราชการ เพื่อตอบแทนการปฏิบัติงานให้ราชการ พร้อมทั้งส่วนควบของเงินเดือน เช่น ค่าล่วงเวลา เงินประจำตำแหน่ง ค่าเช่าบ้าน เป็นต้น</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-blue-300 transition-colors">
+                        <span class="bg-blue-200 text-blue-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๒)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายซึ่งเป็นเงินสมทบ</strong> ที่รัฐบาลจ่ายเป็นสวัสดิการให้แก่ข้าราชการ หรือพนักงานรัฐวิสาหกิจ (เฉพาะรัฐวิสาหกิจที่ถือเป็นหน่วยงานรัฐบาล เช่น การกีฬาแห่งประเทศไทย การท่องเที่ยวแห่งประเทศไทย ฯลฯ) ซึ่งได้แก่ เงินสำรอง เงินสมทบ และเงินชดเชยของข้าราชการ (กบข.) เงินสมทบของลูกจ้างประจำ และเงินสมทบกองทุนสำรองเลี้ยงชีพของพนักงานรัฐวิสาหกิจที่ถูกจำแนกเป็นหน่วยงานรัฐบาลดังกล่าว</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-blue-300 transition-colors">
+                        <span class="bg-blue-200 text-blue-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๓)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายเพื่อจัดซื้อบริการหรือสิ่งของซึ่งเป็นสินค้าสิ้นเปลือง</strong> เช่น ค่าสาธารณูปโภค ค่าใช้สอยและวัสดุ หรือครุภัณฑ์ที่มีมูลค่าต่ำหรือมีอายุการใช้งานไม่เกิน ๑ ปี</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-blue-300 transition-colors flex-col">
+                        <div class="flex gap-3">
+                            <span class="bg-blue-200 text-blue-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๔)</span>
+                            <p class="leading-relaxed"><strong>รายจ่ายเพื่อจัดซื้อบริการหรือสิ่งของอื่น ๆ ที่มีลักษณะเป็นรายจ่ายประจำ</strong> เช่น ค่าเช่าทรัพย์สิน (เช่น ค่าเช่าอาคารสำนักงาน เป็นต้น) ค่าใช้จ่ายในการสัมมนาและฝึกอบรม ค่าธรรมเนียมการกู้เงิน เงินราชการลับ ค่าใช้จ่ายในการเจรจาธุรกิจและประชุมนานาชาติ ค่าชดเชยภาษีอากรให้แก่ผู้เชี่ยวชาญ ค่าสาธารณูปโภคค้างจ่าย ค่าซ่อมแซมและบำรุงรักษาทรัพย์สินถาวรต่าง ๆ เป็นต้น</p>
+                        </div>
+                        <div class="mt-2 ml-9 bg-slate-50 p-3 rounded border-l-4 border-blue-400 text-xs">
+                            <i class="fa-solid fa-circle-info text-blue-500 mr-1"></i> <strong>อนึ่ง</strong> สำหรับค่าซ่อมแซมบำรุงรักษาทรัพย์สินถาวรหรือครุภัณฑ์ที่ถือเป็นรายจ่ายประจำนั้น หมายถึง การซ่อมแซมบำรุงรักษาทรัพย์สินถาวรหรือครุภัณฑ์โดยทั่วไป โดยมิได้เป็นการยืดอายุการใช้งาน หรือเพิ่มศักยภาพในการผลิตแต่อย่างใด
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-blue-300 transition-colors">
+                        <span class="bg-blue-200 text-blue-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๕)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายค่าดอกเบี้ย</strong> ทั้งภายในประเทศและต่างประเทศ</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-blue-300 transition-colors">
+                        <span class="bg-blue-200 text-blue-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๖)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายที่รัฐบาลโอนให้แก่รัฐวิสาหกิจ</strong> เพื่อให้สามารถขายสินค้าหรือบริการที่ตนผลิตได้ในราคาที่รัฐบาลกำหนด ซึ่งอาจต่ำกว่าทุน เช่น เงินชดเชยค่ากระแสไฟฟ้า เงินชดเชยส่วนลดค่าน้ำประปาให้บุคคลบางประเภท เงินชดเชยค่าโดยสารลดราคาให้แก่บุคคลบางประเภท เงินค่าดอกเบี้ยที่จ่ายให้แก่รัฐวิสาหกิจต่าง ๆ เป็นต้น นอกจากนี้ ยังรวมถึงรายจ่ายที่โอนให้รัฐวิสาหกิจไปชำระต้นเงินกู้ที่ได้กู้ไปใช้เป็นรายจ่ายประจำด้วย</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-blue-300 transition-colors">
+                        <span class="bg-blue-200 text-blue-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๗)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายที่รัฐบาลโอนให้แก่ภาคเอกชนภายในประเทศ</strong> เพื่อเป็นการเพิ่มรายได้ให้แก่ผู้รับโดยที่รัฐบาลเองไม่ได้รับสิ่งของหรือบริการตอบแทนแต่อย่างใด ตัวอย่างเช่น เงินอุดหนุนที่ให้แก่ผู้สูงอายุและคนพิการ เงินอุดหนุนที่จ่ายให้แก่องค์กร สมาคมหรือมูลนิธิเอกชนซึ่งดำเนินงานเพื่อประโยชน์ของสังคม เงินอุดหนุนที่จ่ายให้แก่โรงเรียนราษฎร์ โรงพยาบาล สโมสร หรือสมาคมต่าง ๆ เงินอุดหนุนที่ให้เป็นทุนการศึกษาแก่นักเรียนนักศึกษา และประชาชนโดยทั่วไป และเงินบำเหน็จบำนาญข้าราชการ เป็นต้น</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-blue-300 transition-colors">
+                        <span class="bg-blue-200 text-blue-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๘)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายที่รัฐบาลโอนให้แก่ภาคต่างประเทศ ที่เป็นรายจ่ายประจำ</strong> ได้แก่ เงินค่าสมาชิกและค่าบำรุงต่าง ๆ ที่จ่ายให้แก่องค์การและสมาคมในต่างประเทศ เงินอุดหนุนเพื่อเป็นค่าใช้จ่ายประจำขององค์กรระหว่างประเทศ เงินช่วยเหลือหรือเงินสมทบที่ให้แก่องค์กรระหว่างประเทศ เป็นต้น</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 hover:border-blue-300 transition-colors">
+                        <span class="bg-blue-200 text-blue-800 font-bold w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 text-xs">(๙)</span>
+                        <p class="leading-relaxed"><strong>รายจ่ายที่รัฐบาลโอนให้แก่องค์กรปกครองส่วนท้องถิ่น</strong> เพื่อเป็นค่าใช้จ่ายในการดำเนินงานตามปกติ หรือเป็นค่าซ่อมแซมบำรุงรักษาทั่วไปโดยปกติ ตัวอย่างเช่น เงินอุดหนุนทั่วไปที่องค์กรปกครองส่วนท้องถิ่นนำไปจ่ายเป็นเงินเดือน หรือค่าจ้างลูกจ้างชั่วคราวที่ปฏิบัติงานตามปกติ เป็นต้น</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History of Updates Box -->
+            <div class="bg-slate-800 text-white rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
+                <div class="absolute -right-8 -top-8 opacity-10">
+                    <i class="fa-solid fa-timeline text-9xl"></i>
+                </div>
+                <div class="relative z-10">
+                    <h4 class="text-xl font-bold mb-4 flex items-center gap-2 text-amber-400">
+                        <i class="fa-solid fa-clock-rotate-left"></i> การปรับปรุงนิยามให้ทันสมัย (พ.ศ. 2566 - 2568)
+                    </h4>
+                    <p class="text-sm text-slate-300 mb-5 leading-relaxed">
+                        สำนักงบประมาณได้มีการปรับปรุงเพิ่มเติมนิยามรายจ่ายลงทุน ให้มีความชัดเจน ครอบคลุม และถูกต้องเหมาะสมกับสถานการณ์ปัจจุบันที่มีการเปลี่ยนแปลงไป ดังนี้:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/20">
+                            <div class="font-bold text-amber-300 mb-1 border-b border-white/10 pb-1">ในปี ๒๕๖๖</div>
+                            <p class="text-xs text-slate-300 leading-relaxed">เพิ่มนิยามรายจ่ายลงทุนให้ครอบคลุมรายจ่ายเพื่อจัดหาทรัพย์สินประเภททุนในสินทรัพย์ <strong class="text-white">ที่ไม่มีตัวตน</strong> เช่น รายจ่ายเพื่อการวิจัยและพัฒนา ซึ่งนำมาสู่การจดสิทธิบัตรต่างๆ</p>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/20">
+                            <div class="font-bold text-amber-300 mb-1 border-b border-white/10 pb-1">ในปี ๒๕๖๗</div>
+                            <p class="text-xs text-slate-300 leading-relaxed">เพิ่มนิยามของรายจ่ายที่เกี่ยวข้องกับการดูแลและบำรุงรักษา <strong class="text-white">(MA)</strong> ค่าใช้จ่ายในการจัดหาวัคซีน การจัดหาวัคซีนเพื่อรองรับกรณีฉุกเฉินหรือการเกิดโรคระบาด และรายจ่ายซึ่งเป็นค่าเช่ารถยนต์มาใช้ในราชการ เป็นรายจ่ายลงทุน</p>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/20">
+                            <div class="font-bold text-amber-300 mb-1 border-b border-white/10 pb-1">ในปี ๒๕๖๘</div>
+                            <p class="text-xs text-slate-300 leading-relaxed">เพิ่มนิยามรายจ่ายลงทุนให้สอดคล้องกับการจำแนกตามลักษณะเศรษฐกิจ โดยนิยามรายจ่ายลงทุน รวมถึง <strong class="text-white">"รายจ่ายที่รัฐบาลใช้จ่ายเพื่อจะสร้างความเติบโตทางเศรษฐกิจ"</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Warning Alert -->
+                    <div class="bg-rose-500/20 border border-rose-500/50 p-4 rounded-xl flex items-start gap-3 backdrop-blur-sm">
+                        <i class="fa-solid fa-triangle-exclamation text-rose-400 text-xl mt-0.5 shrink-0"></i>
+                        <div>
+                            <p class="text-sm font-bold text-rose-300 mb-1">ข้อพึงระวังสำหรับหน่วยงาน</p>
+                            <p class="text-xs text-rose-100/80 leading-relaxed">
+                                อย่าลืมตรวจสอบ การบันทึกข้อมูลในระบบ <strong class="text-white">e-Budgeting</strong> และ ระบบ <strong class="text-white">BBL</strong> ให้ถูกต้อง ตามนิยามรายจ่ายลงทุนและรายจ่ายประจำด้วย
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
     <!-- ปุ่มกลับไปหน้าหลัก -->
