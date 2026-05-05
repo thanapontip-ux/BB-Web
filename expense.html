@@ -88,9 +88,42 @@
             </div>
         </div>
 
+        <!-- Highlight Box: รายจ่ายลงทุน vs งบลงทุน -->
+        <div class="bg-gradient-to-r from-indigo-900 to-purple-900 rounded-2xl p-6 md:p-8 shadow-lg text-white relative overflow-hidden mb-10 border border-indigo-500/30">
+            <div class="absolute -right-10 -bottom-10 opacity-20">
+                <i class="fa-solid fa-lightbulb text-9xl"></i>
+            </div>
+            <div class="relative z-10">
+                <h3 class="text-xl md:text-2xl font-bold mb-4 flex items-center gap-2 text-indigo-200">
+                    <i class="fa-solid fa-circle-exclamation"></i> ข้อควรรู้: "รายจ่ายลงทุน" ต่างจาก "งบลงทุน" อย่างไร?
+                </h3>
+                <p class="text-slate-200 mb-6 text-sm md:text-base leading-relaxed">
+                    หลายคนมักสับสนและคิดว่าสองคำนี้มีความหมายเหมือนกัน แต่ในทางหลักการจัดทำงบประมาณ มีความแตกต่างกันอย่างชัดเจน ดังนี้:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/20">
+                        <h4 class="font-bold text-white text-lg mb-2"><i class="fa-solid fa-folder-open text-indigo-300 mr-2"></i> งบลงทุน (Investment Budget)</h4>
+                        <p class="text-sm text-slate-200 leading-relaxed">
+                            คือ <strong>"หมวดรายจ่าย"</strong> หมวดหนึ่งตามโครงสร้างงบประมาณที่จัดสรรให้หน่วยงานโดยตรง (มีองค์ประกอบเพียง 2 อย่าง คือ ค่าครุภัณฑ์ และ ค่าที่ดินและสิ่งก่อสร้าง)
+                        </p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/20">
+                        <h4 class="font-bold text-white text-lg mb-2"><i class="fa-solid fa-coins text-purple-300 mr-2"></i> รายจ่ายลงทุน (Capital Expenditure)</h4>
+                        <p class="text-sm text-slate-200 leading-relaxed">
+                            คือ <strong>"ลักษณะทางเศรษฐกิจ"</strong> ของเงินที่จ่ายออกไป ซึ่งมีความหมายกว้างกว่า โดยครอบคลุม <strong>"งบลงทุน" รวมกับ งบหมวดอื่นๆ ที่นำไปใช้เพื่อการลงทุน</strong> (เช่น งบกลางที่นำไปสร้างถนน, งบเงินอุดหนุนเฉพาะกิจที่ให้ อปท. ไปสร้างอาคาร หรือ งบรายจ่ายอื่นที่ใช้ซื้อเครื่องจักร)
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-6 bg-black/30 p-4 rounded-lg text-sm text-slate-200 border-l-4 border-purple-400">
+                    <strong class="text-purple-300">สรุปสมการ:</strong> รายจ่ายลงทุน = งบลงทุน + ส่วนของการลงทุนที่แฝงอยู่ในงบกลาง งบอุดหนุน และงบรายจ่ายอื่น 
+                    <br><em class="text-xs text-slate-400 mt-2 block">(หมายเหตุ: ตาม พ.ร.บ. วินัยการเงินการคลัง มาตรา 20 ที่กำหนดให้ตั้งงบลงทุนไม่น้อยกว่า 20% นั้น กฎหมายหมายถึง <strong>"รายจ่ายลงทุน"</strong> ในภาพรวม ไม่ใช่แค่หมวด "งบลงทุน" เพียงอย่างเดียว)</em>
+                </div>
+            </div>
+        </div>
+
         <!-- Table Comparison -->
         <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3 relative z-10">
-            <i class="fa-solid fa-code-compare text-indigo-500"></i> ตารางสรุปความแตกต่าง
+            <i class="fa-solid fa-code-compare text-indigo-500"></i> ตารางสรุปความแตกต่าง (รายจ่ายประจำ vs รายจ่ายลงทุน)
         </h3>
         
         <div class="relative z-10 overflow-x-auto shadow-sm rounded-xl border border-slate-300 bg-white">
@@ -122,14 +155,14 @@
                     <tr class="hover:bg-slate-50 transition-colors">
                         <td class="p-4 font-bold bg-slate-50 border border-slate-300 text-slate-800 text-center">ตัวอย่างค่าใช้จ่าย</td>
                         <td class="p-4 border border-slate-300">
-                            <ul class="list-disc pl-5 text-sm">
+                            <ul class="list-disc pl-5 text-sm text-left">
                                 <li>เงินเดือนข้าราชการ ลูกจ้าง</li>
                                 <li>ค่าวัสดุสำนักงาน (กระดาษ, หมึกพิมพ์)</li>
                                 <li>ค่าค่าน้ำประปา, ค่าไฟฟ้า</li>
                             </ul>
                         </td>
                         <td class="p-4 border border-slate-300">
-                            <ul class="list-disc pl-5 text-sm">
+                            <ul class="list-disc pl-5 text-sm text-left">
                                 <li>การสร้างถนนทางหลวง, รถไฟฟ้า</li>
                                 <li>การจัดซื้อรถพยาบาล, รถดับเพลิง</li>
                                 <li>การซื้อที่ดินเพื่อสร้างสถานที่ราชการ</li>
@@ -145,10 +178,6 @@
             </table>
         </div>
         
-        <div class="mt-6 bg-slate-50 border-l-4 border-slate-400 p-4 rounded-r-lg text-sm text-slate-600">
-            <i class="fa-solid fa-circle-info mr-2 text-slate-500"></i> หมายเหตุตามกฎหมาย (มาตรา 20): รัฐบาลจะต้องตั้งงบประมาณ <strong>รายจ่ายลงทุน</strong> ไว้ไม่น้อยกว่าร้อยละ 20 ของวงเงินงบประมาณรายจ่ายประจำปี และต้องไม่น้อยกว่าวงเงินกู้เพื่อชดเชยการขาดดุลงบประมาณ
-        </div>
-
     </div>
 
     <!-- ปุ่มกลับไปหน้าหลัก -->
