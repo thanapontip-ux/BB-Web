@@ -171,16 +171,16 @@
 
         <div class="relative z-20 max-w-6xl mx-auto px-4 flex flex-col items-center justify-center h-full w-full py-20">
             
-            <!-- Floating Dramatic Logo -->
-            <div class="relative mb-10 float-anim fade-in-up" style="animation-delay: 0.1s;">
-                <div class="absolute inset-0 bg-blue-500 rounded-full blur-3xl opacity-50 pulse-glow"></div>
-                <div class="relative z-30 bg-white/5 backdrop-blur-xl p-6 md:p-8 rounded-full border border-white/10 shadow-2xl">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg" alt="Official Seal" class="w-32 h-32 md:w-44 md:h-44 object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">
+            <!-- Floating Dramatic Logo (Fixed Animation Conflict & Z-Index) -->
+            <div class="relative mb-10 fade-in-up" style="animation-delay: 0.1s;">
+                <div class="float-anim relative z-50 inline-flex justify-center items-center">
+                    <div class="absolute inset-0 bg-[#FDCD0E] rounded-full blur-[60px] opacity-30 pulse-glow"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg" alt="Official Seal" class="relative z-50 w-32 h-32 md:w-44 md:h-44 object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.6)]">
                 </div>
             </div>
             
             <!-- Main Typography -->
-            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-2 tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-blue-100 to-blue-500 drop-shadow-2xl fade-in-up" style="animation-delay: 0.3s;">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-2 tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-[#FDCD0E] to-amber-600 drop-shadow-2xl fade-in-up" style="animation-delay: 0.3s;">
                 สำนักงบประมาณ
             </h1>
             <h2 class="text-xl md:text-3xl lg:text-4xl font-bold mb-10 tracking-[0.3em] text-blue-300 uppercase fade-in-up drop-shadow-lg" style="animation-delay: 0.5s;">
