@@ -1,0 +1,160 @@
+<div class="max-w-5xl mx-auto px-4 pb-16 fade-in pt-8">
+    
+    <div class="bg-white rounded-3xl p-6 md:p-10 shadow-xl border-t-8 border-indigo-600 relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-8 opacity-5">
+            <i class="fa-solid fa-coins text-9xl text-indigo-700"></i>
+        </div>
+        
+        <!-- Headers -->
+        <div class="relative z-10 mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white bg-indigo-600 inline-block px-6 py-3 rounded-lg shadow-md mb-6 w-full text-center tracking-wide">
+                ลักษณะและประเภทของรายจ่าย
+            </h2>
+            <p class="text-slate-600 text-lg text-center mb-8">
+                โครงสร้างงบประมาณแผ่นดินสามารถจำแนกรายจ่ายออกเป็น 2 ประเภทหลัก ได้แก่ <strong>รายจ่ายประจำ</strong> และ <strong>รายจ่ายลงทุน</strong> เพื่อให้สะท้อนถึงวัตถุประสงค์ในการใช้จ่ายเงินของภาครัฐ
+            </p>
+        </div>
+
+        <!-- รายละเอียดรายจ่ายประจำ และ รายจ่ายลงทุน -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10 mb-10">
+            
+            <!-- รายจ่ายประจำ (Current Expenditure) -->
+            <div class="bg-blue-50 border border-blue-200 rounded-2xl p-6 shadow-sm flex flex-col h-full relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 opacity-10">
+                    <i class="fa-solid fa-file-invoice text-7xl text-blue-600"></i>
+                </div>
+                <div class="flex items-center gap-3 mb-4 border-b border-blue-200 pb-3 relative z-10">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-xl flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-clock-rotate-left text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900">รายจ่ายประจำ<br><span class="text-sm font-normal text-blue-700">(Current Expenditure)</span></h3>
+                </div>
+                
+                <div class="space-y-4 text-slate-700 relative z-10">
+                    <div>
+                        <h4 class="font-bold text-blue-800 flex items-center gap-2 mb-1">
+                            <i class="fa-solid fa-tag text-sm"></i> ลักษณะ:
+                        </h4>
+                        <p class="text-sm leading-relaxed">
+                            เป็นรายจ่ายเพื่อการบริหารงานประจำตามปกติของหน่วยงานภาครัฐ เพื่อให้การดำเนินงานเป็นไปอย่างต่อเนื่อง มีลักษณะเป็นสิ่งของสิ้นเปลือง ใช้แล้วหมดไป หรือมีอายุการใช้งานสั้น <strong>ไม่ก่อให้เกิดสินทรัพย์ถาวร</strong>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-blue-800 flex items-center gap-2 mb-1">
+                            <i class="fa-solid fa-cubes text-sm"></i> องค์ประกอบหลัก:
+                        </h4>
+                        <ul class="list-disc pl-5 text-sm space-y-1 marker:text-blue-500">
+                            <li><strong>งบบุคลากร:</strong> เงินเดือน ค่าจ้างประจำ ค่าจ้างชั่วคราว</li>
+                            <li><strong>งบดำเนินงาน:</strong> ค่าตอบแทน ค่าใช้สอย ค่าวัสดุ ค่าสาธารณูปโภค (ค่าน้ำ ค่าไฟ ค่าโทรศัพท์)</li>
+                            <li><strong>รายจ่ายเงินอุดหนุน:</strong> ส่วนที่จัดสรรเป็นค่าใช้จ่ายดำเนินงาน</li>
+                            <li><strong>รายจ่ายอื่น:</strong> ส่วนที่ไม่ได้มีลักษณะเป็นการลงทุน</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- รายจ่ายลงทุน (Capital Expenditure) -->
+            <div class="bg-purple-50 border border-purple-200 rounded-2xl p-6 shadow-sm flex flex-col h-full relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 opacity-10">
+                    <i class="fa-solid fa-city text-7xl text-purple-600"></i>
+                </div>
+                <div class="flex items-center gap-3 mb-4 border-b border-purple-200 pb-3 relative z-10">
+                    <div class="bg-purple-600 text-white w-12 h-12 rounded-xl flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-tractor text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-purple-900">รายจ่ายลงทุน<br><span class="text-sm font-normal text-purple-700">(Capital Expenditure)</span></h3>
+                </div>
+                
+                <div class="space-y-4 text-slate-700 relative z-10">
+                    <div>
+                        <h4 class="font-bold text-purple-800 flex items-center gap-2 mb-1">
+                            <i class="fa-solid fa-tag text-sm"></i> ลักษณะ:
+                        </h4>
+                        <p class="text-sm leading-relaxed">
+                            เป็นรายจ่ายที่ก่อให้เกิดทุน (Capital Formation) หรือสร้าง <strong>สินทรัพย์ถาวร (Fixed Assets)</strong> ที่มีอายุการใช้งานยาวนานกว่า 1 ปี มีมูลค่าสูง ช่วยเพิ่มพูนโครงสร้างพื้นฐานและขีดความสามารถทางการแข่งขันของประเทศในระยะยาว
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-purple-800 flex items-center gap-2 mb-1">
+                            <i class="fa-solid fa-cubes text-sm"></i> องค์ประกอบหลัก:
+                        </h4>
+                        <ul class="list-disc pl-5 text-sm space-y-1 marker:text-purple-500">
+                            <li><strong>ค่าครุภัณฑ์:</strong> เครื่องจักรกล ยานพาหนะ อุปกรณ์คอมพิวเตอร์ อุปกรณ์ทางการแพทย์ ฯลฯ</li>
+                            <li><strong>ค่าที่ดินและสิ่งก่อสร้าง:</strong> ค่าจัดซื้อที่ดิน การก่อสร้างอาคารสำนักงาน โรงเรียน โรงพยาบาล ถนน สะพาน เขื่อน ฯลฯ</li>
+                            <li><strong>รายจ่ายเงินอุดหนุน / รายจ่ายอื่น:</strong> ส่วนที่มีลักษณะเป็นการลงทุนก่อสร้างหรือจัดหาครุภัณฑ์</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Comparison -->
+        <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3 relative z-10">
+            <i class="fa-solid fa-code-compare text-indigo-500"></i> ตารางสรุปความแตกต่าง
+        </h3>
+        
+        <div class="relative z-10 overflow-x-auto shadow-sm rounded-xl border border-slate-300 bg-white">
+            <table class="w-full text-left border-collapse min-w-[700px]">
+                <thead>
+                    <tr class="text-center text-[15px] md:text-base leading-snug">
+                        <th class="p-4 font-bold border border-slate-300 w-[20%] bg-slate-100 text-slate-800">
+                            ประเด็นเปรียบเทียบ
+                        </th>
+                        <th class="p-4 font-bold border border-slate-300 w-[40%] bg-blue-600 text-white">
+                            รายจ่ายประจำ
+                        </th>
+                        <th class="p-4 font-bold border border-slate-300 w-[40%] bg-purple-600 text-white">
+                            รายจ่ายลงทุน
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="text-slate-700 text-sm md:text-base">
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="p-4 font-bold bg-slate-50 border border-slate-300 text-slate-800 text-center">วัตถุประสงค์</td>
+                        <td class="p-4 border border-slate-300 text-center">เพื่อการบริหารงานปกติให้ขับเคลื่อนไปได้</td>
+                        <td class="p-4 border border-slate-300 text-center">เพื่อสร้างความเจริญเติบโตทางเศรษฐกิจและโครงสร้างพื้นฐาน</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="p-4 font-bold bg-slate-50 border border-slate-300 text-slate-800 text-center">ลักษณะสินทรัพย์</td>
+                        <td class="p-4 border border-slate-300 text-center text-blue-700 font-medium bg-blue-50/30">สิ้นเปลือง ใช้แล้วหมดไป / ไม่มีสินทรัพย์ถาวร</td>
+                        <td class="p-4 border border-slate-300 text-center text-purple-700 font-medium bg-purple-50/30">คงทนถาวร อายุการใช้งานยาวนาน (เกิน 1 ปี)</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="p-4 font-bold bg-slate-50 border border-slate-300 text-slate-800 text-center">ตัวอย่างค่าใช้จ่าย</td>
+                        <td class="p-4 border border-slate-300">
+                            <ul class="list-disc pl-5 text-sm">
+                                <li>เงินเดือนข้าราชการ ลูกจ้าง</li>
+                                <li>ค่าวัสดุสำนักงาน (กระดาษ, หมึกพิมพ์)</li>
+                                <li>ค่าค่าน้ำประปา, ค่าไฟฟ้า</li>
+                            </ul>
+                        </td>
+                        <td class="p-4 border border-slate-300">
+                            <ul class="list-disc pl-5 text-sm">
+                                <li>การสร้างถนนทางหลวง, รถไฟฟ้า</li>
+                                <li>การจัดซื้อรถพยาบาล, รถดับเพลิง</li>
+                                <li>การซื้อที่ดินเพื่อสร้างสถานที่ราชการ</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="p-4 font-bold bg-slate-50 border border-slate-300 text-slate-800 text-center">ผลกระทบเศรษฐกิจ</td>
+                        <td class="p-4 border border-slate-300 text-center">กระตุ้นการบริโภคและการหมุนเวียนเงินใน <strong>ระยะสั้น</strong></td>
+                        <td class="p-4 border border-slate-300 text-center">เพิ่มขีดความสามารถทางการแข่งขันใน <strong>ระยะยาว</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="mt-6 bg-slate-50 border-l-4 border-slate-400 p-4 rounded-r-lg text-sm text-slate-600">
+            <i class="fa-solid fa-circle-info mr-2 text-slate-500"></i> หมายเหตุตามกฎหมาย (มาตรา 20): รัฐบาลจะต้องตั้งงบประมาณ <strong>รายจ่ายลงทุน</strong> ไว้ไม่น้อยกว่าร้อยละ 20 ของวงเงินงบประมาณรายจ่ายประจำปี และต้องไม่น้อยกว่าวงเงินกู้เพื่อชดเชยการขาดดุลงบประมาณ
+        </div>
+
+    </div>
+
+    <!-- ปุ่มกลับไปหน้าหลัก -->
+    <div class="text-center mt-8 pb-4">
+        <button onclick="showLanding(document.getElementById('nav-home'))" class="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all transform hover:scale-105">
+            <i class="fa-solid fa-house"></i> กลับสู่หน้าหลัก
+        </button>
+    </div>
+</div>
