@@ -41,15 +41,14 @@
         .nav-link { position: relative; font-weight: 600; color: #475569; transition: all 0.2s ease; cursor: pointer;}
         .nav-link:hover { color: #1e40af; }
         .nav-link.active { color: #1e40af; }
-        @media (min-width: 768px) {
-            .nav-link.active::after {
-                content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 3px;
-                background: linear-gradient(to right, #1e40af, #3b82f6); border-radius: 99px;
-            }
+        .nav-link.active::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(to right, #1e40af, #3b82f6); border-radius: 99px;
         }
-        @media (max-width: 767px) {
-            .nav-link.active { background-color: #f0f9ff; border-radius: 0.5rem; }
-        }
+
+        .nav-link-mobile { cursor: pointer; }
+        .nav-link-mobile.active { background-color: #eff6ff; color: #1e40af; }
+        .nav-link-mobile.active i { color: #1e40af; }
 
         .fade-in { animation: fadeIn 0.6s ease-out forwards; }
         @keyframes fadeIn {
@@ -74,51 +73,69 @@
 <body class="bg-slate-50 text-slate-800 antialiased pt-16 flex flex-col min-h-screen">
 
     <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-md z-50 transition-all duration-300 border-b border-blue-100">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 relative">
                 <!-- Clickable Logo to return home -->
-                <div class="flex items-center gap-3 cursor-pointer" onclick="showLanding(document.getElementById('nav-home'))">
+                <div class="flex items-center gap-3 cursor-pointer shrink-0" onclick="showLanding(document.getElementById('nav-home'))">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg" alt="Budget Bureau Logo" class="h-10 w-10 object-contain">
                     <span class="font-bold text-slate-800 text-lg sm:text-xl tracking-tight">สำนักงบประมาณ</span>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-blue-600 focus:outline-none">
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-600 hover:text-blue-600 focus:outline-none rounded-lg hover:bg-slate-100 transition-colors">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
 
-                <!-- Navigation Links -->
-                <div id="nav-menu" class="hidden absolute top-16 right-0 w-56 bg-white shadow-xl border border-slate-100 rounded-xl flex-col p-2 space-y-1 md:space-y-0 md:p-0 md:bg-transparent md:border-none md:shadow-none md:flex md:static md:flex-row md:items-center md:space-x-1 lg:space-x-4 z-50">
-                    <a id="nav-home" onclick="showLanding(this); closeMobileMenu();" class="nav-link active px-4 py-3 md:px-2 md:py-5 transition-all group flex items-center">
-                        <i class="fa-solid fa-house text-xl w-6 text-center md:w-auto"></i>
-                        <span class="ml-3 md:ml-0 md:max-w-0 md:opacity-0 md:overflow-hidden md:group-hover:max-w-[200px] md:group-hover:opacity-100 md:group-hover:ml-2 transition-all duration-300 ease-in-out whitespace-nowrap md:block">หน้าหลัก</span>
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1 xl:space-x-2">
+                    <a id="nav-home" onclick="showLanding(this)" class="nav-link active px-2 xl:px-3 py-5 transition-all flex items-center gap-1.5 text-sm xl:text-[15px] font-semibold">
+                        <i class="fa-solid fa-house"></i> หน้าหลัก
                     </a>
-                    <a id="nav-cycle" onclick="loadPage('cycle.html', this); closeMobileMenu();" class="nav-link px-4 py-3 md:px-2 md:py-5 transition-all group flex items-center">
-                        <i class="fa-solid fa-arrows-spin text-xl w-6 text-center md:w-auto"></i>
-                        <span class="ml-3 md:ml-0 md:max-w-0 md:opacity-0 md:overflow-hidden md:group-hover:max-w-[200px] md:group-hover:opacity-100 md:group-hover:ml-2 transition-all duration-300 ease-in-out whitespace-nowrap md:block">วงจร</span>
+                    <a id="nav-cycle" onclick="loadPage('cycle.html', this)" class="nav-link px-2 xl:px-3 py-5 transition-all flex items-center gap-1.5 text-sm xl:text-[15px] font-semibold">
+                        <i class="fa-solid fa-arrows-spin"></i> วงจร
                     </a>
-                    <a id="nav-type" onclick="loadPage('type.html', this); closeMobileMenu();" class="nav-link px-4 py-3 md:px-2 md:py-5 transition-all group flex items-center">
-                        <i class="fa-solid fa-sitemap text-xl w-6 text-center md:w-auto"></i>
-                        <span class="ml-3 md:ml-0 md:max-w-0 md:opacity-0 md:overflow-hidden md:group-hover:max-w-[200px] md:group-hover:opacity-100 md:group-hover:ml-2 transition-all duration-300 ease-in-out whitespace-nowrap md:block">ประเภทงบฯ</span>
+                    <a id="nav-type" onclick="loadPage('type.html', this)" class="nav-link px-2 xl:px-3 py-5 transition-all flex items-center gap-1.5 text-sm xl:text-[15px] font-semibold">
+                        <i class="fa-solid fa-sitemap"></i> ประเภทงบฯ
                     </a>
-                    <a id="nav-expense" onclick="loadPage('expense.html', this); closeMobileMenu();" class="nav-link px-4 py-3 md:px-2 md:py-5 transition-all group flex items-center">
-                        <i class="fa-solid fa-coins text-xl w-6 text-center md:w-auto"></i>
-                        <span class="ml-3 md:ml-0 md:max-w-0 md:opacity-0 md:overflow-hidden md:group-hover:max-w-[200px] md:group-hover:opacity-100 md:group-hover:ml-2 transition-all duration-300 ease-in-out whitespace-nowrap md:block">ประเภทรายจ่าย</span>
+                    <a id="nav-expense" onclick="loadPage('expense.html', this)" class="nav-link px-2 xl:px-3 py-5 transition-all flex items-center gap-1.5 text-sm xl:text-[15px] font-semibold">
+                        <i class="fa-solid fa-coins"></i> ประเภทรายจ่าย
                     </a>
-                    <a id="nav-law" onclick="loadPage('law.html', this); closeMobileMenu();" class="nav-link px-4 py-3 md:px-2 md:py-5 transition-all group flex items-center">
-                        <i class="fa-solid fa-scale-balanced text-xl w-6 text-center md:w-auto"></i>
-                        <span class="ml-3 md:ml-0 md:max-w-0 md:opacity-0 md:overflow-hidden md:group-hover:max-w-[200px] md:group-hover:opacity-100 md:group-hover:ml-2 transition-all duration-300 ease-in-out whitespace-nowrap md:block">กฎหมาย</span>
+                    <a id="nav-law" onclick="loadPage('law.html', this)" class="nav-link px-2 xl:px-3 py-5 transition-all flex items-center gap-1.5 text-sm xl:text-[15px] font-semibold">
+                        <i class="fa-solid fa-scale-balanced"></i> กฎหมาย
                     </a>
-                    <a id="nav-budget" onclick="loadPage('budget.html', this); closeMobileMenu();" class="nav-link px-4 py-3 md:px-2 md:py-5 transition-all group flex items-center">
-                        <i class="fa-solid fa-scale-balanced text-xl w-6 text-center md:w-auto"></i>
-                        <span class="ml-3 md:ml-0 md:max-w-0 md:opacity-0 md:overflow-hidden md:group-hover:max-w-[200px] md:group-hover:opacity-100 md:group-hover:ml-2 transition-all duration-300 ease-in-out whitespace-nowrap md:block">กรอบกฎหมาย</span>
+                    <a id="nav-budget" onclick="loadPage('budget.html', this)" class="nav-link px-2 xl:px-3 py-5 transition-all flex items-center gap-1.5 text-sm xl:text-[15px] font-semibold">
+                        <i class="fa-solid fa-file-invoice-dollar"></i> กรอบกฎหมาย
                     </a>
-                    <a id="nav-evaluation" onclick="loadPage('evaluation.html', this); closeMobileMenu();" class="nav-link px-4 py-3 md:px-2 md:py-5 transition-all group flex items-center">
-                        <i class="fa-solid fa-magnifying-glass-chart text-xl w-6 text-center md:w-auto"></i>
-                        <span class="ml-3 md:ml-0 md:max-w-0 md:opacity-0 md:overflow-hidden md:group-hover:max-w-[200px] md:group-hover:opacity-100 md:group-hover:ml-2 transition-all duration-300 ease-in-out whitespace-nowrap md:block">ประเมินผล</span>
+                    <a id="nav-evaluation" onclick="loadPage('evaluation.html', this)" class="nav-link px-2 xl:px-3 py-5 transition-all flex items-center gap-1.5 text-sm xl:text-[15px] font-semibold">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i> ประเมินผล
                     </a>
                 </div>
             </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="nav-menu-mobile" class="hidden lg:hidden absolute top-16 left-0 right-0 bg-white shadow-2xl border-t border-slate-100 flex-col p-4 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto z-50">
+            <a id="nav-home-mobile" onclick="showLanding(document.getElementById('nav-home')); closeMobileMenu();" class="nav-link-mobile active p-3 rounded-xl flex items-center gap-3 text-slate-700 hover:bg-blue-50 transition-colors font-semibold">
+                <i class="fa-solid fa-house text-lg w-6 text-center text-slate-500"></i> หน้าหลัก
+            </a>
+            <a id="nav-cycle-mobile" onclick="loadPage('cycle.html', document.getElementById('nav-cycle')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 text-slate-700 hover:bg-blue-50 transition-colors font-semibold">
+                <i class="fa-solid fa-arrows-spin text-lg w-6 text-center text-slate-500"></i> วงจร
+            </a>
+            <a id="nav-type-mobile" onclick="loadPage('type.html', document.getElementById('nav-type')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 text-slate-700 hover:bg-blue-50 transition-colors font-semibold">
+                <i class="fa-solid fa-sitemap text-lg w-6 text-center text-slate-500"></i> ประเภทงบฯ
+            </a>
+            <a id="nav-expense-mobile" onclick="loadPage('expense.html', document.getElementById('nav-expense')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 text-slate-700 hover:bg-blue-50 transition-colors font-semibold">
+                <i class="fa-solid fa-coins text-lg w-6 text-center text-slate-500"></i> ประเภทรายจ่าย
+            </a>
+            <a id="nav-law-mobile" onclick="loadPage('law.html', document.getElementById('nav-law')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 text-slate-700 hover:bg-blue-50 transition-colors font-semibold">
+                <i class="fa-solid fa-scale-balanced text-lg w-6 text-center text-slate-500"></i> กฎหมาย
+            </a>
+            <a id="nav-budget-mobile" onclick="loadPage('budget.html', document.getElementById('nav-budget')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 text-slate-700 hover:bg-blue-50 transition-colors font-semibold">
+                <i class="fa-solid fa-file-invoice-dollar text-lg w-6 text-center text-slate-500"></i> กรอบกฎหมาย
+            </a>
+            <a id="nav-evaluation-mobile" onclick="loadPage('evaluation.html', document.getElementById('nav-evaluation')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 text-slate-700 hover:bg-blue-50 transition-colors font-semibold">
+                <i class="fa-solid fa-magnifying-glass-chart text-lg w-6 text-center text-slate-500"></i> ประเมินผล
+            </a>
         </div>
     </nav>
 
@@ -185,16 +202,29 @@
 
     <script>
         function toggleMobileMenu() {
-            const menu = document.getElementById('nav-menu');
+            const menu = document.getElementById('nav-menu-mobile');
             menu.classList.toggle('hidden');
             menu.classList.toggle('flex');
         }
 
         function closeMobileMenu() {
-            const menu = document.getElementById('nav-menu');
-            if (window.innerWidth < 768) {
-                menu.classList.add('hidden');
-                menu.classList.remove('flex');
+            const menu = document.getElementById('nav-menu-mobile');
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+        }
+
+        function setActiveNav(navElement) {
+            // Remove active class from all links
+            document.querySelectorAll('.nav-link, .nav-link-mobile').forEach(link => link.classList.remove('active'));
+            
+            if(navElement) {
+                // Determine base ID to set both desktop and mobile as active
+                const baseId = navElement.id.replace('-mobile', '');
+                const deskEl = document.getElementById(baseId);
+                const mobEl = document.getElementById(baseId + '-mobile');
+                
+                if(deskEl) deskEl.classList.add('active');
+                if(mobEl) mobEl.classList.add('active');
             }
         }
 
@@ -203,11 +233,7 @@
             document.getElementById('landing-page').style.display = 'flex';
             document.getElementById('content-area').style.display = 'none';
             
-            // Update active navigation styling
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            if(navElement) {
-                navElement.classList.add('active');
-            }
+            setActiveNav(navElement);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -229,11 +255,7 @@
                 // Scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
 
-                // Update active navigation styling
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                if(navElement) {
-                    navElement.classList.add('active');
-                }
+                setActiveNav(navElement);
             } catch (error) {
                 document.getElementById('landing-page').style.display = 'none';
                 const contentArea = document.getElementById('content-area');
