@@ -109,6 +109,9 @@
                     <a id="nav-home" onclick="showLanding(this)" class="nav-link active px-2 py-5 transition-all flex items-center gap-1.5 text-sm font-semibold">
                         <i class="fa-solid fa-house"></i> หน้าหลัก
                     </a>
+                    <a id="nav-timeline" onclick="loadPage('timeline.html', this)" class="nav-link px-2 py-5 transition-all flex items-center gap-1.5 text-sm font-semibold">
+                        <i class="fa-solid fa-calendar-days"></i> Timeline
+                    </a>
                     <a id="nav-cycle" onclick="loadPage('cycle.html', this)" class="nav-link px-2 py-5 transition-all flex items-center gap-1.5 text-sm font-semibold">
                         <i class="fa-solid fa-arrows-spin"></i> วงจร
                     </a>
@@ -141,6 +144,9 @@
         <div id="nav-menu-mobile" class="hidden xl:hidden absolute top-16 left-0 right-0 bg-white shadow-2xl border-t border-slate-100 flex-col p-4 space-y-2 max-h-[calc(100vh-4rem)] overflow-y-auto z-50">
             <a id="nav-home-mobile" onclick="showLanding(document.getElementById('nav-home')); closeMobileMenu();" class="nav-link-mobile active p-3 rounded-xl flex items-center gap-3 text-slate-700 hover:bg-blue-50 transition-colors font-semibold">
                 <i class="fa-solid fa-house text-lg w-6 text-center text-slate-500"></i> หน้าหลัก
+            </a>
+            <a id="nav-timeline-mobile" onclick="loadPage('timeline.html', document.getElementById('nav-timeline')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 text-slate-700 hover:bg-blue-50 transition-colors font-semibold">
+                <i class="fa-solid fa-calendar-days text-lg w-6 text-center text-slate-500"></i> Timeline
             </a>
             <a id="nav-cycle-mobile" onclick="loadPage('cycle.html', document.getElementById('nav-cycle')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 text-slate-700 hover:bg-blue-50 transition-colors font-semibold">
                 <i class="fa-solid fa-arrows-spin text-lg w-6 text-center text-slate-500"></i> วงจร
