@@ -23,11 +23,12 @@
                     <h4 class="font-bold text-blue-300 mb-2 text-sm flex items-center gap-2">
                         <i class="fa-solid fa-scale-balanced"></i> วิเคราะห์ความคุ้มค่า (VFM)
                     </h4>
-                    <p class="text-xs text-slate-400 mb-2">วิเคราะห์ความคุ้มค่า (Value for Money) โดยใช้หลักการ 3E ดังนี้:</p>
+                    <p class="text-xs text-slate-400 mb-2">วิเคราะห์ความคุ้มค่า (Value for Money) โดยใช้หลักการ 4E ดังนี้:</p>
                     <ul class="space-y-2 text-slate-300 text-sm">
                         <li class="flex items-start gap-2"><strong class="text-blue-400 shrink-0">Economy:</strong> <span><strong>ประหยัด</strong> พิจารณาจากงบประมาณที่ใช้ในการดำเนินงานน้อยที่สุด</span></li>
                         <li class="flex items-start gap-2"><strong class="text-blue-400 shrink-0">Efficiency:</strong> <span><strong>ประสิทธิภาพ</strong> พิจารณาจากผลสำเร็จการดำเนินงาน</span></li>
                         <li class="flex items-start gap-2"><strong class="text-blue-400 shrink-0">Effectiveness:</strong> <span><strong>ประสิทธิผล</strong> พิจารณาจากผลลัพธ์ในการดำเนินงาน</span></li>
+                        <li class="flex items-start gap-2"><strong class="text-blue-400 shrink-0">Equity:</strong> <span><strong>ความเสมอภาค</strong> โดยมีหลักการคือ Right people, Right amount และ Right time</span></li>
                     </ul>
                 </div>
             </div>
@@ -90,7 +91,7 @@
                         <ul class="space-y-2 text-slate-600 text-sm list-disc pl-5 marker:text-teal-400">
                             <li>รายงานผลการปฏิบัติงานและการใช้จ่ายงบประมาณปีที่ผ่านมา</li>
                             <li>ทบทวนและปรับปรุง เป้าหมาย กลยุทธ์ ผลผลิต กิจกรรม และตัวชี้วัด</li>
-                            <li>ปรับปรุงฐานข้อมูลประมาณการรายจ่ายล่วงหน้าระยะปานกลาง (MTFF)</li>
+                            <li>ปรับปรุงฐานข้อมูลประมาณการรายจ่ายล่วงหน้าระยะปานกลาง (MTEF)</li>
                             <li>จัดทำประมาณการรายจ่ายที่จำเป็นต้องจัดสรร</li>
                         </ul>
                     </div>
@@ -219,10 +220,25 @@
             <ul class="space-y-3 text-slate-600 text-sm">
                 <li class="flex items-start gap-2">
                     <i class="fa-solid fa-check text-purple-500 mt-1"></i>
-                    <span><strong>ชั้นสภาผู้แทนราษฎร (มีกรอบเวลา 105 วัน):</strong><br>
-                    - <em>วาระ 1 (1-3 ก.ค.):</em> อภิปรายภาพรวมและลงมติรับหลักการ<br>
-                    - <em>วาระ 2 (7-9 ก.ย. พิจารณาชั้น กมธ.):</em> ตั้งคณะกรรมาธิการวิสามัญ เรียกหน่วยงานมาชี้แจงรายละเอียด <strong>(กมธ. มีสิทธิตัดลดงบได้ แต่รัฐธรรมนูญมาตรา 144 ห้ามเด็ดขาดมิให้ ส.ส./กมธ. แปรญัตติเพิ่มงบหรือมีส่วนได้เสีย)</strong><br>
-                    - <em>วาระ 3 (7-9 ก.ย.):</em> ลงมติเห็นชอบทั้งฉบับ</span>
+                    <div class="w-full">
+                        <strong>ชั้นสภาผู้แทนราษฎร (มีกรอบเวลา 105 วัน):</strong><br>
+                        - <em>วาระ 1 (1-3 ก.ค.):</em> อภิปรายภาพรวมและลงมติรับหลักการ<br>
+                        - <em>วาระ 2 (7-9 ก.ย. พิจารณาชั้น กมธ.):</em> ตั้งคณะกรรมาธิการวิสามัญ เรียกหน่วยงานมาชี้แจงรายละเอียด <strong>(กมธ. มีสิทธิตัดลดงบได้ แต่รัฐธรรมนูญมาตรา 144 ห้ามเด็ดขาดมิให้ ส.ส./กมธ. แปรญัตติเพิ่มงบหรือมีส่วนได้เสีย)</strong>
+                        
+                        <!-- เพิ่มกล่องเตือนห้ามตัดลดงบ 3 รายการ -->
+                        <div class="bg-rose-50/80 p-3 rounded-lg border-l-4 border-rose-500 mt-3 mb-3 shadow-sm">
+                            <span class="text-rose-700 font-bold flex items-center gap-2 mb-2">
+                                <i class="fa-solid fa-triangle-exclamation"></i> ข้อยกเว้น: ห้าม กมธ. ปรับลดงบประมาณใน 3 รายการต่อไปนี้
+                            </span>
+                            <ul class="list-disc pl-6 space-y-1 text-slate-700 marker:text-rose-400">
+                                <li><strong>เงินส่งใช้ต้นเงินกู้:</strong> เงินต้นที่ต้องชำระคืน</li>
+                                <li><strong>ดอกเบี้ยเงินกู้:</strong> ดอกเบี้ยที่เกิดจากการกู้ยืม</li>
+                                <li><strong>เงินที่กำหนดให้จ่ายตามกฎหมาย:</strong> เช่น เงินเดือนข้าราชการ บำนาญ หรือเงินที่กฎหมายบังคับให้ต้องจ่าย</li>
+                            </ul>
+                        </div>
+                        
+                        - <em>วาระ 3 (7-9 ก.ย.):</em> ลงมติเห็นชอบทั้งฉบับ
+                    </div>
                 </li>
                 <li class="flex items-start gap-2">
                     <i class="fa-solid fa-check text-purple-500 mt-1"></i>
