@@ -39,7 +39,7 @@
             transform: translateY(-3px);
         }
         
-        /* Navigation Styles - REDESIGNED (Dark Navy & Gold) */
+        /* Navigation Styles - Dark Navy & Gold */
         .nav-link {
             position: relative;
             display: flex;
@@ -47,24 +47,24 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            padding: 0 0.75rem;
-            color: #94a3b8; /* slate-400 */
+            padding: 0 1rem;
+            color: #94a3b8; 
             font-weight: 500;
             transition: all 0.3s ease;
             cursor: pointer;
             min-width: 80px;
         }
-        .nav-link i {
+        .nav-link i.main-icon {
             font-size: 1.25rem;
             margin-bottom: 0.35rem;
-            color: #d4af37; /* muted gold */
+            color: #d4af37; 
             transition: all 0.3s ease;
         }
         .nav-link:hover {
             color: #f8fafc;
             background-color: rgba(255, 255, 255, 0.03);
         }
-        .nav-link:hover i {
+        .nav-link:hover i.main-icon {
             color: #FDCD0E;
             transform: translateY(-2px);
         }
@@ -73,7 +73,7 @@
             font-weight: 700;
             background: linear-gradient(to bottom, transparent 40%, rgba(56, 189, 248, 0.08) 100%);
         }
-        .nav-link.active i {
+        .nav-link.active i.main-icon {
             color: #FDCD0E;
         }
         .nav-link.active::after {
@@ -95,7 +95,6 @@
             background-color: rgba(253, 205, 14, 0.1); 
             color: #FDCD0E; 
             border-left: 4px solid #38bdf8; 
-            padding-left: 0.5rem;
         }
         .nav-link-mobile.active i { color: #FDCD0E; }
         .nav-link-mobile:hover { background-color: rgba(255, 255, 255, 0.05); }
@@ -128,13 +127,11 @@
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
-        
-        .tree-line-v { width: 2px; background-color: #cbd5e1; margin: 0 auto; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased pt-20 flex flex-col min-h-screen">
+<body class="bg-[#070e1e] text-slate-800 antialiased pt-20 flex flex-col min-h-screen">
 
-    <!-- Navigation Menu (Redesigned) -->
+    <!-- Navigation Menu (Redesigned with Dropdowns) -->
     <nav class="fixed top-0 left-0 right-0 bg-[#0f172a]/95 backdrop-blur-md shadow-2xl z-50 transition-all duration-300 border-b border-white/10">
         <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20 relative">
@@ -152,83 +149,132 @@
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
 
-                <!-- Desktop Navigation (Icons Top, Text Bottom) -->
-                <div class="hidden xl:flex items-center h-full">
+                <!-- Desktop Navigation (Grouped with Dropdowns) -->
+                <div class="hidden xl:flex items-center h-full gap-2">
+                    
+                    <!-- 1. หน้าหลัก (ไม่มี Drop-down) -->
                     <a id="nav-home" onclick="showLanding(this)" class="nav-link active">
-                        <i class="fa-solid fa-house"></i>
-                        <span class="text-[12px] xl:text-[13px]">หน้าหลัก</span>
+                        <i class="fa-solid fa-house main-icon"></i>
+                        <span class="text-[13px] font-semibold">หน้าหลัก</span>
                     </a>
-                    <a id="nav-timeline" onclick="loadPage('timeline.html', this)" class="nav-link">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        <span class="text-[12px] xl:text-[13px]">ไทม์ไลน์</span>
-                    </a>
-                    <a id="nav-cycle" onclick="loadPage('cycle.html', this)" class="nav-link">
-                        <i class="fa-solid fa-arrows-spin"></i>
-                        <span class="text-[12px] xl:text-[13px]">วงจรงบฯ</span>
-                    </a>
-                    <a id="nav-type" onclick="loadPage('type.html', this)" class="nav-link">
-                        <i class="fa-solid fa-sitemap"></i>
-                        <span class="text-[12px] xl:text-[13px]">ประเภทงบ</span>
-                    </a>
-                    <a id="nav-expense" onclick="loadPage('expense.html', this)" class="nav-link">
-                        <i class="fa-solid fa-coins"></i>
-                        <span class="text-[12px] xl:text-[13px]">ประเภทรายจ่าย</span>
-                    </a>
-                    <a id="nav-account" onclick="loadPage('account.html', this)" class="nav-link">
-                        <i class="fa-solid fa-layer-group"></i>
-                        <span class="text-[12px] xl:text-[13px]">ชนิดบัญชี</span>
-                    </a>
-                    <a id="nav-order" onclick="loadPage('order.html', this)" class="nav-link">
-                        <i class="fa-solid fa-bullhorn"></i>
-                        <span class="text-[12px] xl:text-[13px]">ข้อสั่งการ</span>
-                    </a>
-                    <a id="nav-law" onclick="loadPage('law.html', this)" class="nav-link">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                        <span class="text-[12px] xl:text-[13px]">กฎหมาย</span>
-                    </a>
-                    <a id="nav-budget" onclick="loadPage('budget.html', this)" class="nav-link">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
-                        <span class="text-[12px] xl:text-[13px]">กรอบกฎหมาย</span>
-                    </a>
+
+                    <!-- 2. กระบวนการ (Drop-down) -->
+                    <div class="relative h-full group">
+                        <a class="nav-link">
+                            <i class="fa-solid fa-arrows-spin main-icon"></i>
+                            <span class="text-[13px] font-semibold flex items-center gap-1">กระบวนการ <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></span>
+                        </a>
+                        <!-- Drop-down Box -->
+                        <div class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 overflow-hidden">
+                                <a id="nav-cycle" onclick="loadPage('cycle.html', this)" class="dropdown-item block px-5 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-white/5 transition-colors flex items-center gap-3">
+                                    <i class="fa-solid fa-rotate w-4 text-center"></i> วงจรงบฯ
+                                </a>
+                                <a id="nav-timeline" onclick="loadPage('timeline.html', this)" class="dropdown-item block px-5 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-white/5 transition-colors flex items-center gap-3">
+                                    <i class="fa-solid fa-calendar-days w-4 text-center"></i> ไทม์ไลน์
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. หมวดหมู่งบประมาณ (Drop-down) -->
+                    <div class="relative h-full group">
+                        <a class="nav-link">
+                            <i class="fa-solid fa-sitemap main-icon"></i>
+                            <span class="text-[13px] font-semibold flex items-center gap-1">หมวดหมู่งบประมาณ <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></span>
+                        </a>
+                        <!-- Drop-down Box -->
+                        <div class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 overflow-hidden">
+                                <a id="nav-type" onclick="loadPage('type.html', this)" class="dropdown-item block px-5 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-white/5 transition-colors flex items-center gap-3">
+                                    <i class="fa-solid fa-layer-group w-4 text-center"></i> ประเภทงบ
+                                </a>
+                                <a id="nav-expense" onclick="loadPage('expense.html', this)" class="dropdown-item block px-5 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-white/5 transition-colors flex items-center gap-3">
+                                    <i class="fa-solid fa-coins w-4 text-center"></i> ประเภทรายจ่าย
+                                </a>
+                                <a id="nav-account" onclick="loadPage('account.html', this)" class="dropdown-item block px-5 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-white/5 transition-colors flex items-center gap-3">
+                                    <i class="fa-solid fa-file-invoice-dollar w-4 text-center"></i> ชนิดบัญชี
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. กฎระเบียบและข้อสั่งการ (Drop-down) -->
+                    <div class="relative h-full group">
+                        <a class="nav-link">
+                            <i class="fa-solid fa-scale-balanced main-icon"></i>
+                            <span class="text-[13px] font-semibold flex items-center gap-1">กฎระเบียบและข้อสั่งการ <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></span>
+                        </a>
+                        <!-- Drop-down Box -->
+                        <div class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 overflow-hidden">
+                                <a id="nav-budget" onclick="loadPage('budget.html', this)" class="dropdown-item block px-5 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-white/5 transition-colors flex items-center gap-3">
+                                    <i class="fa-solid fa-book w-4 text-center"></i> กรอบกฎหมาย
+                                </a>
+                                <a id="nav-law" onclick="loadPage('law.html', this)" class="dropdown-item block px-5 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-white/5 transition-colors flex items-center gap-3">
+                                    <i class="fa-solid fa-gavel w-4 text-center"></i> กฎหมาย
+                                </a>
+                                <a id="nav-order" onclick="loadPage('order.html', this)" class="dropdown-item block px-5 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-white/5 transition-colors flex items-center gap-3">
+                                    <i class="fa-solid fa-bullhorn w-4 text-center"></i> ข้อสั่งการ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. ประเมินผล (ไม่มี Drop-down) -->
                     <a id="nav-evaluation" onclick="loadPage('evaluation.html', this)" class="nav-link">
-                        <i class="fa-solid fa-magnifying-glass-chart"></i>
-                        <span class="text-[12px] xl:text-[13px]">ประเมินผล</span>
+                        <i class="fa-solid fa-magnifying-glass-chart main-icon"></i>
+                        <span class="text-[13px] font-semibold">ประเมินผล</span>
                     </a>
+
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Dropdown Menu -->
-        <div id="nav-menu-mobile" class="hidden xl:hidden absolute top-20 left-0 right-0 bg-[#0f172a]/95 backdrop-blur-xl shadow-2xl border-t border-white/10 flex-col p-4 space-y-2 max-h-[calc(100vh-5rem)] overflow-y-auto z-50">
-            <a id="nav-home-mobile" onclick="showLanding(document.getElementById('nav-home')); closeMobileMenu();" class="nav-link-mobile active p-3 rounded-xl flex items-center gap-3 transition-colors font-semibold">
-                <i class="fa-solid fa-house text-lg w-6 text-center text-[#d4af37]"></i> หน้าหลัก
+        <!-- Mobile Dropdown Menu (Grouped structure) -->
+        <div id="nav-menu-mobile" class="hidden xl:hidden absolute top-20 left-0 right-0 bg-[#0f172a]/95 backdrop-blur-xl shadow-2xl border-t border-white/10 flex-col p-2 space-y-1 max-h-[calc(100vh-5rem)] overflow-y-auto z-50">
+            
+            <a id="nav-home-mobile" onclick="showLanding(document.getElementById('nav-home')); closeMobileMenu();" class="nav-link-mobile active p-3 px-5 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-house text-lg w-6 text-center"></i> หน้าหลัก
             </a>
-            <a id="nav-timeline-mobile" onclick="loadPage('timeline.html', document.getElementById('nav-timeline')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 transition-colors font-semibold">
-                <i class="fa-solid fa-calendar-days text-lg w-6 text-center text-[#d4af37]"></i> ไทม์ไลน์
+            
+            <!-- Group: กระบวนการ -->
+            <div class="px-5 pt-4 pb-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest">กระบวนการ</div>
+            <a id="nav-cycle-mobile" onclick="loadPage('cycle.html', document.getElementById('nav-cycle')); closeMobileMenu();" class="nav-link-mobile p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-rotate text-md w-6 text-center opacity-80"></i> วงจรงบฯ
             </a>
-            <a id="nav-cycle-mobile" onclick="loadPage('cycle.html', document.getElementById('nav-cycle')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 transition-colors font-semibold">
-                <i class="fa-solid fa-arrows-spin text-lg w-6 text-center text-[#d4af37]"></i> วงจรงบฯ
+            <a id="nav-timeline-mobile" onclick="loadPage('timeline.html', document.getElementById('nav-timeline')); closeMobileMenu();" class="nav-link-mobile p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-calendar-days text-md w-6 text-center opacity-80"></i> ไทม์ไลน์
             </a>
-            <a id="nav-type-mobile" onclick="loadPage('type.html', document.getElementById('nav-type')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 transition-colors font-semibold">
-                <i class="fa-solid fa-sitemap text-lg w-6 text-center text-[#d4af37]"></i> ประเภทงบ
+
+            <!-- Group: หมวดหมู่งบประมาณ -->
+            <div class="px-5 pt-4 pb-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest border-t border-white/5 mt-2">หมวดหมู่งบประมาณ</div>
+            <a id="nav-type-mobile" onclick="loadPage('type.html', document.getElementById('nav-type')); closeMobileMenu();" class="nav-link-mobile p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-layer-group text-md w-6 text-center opacity-80"></i> ประเภทงบ
             </a>
-            <a id="nav-expense-mobile" onclick="loadPage('expense.html', document.getElementById('nav-expense')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 transition-colors font-semibold">
-                <i class="fa-solid fa-coins text-lg w-6 text-center text-[#d4af37]"></i> ประเภทรายจ่าย
+            <a id="nav-expense-mobile" onclick="loadPage('expense.html', document.getElementById('nav-expense')); closeMobileMenu();" class="nav-link-mobile p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-coins text-md w-6 text-center opacity-80"></i> ประเภทรายจ่าย
             </a>
-            <a id="nav-account-mobile" onclick="loadPage('account.html', document.getElementById('nav-account')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 transition-colors font-semibold">
-                <i class="fa-solid fa-layer-group text-lg w-6 text-center text-[#d4af37]"></i> ชนิดบัญชี
+            <a id="nav-account-mobile" onclick="loadPage('account.html', document.getElementById('nav-account')); closeMobileMenu();" class="nav-link-mobile p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-file-invoice-dollar text-md w-6 text-center opacity-80"></i> ชนิดบัญชี
             </a>
-            <a id="nav-order-mobile" onclick="loadPage('order.html', document.getElementById('nav-order')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 transition-colors font-semibold">
-                <i class="fa-solid fa-bullhorn text-lg w-6 text-center text-[#d4af37]"></i> ข้อสั่งการ
+
+            <!-- Group: กฎระเบียบและข้อสั่งการ -->
+            <div class="px-5 pt-4 pb-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest border-t border-white/5 mt-2">กฎระเบียบและข้อสั่งการ</div>
+            <a id="nav-budget-mobile" onclick="loadPage('budget.html', document.getElementById('nav-budget')); closeMobileMenu();" class="nav-link-mobile p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-book text-md w-6 text-center opacity-80"></i> กรอบกฎหมาย
             </a>
-            <a id="nav-law-mobile" onclick="loadPage('law.html', document.getElementById('nav-law')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 transition-colors font-semibold">
-                <i class="fa-solid fa-scale-balanced text-lg w-6 text-center text-[#d4af37]"></i> กฎหมาย
+            <a id="nav-law-mobile" onclick="loadPage('law.html', document.getElementById('nav-law')); closeMobileMenu();" class="nav-link-mobile p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-gavel text-md w-6 text-center opacity-80"></i> กฎหมาย
             </a>
-            <a id="nav-budget-mobile" onclick="loadPage('budget.html', document.getElementById('nav-budget')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 transition-colors font-semibold">
-                <i class="fa-solid fa-file-invoice-dollar text-lg w-6 text-center text-[#d4af37]"></i> กรอบกฎหมาย
+            <a id="nav-order-mobile" onclick="loadPage('order.html', document.getElementById('nav-order')); closeMobileMenu();" class="nav-link-mobile p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-bullhorn text-md w-6 text-center opacity-80"></i> ข้อสั่งการ
             </a>
-            <a id="nav-evaluation-mobile" onclick="loadPage('evaluation.html', document.getElementById('nav-evaluation')); closeMobileMenu();" class="nav-link-mobile p-3 rounded-xl flex items-center gap-3 transition-colors font-semibold">
-                <i class="fa-solid fa-magnifying-glass-chart text-lg w-6 text-center text-[#d4af37]"></i> ประเมินผล
+
+            <!-- Group: ประเมินผล -->
+            <div class="px-5 pt-4 pb-2 border-t border-white/5 mt-2"></div>
+            <a id="nav-evaluation-mobile" onclick="loadPage('evaluation.html', document.getElementById('nav-evaluation')); closeMobileMenu();" class="nav-link-mobile p-3 px-5 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-magnifying-glass-chart text-lg w-6 text-center"></i> ประเมินผล
             </a>
         </div>
     </nav>
@@ -278,7 +324,7 @@
                 </h3>
             </div>
             
-            <!-- Three Horizontal Buttons (Updated to GG-BOB Cards) -->
+            <!-- Three Horizontal Info Boxes (GG-BOB Cards) -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-6xl mb-16 fade-in-up" style="animation-delay: 0.7s;">
                 
                 <div class="group flex flex-col items-center text-center gap-3 bg-[#111827]/60 border border-[#d4af37]/40 rounded-[1.25rem] p-6 hover:bg-[#d4af37]/10 hover:border-[#FDCD0E] hover:shadow-[0_0_20px_rgba(253,205,14,0.2)] transition-all backdrop-blur-md">
@@ -374,7 +420,7 @@
     </header>
 
     <!-- Main Content Area (Hidden on Landing Page) -->
-    <main id="content-area" class="flex-grow w-full hidden pb-8 pt-8">
+    <main id="content-area" class="flex-grow w-full hidden pb-8 bg-slate-50 pt-8">
         <!-- Fetched HTML is injected here -->
     </main>
 
@@ -399,17 +445,39 @@
         }
 
         function setActiveNav(navElement) {
-            // Remove active class from all links
-            document.querySelectorAll('.nav-link, .nav-link-mobile').forEach(link => link.classList.remove('active'));
+            // Remove active states from all
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            document.querySelectorAll('.dropdown-item').forEach(link => {
+                link.classList.remove('text-[#FDCD0E]', 'bg-white/5');
+                link.classList.add('text-slate-300');
+            });
+            document.querySelectorAll('.nav-link-mobile').forEach(link => link.classList.remove('active'));
             
             if(navElement) {
-                // Determine base ID to set both desktop and mobile as active
                 const baseId = navElement.id.replace('-mobile', '');
                 const deskEl = document.getElementById(baseId);
                 const mobEl = document.getElementById(baseId + '-mobile');
                 
-                if(deskEl) deskEl.classList.add('active');
-                if(mobEl) mobEl.classList.add('active');
+                if(deskEl) {
+                    if (deskEl.classList.contains('dropdown-item')) {
+                        // Dropdown item clicked
+                        deskEl.classList.remove('text-slate-300');
+                        deskEl.classList.add('text-[#FDCD0E]', 'bg-white/5');
+                        // Make parent group nav-link active
+                        const parentGroup = deskEl.closest('.group');
+                        if (parentGroup) {
+                            const parentLink = parentGroup.querySelector('.nav-link');
+                            if (parentLink) parentLink.classList.add('active');
+                        }
+                    } else if (deskEl.classList.contains('nav-link')) {
+                        // Main nav item clicked
+                        deskEl.classList.add('active');
+                    }
+                }
+                
+                if(mobEl) {
+                    mobEl.classList.add('active');
+                }
             }
         }
 
@@ -417,6 +485,9 @@
             // Show landing page and hide content area
             document.getElementById('landing-page').style.display = 'flex';
             document.getElementById('content-area').style.display = 'none';
+            // เปลี่ยนพื้นหลัง body กลับเป็นสีเข้ม
+            document.body.classList.remove('bg-slate-50');
+            document.body.classList.add('bg-[#070e1e]');
             
             setActiveNav(navElement);
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -433,6 +504,9 @@
                 document.getElementById('landing-page').style.display = 'none';
                 const contentArea = document.getElementById('content-area');
                 contentArea.style.display = 'block';
+                // เปลี่ยนพื้นหลัง body ให้เข้ากับหน้า Content สีสว่าง
+                document.body.classList.remove('bg-[#070e1e]');
+                document.body.classList.add('bg-slate-50');
                 
                 // Inject the HTML into the content area
                 contentArea.innerHTML = html;
@@ -445,6 +519,9 @@
                 document.getElementById('landing-page').style.display = 'none';
                 const contentArea = document.getElementById('content-area');
                 contentArea.style.display = 'block';
+                document.body.classList.remove('bg-[#070e1e]');
+                document.body.classList.add('bg-slate-50');
+                
                 contentArea.innerHTML = `
                     <div class="text-center py-24 text-red-500 max-w-lg mx-auto">
                         <i class="fa-solid fa-triangle-exclamation text-4xl mb-4"></i>
@@ -522,7 +599,6 @@
             }
         }
 
-        // Updated render function to match the new List layout style
         function renderRSSItems(items, container) {
             if (items && items.length > 0) {
                 let html = '';
@@ -569,3 +645,4 @@
     </script>
 </body>
 </html>
+```eof
