@@ -233,111 +233,160 @@
         </div>
     </nav>
 
-    <!-- DRAMATIC LANDING PAGE -->
-    <header id="landing-page" class="relative text-white flex-grow flex flex-col justify-center items-center text-center overflow-hidden bg-[#131b2f] w-full min-h-[calc(100vh-5rem)]">
-        <!-- Dramatic Background & Lighting -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-20 mix-blend-overlay" alt="background">
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-blue-950/80 to-slate-950"></div>
-            <!-- Dynamic Orbs -->
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/30 rounded-full blur-[100px] animate-pulse"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-indigo-600/20 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-cyan-500/10 rounded-full blur-[150px]"></div>
+    <!-- DRAMATIC LANDING PAGE (REDESIGNED MATCHING NEW REFERENCE) -->
+    <header id="landing-page" class="relative text-white flex-grow flex flex-col justify-center items-center text-center overflow-hidden bg-[#070e1e] w-full min-h-[calc(100vh-5rem)]">
+        
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <!-- Base radial gradients to create depth -->
+            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-[#070e1e] to-[#070e1e]"></div>
+            
+            <!-- Glowing nodes mimicking constellation/network effect -->
+            <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[120px]" style="animation-delay: 2s;"></div>
+            
+            <!-- Minimal decorative dots & lines -->
+            <div class="absolute top-[15%] left-[10%] w-1 h-1 bg-white/50 rounded-full shadow-[0_0_10px_2px_rgba(255,255,255,0.8)]"></div>
+            <div class="absolute top-[35%] right-[15%] w-1.5 h-1.5 bg-amber-400/50 rounded-full shadow-[0_0_15px_3px_rgba(253,205,14,0.8)]"></div>
+            <div class="absolute bottom-[20%] left-[20%] w-1 h-1 bg-blue-300/50 rounded-full shadow-[0_0_10px_2px_rgba(147,197,253,0.8)]"></div>
+            
+            <!-- Ornate corner hint overlay (subtle) -->
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-[#FDCD0E]/10 to-transparent pointer-events-none blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-[#FDCD0E]/10 to-transparent pointer-events-none blur-3xl"></div>
         </div>
 
-        <div class="relative z-20 max-w-6xl mx-auto px-4 flex flex-col items-center justify-center h-full w-full py-20">
+        <div class="relative z-20 max-w-[1400px] mx-auto px-4 lg:px-8 py-16 flex flex-col items-center justify-center h-full w-full">
             
-            <!-- Floating Dramatic Logo -->
-            <div class="relative mb-10 fade-in-up" style="animation-delay: 0.1s;">
-                <div class="float-anim relative z-50 inline-flex justify-center items-center">
-                    <div class="absolute inset-0 bg-[#FDCD0E] rounded-full blur-[60px] opacity-30 pulse-glow"></div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg" alt="Official Seal" class="relative z-50 w-32 h-32 md:w-44 md:h-44 object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.6)]">
-                </div>
+            <!-- Center Emblem / Logo -->
+            <div class="relative mb-6 fade-in-up" style="animation-delay: 0.1s;">
+                <div class="absolute inset-0 bg-[#FDCD0E] rounded-full blur-[50px] opacity-40 pulse-glow"></div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg" alt="Official Seal" class="relative z-10 w-28 h-28 md:w-40 md:h-40 object-contain drop-shadow-[0_0_15px_rgba(253,205,14,0.7)]">
             </div>
             
             <!-- Main Typography -->
-            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-2 tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-[#FDCD0E] to-amber-600 drop-shadow-2xl fade-in-up" style="animation-delay: 0.3s;">
+            <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-black mb-1 tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#ffed4a] via-[#FDCD0E] to-[#b45309] drop-shadow-2xl fade-in-up" style="animation-delay: 0.3s;">
                 สำนักงบประมาณ
             </h1>
-            <h2 class="text-xl md:text-3xl lg:text-4xl font-bold mb-10 tracking-[0.3em] text-blue-300 uppercase fade-in-up drop-shadow-lg" style="animation-delay: 0.5s;">
+            <h2 class="text-lg md:text-2xl lg:text-3xl font-bold mb-6 tracking-[0.3em] text-[#60a5fa] uppercase fade-in-up drop-shadow-lg" style="animation-delay: 0.4s;">
                 Budget Bureau
             </h2>
             
-            <div class="w-24 md:w-40 h-1.5 md:h-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 mx-auto mb-10 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.8)] fade-in-up" style="animation-delay: 0.6s;"></div>
-            
-            <!-- New GG-BOB Motto Section -->
-            <div class="mb-14 fade-in-up w-full max-w-5xl mx-auto px-2 md:px-4" style="animation-delay: 0.7s;">
-                <h3 class="text-2xl md:text-4xl font-bold text-white mb-8 drop-shadow-md tracking-wide">
-                    "GG– BOB : ระบบดี คนดี และมีการจัดการที่ดี"
+            <!-- Motto -->
+            <div class="fade-in-up mb-12" style="animation-delay: 0.5s;">
+                <h3 class="text-xl md:text-3xl font-bold text-white drop-shadow-md tracking-wide">
+                    "GG- BOB : ระบบดี คนดี และมีการจัดการที่ดี"
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                    <div class="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-xl hover:bg-white/10 transition-colors">
-                        <h4 class="text-xl font-bold text-blue-400 mb-3 flex items-center gap-2"><i class="fa-solid fa-gears"></i> ระบบดี (System)</h4>
-                        <p class="text-sm text-slate-300 leading-relaxed font-light">มีการจัดระบบการทำงานที่เป็นมาตรฐาน เทคโนโลยีที่ทันสมัย กระบวนการทำงานที่ชัดเจน โปร่งใส ตรวจสอบได้ และมีการติดตามประเมินผลอย่างต่อเนื่อง</p>
-                    </div>
-                    <div class="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-xl hover:bg-white/10 transition-colors">
-                        <h4 class="text-xl font-bold text-blue-400 mb-3 flex items-center gap-2"><i class="fa-solid fa-users"></i> คนดี (People)</h4>
-                        <p class="text-sm text-slate-300 leading-relaxed font-light">ส่งเสริมให้บุคลากรมีคุณธรรม จริยธรรม ซื่อสัตย์สุจริต มีจิตสำนึกในการปฏิบัติหน้าที่ มีสมรรถนะสูง และยึดประชาชนเป็นศูนย์กลางในการให้บริการ</p>
-                    </div>
-                    <div class="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-xl hover:bg-white/10 transition-colors">
-                        <h4 class="text-xl font-bold text-blue-400 mb-3 flex items-center gap-2"><i class="fa-solid fa-chart-line"></i> การจัดการที่ดี (Management)</h4>
-                        <p class="text-sm text-slate-300 leading-relaxed font-light">บริหารจัดการทรัพยากรอย่างคุ้มค่า มีการบูรณาการความร่วมมือ ลดขั้นตอนการทำงานให้รวดเร็ว และมีการตัดสินใจที่ตั้งอยู่บนหลักเหตุผล</p>
-                    </div>
-                </div>
             </div>
             
-            <!-- Impactful CTA Buttons -->
-            <div class="flex flex-col items-center justify-center mb-16 fade-in-up w-full px-4" style="animation-delay: 0.9s;">
-                <button onclick="loadPage('cycle.html', document.getElementById('nav-cycle'))" class="group relative px-8 py-4 sm:px-12 sm:py-5 bg-blue-600 text-white font-bold text-lg sm:text-xl rounded-full overflow-hidden shadow-[0_0_40px_rgba(37,99,235,0.4)] transition-all hover:scale-105 hover:shadow-[0_0_60px_rgba(37,99,235,0.7)] w-full sm:w-auto">
-                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <span class="relative flex items-center justify-center gap-3">เริ่มต้นเรียนรู้ <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i></span>
+            <!-- Three Horizontal Buttons -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-5xl mb-16 fade-in-up" style="animation-delay: 0.7s;">
+                
+                <button onclick="loadPage('cycle.html', document.getElementById('nav-cycle'))" class="group flex items-center justify-center gap-4 bg-[#111827]/60 border border-[#d4af37]/40 rounded-[1.25rem] p-4 md:p-5 hover:bg-[#d4af37]/10 hover:border-[#FDCD0E] hover:shadow-[0_0_20px_rgba(253,205,14,0.2)] transition-all backdrop-blur-md">
+                    <i class="fa-solid fa-gavel text-4xl text-[#FDCD0E] drop-shadow-[0_0_8px_rgba(253,205,14,0.5)] group-hover:scale-110 transition-transform"></i>
+                    <div class="text-left flex flex-col justify-center">
+                        <span class="text-white font-bold text-lg leading-tight">ระบบของงบประมาณ</span>
+                        <span class="text-slate-400 text-sm font-medium">Proposal System</span>
+                    </div>
                 </button>
+
+                <button onclick="loadPage('expense.html', document.getElementById('nav-expense'))" class="group flex items-center justify-center gap-4 bg-[#111827]/60 border border-[#d4af37]/40 rounded-[1.25rem] p-4 md:p-5 hover:bg-[#d4af37]/10 hover:border-[#FDCD0E] hover:shadow-[0_0_20px_rgba(253,205,14,0.2)] transition-all backdrop-blur-md">
+                    <i class="fa-solid fa-chart-pie text-4xl text-[#FDCD0E] drop-shadow-[0_0_8px_rgba(253,205,14,0.5)] group-hover:scale-110 transition-transform"></i>
+                    <div class="text-left flex flex-col justify-center">
+                        <span class="text-white font-bold text-lg leading-tight">สถิติงบประมาณ</span>
+                        <span class="text-slate-400 text-sm font-medium">Budget Statistics</span>
+                    </div>
+                </button>
+
+                <button onclick="loadPage('law.html', document.getElementById('nav-law'))" class="group flex items-center justify-center gap-4 bg-[#111827]/60 border border-[#d4af37]/40 rounded-[1.25rem] p-4 md:p-5 hover:bg-[#d4af37]/10 hover:border-[#FDCD0E] hover:shadow-[0_0_20px_rgba(253,205,14,0.2)] transition-all backdrop-blur-md">
+                    <i class="fa-solid fa-scale-balanced text-4xl text-[#FDCD0E] drop-shadow-[0_0_8px_rgba(253,205,14,0.5)] group-hover:scale-110 transition-transform"></i>
+                    <div class="text-left flex flex-col justify-center">
+                        <span class="text-white font-bold text-lg leading-tight">นโยบายและกฎหมาย</span>
+                        <span class="text-slate-400 text-sm font-medium">Policy & Law</span>
+                    </div>
+                </button>
+
             </div>
 
-            <!-- Reference Badge -->
-            <div class="inline-flex items-center gap-4 bg-white/5 backdrop-blur-xl px-6 py-4 md:px-8 md:py-4 rounded-3xl text-left border border-white/10 shadow-2xl fade-in-up hover:bg-white/10 transition-all duration-300 cursor-default" style="animation-delay: 1.1s;">
-                <div class="bg-blue-500/20 p-3 rounded-2xl border border-blue-400/30 shadow-[0_0_15px_rgba(59,130,246,0.3)] shrink-0">
-                    <i class="fa-solid fa-bolt text-blue-300 text-xl md:text-2xl"></i>
-                </div>
-                <div>
-                    <span class="block text-blue-300 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-1">Reference Update</span>
-                    <span class="text-slate-100 text-xs md:text-sm font-medium">มติ ครม. 11 เม.ย. 69 และ เอกสารบรรยายสำนักงบประมาณ</span>
-                </div>
-            </div>
-
-            <!-- NEW: RSS Feed Section (Direct XML Parsing with Fallback) -->
-            <div class="w-full max-w-5xl mx-auto mt-20 mb-8 fade-in-up" style="animation-delay: 1.3s;">
-                <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4 px-2">
-                    <h3 class="text-xl md:text-2xl font-bold text-white flex items-center gap-3">
-                        <i class="fa-solid fa-rss text-[#FDCD0E]"></i> ข่าวประชาสัมพันธ์ล่าสุด
-                    </h3>
-                    <a href="https://www.bb.go.th/topic.php?gid=91&mid=200" target="_blank" class="text-sm text-blue-300 hover:text-white transition-colors flex items-center gap-1">
-                        ดูทั้งหมด <i class="fa-solid fa-angle-right text-xs"></i>
-                    </a>
-                </div>
-                <div id="rss-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left px-2">
-                    <!-- Loading State -->
-                    <div class="col-span-full text-center py-10 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10">
-                        <i class="fa-solid fa-circle-notch fa-spin text-3xl mb-3 text-blue-500"></i>
-                        <p class="text-slate-400 text-sm">กำลังโหลดข่าวสารจากสำนักงบประมาณ...</p>
+            <!-- Bottom Section: Dashboard Mockup & RSS Feed -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-6xl fade-in-up" style="animation-delay: 0.9s;">
+                
+                <!-- Left: Dashboard Glassmorphism Panel (7 cols) -->
+                <div class="lg:col-span-7 bg-white/5 border border-[#38bdf8]/30 rounded-3xl p-6 backdrop-blur-md shadow-2xl relative overflow-hidden flex flex-col">
+                    <!-- Decor Window Dots -->
+                    <div class="flex gap-2 mb-6">
+                        <div class="w-3 h-3 rounded-full bg-rose-500/80 shadow-[0_0_5px_rgba(244,63,94,0.5)]"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-500/80 shadow-[0_0_5px_rgba(245,158,11,0.5)]"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500/80 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-grow">
+                        <!-- Chart Mockup Box -->
+                        <div class="bg-[#0f172a]/60 rounded-2xl border border-slate-700/50 p-6 flex items-center justify-center relative row-span-2">
+                            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent rounded-2xl"></div>
+                            <!-- Simple CSS Donut Chart -->
+                            <div class="w-36 h-36 rounded-full border-[12px] border-slate-700 relative">
+                                <div class="absolute inset-[-12px] rounded-full border-[12px] border-cyan-400 border-t-transparent border-l-transparent transform rotate-45"></div>
+                                <div class="absolute inset-0 flex items-center justify-center flex-col">
+                                    <span class="text-[11px] text-slate-400 text-center leading-tight mb-0.5">รายจ่ายประจำ<br>(73.3%)</span>
+                                    <span class="text-[13px] font-bold text-white tracking-tight">2,777,443.0 <span class="text-[10px] text-slate-400 font-normal">M</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Value Box 1 -->
+                        <div class="bg-[#0f172a]/60 rounded-2xl border border-slate-700/50 p-5 flex flex-col justify-center relative">
+                            <i class="fa-solid fa-wave-square text-cyan-400/50 absolute top-4 right-4"></i>
+                            <div class="text-[#FDCD0E] text-2xl lg:text-3xl font-bold tracking-tight mb-1">฿ 3,788,000 <span class="text-sm text-slate-400">M</span></div>
+                            <div class="text-slate-400 text-xs">กรอบวงเงินปี 2570</div>
+                        </div>
+                        
+                        <!-- Value Box 2 -->
+                        <div class="bg-[#0f172a]/60 rounded-2xl border border-slate-700/50 p-5 flex flex-col justify-center relative overflow-hidden">
+                            <div class="text-[#f97316] text-2xl lg:text-3xl font-bold tracking-tight mb-1">788,000 <span class="text-sm text-slate-400">M</span></div>
+                            <div class="text-slate-400 text-xs">รายจ่ายลงทุน (20.8%)</div>
+                            <!-- Mini bar charts decor -->
+                            <div class="absolute bottom-2 right-4 flex items-end gap-1 opacity-40">
+                                <div class="w-1.5 h-3 bg-cyan-400 rounded-t"></div>
+                                <div class="w-1.5 h-6 bg-cyan-400 rounded-t"></div>
+                                <div class="w-1.5 h-4 bg-cyan-400 rounded-t"></div>
+                                <div class="w-1.5 h-8 bg-[#f97316] rounded-t"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Right: RSS Feed Announcements (5 cols) -->
+                <div class="lg:col-span-5 flex flex-col text-left">
+                    <h3 class="text-xl md:text-2xl font-bold text-[#FDCD0E] mb-1 drop-shadow-sm">Latest Official Announcements</h3>
+                    <h4 class="text-slate-300 text-sm font-medium mb-5 border-b border-white/10 pb-3 flex justify-between items-end">
+                        ข่าวสารล่าสุดจากหน่วยงาน
+                        <a href="https://www.bb.go.th/topic.php?gid=91&mid=200" target="_blank" class="text-xs text-cyan-400 hover:text-white transition-colors">ดูทั้งหมด <i class="fa-solid fa-angle-right"></i></a>
+                    </h4>
+                    
+                    <!-- Container for JS Injection -->
+                    <div id="rss-container" class="space-y-1 flex-grow overflow-y-auto max-h-[250px] pr-2 scrollbar-hide">
+                        <!-- Loading State -->
+                        <div class="text-center py-10 bg-white/5 rounded-xl border border-white/5">
+                            <i class="fa-solid fa-circle-notch fa-spin text-2xl mb-3 text-cyan-500"></i>
+                            <p class="text-slate-400 text-sm">กำลังโหลดข่าวสาร...</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             
         </div>
         
-        <!-- Smooth fading bottom edge -->
-        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900 to-transparent z-10 pointer-events-none"></div>
     </header>
 
     <!-- Main Content Area (Hidden on Landing Page) -->
-    <main id="content-area" class="flex-grow w-full hidden pb-8">
+    <main id="content-area" class="flex-grow w-full hidden pb-8 pt-8">
         <!-- Fetched HTML is injected here -->
     </main>
 
-    <footer class="bg-slate-900 text-slate-400 py-10 text-center text-sm border-t border-slate-800 mt-auto relative z-20">
+    <footer class="bg-[#050b14] text-slate-400 py-10 text-center text-sm border-t border-white/5 mt-auto relative z-20">
         <div class="flex justify-center mb-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg" alt="Footer Logo" class="h-12 w-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg" alt="Footer Logo" class="h-10 w-10 opacity-30 grayscale hover:grayscale-0 transition-all duration-300">
         </div>
         <p>&copy; 2569 สำนักงบประมาณ (Budget Bureau) - เอกสารสรุปความรู้วงจรการงบประมาณแผ่นดิน <br class="sm:hidden"> อัปเดตข้อมูลล่าสุด 21 มีนาคม 2569</p>
     </footer>
@@ -433,12 +482,13 @@
                     throw new Error('No valid items in the fetched XML.');
                 }
                 
-                renderRSSItems(items.slice(0, 4), container);
+                // Fetch up to 5 items to fill the list nicely
+                renderRSSItems(items.slice(0, 5), container);
 
             } catch (error) {
                 console.warn('Live RSS Fetch failed. Falling back to the provided static XML data.', error);
                 
-                // ข้อมูลสำรอง (Mock Fallback) กรณีที่การเชื่อมต่อผ่าน Proxy โดนบล็อกหรือเกิด Error
+                // ข้อมูลสำรอง (Mock Fallback)
                 const mockXML = `<?xml version="1.0" encoding="utf-8"?>
                 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
                 <channel>
@@ -462,17 +512,23 @@
                         <link>https://www.bb.go.th/topic-detail.php?id=18690</link>
                         <pubDate>Fri, 01 May 2026 13:00:00 +0700</pubDate>
                     </item>
+                    <item>
+                        <title>โครงสร้างแผนงานตามยุทธศาสตร์ ประจำปีงบประมาณ พ.ศ. 2570 (ฉบับปรับปรุง)</title>
+                        <link>https://www.bb.go.th/topic-detail.php?id=18672</link>
+                        <pubDate>Tue, 28 Apr 2026 15:00:00 +0700</pubDate>
+                    </item>
                 </channel>
                 </rss>`;
                 
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(mockXML, "text/xml");
-                const items = Array.from(xmlDoc.querySelectorAll("item")).slice(0, 4);
+                const items = Array.from(xmlDoc.querySelectorAll("item")).slice(0, 5);
                 
                 renderRSSItems(items, container);
             }
         }
 
+        // Updated render function to match the new List layout style
         function renderRSSItems(items, container) {
             if (items && items.length > 0) {
                 let html = '';
@@ -484,11 +540,10 @@
                     // แปลงรูปแบบวันที่ (Format Date)
                     let pubDateFormatted = pubDateRaw;
                     try {
-                        // ปรับแต่ง String Date ให้รองรับ Browser ส่วนใหญ่
                         const cleanDateString = pubDateRaw.replace(/-/g, '/');
                         const dateObj = new Date(cleanDateString);
                         if (!isNaN(dateObj)) {
-                            pubDateFormatted = dateObj.toLocaleDateString('th-TH', {
+                            pubDateFormatted = dateObj.toLocaleDateString('en-US', {
                                 year: 'numeric', month: 'short', day: 'numeric'
                             });
                         }
@@ -497,20 +552,18 @@
                     }
                     
                     html += `
-                        <a href="${link}" target="_blank" class="bg-white/5 backdrop-blur-md border border-white/10 p-5 rounded-2xl shadow-xl hover:bg-white/10 hover:-translate-y-1 transition-all group flex flex-col justify-between min-h-[120px]">
+                        <a href="${link}" target="_blank" class="flex items-start gap-4 group p-3 hover:bg-white/5 rounded-xl transition-all border border-transparent hover:border-white/10">
+                            <i class="fa-regular fa-file-lines text-2xl text-slate-500 group-hover:text-[#FDCD0E] transition-colors mt-0.5"></i>
                             <div>
-                                <h4 class="text-white font-medium text-sm leading-relaxed mb-3 line-clamp-2 group-hover:text-[#FDCD0E] transition-colors">${title}</h4>
-                            </div>
-                            <div class="flex items-center justify-between mt-auto">
-                                <span class="text-blue-300 text-[11px] font-light"><i class="fa-regular fa-calendar mr-1"></i> ${pubDateFormatted}</span>
-                                <i class="fa-solid fa-arrow-right text-slate-500 text-xs group-hover:text-[#FDCD0E] transition-colors"></i>
+                                <h4 class="text-slate-200 font-medium text-[13px] md:text-sm leading-snug group-hover:text-white transition-colors line-clamp-2">${title}</h4>
+                                <span class="text-slate-500 text-[11px] mt-1.5 block font-mono">${pubDateFormatted}</span>
                             </div>
                         </a>
                     `;
                 });
                 container.innerHTML = html;
             } else {
-                container.innerHTML = '<div class="col-span-full text-center py-8 text-slate-400 bg-white/5 rounded-2xl border border-white/10">ไม่พบข้อมูลข่าวสาร</div>';
+                container.innerHTML = '<div class="text-center py-8 text-slate-500">ไม่พบข้อมูลข่าวสาร</div>';
             }
         }
 
