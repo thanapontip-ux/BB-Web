@@ -278,31 +278,25 @@
                 </h3>
             </div>
             
-            <!-- Three Horizontal Buttons -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-5xl mb-16 fade-in-up" style="animation-delay: 0.7s;">
+            <!-- Three Horizontal Buttons (Updated to GG-BOB Cards) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-6xl mb-16 fade-in-up" style="animation-delay: 0.7s;">
                 
-                <button onclick="loadPage('cycle.html', document.getElementById('nav-cycle'))" class="group flex items-center justify-center gap-4 bg-[#111827]/60 border border-[#d4af37]/40 rounded-[1.25rem] p-4 md:p-5 hover:bg-[#d4af37]/10 hover:border-[#FDCD0E] hover:shadow-[0_0_20px_rgba(253,205,14,0.2)] transition-all backdrop-blur-md">
-                    <i class="fa-solid fa-gavel text-4xl text-[#FDCD0E] drop-shadow-[0_0_8px_rgba(253,205,14,0.5)] group-hover:scale-110 transition-transform"></i>
-                    <div class="text-left flex flex-col justify-center">
-                        <span class="text-white font-bold text-lg leading-tight">ระบบของงบประมาณ</span>
-                        <span class="text-slate-400 text-sm font-medium">Proposal System</span>
-                    </div>
+                <button onclick="loadPage('cycle.html', document.getElementById('nav-cycle'))" class="group flex flex-col items-center text-center gap-3 bg-[#111827]/60 border border-[#d4af37]/40 rounded-[1.25rem] p-6 hover:bg-[#d4af37]/10 hover:border-[#FDCD0E] hover:shadow-[0_0_20px_rgba(253,205,14,0.2)] transition-all backdrop-blur-md">
+                    <i class="fa-solid fa-gears text-5xl text-[#FDCD0E] drop-shadow-[0_0_8px_rgba(253,205,14,0.5)] group-hover:scale-110 transition-transform mb-2"></i>
+                    <span class="text-white font-bold text-xl leading-tight">ระบบดี (System)</span>
+                    <span class="text-slate-300 text-sm font-light leading-relaxed">มีการจัดระบบการทำงานที่เป็นมาตรฐาน เทคโนโลยีที่ทันสมัย กระบวนการทำงานที่ชัดเจน โปร่งใส ตรวจสอบได้ และมีการติดตามประเมินผลอย่างต่อเนื่อง</span>
                 </button>
 
-                <button onclick="loadPage('expense.html', document.getElementById('nav-expense'))" class="group flex items-center justify-center gap-4 bg-[#111827]/60 border border-[#d4af37]/40 rounded-[1.25rem] p-4 md:p-5 hover:bg-[#d4af37]/10 hover:border-[#FDCD0E] hover:shadow-[0_0_20px_rgba(253,205,14,0.2)] transition-all backdrop-blur-md">
-                    <i class="fa-solid fa-chart-pie text-4xl text-[#FDCD0E] drop-shadow-[0_0_8px_rgba(253,205,14,0.5)] group-hover:scale-110 transition-transform"></i>
-                    <div class="text-left flex flex-col justify-center">
-                        <span class="text-white font-bold text-lg leading-tight">สถิติงบประมาณ</span>
-                        <span class="text-slate-400 text-sm font-medium">Budget Statistics</span>
-                    </div>
+                <button onclick="loadPage('expense.html', document.getElementById('nav-expense'))" class="group flex flex-col items-center text-center gap-3 bg-[#111827]/60 border border-[#d4af37]/40 rounded-[1.25rem] p-6 hover:bg-[#d4af37]/10 hover:border-[#FDCD0E] hover:shadow-[0_0_20px_rgba(253,205,14,0.2)] transition-all backdrop-blur-md">
+                    <i class="fa-solid fa-users text-5xl text-[#FDCD0E] drop-shadow-[0_0_8px_rgba(253,205,14,0.5)] group-hover:scale-110 transition-transform mb-2"></i>
+                    <span class="text-white font-bold text-xl leading-tight">คนดี (People)</span>
+                    <span class="text-slate-300 text-sm font-light leading-relaxed">ส่งเสริมให้บุคลากรมีคุณธรรม จริยธรรม ซื่อสัตย์สุจริต มีจิตสำนึกในการปฏิบัติหน้าที่ มีสมรรถนะสูง และยึดประชาชนเป็นศูนย์กลางในการให้บริการ</span>
                 </button>
 
-                <button onclick="loadPage('law.html', document.getElementById('nav-law'))" class="group flex items-center justify-center gap-4 bg-[#111827]/60 border border-[#d4af37]/40 rounded-[1.25rem] p-4 md:p-5 hover:bg-[#d4af37]/10 hover:border-[#FDCD0E] hover:shadow-[0_0_20px_rgba(253,205,14,0.2)] transition-all backdrop-blur-md">
-                    <i class="fa-solid fa-scale-balanced text-4xl text-[#FDCD0E] drop-shadow-[0_0_8px_rgba(253,205,14,0.5)] group-hover:scale-110 transition-transform"></i>
-                    <div class="text-left flex flex-col justify-center">
-                        <span class="text-white font-bold text-lg leading-tight">นโยบายและกฎหมาย</span>
-                        <span class="text-slate-400 text-sm font-medium">Policy & Law</span>
-                    </div>
+                <button onclick="loadPage('law.html', document.getElementById('nav-law'))" class="group flex flex-col items-center text-center gap-3 bg-[#111827]/60 border border-[#d4af37]/40 rounded-[1.25rem] p-6 hover:bg-[#d4af37]/10 hover:border-[#FDCD0E] hover:shadow-[0_0_20px_rgba(253,205,14,0.2)] transition-all backdrop-blur-md">
+                    <i class="fa-solid fa-chart-line text-5xl text-[#FDCD0E] drop-shadow-[0_0_8px_rgba(253,205,14,0.5)] group-hover:scale-110 transition-transform mb-2"></i>
+                    <span class="text-white font-bold text-xl leading-tight">การจัดการที่ดี (Management)</span>
+                    <span class="text-slate-300 text-sm font-light leading-relaxed">บริหารจัดการทรัพยากรอย่างคุ้มค่า มีการบูรณาการความร่วมมือ ลดขั้นตอนการทำงานให้รวดเร็ว และมีการตัดสินใจที่ตั้งอยู่บนหลักเหตุผล</span>
                 </button>
 
             </div>
