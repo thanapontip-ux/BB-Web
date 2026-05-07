@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หลักเกณฑ์การจัดสรรงบประมาณ พ.ศ. 2570</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Sarabun', 'sans-serif'],
+                    },
+                    colors: {
+                        'bb-blue': '#0a192f',
+                        'bb-gold': '#d4af37',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* สไตล์สำหรับ Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02); 
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(56, 189, 248, 0.3); 
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(56, 189, 248, 0.6); 
+        }
+
+        /* เอฟเฟกต์ Glassmorphism แบบเดียวกับหน้าหลัก */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
+        }
+
+        /* Tab Styles */
+        .tab-btn {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            color: #FDCD0E;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(253, 205, 14, 0.5);
+        }
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #FDCD0E;
+            box-shadow: 0 -2px 10px rgba(253, 205, 14, 0.5);
+        }
+        
+        /* 3R Flow Line */
+        .flow-line {
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #ef4444, #f59e0b, #10b981);
+            z-index: 0;
+            opacity: 0.5;
+        }
+        @media (max-width: 768px) {
+            .flow-line {
+                top: 50px;
+                left: 50%;
+                bottom: 50px;
+                width: 2px;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#070e1e] text-slate-200 antialiased min-h-screen">
+    <!-- หมายเหตุ: ในการใช้งานจริง ให้นำเฉพาะแท็ก <main> ไปเสียบใน index.html -->
+    <main class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+        
+        <!-- Header Section -->
+        <div class="mb-10 text-center relative z-10 animate-slide-up">
+            <div class="inline-flex items-center gap-3 mb-4 bg-white/5 border border-white/10 px-5 py-2 rounded-full text-cyan-400 font-medium text-sm backdrop-blur-sm">
+                <i class="fa-solid fa-book-open"></i> เอกสารใช้ภายในสำนักงบประมาณ (เมษายน 2569)
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-[#FDCD0E] to-amber-600 mb-4 drop-shadow-lg">
+                หลักเกณฑ์การจัดสรรงบประมาณ พ.ศ. 2570
+            </h1>
+            
+            <div class="flex flex-wrap justify-center gap-4 mt-6">
+                <div class="glass-card px-6 py-3 rounded-xl flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 border border-cyan-500/30"><i class="fa-solid fa-crosshairs"></i></div>
+                    <div class="text-left"><p class="text-xs text-slate-400">PRECISELY</p><p class="font-bold text-white tracking-wide">แม่นยำ</p></div>
+                </div>
+                <div class="glass-card px-6 py-3 rounded-xl flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400 border border-amber-500/30"><i class="fa-solid fa-bullseye"></i></div>
+                    <div class="text-left"><p class="text-xs text-slate-400">TARGETED</p><p class="font-bold text-white tracking-wide">ตรงเป้า</p></div>
+                </div>
+                <div class="glass-card px-6 py-3 rounded-xl flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 border border-emerald-500/30"><i class="fa-solid fa-check-double"></i></div>
+                    <div class="text-left"><p class="text-xs text-slate-400">BUDGETING</p><p class="font-bold text-white tracking-wide">ตอบโจทย์</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="flex overflow-x-auto custom-scrollbar mb-8 border-b border-white/10 relative z-10 animate-slide-up" style="animation-delay: 0.1s;">
+            <button onclick="switchTab('principles')" id="tab-principles" class="tab-btn active whitespace-nowrap px-6 py-4 text-sm font-bold flex items-center gap-2 border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-white/5 rounded-t-lg">
+                <i class="fa-solid fa-list-check"></i> หลักการสำคัญ
+            </button>
+            <button onclick="switchTab('pm-orders')" id="tab-pm-orders" class="tab-btn whitespace-nowrap px-6 py-4 text-sm font-bold flex items-center gap-2 border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-white/5 rounded-t-lg">
+                <i class="fa-solid fa-bullhorn"></i> ข้อสั่งการนายกฯ
+            </button>
+            <button onclick="switchTab('three-r')" id="tab-three-r" class="tab-btn whitespace-nowrap px-6 py-4 text-sm font-bold flex items-center gap-2 border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-white/5 rounded-t-lg">
+                <i class="fa-solid fa-rotate"></i> หลัก 3R
+            </button>
+            <button onclick="switchTab('vfm')" id="tab-vfm" class="tab-btn whitespace-nowrap px-6 py-4 text-sm font-bold flex items-center gap-2 border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-white/5 rounded-t-lg">
+                <i class="fa-solid fa-scale-balanced"></i> ความคุ้มค่า (VfM)
+            </button>
+            <button onclick="switchTab('off-budget')" id="tab-off-budget" class="tab-btn whitespace-nowrap px-6 py-4 text-sm font-bold flex items-center gap-2 border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-white/5 rounded-t-lg">
+                <i class="fa-solid fa-piggy-bank"></i> เงินนอกงบประมาณ
+            </button>
+        </div>
+
+        <!-- Content Areas -->
+        <div class="relative z-10 min-h-[400px]">
+            
+            <!-- Tab 1: Principles -->
+            <div id="content-principles" class="tab-content grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 animate-fade-in">
+                
+                <div class="glass-card p-6 rounded-2xl transition-transform duration-300">
+                    <div class="text-cyan-400 text-3xl mb-4"><i class="fa-solid fa-landmark"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">1. สอดคล้องยุทธศาสตร์ชาติ</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">ขับเคลื่อนนโยบายรัฐบาล รักษาเสถียรภาพเศรษฐกิจ รักษาวินัยการคลัง สอดคล้องยุทธศาสตร์ชาติ แผนแม่บทฯ เป้าหมาย SDG และหลักปรัชญาเศรษฐกิจพอเพียง รวมถึงคำนึงถึงมิติเพศภาวะ (GRB)</p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl transition-transform duration-300">
+                    <div class="text-amber-400 text-3xl mb-4"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">2. Pro-Growth Budget</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">กระตุ้นเศรษฐกิจเต็มศักยภาพ ผลักดันการปฏิรูปประเทศ (Transformation) ส่งเสริมพลังงานสะอาด รับมือ Climate Change และเพิ่มขีดความสามารถการแข่งขันด้วยนวัตกรรมดิจิทัล</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl transition-transform duration-300">
+                    <div class="text-rose-400 text-3xl mb-4"><i class="fa-solid fa-crosshairs"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">3. Precisely Targeted</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">ยึดหลักงบประมาณฐานศูนย์ (Zero-Based Budgeting) ลดรายจ่ายซ้ำซ้อน ชะลอ/ยกเลิกโครงการหมดความจำเป็น คำนึงถึงความคุ้มค่า (VfM) และประสิทธิภาพ</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl transition-transform duration-300">
+                    <div class="text-purple-400 text-3xl mb-4"><i class="fa-solid fa-database"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">4. Demand-Driven by Data</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">กำหนดเป้าหมาย ตัวชี้วัด และผลลัพธ์ชัดเจน ตอบโจทย์ประชาชนบนพื้นฐานข้อมูลจริง (Data Analytics) บูรณาการข้ามหน่วยงานเพื่อลดความซ้ำซ้อน</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl transition-transform duration-300">
+                    <div class="text-emerald-400 text-3xl mb-4"><i class="fa-solid fa-coins"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">5. ครอบคลุมทุกแหล่งเงิน</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">นำเงินนอกงบประมาณ/เงินรายได้มาใช้เป็นลำดับแรก และใช้แหล่งเงินอื่นร่วม เช่น เงินกู้, PPP, กองทุนรวมโครงสร้างพื้นฐาน (TFFIF) เพื่อลดภาระงบประมาณประเทศ</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl transition-transform duration-300">
+                    <div class="text-blue-400 text-3xl mb-4"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">6. มิติพื้นที่ (Area-based)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">สอดคล้องกับแผนพัฒนาพื้นที่ ภูมิภาค จังหวัด ท้องถิ่น ตรงตามความต้องการของประชาชน และเพิ่มความร่วมมือระหว่างส่วนกลางและส่วนท้องถิ่น</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl transition-transform duration-300 md:col-span-2 xl:col-span-3 flex flex-col md:flex-row items-center gap-6 border-l-4 border-l-[#FDCD0E]">
+                    <div class="flex-shrink-0 text-5xl text-[#FDCD0E]"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">7. กรอบวงเงิน & 8. กฎหมายวินัยการคลัง</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            ภาพรวมคำขอเพิ่มขึ้น <strong class="text-white">ไม่ควรเกินร้อยละ 20</strong> ของปี 2569 โดยส่วนที่เพิ่มควรเป็นรายจ่ายลงทุน หรือสนับสนุนนโยบายรัฐบาล ยกเว้นภาระผูกพันตามกฎหมาย/ชำระหนี้<br>
+                            พร้อมจัดทำตาม พ.ร.บ. วิธีการงบประมาณ พ.ศ. 2561 โดยจำแนกเป็น 8 กลุ่มงบประมาณอย่างเคร่งครัด
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tab 2: PM Orders -->
+            <div id="content-pm-orders" class="tab-content hidden animate-fade-in">
+                <div class="glass-card rounded-3xl p-8 max-w-5xl mx-auto border-t-4 border-t-rose-500">
+                    <div class="flex items-center gap-4 mb-8 border-b border-white/10 pb-4">
+                        <div class="w-14 h-14 bg-rose-500/20 rounded-full flex items-center justify-center text-rose-500 text-2xl">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">ข้อสั่งการนายกรัฐมนตรี</h2>
+                            <p class="text-slate-400 text-sm">แนวทางประกอบการพิจารณาจัดทำคำของบประมาณ ปี 2570</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Order 1 -->
+                        <div class="flex gap-4 items-start p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-[#FDCD0E] font-bold shrink-0 shadow-lg">1</div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">ชะลอการก่อสร้างอาคารสำนักงานใหม่</h4>
+                                <p class="text-slate-400 text-sm">ให้ชะลอการขอตั้งงบประมาณเพื่อก่อสร้างอาคารสำนักงานแห่งใหม่ไปก่อน</p>
+                            </div>
+                        </div>
+                        <!-- Order 2 -->
+                        <div class="flex gap-4 items-start p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-[#FDCD0E] font-bold shrink-0 shadow-lg">2</div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">งบลงทุนคมนาคม เน้นซ่อมบำรุง</h4>
+                                <p class="text-slate-400 text-sm">เสนอของบลงทุนเท่าที่จำเป็น โดยเฉพาะเส้นทางคมนาคมให้เน้น <span class="text-cyan-400">ซ่อมบำรุงเส้นทางเดิม</span> มากกว่าขยายเส้นทางใหม่</p>
+                            </div>
+                        </div>
+                        <!-- Order 3 -->
+                        <div class="flex gap-4 items-start p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-[#FDCD0E] font-bold shrink-0 shadow-lg">3</div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">งดตั้งงบซ้ำซ้อนระดับกลุ่มจังหวัด</h4>
+                                <p class="text-slate-400 text-sm">งบกลุ่มจังหวัด ให้ <span class="text-rose-400">งดตั้งงบพัฒนาถนนและแหล่งน้ำ</span> เพื่อลดความซ้ำซ้อนของพื้นที่ดำเนินการ ส่วนจังหวัดให้จัดสรรเท่าที่จำเป็นตามกฎหมาย</p>
+                            </div>
+                        </div>
+                        <!-- Order 4 -->
+                        <div class="flex gap-4 items-start p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-[#FDCD0E] font-bold shrink-0 shadow-lg">4</div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">ปรับลดการศึกษาดูงานต่างประเทศ</h4>
+                                <p class="text-slate-400 text-sm">ลดคำขอตั้งงบประมาณเกี่ยวกับการศึกษาดูงาน โดยเฉพาะต่างประเทศ จนกว่าสถานการณ์ด้านพลังงานจะคลี่คลาย</p>
+                            </div>
+                        </div>
+                        <!-- Order 5 -->
+                        <div class="flex gap-4 items-start p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-emerald-500/30 bg-emerald-500/5">
+                            <div class="w-8 h-8 rounded-full bg-emerald-900 flex items-center justify-center text-emerald-400 font-bold shrink-0 shadow-lg">5</div>
+                            <div>
+                                <h4 class="text-emerald-300 font-medium mb-1">มุ่งสู่พลังงานสะอาด (Net Zero)</h4>
+                                <p class="text-slate-400 text-sm">ปรับใช้พลังงานสะอาด สัญญาเช่า/ซื้อรถยนต์ราชการให้ใช้ <strong class="text-white">รถยนต์ EV</strong> และให้ติดตั้ง <strong class="text-white">Solar Rooftop</strong> ในทุกพื้นที่ที่ทำได้</p>
+                            </div>
+                        </div>
+                        <!-- Order 6 -->
+                        <div class="flex gap-4 items-start p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-[#FDCD0E] font-bold shrink-0 shadow-lg">6</div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">นำเงินนอกงบประมาณ/แหล่งเงินอื่นมาใช้เป็นลำดับแรก</h4>
+                                <p class="text-slate-400 text-sm">ลดภาระงบแผ่นดินด้วยการใช้เงินรายได้ เงินสะสม เงินกู้ การร่วมทุนภาครัฐและเอกชน (PPP) หรือระดมทุนผ่านกองทุน TFFIF</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: 3R -->
+            <div id="content-three-r" class="tab-content hidden animate-fade-in">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl font-bold text-white mb-2">การวิเคราะห์งบประมาณโดยใช้หลัก 3R</h2>
+                    <p class="text-slate-400">กระบวนการพิจารณาจัดสรรงบประมาณอย่างมีประสิทธิภาพ ลดส่วนเกิน เพิ่มส่วนที่จำเป็น</p>
+                </div>
+                
+                <div class="relative max-w-5xl mx-auto py-8">
+                    <!-- Line connecting steps -->
+                    <div class="flow-line hidden md:block"></div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                        
+                        <!-- Step 1: Review -->
+                        <div class="glass-card rounded-2xl p-6 relative bg-gradient-to-br from-rose-950/40 to-transparent border-t-4 border-t-rose-500 hover:transform hover:-translate-y-2 transition-all">
+                            <div class="w-16 h-16 mx-auto bg-rose-500/20 rounded-full flex items-center justify-center text-rose-500 text-2xl mb-4 border border-rose-500/50 shadow-[0_0_15px_rgba(244,63,94,0.3)]">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-center text-rose-400 mb-3">1. Review</h3>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p class="font-medium text-white mb-1">ปรับลดงบประมาณตามประสิทธิภาพ</p>
+                                <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                                    <li>ประเมินผลสำเร็จจากปีที่ผ่านมา</li>
+                                    <li>ดูข้อมูลเบิกจ่ายจริง & การโอนเปลี่ยนแปลง</li>
+                                    <li>ตรวจสอบเงินกันเหลื่อมปี</li>
+                                    <li>การปรับลดต้องไม่กระทบบริการสาธารณะ</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Redeploy -->
+                        <div class="glass-card rounded-2xl p-6 relative bg-gradient-to-br from-amber-950/40 to-transparent border-t-4 border-t-amber-500 hover:transform hover:-translate-y-2 transition-all">
+                            <div class="w-16 h-16 mx-auto bg-amber-500/20 rounded-full flex items-center justify-center text-amber-500 text-2xl mb-4 border border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+                                <i class="fa-solid fa-scissors"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-center text-amber-400 mb-3">2. Redeploy</h3>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p class="font-medium text-white mb-1">ชะลอ / ยกเลิก / ปรับลดเป้าหมาย</p>
+                                <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                                    <li><strong class="text-white">งบลงทุน:</strong> ปรับลดครุภัณฑ์และสิ่งก่อสร้างปีเดียว คงไว้เฉพาะรายการผูกพันเดิม</li>
+                                    <li><strong class="text-white">งบดำเนินงาน:</strong> ทบทวนโครงการที่ไม่สอดคล้องสถานการณ์</li>
+                                    <li>ปรับเปลี่ยนเทคโนโลยีเพื่อลดต้นทุน</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Replace -->
+                        <div class="glass-card rounded-2xl p-6 relative bg-gradient-to-br from-emerald-950/40 to-transparent border-t-4 border-t-emerald-500 hover:transform hover:-translate-y-2 transition-all">
+                            <div class="w-16 h-16 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 text-2xl mb-4 border border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-center text-emerald-400 mb-3">3. Replace</h3>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p class="font-medium text-white mb-1">นำเงินที่ปรับลดมาจัดสรรใหม่</p>
+                                <ul class="list-disc pl-4 space-y-1 text-slate-400">
+                                    <li>จัดสรรให้ผลผลิต/โครงการสำคัญลำดับสูง</li>
+                                    <li>จัดสวัสดิการสังคม บริการขั้นพื้นฐาน</li>
+                                    <li>ลงทุนเทคโนโลยี/ระบบดิจิทัล</li>
+                                    <li>ต้องวิเคราะห์ความคุ้มค่า (VfM) ประกอบด้วย</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 4: VfM (3E) -->
+            <div id="content-vfm" class="tab-content hidden animate-fade-in">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">Value for Money : VfM</h2>
+                        <p class="text-slate-400">การวิเคราะห์ความคุ้มค่าของการใช้จ่ายงบประมาณภาครัฐ (หลัก 3E)</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        
+                        <!-- Economy -->
+                        <div class="glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                            <div class="bg-gradient-to-r from-amber-600/30 to-amber-900/30 p-4 border-b border-white/5 flex items-center gap-3">
+                                <i class="fa-solid fa-piggy-bank text-2xl text-amber-400"></i>
+                                <h3 class="text-lg font-bold text-white">1. ความประหยัด (Economy)</h3>
+                            </div>
+                            <div class="p-6 flex-grow">
+                                <p class="text-sm text-slate-300 mb-4">พิจารณาใช้จ่ายด้วยความรอบคอบ ปรับปรุงกระบวนการทำงานให้ได้ผลผลิตเป้าหมายด้วยงบประมาณที่ลดลง (Cost &rarr; Input)</p>
+                                <div class="bg-black/30 rounded-lg p-4">
+                                    <h4 class="text-amber-400 text-xs font-bold mb-2"><i class="fa-solid fa-lightbulb"></i> ตัวอย่างการวิเคราะห์</h4>
+                                    <ul class="text-xs text-slate-400 space-y-2 list-disc pl-4">
+                                        <li>ลดค่าใช้จ่ายจัดงาน/ประชุม โดยบูรณาการร่วมกับหน่วยงานอื่น</li>
+                                        <li>เปลี่ยนประชุม On Site เป็นระบบสื่ออิเล็กทรอนิกส์ (Online)</li>
+                                        <li>ลดต้นทุนค่าพิมพ์/ส่งเอกสาร (Paperless)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Efficiency -->
+                        <div class="glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                            <div class="bg-gradient-to-r from-cyan-600/30 to-cyan-900/30 p-4 border-b border-white/5 flex items-center gap-3">
+                                <i class="fa-solid fa-gears text-2xl text-cyan-400"></i>
+                                <h3 class="text-lg font-bold text-white">2. ประสิทธิภาพ (Efficiency)</h3>
+                            </div>
+                            <div class="p-6 flex-grow">
+                                <p class="text-sm text-slate-300 mb-4">จัดหาทรัพยากรที่ได้มาตรฐาน กระบวนการทำงานประหยัด วัดจากผลผลิตเทียบต้นทุน (Input &rarr; Outputs)</p>
+                                <div class="bg-black/30 rounded-lg p-4 space-y-3">
+                                    <div>
+                                        <h4 class="text-cyan-400 text-xs font-bold"><i class="fa-solid fa-calculator"></i> ต้นทุนต่อหน่วย</h4>
+                                        <p class="text-[11px] text-slate-400 mt-1">เปรียบเทียบต้นทุนปีที่ผ่านกับปีที่ขอรับการจัดสรร เช่น เดิม 2 ลบ./หน่วย ลดเหลือ 1.5 ลบ./หน่วย</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-cyan-400 text-xs font-bold"><i class="fa-solid fa-people-group"></i> สัดส่วนผลผลิตต่อทรัพยากร</h4>
+                                        <p class="text-[11px] text-slate-400 mt-1">เปรียบเทียบปริมาณผลผลิตต่อปัจจัยการผลิต เช่น คน 1 คน ผลิตงานได้ 12 หน่วย (จากเดิม 10 หน่วย)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Effectiveness -->
+                        <div class="glass-card rounded-2xl overflow-hidden flex flex-col h-full">
+                            <div class="bg-gradient-to-r from-emerald-600/30 to-emerald-900/30 p-4 border-b border-white/5 flex items-center gap-3">
+                                <i class="fa-solid fa-bullseye text-2xl text-emerald-400"></i>
+                                <h3 class="text-lg font-bold text-white">3. ประสิทธิผล (Effectiveness)</h3>
+                            </div>
+                            <div class="p-6 flex-grow">
+                                <p class="text-sm text-slate-300 mb-4">การบรรลุวัตถุประสงค์ ผลลัพธ์สอดคล้องกับความต้องการของประชาชน (Outputs &rarr; Outcomes)</p>
+                                <div class="bg-black/30 rounded-lg p-4">
+                                    <h4 class="text-emerald-400 text-xs font-bold mb-2"><i class="fa-solid fa-chart-pie"></i> ตัวอย่าง: ระบบบริการพยาบาล</h4>
+                                    <ul class="text-xs text-slate-400 space-y-2">
+                                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> <span><strong class="text-white">ระดับความสำเร็จ:</strong> รองรับผู้ป่วยเพิ่มจาก 2,000 เป็น 3,000 คน/วัน ลดเวลารอจาก 20 นาที เหลือ 10 นาที</span></li>
+                                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> <span><strong class="text-white">ระดับความพึงพอใจ:</strong> เพิ่มขึ้นจากร้อยละ 80 เป็นร้อยละ 90</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 5: Off-budget -->
+            <div id="content-off-budget" class="tab-content hidden animate-fade-in">
+                <div class="max-w-5xl mx-auto glass-card rounded-3xl p-6 md:p-10 border border-[#FDCD0E]/30">
+                    <div class="text-center mb-8">
+                        <i class="fa-solid fa-vault text-4xl text-[#FDCD0E] mb-3"></i>
+                        <h2 class="text-2xl font-bold text-white mb-2">การวิเคราะห์ความครอบคลุมงบประมาณ</h2>
+                        <p class="text-slate-400">เกณฑ์การนำ "เงินนอกงบประมาณ" มาสมทบกับงบประมาณแผ่นดิน (รายจ่ายประจำ)</p>
+                    </div>
+
+                    <div class="bg-[#0a1120] rounded-xl p-6 border border-white/10 mb-8">
+                        <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+                            หน่วยรับงบประมาณที่มีเงินสะสมคงเหลือจำนวนมาก ให้นำเงินนอกงบประมาณมาสมทบกับรายการที่ขอตั้งงบประมาณ ใน <span class="text-cyan-400 font-bold">"รายจ่ายประจำ"</span> เป็นอันดับแรก เพื่อลดสัดส่วนรายจ่ายประจำของประเทศ โดยมีเกณฑ์พิจารณาจากฐานเงินนอกงบประมาณ (หลังหักเงินสมทบ) ดังนี้:
+                        </p>
+
+                        <!-- Progress / Table UI -->
+                        <div class="space-y-4">
+                            <!-- Tier 1 -->
+                            <div class="flex flex-col md:flex-row items-center gap-4 bg-white/5 p-4 rounded-lg">
+                                <div class="w-full md:w-1/2 flex justify-between items-center pr-4 border-b md:border-b-0 md:border-r border-white/10 pb-2 md:pb-0">
+                                    <span class="text-slate-400 font-medium">ต่ำกว่า 1,000 ล้านบาท</span>
+                                </div>
+                                <div class="w-full md:w-1/2 flex items-center gap-3">
+                                    <div class="w-full bg-slate-800 rounded-full h-2.5">
+                                        <div class="bg-cyan-500 h-2.5 rounded-full" style="width: 30%"></div>
+                                    </div>
+                                    <span class="text-cyan-400 font-bold w-16 text-right">สมทบ 30%</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Tier 2 -->
+                            <div class="flex flex-col md:flex-row items-center gap-4 bg-white/5 p-4 rounded-lg">
+                                <div class="w-full md:w-1/2 flex justify-between items-center pr-4 border-b md:border-b-0 md:border-r border-white/10 pb-2 md:pb-0">
+                                    <span class="text-slate-400 font-medium">1,000 - 2,000 ล้านบาท</span>
+                                </div>
+                                <div class="w-full md:w-1/2 flex items-center gap-3">
+                                    <div class="w-full bg-slate-800 rounded-full h-2.5">
+                                        <div class="bg-blue-500 h-2.5 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                    <span class="text-blue-400 font-bold w-16 text-right">สมทบ 40%</span>
+                                </div>
+                            </div>
+
+                            <!-- Tier 3 -->
+                            <div class="flex flex-col md:flex-row items-center gap-4 bg-white/5 p-4 rounded-lg">
+                                <div class="w-full md:w-1/2 flex justify-between items-center pr-4 border-b md:border-b-0 md:border-r border-white/10 pb-2 md:pb-0">
+                                    <span class="text-slate-400 font-medium">2,001 - 3,000 ล้านบาท</span>
+                                </div>
+                                <div class="w-full md:w-1/2 flex items-center gap-3">
+                                    <div class="w-full bg-slate-800 rounded-full h-2.5">
+                                        <div class="bg-amber-500 h-2.5 rounded-full" style="width: 50%"></div>
+                                    </div>
+                                    <span class="text-amber-400 font-bold w-16 text-right">สมทบ 50%</span>
+                                </div>
+                            </div>
+
+                            <!-- Tier 4 -->
+                            <div class="flex flex-col md:flex-row items-center gap-4 bg-white/5 p-4 rounded-lg">
+                                <div class="w-full md:w-1/2 flex justify-between items-center pr-4 border-b md:border-b-0 md:border-r border-white/10 pb-2 md:pb-0">
+                                    <span class="text-slate-400 font-medium">ตั้งแต่ 3,001 ล้านบาท ขึ้นไป</span>
+                                </div>
+                                <div class="w-full md:w-1/2 flex items-center gap-3">
+                                    <div class="w-full bg-slate-800 rounded-full h-2.5">
+                                        <div class="bg-rose-500 h-2.5 rounded-full" style="width: 60%"></div>
+                                    </div>
+                                    <span class="text-rose-400 font-bold w-16 text-right">สมทบ 60%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl text-xs text-slate-300">
+                        <i class="fa-solid fa-circle-info text-amber-500 mt-0.5 text-base"></i>
+                        <p><strong>หมายเหตุ:</strong> ต้องจัดทำ <em>"รายงานสถานะและแผนการใช้จ่ายเงินนอกงบประมาณ"</em> (ตารางที่ 1) ให้สอดคล้องกับรายงานการเงินประจำปี ตาม พ.ร.บ. วินัยการเงินการคลัง พ.ศ. 2561 มาตรา 70 และ 72 และระวังไม่ให้เกิดความซ้ำซ้อนของโครงการระหว่างเงินงบประมาณกับเงินนอกงบประมาณ</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- JavaScript สำหรับระบบสลับ Tab -->
+    <script>
+        function switchTab(tabId) {
+            // ซ่อนเนื้อหาทั้งหมด
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('animate-fade-in');
+            });
+            
+            // ลบสถานะ active จากปุ่มทั้งหมด
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('active', 'text-white');
+                el.classList.add('text-slate-400');
+            });
+            
+            // แสดงเนื้อหาเป้าหมาย
+            const content = document.getElementById(`content-${tabId}`);
+            if (content) {
+                content.classList.remove('hidden');
+                // Trigger reflow to restart animation
+                void content.offsetWidth;
+                content.classList.add('animate-fade-in');
+            }
+            
+            // ตั้งสถานะ active ให้ปุ่มที่ถูกคลิก
+            const btn = document.getElementById(`tab-${tabId}`);
+            if (btn) {
+                btn.classList.add('active');
+                btn.classList.remove('text-slate-400');
+            }
+        }
+    </script>
+</body>
+</html>
