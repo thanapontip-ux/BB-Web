@@ -33,7 +33,7 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- STICKY QUICK NAVIGATION (JS Powered) -->
+    <!-- STICKY QUICK NAVIGATION -->
     <!-- ========================================== -->
     <div class="sticky top-20 z-40 bg-white/90 backdrop-blur-md shadow-md rounded-2xl border border-slate-200 mb-10 px-2 py-3 flex justify-center gap-2 md:gap-6 overflow-x-auto custom-scrollbar transition-all" id="quick-nav">
         <button onclick="scrollToMonth('month-apr')" class="nav-month-btn active px-4 py-2 rounded-xl text-sm font-bold text-slate-500 hover:text-sky-600 hover:bg-sky-50 transition-all whitespace-nowrap" data-target="month-apr">
@@ -69,7 +69,7 @@
     <div class="max-w-4xl mx-auto space-y-12">
         
         <!-- 1. เมษายน 2569 -->
-        <div id="month-apr" class="timeline-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden transform transition-all duration-500 opacity-0 translate-y-10">
+        <div id="month-apr" class="timeline-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden animate-slide-up" style="animation-fill-mode: both; animation-delay: 0.1s;">
             <!-- Header -->
             <div class="bg-gradient-to-r from-sky-600 to-blue-500 p-5 md:p-6 flex items-center justify-between">
                 <h3 class="text-2xl font-bold text-white flex items-center gap-3">
@@ -181,7 +181,7 @@
         </div>
 
         <!-- 2. พฤษภาคม 2569 -->
-        <div id="month-may" class="timeline-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden transform transition-all duration-500 opacity-0 translate-y-10">
+        <div id="month-may" class="timeline-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden animate-slide-up" style="animation-fill-mode: both; animation-delay: 0.2s;">
             <div class="bg-gradient-to-r from-teal-600 to-emerald-500 p-5 md:p-6 flex items-center justify-between">
                 <h3 class="text-2xl font-bold text-white flex items-center gap-3">
                     <i class="fa-solid fa-calendar-days text-teal-200 text-3xl"></i> พฤษภาคม 2569
@@ -213,7 +213,7 @@
         </div>
 
         <!-- 3. มิถุนายน 2569 -->
-        <div id="month-jun" class="timeline-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden transform transition-all duration-500 opacity-0 translate-y-10">
+        <div id="month-jun" class="timeline-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden animate-slide-up" style="animation-fill-mode: both; animation-delay: 0.3s;">
             <div class="bg-gradient-to-r from-indigo-600 to-violet-500 p-5 md:p-6 flex items-center justify-between">
                 <h3 class="text-2xl font-bold text-white flex items-center gap-3">
                     <i class="fa-solid fa-calendar-days text-indigo-200 text-3xl"></i> มิถุนายน 2569
@@ -267,7 +267,7 @@
         </div>
 
         <!-- 4. กรกฎาคม 2569 -->
-        <div id="month-jul" class="timeline-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden transform transition-all duration-500 opacity-0 translate-y-10">
+        <div id="month-jul" class="timeline-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden animate-slide-up" style="animation-fill-mode: both; animation-delay: 0.4s;">
             <div class="bg-gradient-to-r from-amber-500 to-orange-500 p-5 md:p-6 flex items-center justify-between">
                 <h3 class="text-2xl font-bold text-white flex items-center gap-3">
                     <i class="fa-solid fa-calendar-days text-amber-200 text-3xl"></i> กรกฎาคม 2569
@@ -296,7 +296,7 @@
         </div>
 
         <!-- 5. กันยายน 2569 -->
-        <div id="month-sep" class="timeline-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden transform transition-all duration-500 opacity-0 translate-y-10">
+        <div id="month-sep" class="timeline-card bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden animate-slide-up" style="animation-fill-mode: both; animation-delay: 0.5s;">
             <div class="bg-gradient-to-r from-rose-600 to-red-500 p-5 md:p-6 flex items-center justify-between">
                 <h3 class="text-2xl font-bold text-white flex items-center gap-3">
                     <i class="fa-solid fa-calendar-days text-rose-200 text-3xl"></i> กันยายน 2569
@@ -346,7 +346,7 @@
         <!-- ========================================== -->
         <!-- COMPARISON BOX -->
         <!-- ========================================== -->
-        <div class="mt-16 bg-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-slate-700 animate-fade-in" style="animation-delay: 0.5s;">
+        <div class="mt-16 bg-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-slate-700 animate-slide-up" style="animation-fill-mode: both; animation-delay: 0.6s;">
             <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
                 <i class="fa-solid fa-clock-rotate-left text-9xl text-slate-100"></i>
             </div>
@@ -390,60 +390,9 @@
     </div>
 
     <!-- Back Button -->
-    <div class="text-center mt-12 pb-4 relative z-10 animate-fade-in" style="animation-delay: 0.6s;">
+    <div class="text-center mt-12 pb-4 relative z-10 animate-slide-up" style="animation-fill-mode: both; animation-delay: 0.7s;">
         <button onclick="showLanding(document.getElementById('nav-home'))" class="inline-flex items-center justify-center gap-3 bg-slate-800 hover:bg-slate-900 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-all transform hover:scale-105 border border-slate-700">
             <i class="fa-solid fa-house text-[#FDCD0E]"></i> กลับสู่หน้าหลัก
         </button>
     </div>
 </div>
-
-<!-- Scripts for Interactivity -->
-<script>
-    // Smooth Scroll to specific month
-    function scrollToMonth(monthId) {
-        const element = document.getElementById(monthId);
-        if(element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    // Observe Scroll to animate cards and update Quick Nav active state
-    setTimeout(() => {
-        const cards = document.querySelectorAll('.timeline-card');
-        const navBtns = document.querySelectorAll('.nav-month-btn');
-
-        const observerOptions = {
-            root: null,
-            rootMargin: '-20% 0px -40% 0px', // Trigger point
-            threshold: 0
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                // Fade in animation trigger
-                if (entry.isIntersecting) {
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    
-                    // Update Active Nav Button
-                    const id = entry.target.getAttribute('id');
-                    navBtns.forEach(btn => {
-                        if(btn.getAttribute('data-target') === id) {
-                            btn.classList.add('active');
-                        } else {
-                            btn.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        }, observerOptions);
-
-        cards.forEach(card => observer.observe(card));
-        
-        // Initial reveal for the first element just in case
-        if(cards.length > 0) {
-            cards[0].classList.remove('opacity-0', 'translate-y-10');
-            cards[0].classList.add('opacity-100', 'translate-y-0');
-        }
-    }, 100); // Slight delay to ensure DOM is fully rendered in the container
-</script>

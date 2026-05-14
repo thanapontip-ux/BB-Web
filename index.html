@@ -21,7 +21,7 @@
                         'bb-blue': '#0a192f',
                         'bb-gold': '#d4af37',
                     },
-                    /* เพิ่ม Animation สำหรับรองรับหน้า Criteria.html */
+                    /* เพิ่ม Animation สำหรับรองรับหน้าย่อยต่างๆ */
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-out forwards',
                         'slide-up': 'slideUp 0.6s ease-out forwards',
@@ -501,6 +501,7 @@
         <p>&copy; 2569 สำนักงบประมาณ (Budget Bureau) - เอกสารสรุปความรู้วงจรการงบประมาณแผ่นดิน <br class="sm:hidden"> อัปเดตข้อมูลล่าสุด 21 มีนาคม 2569</p>
     </footer>
 
+    <!-- Global Scripts -->
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('nav-menu-mobile');
@@ -567,8 +568,8 @@
                 const contentArea = document.getElementById('content-area');
                 contentArea.style.display = 'block';
                 
-                // สำหรับ Criteria.html เราจะให้คงพื้นหลังสีเข้มไว้ แต่สำหรับหน้าอื่นปรับเป็นสว่าง
-                if(pageUrl === 'Criteria.html' || pageUrl === 'timeline.html') {
+                // สำหรับหน้าที่มีพื้นหลังสีเข้ม (Dark Mode Pages)
+                if(pageUrl === 'Criteria.html' || pageUrl === 'timeline.html' || pageUrl === 'transfer.html') {
                     document.body.classList.remove('bg-slate-50');
                     document.body.classList.add('bg-[#070e1e]');
                 } else {
@@ -579,6 +580,13 @@
                 contentArea.innerHTML = html;
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 setActiveNav(navElement);
+
+                // เริ่มการทำงานของ Timeline Observer หากเปิดหน้า timeline.html
+                if (pageUrl === 'timeline.html') {
+                    if (typeof window.initTimelineObserver === 'function') {
+                        window.initTimelineObserver();
+                    }
+                }
 
             } catch (error) {
                 document.getElementById('landing-page').style.display = 'none';
@@ -596,7 +604,9 @@
             }
         }
 
-        // ฟังก์ชันระบบสลับแท็บส่วนกลาง (ออกแบบมาเพื่อรองรับ Criteria.html เมื่อถูกโหลดเข้ามา)
+        // ===============================================
+        // ฟังก์ชันระบบสลับแท็บส่วนกลาง (ใช้สำหรับ Criteria.html)
+        // ===============================================
         window.switchTab = function(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => {
                 el.classList.add('hidden');
@@ -609,7 +619,7 @@
             const content = document.getElementById(`content-${tabId}`);
             if (content) {
                 content.classList.remove('hidden');
-                void content.offsetWidth; // Trigger reflow ให้อนิเมชันรันซ้ำ
+                void content.offsetWidth; 
                 content.classList.add('animate-fade-in');
             }
             const btn = document.getElementById(`tab-${tabId}`);
@@ -619,7 +629,55 @@
             }
         };
 
-        // --- FETCH RSS FEED FUNCTION (DIRECT XML PARSING WITH MOCK FALLBACK) ---
+        // ===============================================
+        // ฟังก์ชันสำหรับหน้า Timeline (timeline.html)
+        // ===============================================
+        window.scrollToMonth = function(monthId) {
+            const element = document.getElementById(monthId);
+            if(element) {
+                // คำนวณระยะการเลื่อน โดยเผื่อพื้นที่สำหรับแถบนำทาง (Sticky Nav) ด้านบนไว้
+                const yOffset = -140; 
+                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({top: y, behavior: 'smooth'});
+            }
+        };
+
+        window.initTimelineObserver = function() {
+            // ตั้งเวลาดีเลย์เล็กน้อยเพื่อให้เบราว์เซอร์ Render โค้ด HTML ที่ดึงมาใหม่ให้เสร็จก่อน
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.timeline-card');
+                const navBtns = document.querySelectorAll('.nav-month-btn');
+
+                if (cards.length === 0) return;
+
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-20% 0px -40% 0px', // กำหนดจุด Trigger ให้อยู่ประมาณช่วงกลางหน้าจอ
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            navBtns.forEach(btn => {
+                                if(btn.getAttribute('data-target') === id) {
+                                    btn.classList.add('active');
+                                } else {
+                                    btn.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                cards.forEach(card => observer.observe(card));
+            }, 150);
+        };
+
+        // ===============================================
+        // FETCH RSS FEED (XML)
+        // ===============================================
         async function loadRSS() {
             const container = document.getElementById('rss-container');
             const rssUrl = 'https://www.bb.go.th/rss-topic.php?gid=91';
@@ -721,7 +779,7 @@
             }
         }
 
-        // Load the landing page and fetch RSS by default when the site loads
+        // โหลดหน้า Landing page และ RSS ตั้งแต่เริ่มแรก
         window.addEventListener('DOMContentLoaded', () => {
             showLanding(document.getElementById('nav-home'));
             loadRSS();
