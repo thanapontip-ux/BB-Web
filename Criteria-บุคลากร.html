@@ -3,13 +3,40 @@
         .content-section { display: none; opacity: 0; transition: opacity 0.4s ease; }
         .content-section.active { display: block; opacity: 1; animation: fadeInUp 0.5s ease-out forwards; }
         .exact-text { line-height: 1.7; }
+        
+        /* Sticky Nav Scroll Effects */
+        #personnel-sticky-nav { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        #personnel-sticky-header { transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease; overflow: hidden; max-height: 150px; opacity: 1; }
+        
+        #personnel-sticky-nav.scrolled {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background-color: rgba(15, 23, 42, 0.95);
+            border-color: rgba(56, 189, 248, 0.4);
+            width: fit-content;
+            max-width: 95%;
+            margin-top: 0.5rem;
+        }
+        #personnel-sticky-nav.scrolled #personnel-sticky-header {
+            max-height: 0;
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        #personnel-sticky-nav.scrolled .btn-text { display: none; }
+        #personnel-sticky-nav.scrolled .personnel-tab-btn {
+            padding: 0.6rem 0.8rem;
+            border-radius: 9999px;
+        }
+        #personnel-sticky-nav.scrolled .personnel-tab-btn i { font-size: 1.15rem; margin: 0; }
     </style>
 
         <!-- Compact Sticky Header & Nav Menu -->
-        <div class="sticky top-16 md:top-20 z-40 bg-[#0f172a]/95 backdrop-blur-xl shadow-lg rounded-xl md:rounded-2xl border border-slate-700/60 mb-8 px-3 py-3 md:px-4 md:py-4 transition-all mx-auto max-w-full">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2 md:mb-3 border-b border-slate-700/50 pb-2 md:pb-3 px-1">
+        <div id="personnel-sticky-nav" class="sticky top-16 md:top-20 z-40 bg-[#0f172a]/95 backdrop-blur-xl shadow-lg rounded-xl md:rounded-2xl border border-slate-700/60 mb-8 px-3 py-3 md:px-4 md:py-4 mx-auto max-w-full">
+            <div id="personnel-sticky-header" class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2 md:mb-3 border-b border-slate-700/50 pb-2 md:pb-3 px-1">
                 <h1 class="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400 flex items-center gap-2">
-                    <i class="fa-solid fa-users-gear text-sky-400"></i> การวิเคราะห์ตามงบรายจ่าย: งบบุคลากร
+                    <i class="fa-solid fa-users-gear text-sky-400"></i> การวิเคราะห์ตามงบรายจ่าย
                 </h1>
                 <span class="text-[11px] md:text-xs text-slate-400 font-medium bg-slate-800/50 px-2 py-1 rounded-md border border-slate-700 hidden sm:inline-flex items-center">
                     <i class="fa-solid fa-hand-pointer mr-1"></i> เลือกประเภทบุคลากร
@@ -18,26 +45,26 @@
             
             <!-- Redesigned Compact 7-Menu -->
             <div class="flex flex-nowrap justify-start md:justify-center gap-2 overflow-x-auto custom-scrollbar pb-1 px-1">
-                <button onclick="switchPersonnelSection('sec-a', this)" class="personnel-tab-btn active bg-sky-600 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold shadow-sm transition-all flex items-center gap-1.5 border border-sky-500 whitespace-nowrap shrink-0">
-                    <i class="fa-solid fa-user-tie"></i> 1. เงินเดือนข้าราชการ
+                <button title="1. เงินเดือนข้าราชการ" onclick="switchPersonnelSection('sec-a', this)" class="personnel-tab-btn active bg-sky-600 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold shadow-sm transition-all flex items-center gap-1.5 border border-sky-500 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-user-tie text-base"></i> <span class="btn-text">1. เงินเดือนข้าราชการ</span>
                 </button>
-                <button onclick="switchPersonnelSection('sec-b', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
-                    <i class="fa-solid fa-user-clock"></i> 2. ค่าจ้างประจำ
+                <button title="2. ค่าจ้างประจำ" onclick="switchPersonnelSection('sec-b', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-user-clock text-base"></i> <span class="btn-text">2. ค่าจ้างประจำ</span>
                 </button>
-                <button onclick="switchPersonnelSection('sec-c', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
-                    <i class="fa-solid fa-business-time"></i> 3. ค่าจ้างชั่วคราว
+                <button title="3. ค่าจ้างชั่วคราว" onclick="switchPersonnelSection('sec-c', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-business-time text-base"></i> <span class="btn-text">3. ค่าจ้างชั่วคราว</span>
                 </button>
-                <button onclick="switchPersonnelSection('sec-d', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
-                    <i class="fa-solid fa-id-card-clip"></i> 4. พนักงานราชการ
+                <button title="4. พนักงานราชการ" onclick="switchPersonnelSection('sec-d', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-id-card-clip text-base"></i> <span class="btn-text">4. พนักงานราชการ</span>
                 </button>
-                <button onclick="switchPersonnelSection('sec-e', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
-                    <i class="fa-solid fa-building-user"></i> 5. องค์การมหาชนฯ
+                <button title="5. องค์การมหาชนฯ" onclick="switchPersonnelSection('sec-e', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-building-user text-base"></i> <span class="btn-text">5. องค์การมหาชนฯ</span>
                 </button>
-                <button onclick="switchPersonnelSection('sec-f', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
-                    <i class="fa-solid fa-sack-dollar"></i> 6. เงินเพิ่มอื่นฯ
+                <button title="6. เงินเพิ่มอื่นฯ" onclick="switchPersonnelSection('sec-f', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-sack-dollar text-base"></i> <span class="btn-text">6. เงินเพิ่มอื่นฯ</span>
                 </button>
-                <button onclick="switchPersonnelSection('sec-g', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
-                    <i class="fa-solid fa-scale-balanced"></i> 7. ค่าใช้จ่ายตามสิทธิฯ
+                <button title="7. ค่าใช้จ่ายตามสิทธิฯ" onclick="switchPersonnelSection('sec-g', this)" class="personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-scale-balanced text-base"></i> <span class="btn-text">7. ค่าใช้จ่ายตามสิทธิฯ</span>
                 </button>
             </div>
         </div>
@@ -844,4 +871,16 @@
             btnElement.className = 'personnel-tab-btn active bg-sky-600 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold shadow-sm transition-all flex items-center gap-1.5 border border-sky-500 whitespace-nowrap shrink-0';
         }
     };
+
+    if (window.personnelScrollListener) {
+        window.removeEventListener('scroll', window.personnelScrollListener);
+    }
+    window.personnelScrollListener = function() {
+        const nav = document.getElementById('personnel-sticky-nav');
+        if(!nav) return;
+        if(window.scrollY > 120) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', window.personnelScrollListener);
+    window.personnelScrollListener(); // Trigger immediately to check position on reload
 ">
