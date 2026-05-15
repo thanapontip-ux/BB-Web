@@ -9,14 +9,25 @@
         #personnel-sticky-header { transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease; overflow: hidden; max-height: 150px; opacity: 1; }
         
         #personnel-sticky-nav.scrolled {
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
+            position: fixed;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            padding: 0.5rem;
+            border-radius: 2rem;
             background-color: rgba(15, 23, 42, 0.95);
             border-color: rgba(56, 189, 248, 0.4);
             width: fit-content;
-            max-width: 95%;
-            margin-top: 0.5rem;
-            margin-left: 0;
+            max-width: 5rem;
+            margin: 0;
+            z-index: 50;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        @media (max-width: 768px) {
+            #personnel-sticky-nav.scrolled {
+                left: 0.5rem;
+                padding: 0.4rem;
+            }
         }
         #personnel-sticky-nav.scrolled #personnel-sticky-header {
             max-height: 0;
@@ -26,15 +37,27 @@
             border: none;
         }
         #personnel-sticky-nav.scrolled .btn-text { display: none; }
-        #personnel-sticky-nav.scrolled .personnel-tab-btn {
-            padding: 0.6rem 0.8rem;
-            border-radius: 9999px;
+        #personnel-sticky-nav.scrolled > div:last-child {
+            flex-direction: column;
+            overflow-x: visible;
+            overflow-y: auto;
+            max-height: 70vh;
+            gap: 0.5rem;
+            padding: 0;
         }
-        #personnel-sticky-nav.scrolled .personnel-tab-btn i { font-size: 1.15rem; margin: 0; }
+        #personnel-sticky-nav.scrolled > div:last-child::-webkit-scrollbar { display: none; }
+        #personnel-sticky-nav.scrolled .personnel-tab-btn { padding: 0; border-radius: 50%; width: 3rem; height: 3rem; justify-content: center; margin: 0; }
+        @media (max-width: 768px) {
+            #personnel-sticky-nav.scrolled .personnel-tab-btn { width: 2.5rem; height: 2.5rem; }
+            #personnel-sticky-nav.scrolled .personnel-tab-btn i { font-size: 1.1rem; margin: 0; }
+        }
+        #personnel-sticky-nav.scrolled .personnel-tab-btn i { font-size: 1.25rem; margin: 0; }
     </style>
 
+        <!-- Placeholder for fixed nav to prevent jumping -->
+        <div id="personnel-nav-placeholder" style="display: none;"></div>
         <!-- Compact Sticky Header & Nav Menu -->
-        <div id="personnel-sticky-nav" class="sticky top-16 md:top-20 z-40 bg-[#0f172a]/95 backdrop-blur-xl shadow-lg rounded-xl md:rounded-2xl border border-slate-700/60 mb-8 px-3 py-3 md:px-4 md:py-4 max-w-full">
+        <div id="personnel-sticky-nav" class="sticky top-16 md:top-20 z-40 bg-[#0f172a]/95 backdrop-blur-xl shadow-lg rounded-xl md:rounded-2xl border border-slate-700/60 mb-8 px-3 py-3 md:px-4 md:py-4 max-w-full transition-all duration-300">
             <div id="personnel-sticky-header" class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2 md:mb-3 border-b border-slate-700/50 pb-2 md:pb-3 px-1">
                 <h1 class="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400 flex items-center gap-2">
                     <i class="fa-solid fa-users-gear text-sky-400"></i> การวิเคราะห์ตามงบรายจ่าย
@@ -71,7 +94,7 @@
         </div>
 
         <!-- Full Width Content Area (Light Theme with Colorful Cards) -->
-        <div class="pb-20">
+        <div id="personnel-content-wrapper" class="pb-20 transition-all duration-300">
             
             <!-- SECTION A: เงินเดือนข้าราชการ -->
             <div id="sec-a" class="content-section active bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 z-10 relative">
@@ -863,34 +886,15 @@
             targetSec.classList.add('active');
             targetSec.style.animation = 'fadeInUp 0.5s ease-out forwards';
             
-            // --- Advanced Scroll Offset Calculation to prevent jitter ---
             const nav = document.getElementById('personnel-sticky-nav');
-            const header = document.getElementById('personnel-sticky-header');
             const wasScrolled = nav.classList.contains('scrolled');
             
-            nav.style.transition = 'none';
-            if (header) header.style.transition = 'none';
-            
-            nav.classList.add('scrolled');
-            void nav.offsetHeight; // Force reflow
-            
-            let y = targetSec.getBoundingClientRect().top + window.pageYOffset - 130;
-            
-            if (y < 50) {
-                nav.classList.remove('scrolled');
-                void nav.offsetHeight; // Force reflow
-                y = targetSec.getBoundingClientRect().top + window.pageYOffset - 220;
-            } else {
-                if (y < 51) y = 51;
+            let y = targetSec.getBoundingClientRect().top + window.pageYOffset;
+            if (!wasScrolled) {
+                y -= nav.offsetHeight;
             }
-            
-            if (wasScrolled) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-            
-            void nav.offsetHeight; // Force reflow
-            nav.style.transition = '';
-            if (header) header.style.transition = '';
-            
+            y -= 100;
+
             window.scrollTo({top: y, behavior: 'smooth'});
         }
 
@@ -904,10 +908,42 @@
     }
     window.personnelScrollListener = function() {
         const nav = document.getElementById('personnel-sticky-nav');
+        const placeholder = document.getElementById('personnel-nav-placeholder');
+        const wrapper = document.getElementById('personnel-content-wrapper');
         if(!nav) return;
-        if(window.scrollY > 50) nav.classList.add('scrolled');
-        else nav.classList.remove('scrolled');
+        
+        if(window.scrollY > 80) {
+            if (!nav.classList.contains('scrolled')) {
+                if (placeholder) {
+                    placeholder.style.height = nav.offsetHeight + 'px';
+                    placeholder.style.marginBottom = '2rem';
+                    placeholder.style.display = 'block';
+                }
+                nav.classList.add('scrolled');
+                if (wrapper && window.innerWidth < 1400) {
+                    wrapper.style.paddingLeft = window.innerWidth < 768 ? '3.5rem' : '4.5rem';
+                }
+            }
+        } else {
+            if (nav.classList.contains('scrolled')) {
+                nav.classList.remove('scrolled');
+                if (placeholder) placeholder.style.display = 'none';
+                if (wrapper) wrapper.style.paddingLeft = '0';
+            }
+        }
     };
     window.addEventListener('scroll', window.personnelScrollListener);
     window.personnelScrollListener(); // Trigger immediately to check position on reload
+
+    if (window.personnelResizeListener) {
+        window.removeEventListener('resize', window.personnelResizeListener);
+    }
+    window.personnelResizeListener = function() {
+        const nav = document.getElementById('personnel-sticky-nav');
+        const wrapper = document.getElementById('personnel-content-wrapper');
+        if(nav && nav.classList.contains('scrolled') && wrapper) {
+            wrapper.style.paddingLeft = window.innerWidth < 1400 ? (window.innerWidth < 768 ? '3.5rem' : '4.5rem') : '0';
+        }
+    };
+    window.addEventListener('resize', window.personnelResizeListener);
 ">
