@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หลักเกณฑ์การจัดสรรงบประมาณฯ พ.ศ. 2570 (งบบุคลากร)</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind & FontAwesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Sarabun', 'sans-serif'],
+                    },
+                    colors: {
+                        'bb-blue': '#0a192f',
+                        'bb-gold': '#d4af37',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-glow': 'pulseGlow 3s infinite alternate',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 20px 0px rgba(253, 205, 14, 0.2)' },
+                            '100%': { boxShadow: '0 0 40px 10px rgba(253, 205, 14, 0.5)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { -ms-overflow-style: none; scrollbar-width: none; background-color: #070e1e; }
+        body::-webkit-scrollbar { display: none; }
+        
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-card:hover {
+            border-color: rgba(253, 205, 14, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(253, 205, 14, 0.15);
+        }
+        
+        /* Dropdown item active state (Dark Theme for Dropdown) */
+        .dropdown-item.active {
+            background: linear-gradient(90deg, rgba(253,205,14,0.15) 0%, transparent 100%);
+            border-left: 4px solid #FDCD0E;
+            color: #FDCD0E;
+            font-weight: 700;
+        }
+        .dropdown-item.active i { color: #FDCD0E; }
+
+        .content-section { display: none; opacity: 0; transition: opacity 0.4s ease; }
+        .content-section.active { display: block; opacity: 1; animation: fadeInUp 0.5s ease-out forwards; }
+        
+        /* Text styling for exact text preservation */
+        .exact-text { line-height: 1.7; }
+    </style>
+</head>
+<body class="text-slate-300 antialiased min-h-screen relative overflow-x-hidden font-sans">
+
+    <!-- Dramatic Background Elements (Dark Theme stays for the body) -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-[#070e1e] to-[#070e1e]"></div>
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[120px]" style="animation-delay: 2s;"></div>
+        <div class="absolute top-[15%] left-[10%] w-1 h-1 bg-white/50 rounded-full shadow-[0_0_10px_2px_rgba(255,255,255,0.8)]"></div>
+        <div class="absolute top-[35%] right-[15%] w-1.5 h-1.5 bg-amber-400/50 rounded-full shadow-[0_0_15px_3px_rgba(253,205,14,0.8)]"></div>
+        <div class="absolute bottom-[20%] left-[20%] w-1 h-1 bg-blue-300/50 rounded-full shadow-[0_0_10px_2px_rgba(147,197,253,0.8)]"></div>
+    </div>
+
+    <!-- Main Wrapper -->
+    <main class="relative z-10 w-full max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+        
+        <!-- Document Status Badge -->
+        <div class="flex justify-center mb-6 animate-fade-in-up">
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#111827]/80 border border-[#d4af37]/40 text-[#FDCD0E] text-sm font-bold tracking-widest animate-pulse-glow shadow-lg backdrop-blur-md">
+                <i class="fa-solid fa-file-invoice"></i> เอกสารใช้ภายในสำนักงบประมาณ
+            </div>
+        </div>
+
+        <!-- Hero Header Card (Dark Theme) -->
+        <div class="glass-card rounded-[2rem] p-8 md:p-12 mb-10 relative animate-fade-in-up z-20" style="animation-delay: 0.1s;">
+            <!-- Background blob elements -->
+            <div class="absolute inset-0 rounded-[2rem] overflow-hidden pointer-events-none">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#FDCD0E]/20 to-transparent blur-[50px] rounded-full"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-[#38bdf8]/20 to-transparent blur-[50px] rounded-full"></div>
+            </div>
+            
+            <div class="relative z-30 flex flex-col items-center text-center max-w-4xl mx-auto">
+                
+                <!-- Seal Image (Centered) -->
+                <div class="flex justify-center mb-6 lg:mb-8">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg" alt="Official Seal" class="w-28 h-28 md:w-32 md:h-32 object-contain drop-shadow-[0_0_20px_rgba(253,205,14,0.4)] opacity-90 hover:opacity-100 transition-opacity">
+                </div>
+
+                <!-- Title & Content -->
+                <div class="w-full text-center">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-[#ffed4a] via-[#FDCD0E] to-[#b45309] drop-shadow-2xl leading-tight">
+                        <i class="fa-solid fa-users-gear text-[#FDCD0E] mr-3 drop-shadow-md"></i>4. การวิเคราะห์ตามงบรายจ่าย:<br class="hidden lg:block"> 
+                        <span class="text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">4.1 งบบุคลากร</span>
+                    </h1>
+                    
+                    <div class="bg-black/40 border border-[#38bdf8]/30 p-5 md:p-8 rounded-2xl inline-block text-center shadow-lg backdrop-blur-sm w-full">
+                        <p class="text-slate-200 text-base md:text-lg leading-relaxed font-medium">
+                            การจัดสรรงบประมาณแผนงานบุคลากรภาครัฐ เป็นการจัดสรรงบประมาณให้แก่บุคลากรของรัฐ
+                            <br class="hidden md:block">
+                            <span class="text-[#38bdf8] italic font-normal text-sm md:text-base mt-2 inline-block">
+                                (โดยไม่รวมลูกจ้างโครงการ ลูกจ้างกองทุน หรือลูกจ้างในลักษณะการจ้างเหมาบริการเพื่อช่วยปฏิบัติงาน)
+                            </span>
+                        </p>
+                        
+                        <!-- "โดยมี หลักเกณฑ์ ดังนี้" และ Dropdown เมนู -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-5 mt-6 border-t border-white/10 pt-6">
+                            <p class="text-[#FDCD0E] font-bold text-base md:text-lg flex items-center gap-2 mb-2 sm:mb-0">
+                                <i class="fa-solid fa-circle-check"></i> โดยมี หลักเกณฑ์ ดังนี้
+                            </p>
+                            
+                            <!-- Dropdown Menu -->
+                            <div class="relative w-full sm:w-auto text-left z-50">
+                                <button id="dropdown-btn" onclick="toggleDropdown()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl flex items-center justify-center gap-4 text-white border border-[#d4af37]/30 bg-black/60 backdrop-blur-md hover:border-[#FDCD0E]/60 hover:bg-white/10 transition-all shadow-xl mx-auto">
+                                    <span class="flex items-center gap-2 md:gap-3">
+                                        <i class="fa-solid fa-list-ul text-[#FDCD0E]"></i> 
+                                        <span class="text-white font-bold whitespace-nowrap tracking-wide">ประเภทบุคลากร</span>
+                                    </span>
+                                    <i id="dropdown-icon" class="fa-solid fa-chevron-down text-sm transition-transform duration-300 ml-2 text-slate-300"></i>
+                                </button>
+                                
+                                <!-- Dropdown List -->
+                                <div id="dropdown-menu" class="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[300px] sm:w-[360px] glass-card rounded-xl p-2 hidden shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-white/20 origin-top transition-all z-50">
+                                    <nav class="flex flex-col gap-1 max-h-[60vh] overflow-y-auto custom-scrollbar">
+                                        <button onclick="switchSection('sec-a', this)" class="dropdown-item active w-full text-left px-5 py-3 rounded-lg transition-all duration-300 font-semibold text-[14px] flex items-center gap-3 text-slate-400 hover:text-white hover:bg-white/5 border-l-4 border-transparent">
+                                            <i class="fa-solid fa-user-tie w-6 text-center text-lg"></i> ก. เงินเดือนข้าราชการ
+                                        </button>
+                                        <button onclick="switchSection('sec-b', this)" class="dropdown-item w-full text-left px-5 py-3 rounded-lg transition-all duration-300 font-semibold text-[14px] flex items-center gap-3 text-slate-400 hover:text-white hover:bg-white/5 border-l-4 border-transparent">
+                                            <i class="fa-solid fa-user-clock w-6 text-center text-lg"></i> ข. ค่าจ้างประจำ
+                                        </button>
+                                        <button onclick="switchSection('sec-c', this)" class="dropdown-item w-full text-left px-5 py-3 rounded-lg transition-all duration-300 font-semibold text-[14px] flex items-center gap-3 text-slate-400 hover:text-white hover:bg-white/5 border-l-4 border-transparent">
+                                            <i class="fa-solid fa-business-time w-6 text-center text-lg"></i> ค. ค่าจ้างชั่วคราว
+                                        </button>
+                                        <button onclick="switchSection('sec-d', this)" class="dropdown-item w-full text-left px-5 py-3 rounded-lg transition-all duration-300 font-semibold text-[14px] flex items-center gap-3 text-slate-400 hover:text-white hover:bg-white/5 border-l-4 border-transparent">
+                                            <i class="fa-solid fa-id-card-clip w-6 text-center text-lg"></i> ง. ค่าตอบแทนพนักงานราชการ
+                                        </button>
+                                        <button onclick="switchSection('sec-e', this)" class="dropdown-item w-full text-left px-5 py-3 rounded-lg transition-all duration-300 font-semibold text-[14px] flex items-center gap-3 text-slate-400 hover:text-white hover:bg-white/5 border-l-4 border-transparent">
+                                            <i class="fa-solid fa-building-user w-6 text-center text-lg"></i> จ. องค์การมหาชน/รัฐวิสาหกิจฯ
+                                        </button>
+                                        <button onclick="switchSection('sec-f', this)" class="dropdown-item w-full text-left px-5 py-3 rounded-lg transition-all duration-300 font-semibold text-[14px] flex items-center gap-3 text-slate-400 hover:text-white hover:bg-white/5 border-l-4 border-transparent">
+                                            <i class="fa-solid fa-sack-dollar w-6 text-center text-lg"></i> ฉ. เงินเพิ่มอื่นฯ
+                                        </button>
+                                        <button onclick="switchSection('sec-g', this)" class="dropdown-item w-full text-left px-5 py-3 rounded-lg transition-all duration-300 font-semibold text-[14px] flex items-center gap-3 text-slate-400 hover:text-white hover:bg-white/5 border-l-4 border-transparent">
+                                            <i class="fa-solid fa-scale-balanced w-6 text-center text-lg"></i> ช. ค่าใช้จ่ายตามสิทธิฯ
+                                        </button>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Width Content Area (Light Theme with Colorful Cards) -->
+        <div class="animate-fade-in-up pb-20" style="animation-delay: 0.2s;">
+            
+            <!-- SECTION A: เงินเดือนข้าราชการ -->
+            <div id="sec-a" class="content-section active bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 z-10 relative">
+                <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
+                        <i class="fa-solid fa-user-tie text-2xl text-amber-600"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800">ก. เงินเดือนข้าราชการ</h2>
+                </div>
+                
+                <div class="space-y-6 exact-text text-slate-700">
+                    
+                    <!-- Card 1: อัตราเดิม (Blue theme) -->
+                    <div class="bg-blue-50/80 rounded-2xl p-6 border border-blue-100 border-l-4 border-l-blue-500 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg"><strong class="text-blue-800">1. อัตราเดิม</strong> ให้ใช้<strong class="text-slate-900">ผลเบิกจ่ายจริงของงบประมาณปี 2569</strong> (ไม่รวมส่วนควบ) โดยให้ใช้ <strong class="text-blue-600">ค่าเฉลี่ยเบิกจ่าย 3 เดือน (ต.ค. - ธ.ค. 2564)</strong> หากยังไม่เลื่อนเงินเดือนให้ปรับเพิ่มเงินเลื่อนขั้น <strong class="text-amber-600 underline underline-offset-4 decoration-2">ร้อยละ 3</strong></p>
+                    </div>
+
+                    <!-- Card 2: อัตราว่างมีเงิน (Amber theme) -->
+                    <div class="bg-amber-50/60 rounded-2xl p-6 border border-amber-100 border-l-4 border-l-amber-400 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg mb-4"><strong class="text-amber-700">2. อัตราว่างมีเงิน</strong> ให้<strong class="text-slate-900">ตั้งเฉพาะอัตรา</strong> ยกเว้น หน่วยงานของศาล หน่วยงานของรัฐสภา หน่วยงานขององค์กรอิสระและองค์กรอัยการ ให้พิจารณาตั้งงบประมาณจาก<strong class="text-blue-600">ความสามารถในการบรรจุและแต่งตั้งข้าราชการ ปีงบประมาณ พ.ศ. 2566 - 2568</strong> โดยให้นำค่าเฉลี่ยร้อยละความสามารถในการบรรจุข้าราชการ ปีงบประมาณ พ.ศ. 2566 - 2568 มาใช้ในการตั้งงบประมาณอัตราว่างมีเงิน ตามเงื่อนไข ดังนี้</p>
+                        
+                        <div class="ml-4 md:ml-8 space-y-4">
+                            <p><strong class="text-amber-700">1) จำนวนอัตราว่างมีเงินให้ใส่จำนวนอัตราทั้งหมด</strong></p>
+                            <p><strong class="text-amber-700">2) การตั้งงบประมาณอัตราว่างมีเงิน ดังนี้</strong></p>
+                            <div class="ml-4 space-y-3">
+                                <div class="bg-white p-5 rounded-xl border-l-4 border-rose-500 shadow-sm border border-slate-100">
+                                    <p><strong class="text-rose-600">(1) กรณีที่ 1</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการบรรจุข้าราชการ <strong class="text-slate-900">ไม่เกินร้อยละ 20</strong> ของอัตราว่างมีเงิน ให้ตั้งงบประมาณ<strong class="text-amber-600">ร้อยละ 20 ของอัตราว่างมีเงิน ระยะเวลา 4 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-xl border-l-4 border-emerald-500 shadow-sm border border-slate-100">
+                                    <p><strong class="text-emerald-600">(2) กรณีที่ 2</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการบรรจุข้าราชการ <strong class="text-slate-900">เกินร้อยละ 20</strong> ของอัตราว่างมีเงิน ขึ้นไป ให้ตั้งงบประมาณ<strong class="text-amber-600">ตามร้อยละความสามารถในการบรรจุจริง ระยะเวลา 4 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                </div>
+                            </div>
+                            <p class="text-slate-500 mt-3"><i class="fa-solid fa-circle-info text-amber-500 mr-1"></i> ทั้งนี้ การตั้งอัตราว่างมีเงินที่นอกเหนือจากกรณีดังกล่าวจะพิจารณาเป็นรายกรณี</p>
+                        </div>
+
+                        <!-- Modern Table 1 Exact Text -->
+                        <div class="mt-8 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+                            <div class="bg-gradient-to-r from-amber-100 to-amber-50 py-3 px-5 border-b border-amber-200 text-amber-800 font-bold text-lg">
+                                <i class="fa-solid fa-table mr-2"></i> ตัวอย่างการตั้งอัตราว่างมีเงิน
+                            </div>
+                            <div class="overflow-x-auto bg-white">
+                                <table class="w-full text-left">
+                                    <thead class="bg-slate-50 text-slate-700 border-b border-slate-200">
+                                        <tr>
+                                            <th class="px-5 py-4 border-r border-slate-200 w-1/2">หลักเกณฑ์</th>
+                                            <th class="px-5 py-4">วิธีการคิด / ตัวอย่าง</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                                        <tr class="bg-blue-50/50">
+                                            <td colspan="2" class="px-5 py-3 font-bold text-blue-800"><i class="fa-solid fa-building mr-2"></i>ก. หน่วยงานของรัฐ</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-5 py-4 border-r border-slate-200 align-top">ให้หน่วยรับงบประมาณชะลอการบรรจุและแต่งตั้งข้าราชการและจ้างพนักงานของรัฐ <strong class="text-amber-600">โดยให้ตั้งเฉพาะอัตรา</strong></td>
+                                            <td class="px-5 py-4 align-top">
+                                                <strong class="text-blue-600 block mb-1">ตัวอย่าง</strong>
+                                                ปี 2569 กรม ก มีอัตราว่างมีเงิน จำนวน 150 อัตรา<br>
+                                                <div class="mt-2 bg-slate-50 p-2 rounded border border-slate-200 inline-block">
+                                                    <strong class="text-blue-700">วิธีการตั้งงบประมาณ :</strong> ให้ใส่จำนวนอัตรา 150 อัตรา แต่ไม่ใส่เงิน
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-blue-50/50">
+                                            <td colspan="2" class="px-5 py-3 font-bold text-blue-800"><i class="fa-solid fa-building-circle-check mr-2"></i>ข. หน่วยงานที่ได้รับยกเว้น</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-5 py-4 border-r border-slate-200 align-top">
+                                                <strong class="text-rose-600 block mb-1">กรณีที่ 1</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการบรรจุข้าราชการ <strong class="text-slate-900">ไม่เกินร้อยละ 20</strong> ของอัตราว่างมีเงิน<br>
+                                                <span class="text-amber-600 mt-2 block">ให้ตั้งงบประมาณ ร้อยละ 20 ของอัตราว่างมีเงิน ระยะเวลา 4 เดือน โดยใช้อัตราเงินเดือนแรกบรรจุ</span>
+                                            </td>
+                                            <td class="px-5 py-4 align-top">
+                                                <strong class="text-rose-600 block mb-1">กรณีที่ 1</strong> ปี 2569 กรม ข มีอัตราว่างทั้งหมด 100 อัตรา เมื่อพิจารณาความสามารถในการบรรจุอัตราว่าง ปี 2566 - 2568 คิดเป็น <strong class="text-slate-900">ร้อยละ 18.00</strong> (มีอัตราว่าง 100 อัตรา บรรจุได้ 18 อัตรา)<br>
+                                                <div class="mt-2 bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-1">
+                                                    <div><strong class="text-blue-700">- วิธีคิด</strong> = (100 x ร้อยละ 20) = <strong class="text-amber-600">20 อัตรา</strong></div>
+                                                    <div><strong class="text-blue-700">- วิธีคำนวณเงิน</strong> = 20 อัตรา x 18,150 บาท x 4 เดือน</div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-5 py-4 border-r border-slate-200 align-top">
+                                                <strong class="text-emerald-600 block mb-1">กรณีที่ 2</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการบรรจุข้าราชการ <strong class="text-slate-900">เกินร้อยละ 20</strong> ของอัตราว่างมีเงิน ขึ้นไป<br>
+                                                <span class="text-amber-600 mt-2 block">ให้ตั้งงบประมาณตามร้อยละความสามารถในการบรรจุจริง ระยะเวลา 4 เดือน โดยใช้อัตราเงินเดือนแรกบรรจุ</span>
+                                            </td>
+                                            <td class="px-5 py-4 align-top">
+                                                <strong class="text-emerald-600 block mb-1">กรณีที่ 2</strong> ปี 2569 กรม ค มีอัตราว่างทั้งหมด 200 อัตรา เมื่อพิจารณาความสามารถในการบรรจุอัตราว่าง ปี 2566 - 2568 คิดเป็น <strong class="text-slate-900">ร้อยละ 21.43</strong> (อัตราว่าง 98 อัตรา บรรจุได้ 21 อัตรา)<br>
+                                                <div class="mt-2 bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-1">
+                                                    <div><strong class="text-blue-700">- วิธีคิด</strong> = (200 x ร้อยละ 21.43) = <strong class="text-slate-900">42.86 อัตรา</strong></div>
+                                                    <div><strong class="text-blue-700">- วิธีคำนวณเงิน</strong> = <strong class="text-amber-600">43 อัตรา</strong> x 18,150 บาท x 4 เดือน</div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="bg-amber-50 p-4 text-sm text-slate-700 space-y-2 border-t border-amber-200">
+                                <p><strong class="text-amber-800"><i class="fa-solid fa-thumbtack mr-1"></i> หมายเหตุ :</strong></p>
+                                <p class="pl-5">1. ในแบบคำนวณเงินเดือน จำนวนอัตราให้ใส่จำนวนอัตราว่างมีเงินทั้งหมด สำหรับงบประมาณที่ตั้งให้ใช้งบประมาณที่คำนวณได้ (โดยใช้อัตราว่างมีเงินที่คำนวณได้ ตามหลักเกณฑ์ x อัตราเงินเดือนแรกบรรจุ x จำนวนเดือน)</p>
+                                <p class="pl-5">2. ทั้งนี้ กรณีคำนวณอัตราได้เป็นทศนิยม ให้ปัดเศษ ดังนี้ กรณี เท่ากับหรือมากกว่า 0.5 ให้ปัดขึ้น กรณีน้อยกว่า 0.5 ให้ปัดลง</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: การทดแทนอัตราเกษียณ (Indigo theme) -->
+                    <div class="bg-indigo-50/60 rounded-2xl p-6 border border-indigo-100 border-l-4 border-l-indigo-400 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg font-bold text-indigo-800 mb-4">3. การทดแทนอัตราเกษียณ</p>
+                        <p class="mb-4"><strong class="text-slate-900">3.1 การคำนวณอัตราทดแทนเกษียณ</strong> ให้เป็นไปตามหลักเกณฑ์ของ <strong class="text-blue-600">มาตรการบริหารจัดการกำลังคนภาครัฐ (พ.ศ. 2566 - 2570)</strong> โดยใช้ผลการพิจารณาของ อ.ก.พ. กระทรวง จัดสรร/เกลี่ยอัตราว่าง จากผลการเกษียณอายุฯ/ทดแทนด้วยพนักงานราชการ ตามขนาดของส่วนราชการและสัดส่วนที่กำหนด โดยมีหลักเกณฑ์ ดังนี้</p>
+                        
+                        <div class="ml-4 md:ml-8 space-y-4 mb-6">
+                            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                                <p><strong class="text-indigo-700">1) ตำแหน่งประเภทบริหารและอำนวยการ</strong> <strong class="text-slate-900 ml-2">จัดสรรคืนทั้งหมด</strong></p>
+                            </div>
+                            
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                                <p><strong class="text-indigo-700 mb-3 block">2) ตำแหน่งประเภทวิชาการและทั่วไป</strong> จัดสรรคืน ดังนี้</p>
+                                <ul class="ml-6 space-y-3">
+                                    <li><strong class="text-slate-900">(1) ขนาดเล็ก</strong> อัตราไม่เกิน 1,000 อัตรา แบ่งเป็น
+                                        <ul class="ml-6 mt-2 space-y-2">
+                                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[8px] text-slate-400"></i> (1.1) อัตราไม่เกิน 300 อัตรา <strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded">จัดสรรคืนทั้งหมด</strong></li>
+                                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle text-[8px] text-slate-400"></i> (1.2) อัตราตั้งแต่ 301 - 1,000 อัตรา <strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded">จัดสรรคืนร้อยละ 95</strong></li>
+                                        </ul>
+                                    </li>
+                                    <li><strong class="text-slate-900">(2) ขนาดกลาง</strong> อัตราตั้งแต่ 1,001 - 5,000 อัตรา <strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded ml-1">จัดสรรคืนร้อยละ 70</strong></li>
+                                    <li><strong class="text-slate-900">(3) ขนาดใหญ่</strong> อัตราตั้งแต่ 5,001 อัตราขึ้นไป <strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded ml-1">จัดสรรคืนร้อยละ 60</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-500 italic mb-6 ml-4"><i class="fa-solid fa-info-circle mr-1"></i> ทั้งนี้ กรณีคำนวณอัตราที่จัดสรรคืนได้เป็นทศนิยม ให้ปัดเศษ ดังนี้ กรณี เท่ากับหรือมากกว่า 0.5 ให้ปัดขึ้น กรณีน้อยกว่า 0.5 ให้ปัดลง</p>
+
+                        <div class="h-px w-full bg-indigo-200/50 my-6"></div>
+
+                        <p class="mb-4"><strong class="text-slate-900">3.2 การตั้งงบประมาณ</strong> ให้พิจารณาตั้งงบประมาณจากความสามารถในการบรรจุและแต่งตั้งข้าราชการ ปีงบประมาณ พ.ศ. 2566 - 2568 โดยให้นำ<strong class="text-blue-600">ค่าเฉลี่ยร้อยละความสามารถในการบรรจุข้าราชการ ปีงบประมาณ พ.ศ. 2566 - 2568</strong> มาใช้ในการตั้งงบประมาณให้อัตราว่างจากผลการเกษียณอายุตามเงื่อนไข ดังนี้</p>
+                        
+                        <div class="ml-4 md:ml-8 space-y-4 mb-6">
+                            <p><strong class="text-indigo-700">1) จำนวนอัตราว่างมีเงินให้ใส่จำนวนอัตราทั้งหมด</strong></p>
+                            <p><strong class="text-indigo-700">2) การตั้งงบประมาณให้อัตราว่างจากผลการเกษียณอายุดังนี้</strong></p>
+                            <div class="ml-4 space-y-3">
+                                <div class="bg-white p-5 rounded-xl border-l-4 border-rose-500 shadow-sm border border-slate-100">
+                                    <p><strong class="text-rose-600">(1) กรณีที่ 1</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการบรรจุข้าราชการ <strong class="text-slate-900">ไม่เกินร้อยละ 20</strong> ของอัตราว่างมีเงิน ให้ตั้งงบประมาณ<strong class="text-amber-600">ร้อยละ 20 ของอัตราว่างมีเงิน ระยะเวลา 1 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-xl border-l-4 border-emerald-500 shadow-sm border border-slate-100">
+                                    <p><strong class="text-emerald-600">(2) กรณีที่ 2</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการบรรจุข้าราชการ <strong class="text-slate-900">เกินร้อยละ 20</strong> ของอัตราว่างมีเงิน ขึ้นไป ให้ตั้งงบประมาณ<strong class="text-amber-600">ตามร้อยละความสามารถในการบรรจุจริง ระยะเวลา 1 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-rose-50 border-l-4 border-rose-500 p-4 rounded-r-xl ml-4 shadow-sm mb-6">
+                            <strong class="text-rose-600 mr-2"><i class="fa-solid fa-triangle-exclamation"></i> ยกเว้น :</strong>
+                            <span class="text-slate-700">หน่วยรับงบประมาณที่ไม่สามารถโอนงบประมาณรายจ่ายบุคลากร ข้ามหน่วยรับงบประมาณได้ตามระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการและงบประมาณรายจ่ายบุคลากรระหว่างหน่วยรับงบประมาณ พ.ศ. 2562 และที่แก้ไขเพิ่มเติม <strong class="text-slate-900">ให้ตั้งงบประมาณ 4 เดือน</strong></span>
+                        </div>
+
+                        <!-- ตารางที่ 2 ที่ตกหล่น: ตัวอย่างวิธีการตั้งทดแทนอัตราเกษียณ -->
+                        <div class="mt-8 rounded-xl overflow-hidden border border-indigo-200 shadow-sm ml-4 md:ml-8">
+                            <div class="bg-gradient-to-r from-indigo-100 to-indigo-50 py-3 px-5 border-b border-indigo-200 text-indigo-800 font-bold text-lg">
+                                <i class="fa-solid fa-table mr-2"></i> ตัวอย่างวิธีการตั้งทดแทนอัตราเกษียณ
+                            </div>
+                            <div class="overflow-x-auto bg-white">
+                                <table class="w-full text-left">
+                                    <thead class="bg-slate-50 text-slate-700 border-b border-slate-200">
+                                        <tr>
+                                            <th class="px-5 py-4 border-r border-slate-200 w-1/2">หลักเกณฑ์</th>
+                                            <th class="px-5 py-4">วิธีการคิด / ตัวอย่าง</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                                        <tr>
+                                            <td class="px-5 py-4 border-r border-slate-200 align-top">
+                                                <strong class="text-indigo-700 block mb-1">ตำแหน่งประเภทบริหารและอำนวยการ</strong>
+                                                <span class="text-amber-600 block mt-2">จัดสรรคืนทั้งหมด ตั้งงบประมาณ 1 เดือน โดยใช้อัตราเงินเดือนแรกบรรจุ</span>
+                                            </td>
+                                            <td class="px-5 py-4 align-top">
+                                                <strong class="text-indigo-700 block mb-1">ตัวอย่าง</strong> กรม ก มีตำแหน่งประเภทบริหารและอำนวยการ เกษียณ 20 อัตรา<br>
+                                                <strong class="text-blue-600 block mt-2">- วิธีคิด</strong> = (20 x 1.00) = <strong class="text-slate-900">20 อัตรา</strong><br>
+                                                <strong class="text-blue-600">- วิธีคำนวณเงิน</strong> = <strong class="text-amber-600">20 อัตรา</strong> x 18,150 บาท x 1 เดือน
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-indigo-50/50">
+                                            <td colspan="2" class="px-5 py-3 font-bold text-indigo-800">ตำแหน่งประเภทวิชาการและทั่วไป</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-5 py-4 border-r border-slate-200 align-top">
+                                                <strong class="text-slate-900 block mb-1">1. ขนาดเล็ก อัตราไม่เกิน 1,000 อัตรา</strong>
+                                                1.1 อัตราไม่เกิน 300 อัตรา <strong class="text-amber-600">จัดสรรคืนทั้งหมด ตั้งงบประมาณ 1 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ
+                                            </td>
+                                            <td class="px-5 py-4 align-top">
+                                                <strong class="text-indigo-700 block mb-1">ตัวอย่าง</strong> กรม ข มีตำแหน่งประเภทวิชาการและทั่วไป เกษียณ 25 อัตรา<br>
+                                                <strong class="text-blue-600 block mt-2">- วิธีคิด</strong> = (25 x 1.00) = <strong class="text-slate-900">25 อัตรา</strong><br>
+                                                <strong class="text-blue-600">- วิธีคำนวณเงิน</strong> = <strong class="text-amber-600">25 อัตรา</strong> x 148,150 บาท x 1 เดือน
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-5 py-4 border-r border-slate-200 align-top">
+                                                1.2 อัตราตั้งแต่ 301 - 1,000 อัตรา <strong class="text-amber-600">จัดสรรคืนร้อยละ 95 ตั้งงบประมาณ 1 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ
+                                            </td>
+                                            <td class="px-5 py-4 align-top">
+                                                <strong class="text-indigo-700 block mb-1">ตัวอย่าง</strong> กรม ค มีตำแหน่งประเภทวิชาการและทั่วไป เกษียณ 25 อัตรา<br>
+                                                <strong class="text-blue-600 block mt-2">- วิธีคิด</strong> = (25 x 0.95) = <strong class="text-slate-900">24 อัตรา</strong><br>
+                                                <strong class="text-blue-600">- วิธีคำนวณเงิน</strong> = <strong class="text-amber-600">24 อัตรา</strong> x 18,150 บาท x 1 เดือน
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-5 py-4 border-r border-slate-200 align-top">
+                                                <strong class="text-slate-900 block mb-1">2. ขนาดกลาง อัตราตั้งแต่ 1,001 - 5,000 อัตรา</strong>
+                                                <strong class="text-amber-600">จัดสรรคืนร้อยละ 70 ตั้งงบประมาณ 1 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ
+                                            </td>
+                                            <td class="px-5 py-4 align-top">
+                                                <strong class="text-indigo-700 block mb-1">ตัวอย่าง</strong> กรม ง มีตำแหน่งประเภทวิชาการและทั่วไป เกษียณ 30 อัตรา<br>
+                                                <strong class="text-blue-600 block mt-2">- วิธีคิด</strong> = (30 x 0.70) = <strong class="text-slate-900">21 อัตรา</strong><br>
+                                                <strong class="text-blue-600">- วิธีคำนวณเงิน</strong> = <strong class="text-amber-600">21 อัตรา</strong> x 148,150 บาท x 1 เดือน
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-5 py-4 border-r border-slate-200 align-top">
+                                                <strong class="text-slate-900 block mb-1">3. ขนาดใหญ่ อัตราตั้งแต่ 5,001 อัตรา ขึ้นไป</strong>
+                                                3.1 อัตราตั้งแต่ 5,001 - 99,999 อัตรา <strong class="text-amber-600">จัดสรรคืนร้อยละ 60 ตั้งงบประมาณ 1 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ
+                                            </td>
+                                            <td class="px-5 py-4 align-top">
+                                                <strong class="text-indigo-700 block mb-1">ตัวอย่าง</strong> กรม จ มีตำแหน่งประเภทวิชาการและทั่วไป เกษียณ 55 อัตรา<br>
+                                                <strong class="text-blue-600 block mt-2">- วิธีคิด</strong> = (55 x 0.60) = <strong class="text-slate-900">33 อัตรา</strong><br>
+                                                <strong class="text-blue-600">- วิธีคำนวณเงิน</strong> = <strong class="text-amber-600">33 อัตรา</strong> x 18,150 บาท x 1 เดือน
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-5 py-4 border-r border-slate-200 align-top">
+                                                3.2 อัตราตั้งแต่ 100,000 อัตรา ขึ้นไป <strong class="text-amber-600">จัดสรรคืนร้อยละ 60 ตั้งงบประมาณ 1 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ
+                                            </td>
+                                            <td class="px-5 py-4 align-top">
+                                                <strong class="text-indigo-700 block mb-1">ตัวอย่าง</strong> กรม ฉ มีตำแหน่งประเภทวิชาการและทั่วไป เกษียณ 155 อัตรา<br>
+                                                <strong class="text-blue-600 block mt-2">- วิธีคิด</strong> = (155 x 0.60) = <strong class="text-slate-900">93 อัตรา</strong><br>
+                                                <strong class="text-blue-600">- วิธีคำนวณเงิน</strong> = <strong class="text-amber-600">43 อัตรา</strong> x 18,150 บาท x 1 เดือน
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="bg-indigo-50 p-4 text-sm text-slate-700 border-t border-indigo-200">
+                                <strong class="text-indigo-800"><i class="fa-solid fa-thumbtack mr-1"></i> หมายเหตุ :</strong> กรณีคำนวณอัตราที่คิดงบประมาณได้เป็นทศนิยม ให้ปัดเศษ ดังนี้ กรณี เท่ากับหรือมากกว่า 0.5 ให้ปัดขึ้น กรณี น้อยกว่า 0.5 ให้ปัดลง
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Card 4, 5: นักเรียนทุน / อัตราตั้งใหม่ (Emerald / Violet themes) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-emerald-50/60 rounded-2xl p-6 border border-emerald-100 border-l-4 border-l-emerald-400 shadow-sm hover:shadow-md transition-all">
+                            <p class="text-lg mb-3"><strong class="text-emerald-800">4. การบรรจุนักเรียนทุน นักเรียนทหาร และนักเรียนตำรวจ</strong></p>
+                            <p class="text-slate-700">ให้ใช้อัตราว่างมีเงินบรรจุ โดยให้ตั้งงบประมาณ<strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded ml-1">ตามระยะเวลาที่บรรจุจริง ในอัตราเงินเดือนแรกบรรจุ</strong></p>
+                        </div>
+                        
+                        <div class="bg-purple-50/60 rounded-2xl p-6 border border-purple-100 border-l-4 border-l-purple-400 shadow-sm hover:shadow-md transition-all">
+                            <p class="text-lg mb-3"><strong class="text-purple-800">5. อัตราตั้งใหม่ หรืออัตราว่างไม่มีเงิน</strong></p>
+                            <p class="text-slate-700">ให้ตั้ง<strong class="text-amber-600">เฉพาะที่มีมติคณะรัฐมนตรีอนุมัติ</strong> โดยให้ตั้งงบประมาณ <strong class="text-blue-600">4 เดือน หรือตามแผนการบรรจุ</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ ทั้งนี้ การกำหนดอัตราตั้งใหม่จะพิจารณาให้เท่าที่จำเป็น โดยนำอัตราว่างมีเงินมาประกอบการพิจารณาด้วย สำหรับการตั้งอัตราใหม่ที่นอกเหนือจากกรณีดังกล่าวจะพิจารณาเป็นรายกรณี โดยให้เป็นไปตามหลักเกณฑ์และเงื่อนไขที่สำนักงาน ก.พ. กำหนด</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6: เอกสาร (Slate theme) -->
+                    <div class="bg-slate-50/80 rounded-2xl p-6 border border-slate-200 border-l-4 border-l-slate-400 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg mb-3 flex items-center gap-2"><i class="fa-solid fa-folder-open text-slate-500"></i> <strong class="text-slate-800">6. เอกสารประกอบการพิจารณา</strong></p>
+                        <p class="ml-6 text-slate-700">ขอให้กองจัดทำงบประมาณส่งหลักฐานประกอบการพิจารณาที่ระบุจำนวนอัตรา บัญชีรายชื่อ และเงินเดือนที่ชัดเจน รวมถึงข้อมูลที่ส่วนราชการบันทึกในระบบของกรมบัญชีกลาง <strong class="text-blue-700 bg-blue-100 px-2 py-0.5 rounded-md border border-blue-200 whitespace-nowrap">(รายละเอียดการจ่ายเงินเดือน Report Name : PAYOFR01030)</strong> หรือเอกสารอื่นที่เกี่ยวข้อง เช่น กรอบอัตรากำลังของหน่วยรับงบประมาณ อัตรากำลังปัจจุบัน อัตราว่าง บัญชีรายชื่อ ผลการเบิกจ่าย (เงินงบประมาณ และเงินนอกงบประมาณ) คำสั่งตัดโอนอัตรากำลังระหว่างหน่วยรับงบประมาณ คำสั่งบรรจุแต่งตั้งข้าราชการ และแผนการสรรหา/บรรจุข้าราชการ เป็นต้น</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION B: ค่าจ้างประจำ -->
+            <div id="sec-b" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 z-10 relative">
+                <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                        <i class="fa-solid fa-user-clock text-2xl text-blue-600"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800">ข. ค่าจ้างประจำ แบ่งเป็น 2 กรณี</h2>
+                </div>
+                
+                <div class="space-y-6 exact-text text-slate-700">
+                    
+                    <!-- Case 1 (Rose Theme - ยุบเลิก) -->
+                    <div class="bg-rose-50/80 rounded-2xl p-6 md:p-8 border border-rose-100 border-l-4 border-l-rose-500 shadow-sm hover:shadow-md transition-all">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-start gap-2">
+                            <i class="fa-solid fa-1 text-rose-500 mt-1"></i>
+                            <span><strong class="text-rose-700">กรณีหน่วยงานต้องยุบเลิกอัตราลูกจ้างประจำ</strong>ที่ว่างจากผลการเกษียณอายุ และว่างโดยเหตุอื่น ในระหว่างปีงบประมาณ โดยมีหลักเกณฑ์ ดังนี้</span>
+                        </h3>
+                        <div class="ml-8 space-y-4 bg-white p-5 rounded-xl border border-rose-100 shadow-sm">
+                            <p><strong class="text-slate-900 text-lg">1.1 อัตราเดิม</strong> ให้ใช้<strong class="text-amber-600">ผลเบิกจ่ายจริงของงบประมาณปี 2569</strong> (ไม่รวมส่วนควบ) โดยให้ใช้ <strong class="text-blue-600">ค่าเฉลี่ยเบิกจ่าย 3 เดือน (ต.ค. - ธ.ค. 2564)</strong> หากยังไม่เลื่อนขั้นค่าจ้างให้ปรับเงินเลื่อนขั้น <strong class="text-amber-600">ร้อยละ 3</strong></p>
+                            <div class="h-px w-full bg-slate-100 my-2"></div>
+                            <p><strong class="text-slate-900 text-lg">1.2 อัตราว่างมีเงิน</strong> ให้<strong class="text-rose-600 font-bold bg-rose-100 px-2 py-0.5 rounded">ยุบเลิกอัตราลูกจ้างประจำที่ว่างจากผลการเกษียณอายุ และว่างโดยเหตุอื่นในระหว่างปีงบประมาณ</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Case 2 (Emerald Theme - ไม่ต้องยุบเลิก) -->
+                    <div class="bg-emerald-50/80 rounded-2xl p-6 md:p-8 border border-emerald-100 border-l-4 border-l-emerald-500 shadow-sm hover:shadow-md transition-all">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-start gap-2">
+                            <i class="fa-solid fa-2 text-emerald-500 mt-1"></i>
+                            <span><strong class="text-emerald-700">กรณีหน่วยงานไม่ต้องยุบเลิกอัตราลูกจ้างประจำ</strong>ที่ว่างจากผลการเกษียณอายุ และว่างโดยเหตุอื่น ในระหว่างปีงบประมาณ</span>
+                        </h3>
+                        <p class="ml-8 mb-4 text-slate-600">เนื่องจากคณะกรรมการกำหนดเป้าหมายและนโยบายกำลังคนภาครัฐ (คปร.) อนุมัติให้ยกเว้นไม่ต้องยุบเลิกอัตรา หรือมีกฎหมาย และระเบียบกำหนดให้ไม่ต้องยุบเลิก โดยมีหลักเกณฑ์ ดังนี้</p>
+                        
+                        <div class="ml-8 space-y-5 bg-white p-5 md:p-6 rounded-xl border border-emerald-100 shadow-sm">
+                            <p><strong class="text-slate-900 text-lg">2.1 อัตราเดิม</strong> ให้ใช้<strong class="text-amber-600">ผลเบิกจ่ายจริง ของงบประมาณปี 2569</strong> (ไม่รวมส่วนควบ) โดยให้ใช้ <strong class="text-blue-600">ค่าเฉลี่ยเบิกจ่าย 3 เดือน (ต.ค. - ธ.ค. 2564)</strong> หากยังไม่เลื่อนขั้นค่าจ้างให้ปรับเงินเลื่อนขั้น <strong class="text-amber-600">ร้อยละ 3</strong></p>
+                            
+                            <div class="h-px w-full bg-slate-100 my-2"></div>
+                            
+                            <div class="space-y-3">
+                                <p><strong class="text-slate-900 text-lg">2.2 อัตราว่างมีเงิน</strong> ให้<strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded">ตั้งเฉพาะอัตรา</strong> ยกเว้น หน่วยงานของศาล หน่วยงานของรัฐสภา หน่วยงานขององค์กรอิสระและองค์กรอัยการ ให้พิจารณาตั้งงบประมาณจากความสามารถในการจ้าง ปีงบประมาณ พ.ศ. 2566 - 2568 โดยให้นำค่าเฉลี่ยร้อยละความสามารถในการจ้าง ปีงบประมาณ พ.ศ. 2566 - 2568 มาใช้ในการตั้งงบประมาณอัตราว่างมีเงิน ตามเงื่อนไข ดังนี้</p>
+                                <div class="ml-4 md:ml-6 space-y-3 pt-2">
+                                    <p><strong class="text-emerald-700">1)</strong> จำนวนอัตราว่างมีเงินให้ใส่จำนวนอัตราทั้งหมด</p>
+                                    <p><strong class="text-emerald-700">2)</strong> การตั้งงบประมาณอัตราว่างมีเงิน ดังนี้</p>
+                                    <div class="ml-4 space-y-3">
+                                        <div class="bg-rose-50 p-4 rounded-lg border border-rose-100">
+                                            <p><strong class="text-rose-600">(1) กรณีที่ 1</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการจ้าง <strong class="text-slate-900">ไม่เกินร้อยละ 20</strong> ของอัตราว่างมีเงิน ให้ตั้งงบประมาณ<strong class="text-amber-600">ร้อยละ 20 ของอัตราว่างมีเงิน ระยะเวลา 4 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                        </div>
+                                        <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
+                                            <p><strong class="text-emerald-600">(2) กรณีที่ 2</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการจ้าง <strong class="text-slate-900">เกินร้อยละ 20</strong> ของอัตราว่างมีเงิน ขึ้นไป ให้ตั้งงบประมาณ<strong class="text-amber-600">ตามร้อยละความสามารถในการจ้างจริง ระยะเวลา 4 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="h-px w-full bg-slate-100 my-2"></div>
+                            
+                            <p><strong class="text-slate-900 text-lg">2.3 การทดแทนอัตราเกษียณ</strong> ให้ตั้งงบประมาณ <strong class="text-amber-600">4 เดือน</strong> และใช้อัตราค่าจ้างแรกบรรจุ</p>
+                        </div>
+                    </div>
+
+                    <!-- Doc Review (Slate Theme) -->
+                    <div class="bg-slate-50/80 rounded-2xl p-6 border border-slate-200 border-l-4 border-l-slate-400 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg mb-3 flex items-center gap-2"><i class="fa-solid fa-file-invoice text-slate-500"></i> <strong class="text-slate-800">3. เอกสารประกอบการพิจารณา</strong></p>
+                        <p class="ml-7 text-slate-700">ขอให้กองจัดทำงบประมาณส่งหลักฐานประกอบการพิจารณา ที่ระบุ จำนวนอัตรา บัญชีรายชื่อ และค่าจ้างประจำที่ชัดเจน หรือเอกสารอื่นที่เกี่ยวข้อง เช่น กรอบอัตรากำลังของหน่วยรับงบประมาณ อัตรากำลังปัจจุบัน อัตราว่าง บัญชีรายชื่อ ผลการเบิกจ่าย (เงินงบประมาณ และเงินนอกงบประมาณ) คำสั่งตัดโอนอัตรากำลังระหว่างหน่วยรับงบประมาณ และแผนการสรรหา/จ้างลูกจ้างประจำ เป็นต้น ทั้งนี้ สำหรับลูกจ้างประจำที่จ้างด้วยเงินงบประมาณ ขอให้ส่งข้อมูลที่บันทึกในระบบของกรมบัญชีกลาง <strong class="text-blue-700 bg-blue-100 px-2 py-0.5 rounded-md border border-blue-200 whitespace-nowrap">(รายละเอียดการจ่ายค่าจ้าง Report Name : PAYSTR01030)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION C: ค่าจ้างชั่วคราว -->
+            <div id="sec-c" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 z-10 relative">
+                <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center">
+                        <i class="fa-solid fa-business-time text-2xl text-emerald-600"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800">ค. ค่าจ้างชั่วคราว</h2>
+                </div>
+                
+                <div class="space-y-6 exact-text text-slate-700">
+                    
+                    <!-- Card 1 (Cyan Theme) -->
+                    <div class="bg-cyan-50/80 rounded-2xl p-6 border border-cyan-100 border-l-4 border-l-cyan-400 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg mb-4"><strong class="text-cyan-800">1. จัดสรรงบประมาณให้เป็นไปตามกฎหมาย ระเบียบ และหลักเกณฑ์ที่กำหนด</strong> โดยจัดสรรให้เฉพาะลูกจ้างชั่วคราว <strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded">4 ประเภท</strong> ตามมาตรการบริหารจัดการกำลังคนภาครัฐ (พ.ศ. 2566 – 2570) ดังนี้</p>
+                        <div class="bg-white p-5 rounded-xl border border-cyan-100 shadow-sm">
+                            <ul class="ml-4 space-y-3">
+                                <li class="flex gap-3 items-start"><strong class="text-cyan-700">1.1</strong> <span class="text-slate-800">ลูกจ้างชาวต่างประเทศที่มีสัญญาจ้าง</span></li>
+                                <li class="flex gap-3 items-start"><strong class="text-cyan-700">1.2</strong> <span class="text-slate-800">ลูกจ้างชั่วคราวของส่วนราชการที่มีสำนักงานในต่างประเทศ</span></li>
+                                <li class="flex gap-3 items-start"><strong class="text-cyan-700">1.3</strong> <span class="text-slate-800">ลูกจ้างชั่วคราวตามระเบียบของสถาบันอุดมศึกษาว่าด้วยการจ้างผู้มีความรู้ความสามารถพิเศษเป็นอาจารย์ในสถาบันอุดมศึกษา</span></li>
+                                <li class="flex gap-3 items-start"><strong class="text-cyan-700">1.4</strong> <span class="text-slate-800">ลูกจ้างชั่วคราวอื่นที่มีข้อตกลงพิเศษกับกระทรวงการคลัง</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 (Orange Theme) -->
+                    <div class="bg-orange-50/80 rounded-2xl p-6 border border-orange-100 border-l-4 border-l-orange-400 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg mb-4"><strong class="text-orange-800">2. การตั้งงบประมาณค่าจ้างชั่วคราวอัตราเดิม</strong> ต้อง<strong class="text-rose-600 font-bold bg-rose-50 px-2 py-0.5 rounded ml-1">ไม่เกินกรอบอัตรากำลังที่ได้รับจัดสรรตามพระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. 2569</strong></p>
+                        
+                        <div class="ml-4 md:ml-6 space-y-5 bg-white p-5 md:p-6 rounded-xl border border-orange-100 shadow-sm">
+                            <p><strong class="text-slate-900 text-lg">2.1 กรณีที่มีสัญญาจ้างแล้ว</strong> ให้ตั้งงบประมาณตามสัญญาจ้าง <strong class="text-amber-600">12 เดือน</strong></p>
+                            
+                            <div class="h-px w-full bg-slate-100 my-2"></div>
+                            
+                            <div class="space-y-4">
+                                <p><strong class="text-slate-900 text-lg">2.2 กรณีที่ยังไม่มีสัญญาจ้าง (อัตราว่างมีเงิน)</strong> ให้ตั้งเฉพาะอัตรา ยกเว้น หน่วยงานของศาล หน่วยงานของรัฐสภา หน่วยงานขององค์กรอิสระและองค์กรอัยการ ให้พิจารณาตั้งงบประมาณจากความสามารถในการจ้าง ปีงบประมาณ พ.ศ. 2566 - 2568 โดยให้นำค่าเฉลี่ยร้อยละความสามารถในการจ้าง ปีงบประมาณ พ.ศ. 2566 - 2568 มาใช้ในการตั้งงบประมาณอัตราว่างมีเงิน ตามเงื่อนไข ดังนี้</p>
+                                <div class="ml-4 md:ml-8 space-y-3">
+                                    <p><strong class="text-orange-700">1)</strong> จำนวนอัตราว่างมีเงินให้ใส่จำนวนอัตราทั้งหมด</p>
+                                    <p><strong class="text-orange-700">2)</strong> การตั้งงบประมาณอัตราว่างมีเงิน ดังนี้</p>
+                                    <div class="ml-4 space-y-3">
+                                        <div class="bg-rose-50 p-4 rounded-lg border border-rose-100">
+                                            <p><strong class="text-rose-600">(1) กรณีที่ 1</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการจ้าง <strong class="text-slate-900">ไม่เกินร้อยละ 20</strong> ของอัตราว่างมีเงิน ให้ตั้งงบประมาณ<strong class="text-amber-600">ร้อยละ 20 ของอัตราว่างมีเงิน ระยะเวลา 4 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                        </div>
+                                        <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
+                                            <p><strong class="text-emerald-600">(2) กรณีที่ 2</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการจ้าง <strong class="text-slate-900">เกินร้อยละ 20</strong> ของอัตราว่างมีเงิน ขึ้นไป ให้ตั้งงบประมาณ<strong class="text-amber-600">ตามร้อยละความสามารถในการจ้างจริง ระยะเวลา 4 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Card 3 (Teal Theme) -->
+                        <div class="bg-teal-50/80 rounded-2xl p-6 border border-teal-100 border-l-4 border-l-teal-400 shadow-sm hover:shadow-md transition-all">
+                            <p class="text-lg mb-3"><strong class="text-teal-800">3. การตั้งงบประมาณค่าจ้างชั่วคราวอัตราตั้งใหม่</strong></p>
+                            <div class="bg-white p-5 rounded-xl border border-teal-100 shadow-sm h-full">
+                                <p class="text-slate-700 leading-relaxed">ให้ตั้งงบประมาณ <strong class="text-amber-600">4 เดือน</strong> โดยใช้อัตราค่าตอบแทนแรกบรรจุตามสัญญาจ้าง กรณีหน่วยงานมีความจำเป็นต้องจ้างลูกจ้างชั่วคราวอัตราตั้งใหม่ จะพิจารณาให้เท่าที่จำเป็นเท่านั้น โดยนำอัตราว่างมีเงินมาประกอบการพิจารณาด้วย ทั้งนี้ อัตราลูกจ้างชั่วคราวในภาพรวมจะต้องไม่เกินกรอบอัตรากำลังที่สำนักงาน ก.พ. อนุมัติ</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 (Slate Theme) -->
+                        <div class="bg-slate-50/80 rounded-2xl p-6 border border-slate-200 border-l-4 border-l-slate-400 shadow-sm hover:shadow-md transition-all">
+                            <p class="text-lg mb-3 flex items-center gap-2"><i class="fa-solid fa-folder-open text-slate-500"></i> <strong class="text-slate-800">4. เอกสารประกอบการพิจารณา</strong></p>
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm h-full">
+                                <p class="text-slate-700 leading-relaxed">ขอให้กองจัดทำงบประมาณส่งหลักฐานประกอบการพิจารณา ที่ระบุ จำนวนอัตรา บัญชีรายชื่อ และค่าจ้างชั่วคราวที่ชัดเจน หรือเอกสารอื่นที่เกี่ยวข้อง เช่น หนังสืออนุมัติกรอบอัตรากำลังลูกจ้างจากสำนักงาน ก.พ. อัตรากำลังปัจจุบัน อัตราว่าง บัญชีรายชื่อผลการเบิกจ่าย (เงินงบประมาณ และเงินนอกงบประมาณ) และแผนการสรรหา/จ้างลูกจ้างชั่วคราว เป็นต้น</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION D: พนักงานราชการ -->
+            <div id="sec-d" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 z-10 relative">
+                <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center">
+                        <i class="fa-solid fa-id-card-clip text-2xl text-purple-600"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800">ง. ค่าตอบแทนพนักงานราชการ</h2>
+                </div>
+                
+                <div class="space-y-6 exact-text text-slate-700">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Card 1 (Blue Theme) -->
+                        <div class="bg-blue-50/80 p-6 rounded-2xl border border-blue-100 border-l-4 border-l-blue-400 shadow-sm hover:shadow-md transition-all">
+                            <p class="text-lg mb-3"><strong class="text-blue-800">1. อัตราเดิม</strong></p>
+                            <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm h-full">
+                                <p>ให้ใช้<strong class="text-amber-600">ผลเบิกจ่ายจริงของงบประมาณปี 2569</strong> (ไม่รวมส่วนควบ) โดยให้ใช้ <strong class="text-blue-600">ค่าเฉลี่ยเบิกจ่าย 3 เดือน (ต.ค. – ธ.ค. 2568)</strong> หากยังไม่เลื่อนค่าตอบแทนให้ปรับเพิ่มเงินเลื่อนขั้น <strong class="text-amber-600">ร้อยละ 4</strong> โดยให้เป็นไปตามกรอบอัตรากำลังพนักงานราชการที่คณะกรรมการบริหารพนักงานราชการ (คพร.) อนุมัติ</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 (Rose Theme - ยุบเลิก) -->
+                        <div class="bg-rose-50/80 p-6 rounded-2xl border border-rose-100 border-l-4 border-l-rose-500 shadow-sm hover:shadow-md transition-all">
+                            <p class="text-lg mb-3"><strong class="text-rose-800">2. การยุบเลิกตำแหน่ง</strong></p>
+                            <div class="bg-white p-5 rounded-xl border border-rose-100 shadow-sm h-full">
+                                <p class="mb-4">หน่วยงานที่มีพนักงานราชการกลุ่มที่ 2 (ตามมติคณะรัฐมนตรีเมื่อวันที่ 5 ตุลาคม 2547) เมื่อมีตำแหน่งว่าง<strong class="text-rose-600 font-bold bg-rose-50 px-2 py-0.5 rounded ml-1">ต้องยุบเลิกทุกกรณี</strong></p>
+                                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-sm">
+                                    <strong class="text-slate-900 block mb-1">หมายเหตุ :</strong> พนักงานราชการกลุ่มที่ 2 คือ พนักงานราชการที่เปลี่ยนสภาพมาจากลูกจ้างชั่วคราว ตามมติคณะรัฐมนตรี เมื่อวันที่ 5 ตุลาคม 2547 โดยให้ลูกจ้างชั่วคราวของฝ่ายบริหารที่ทำงานติดต่อกันไม่น้อยกว่า 5 ปี เปลี่ยนสภาพไปเป็นพนักงานราชการ และเมื่อตำแหน่งว่างลงจะต้องยุบเลิก <strong class="text-amber-600 block mt-1">กรณีนี้จะตั้งงบประมาณตามจำนวนพนักงานราชการที่มีอยู่จนกว่าตำแหน่งจะว่างและยุบเลิกไป</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 (Amber Theme) -->
+                    <div class="bg-amber-50/60 p-6 rounded-2xl border border-amber-100 border-l-4 border-l-amber-400 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg mb-3"><strong class="text-amber-800">3. อัตราหมุนเวียนระหว่างปีงบประมาณ พ.ศ. 2568</strong> <span class="text-base text-amber-700/80 font-normal ml-1">(จากการเกษียณ ตาย ออกระหว่างปี และมีการจ้างพนักงานราชการทดแทนอัตราเดิมที่ว่างลง)</span></p>
+                        <div class="bg-white p-6 rounded-xl border border-amber-100 shadow-sm">
+                            <p class="mb-4">ให้ตั้ง<strong class="text-amber-600">เฉพาะอัตรา</strong> ยกเว้น หน่วยงานของศาล หน่วยงานของรัฐสภา หน่วยงานขององค์กรอิสระและองค์กรอัยการ ให้พิจารณาตั้งงบประมาณจากความสามารถในการจ้าง ปีงบประมาณ พ.ศ. 2566 - 2568 โดยให้นำค่าเฉลี่ยร้อยละความสามารถในการจ้าง ปีงบประมาณ พ.ศ. 2566 - 2568 มาใช้ในการตั้งงบประมาณอัตราว่างมีเงิน ตามเงื่อนไข ดังนี้</p>
+                            <div class="ml-4 md:ml-8 space-y-4">
+                                <p><strong class="text-amber-700">1)</strong> จำนวนอัตราว่างมีเงินให้ใส่จำนวนอัตราทั้งหมด</p>
+                                <p><strong class="text-amber-700">2)</strong> การตั้งงบประมาณอัตราว่างมีเงิน ดังนี้</p>
+                                <div class="ml-4 space-y-3">
+                                    <div class="bg-rose-50 p-4 rounded-lg border border-rose-100">
+                                        <p><strong class="text-rose-600">(1) กรณีที่ 1</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการจ้าง ไม่เกินร้อยละ 20 ของอัตราว่างมีเงิน ให้ตั้งงบประมาณ<strong class="text-amber-600">ร้อยละ 20 ของอัตราว่างมีเงิน ระยะเวลา 4 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                    </div>
+                                    <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
+                                        <p><strong class="text-emerald-600">(2) กรณีที่ 2</strong> หน่วยรับงบประมาณที่มีร้อยละความสามารถในการจ้าง เกินร้อยละ 20 ของอัตราว่างมีเงิน ขึ้นไป ให้ตั้งงบประมาณ<strong class="text-amber-600">ตามร้อยละความสามารถในการจ้างจริง ระยะเวลา 4 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Card 4 (Emerald Theme) -->
+                        <div class="bg-emerald-50/60 p-6 rounded-2xl border border-emerald-100 border-l-4 border-l-emerald-400 shadow-sm hover:shadow-md transition-all">
+                            <p class="text-lg mb-3"><strong class="text-emerald-800">4. การบรรจุนักเรียนทุน</strong></p>
+                            <div class="bg-white p-5 rounded-xl border border-emerald-100 shadow-sm h-full">
+                                <p>ให้ใช้อัตราว่างมีเงินบรรจุ โดยให้ตั้งงบประมาณตาม<strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded ml-1">ระยะเวลาที่บรรจุจริง ในอัตราค่าตอบแทนแรกบรรจุ</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 (Slate Theme) -->
+                        <div class="bg-slate-50/80 p-6 rounded-2xl border border-slate-200 border-l-4 border-l-slate-400 shadow-sm hover:shadow-md transition-all">
+                            <p class="text-lg mb-3 flex items-center gap-2"><i class="fa-solid fa-folder-open text-slate-500"></i> <strong class="text-slate-800">6. เอกสารประกอบการพิจารณา</strong></p>
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm h-full">
+                                <p>ขอให้กองจัดทำงบประมาณส่งหลักฐานประกอบการพิจารณา ที่ระบุ จำนวนอัตรา บัญชีรายชื่อ และค่าตอบแทนพนักงานราชการที่ชัดเจน ทั้งในส่วนของที่มีสัญญาจ้างและอัตราหมุนเวียน หรือเอกสารอื่นที่เกี่ยวข้อง เช่น กรอบอัตราพนักงานราชการ ที่ คพร. อนุมัติ อัตรากำลังปัจจุบัน อัตราว่าง บัญชีรายชื่อ ผลการเบิกจ่าย หนังสือขอทำความตกลงกับสำนักงบประมาณ และแผนการสรรหา/จ้างพนักงานราชการ เป็นต้น</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 (Violet Theme) -->
+                    <div class="bg-violet-50/60 p-6 rounded-2xl border border-violet-100 border-l-4 border-l-violet-400 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg mb-4"><strong class="text-violet-800">5. อัตราตั้งใหม่ หรืออัตราว่างไม่มีเงิน</strong></p>
+                        <div class="bg-white p-6 rounded-xl border border-violet-100 shadow-sm">
+                            <p class="mb-4">ให้ตั้งงบประมาณ <strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded">4 เดือน</strong> โดยใช้อัตราค่าตอบแทนแรกบรรจุ และให้ดำเนินการได้ 2 กรณี ดังนี้</p>
+                            <div class="ml-4 md:ml-8 space-y-3 mb-4">
+                                <p><strong class="text-violet-700">5.1</strong> ทดแทนอัตราลูกจ้างประจำที่ว่างลงทุกกรณี โดยให้เป็นไปตามกรอบอัตรากำลังพนักงานราชการที่คณะกรรมการบริหารพนักงานราชการ (คพร.) อนุมัติ</p>
+                                <p><strong class="text-violet-700">5.2</strong> ทดแทนอัตราข้าราชการที่ว่างลงจากผลการเกษียณอายุของข้าราชการด้วยการจ้างงานรูปแบบอื่น ให้เป็นไปตามกรอบที่ คพร. อนุมัติแล้ว</p>
+                            </div>
+                            <div class="h-px w-full bg-slate-100 my-4"></div>
+                            <p class="text-slate-600 italic">ทั้งนี้ การกำหนดอัตราตั้งใหม่จะพิจารณาให้เท่าที่จำเป็นเท่านั้น โดยนำอัตราหมุนเวียนมาประกอบการพิจารณาด้วย สำหรับการตั้งอัตราใหม่ที่นอกเหนือจากกรณีดังกล่าวจะพิจารณาเป็นรายกรณี โดยให้เป็นไปตามหลักเกณฑ์และเงื่อนไขที่ คพร. กำหนด</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION E: องค์การมหาชน -->
+            <div id="sec-e" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 z-10 relative">
+                <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                    <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-building-user text-2xl text-orange-600"></i>
+                    </div>
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">จ. เงินเดือนขององค์การมหาชน รัฐวิสาหกิจ พนักงานมหาวิทยาลัย หรือหน่วยงานในลักษณะเดียวกัน</h2>
+                </div>
+                
+                <div class="space-y-6 exact-text text-slate-700">
+                    
+                    <!-- Card 1 (Orange Theme) -->
+                    <div class="bg-orange-50/80 p-6 rounded-2xl border border-orange-100 border-l-4 border-l-orange-400 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg mb-4"><strong class="text-orange-800">1. อัตราเดิม แบ่งเป็น 2 กรณี</strong></p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-5 rounded-xl border border-orange-100 shadow-sm">
+                                <p><strong class="text-slate-900 block mb-2">1.1 หน่วยงานที่ได้รับงบประมาณทั้งหมด</strong> ให้ใช้ผลเบิกจ่ายจริงของงบประมาณปี 2569 (ไม่รวมส่วนควบ) โดยให้ใช้ ค่าเฉลี่ยเบิกจ่าย 3 เดือน (ต.ค. – ธ.ค. 2564) หากยังไม่เลื่อนเงินเดือนให้ปรับเพิ่มเงินเลื่อนขั้น <strong class="text-amber-600 text-lg">ร้อยละ 6</strong></p>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl border border-orange-100 shadow-sm flex flex-col justify-between">
+                                <p><strong class="text-slate-900 block mb-2">1.2 หน่วยงานที่มีการนำเงินนอกงบประมาณมาสมทบกับเงินเดือน</strong> ให้ใช้ผลเบิกจ่ายจริงงบประมาณปี 2569 (ไม่รวมส่วนควบ) โดยให้ใช้ ค่าเฉลี่ยเบิกจ่าย 3 เดือน (ต.ค. – ธ.ค. 2564) หากยังไม่เลื่อนเงินเดือนให้ปรับเพิ่มเงินเลื่อนขั้น <strong class="text-amber-600 text-lg">ร้อยละ 4</strong></p>
+                            </div>
+                            <div class="bg-amber-100/50 p-4 rounded-xl border border-amber-200 md:col-span-2 shadow-sm text-sm md:text-base">
+                                <p>กรณีหน่วยงานที่มีผลเบิกจ่ายจริงสูงกว่าที่ตั้งงบประมาณให้ใช้วงเงินและอัตราตาม <strong class="text-slate-900">พระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. 2568 เป็นฐานในการคำนวณ</strong> และปรับเพิ่มเงินเลื่อนขั้นร้อยละ 4 สำหรับส่วนที่เหลือให้ใช้เงินนอกงบประมาณสมทบ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Card 2 (Sky Theme) -->
+                        <div class="bg-sky-50/80 p-6 rounded-2xl border border-sky-100 border-l-4 border-l-sky-400 shadow-sm hover:shadow-md transition-all">
+                            <p class="text-lg mb-3"><strong class="text-sky-800">2. การตั้งค่าใช้จ่ายบุคลากรขององค์การมหาชน</strong></p>
+                            <div class="bg-white p-5 rounded-xl border border-sky-100 shadow-sm h-full">
+                                <p>ให้ตั้งงบประมาณตามมติคณะรัฐมนตรี เมื่อวันที่ 28 พฤษภาคม 2561 ซึ่งกำหนดกรอบวงเงินรวมสำหรับค่าใช้จ่ายบุคลากรไว้<strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded ml-1">ไม่เกิน ร้อยละ 30 ของแผนการใช้จ่ายเงินประจำปี</strong> (ซึ่งไม่รวมงบประมาณสำหรับการจัดซื้อครุภัณฑ์และสิ่งก่อสร้าง) ยกเว้นหน่วยงานที่มติคณะรัฐมนตรี กำหนดกรอบวงเงินรวมค่าใช้จ่ายด้านบุคลากรขององค์การมหาชนไว้ เป็นการเฉพาะ</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 & 4 Stack -->
+                        <div class="space-y-6">
+                            <div class="bg-indigo-50/60 p-6 rounded-2xl border border-indigo-100 border-l-4 border-l-indigo-400 shadow-sm hover:shadow-md transition-all">
+                                <p class="text-lg mb-2"><strong class="text-indigo-800">3. หน่วยงานที่มีเงินนอกงบประมาณ</strong></p>
+                                <p class="bg-white p-4 rounded-xl border border-indigo-100">ขอให้แสดงสถานะการเงินและสัดส่วนค่าใช้จ่ายบุคลากรของหน่วยงานย้อนหลัง 3 ปี (ปีงบประมาณ พ.ศ. 2567 - 2569) เพื่อประกอบการพิจารณาสัดส่วนค่าใช้จ่ายบุคลากร</p>
+                            </div>
+
+                            <div class="bg-teal-50/60 p-6 rounded-2xl border border-teal-100 border-l-4 border-l-teal-400 shadow-sm hover:shadow-md transition-all">
+                                <p class="text-lg mb-2"><strong class="text-teal-800">4. แผนการใช้จ่ายเงินประจำปีงบประมาณ พ.ศ. 2569</strong></p>
+                                <p class="bg-white p-4 rounded-xl border border-teal-100">ต้องผ่านความเห็นชอบจากคณะกรรมการของหน่วยงานที่กฎหมายมอบอำนาจในการพิจารณาอนุมัติงบประมาณแล้ว สำหรับแผนการใช้จ่ายงบประมาณปี พ.ศ. 2570 ให้หน่วยงานรับรองเอกสารประมาณการดังกล่าวด้วย เพื่อใช้เป็นหลักฐานประกอบการพิจารณา</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 (Rose Theme - คำเตือน) -->
+                    <div class="bg-rose-50/80 p-6 rounded-2xl border border-rose-200 border-l-4 border-l-rose-500 shadow-md">
+                        <p class="text-lg mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-rose-500"></i> <strong class="text-rose-800">5. กรณีที่หน่วยงานไปดำเนินการจ้างบุคลากรโดยไม่ขอทำความตกลงกับสำนักงบประมาณ และใช้จ่ายจากเงินนอกงบประมาณ</strong></p>
+                        <p class="ml-7"><strong class="text-rose-600 font-bold bg-white px-3 py-1 rounded-md border border-rose-100">หน่วยงานไม่สามารถนำอัตราดังกล่าวมาขอรับการจัดสรรงบประมาณได้</strong></p>
+                    </div>
+
+                    <!-- Card 6 (Amber Theme) -->
+                    <div class="bg-amber-50/60 p-6 rounded-2xl border border-amber-100 border-l-4 border-l-amber-400 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg mb-4"><strong class="text-amber-800">6. อัตราว่างมีเงิน</strong></p>
+                        <div class="bg-white p-6 rounded-xl border border-amber-100 shadow-sm">
+                            <p class="mb-4">ให้ตั้งเฉพาะอัตรา ยกเว้น หน่วยงานของศาล หน่วยงานของรัฐสภา หน่วยงานขององค์กรอิสระและองค์กรอัยการ ให้พิจารณาตั้งงบประมาณจากความสามารถในการจ้าง ปีงบประมาณ พ.ศ. 2566 - 2568 โดยให้นำค่าเฉลี่ยร้อยละความสามารถในการจ้าง ปีงบประมาณ พ.ศ. 2566 - 2568 มาใช้ในการตั้งงบประมาณอัตราว่างมีเงิน ตามเงื่อนไข ดังนี้</p>
+                            <div class="ml-4 md:ml-8 space-y-4">
+                                <p><strong class="text-amber-700">1)</strong> จำนวนอัตราว่างมีเงินให้ใส่จำนวนอัตราทั้งหมด</p>
+                                <p><strong class="text-amber-700">2)</strong> การตั้งงบประมาณอัตราว่างมีเงิน ดังนี้</p>
+                                <div class="ml-4 space-y-3">
+                                    <div class="bg-rose-50 p-4 rounded-lg border border-rose-100">
+                                        <p><strong class="text-slate-900">(1) กรณีที่ 1</strong> ไม่เกินร้อยละ 20 ให้ตั้งงบประมาณ <strong class="text-amber-600">ร้อยละ 20 ระยะเวลา 4 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                    </div>
+                                    <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
+                                        <p><strong class="text-slate-900">(2) กรณีที่ 2</strong> เกินร้อยละ 20 ให้ตั้งงบประมาณ <strong class="text-amber-600">ตามร้อยละความสามารถจริง ระยะเวลา 4 เดือน</strong> โดยใช้อัตราเงินเดือนแรกบรรจุ</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Card 7 -->
+                        <div class="bg-blue-50/60 p-6 rounded-2xl border border-blue-100 border-t-4 border-t-blue-400 shadow-sm hover:shadow-md transition-all text-center">
+                            <i class="fa-solid fa-user-minus text-3xl text-blue-300 mb-3 block"></i>
+                            <p class="text-lg mb-2"><strong class="text-blue-800">7. การทดแทนอัตราเกษียณ</strong></p>
+                            <p class="bg-white p-3 rounded-xl border border-blue-100 mt-auto"><strong class="text-slate-900 text-lg block mb-1">จัดสรรคืนทั้งหมด</strong> ให้ตั้งงบประมาณ 4 เดือน และใช้อัตราค่าจ้างแรกบรรจุ</p>
+                        </div>
+                        <!-- Card 8 -->
+                        <div class="bg-emerald-50/60 p-6 rounded-2xl border border-emerald-100 border-t-4 border-t-emerald-400 shadow-sm hover:shadow-md transition-all text-center">
+                            <i class="fa-solid fa-user-graduate text-3xl text-emerald-300 mb-3 block"></i>
+                            <p class="text-lg mb-2"><strong class="text-emerald-800">8. การบรรจุนักเรียนทุน</strong></p>
+                            <p class="bg-white p-3 rounded-xl border border-emerald-100 mt-auto">ให้ใช้อัตราว่างมีเงินบรรจุ ให้ตั้งงบประมาณ<strong class="text-slate-900 block mt-1">ตามระยะเวลาที่บรรจุจริง</strong> ในอัตราค่าจ้างแรกบรรจุ</p>
+                        </div>
+                        <!-- Card 9 -->
+                        <div class="bg-purple-50/60 p-6 rounded-2xl border border-purple-100 border-t-4 border-t-purple-400 shadow-sm hover:shadow-md transition-all text-center">
+                            <i class="fa-solid fa-user-plus text-3xl text-purple-300 mb-3 block"></i>
+                            <p class="text-lg mb-2"><strong class="text-purple-800">9. อัตราตั้งใหม่ หรืออัตราว่างไม่มีเงิน</strong></p>
+                            <p class="bg-white p-3 rounded-xl border border-purple-100 mt-auto">ให้ตั้งเฉพาะที่มีมติ ครม. อนุมัติ ให้ตั้งงบประมาณ <strong class="text-slate-900 text-lg block my-1">4 เดือน</strong> โดยใช้อัตราค่าจ้างแรกบรรจุ</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 10 & 11 Stack -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-yellow-50/80 p-6 rounded-2xl border border-yellow-200 border-l-4 border-l-yellow-500 shadow-sm hover:shadow-md transition-all">
+                            <p class="text-lg mb-3"><strong class="text-yellow-800">10. การกำหนดอัตราเงินเดือนของผู้อำนวยการองค์การมหาชนหรือที่เรียกอย่างอื่น</strong></p>
+                            <div class="bg-white p-5 rounded-xl border border-yellow-100 h-full">
+                                <p>ให้ตั้งงบประมาณตามสัญญาจ้าง สำหรับค่าตอบแทนพื้นฐานตั้ง<strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded mx-1">ไม่เกิน ร้อยละ 25 ของเงินเดือนประจำ</strong>ในส่วนของค่าตอบแทนผันแปร<strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded mx-1">ไม่เกิน ร้อยละ 25 ของเงินเดือนประจำ</strong> ให้ใช้จากเงินรายได้ของหน่วยงาน</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50/80 p-6 rounded-2xl border border-slate-200 border-l-4 border-l-slate-400 shadow-sm hover:shadow-md transition-all">
+                            <p class="text-lg mb-3 flex items-center gap-2"><i class="fa-solid fa-folder-open text-slate-500"></i> <strong class="text-slate-800">11. เอกสารประกอบการพิจารณา</strong></p>
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 h-full">
+                                <p>ขอให้กองจัดทำงบประมาณส่งหลักฐานประกอบการพิจารณา ที่ระบุจำนวนอัตรา บัญชีรายชื่อ และเงินเดือนที่ชัดเจน หรือเอกสารอื่นที่เกี่ยวข้อง เช่น กรอบอัตรากำลังของหน่วยรับงบประมาณ อัตรากำลังปัจจุบัน อัตราว่าง บัญชีรายชื่อ ผลการเบิกจ่าย (เงินงบประมาณ และเงินนอกงบประมาณ) หนังสือขอทำความตกลงกับสำนักงบประมาณ และแผนการสรรหา/จ้างพนักงานของรัฐ เป็นต้น</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION F: เงินเพิ่มอื่น -->
+            <div id="sec-f" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 z-10 relative">
+                <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
+                        <i class="fa-solid fa-sack-dollar text-2xl text-amber-600"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800">ฉ. เงินเพิ่มอื่นที่จ่ายควบกับเงินเดือนและค่าจ้าง</h2>
+                </div>
+                
+                <div class="space-y-6 exact-text text-slate-700">
+                    <!-- Card 1 (Yellow/Gold Theme) -->
+                    <div class="bg-yellow-50/80 p-6 md:p-8 rounded-2xl border border-yellow-200 border-l-4 border-l-yellow-500 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg mb-4"><strong class="text-yellow-800">1. ส่วนควบของเงินเดือน</strong></p>
+                        <p class="ml-4 mb-6">ให้พิจารณาตั้งตามกฎหมาย ระเบียบ และหลักเกณฑ์ที่กำหนด โดยให้สอดคล้องกับจำนวนข้าราชการ ลูกจ้างประจำ ลูกจ้างชั่วคราว และพนักงานราชการ และ<strong class="text-amber-700 bg-amber-100 px-3 py-1 rounded-lg shadow-sm border border-amber-200 ml-1">ให้ตั้งงบประมาณเฉพาะข้าราชการ/พนักงานของรัฐที่มีสิทธิได้รับเงินเท่านั้น</strong> เช่น</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 ml-4 md:ml-8">
+                            <div class="bg-white p-6 rounded-xl flex flex-col items-center text-center shadow-sm border border-yellow-100 hover:border-yellow-300 transition-colors">
+                                <div class="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
+                                    <i class="fa-solid fa-medal text-3xl text-amber-500"></i>
+                                </div>
+                                <strong class="text-slate-900 text-lg mb-2">1.1 เงินวิทยฐานะ</strong>
+                                <p class="text-slate-600">ให้ตั้งงบประมาณเฉพาะผู้ที่ผ่านการประเมินและมีคำสั่งอนุมัติให้ได้รับเงินวิทยฐานะเท่านั้น</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl flex flex-col items-center text-center shadow-sm border border-blue-100 hover:border-blue-300 transition-colors">
+                                <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                                    <i class="fa-solid fa-graduation-cap text-3xl text-blue-500"></i>
+                                </div>
+                                <strong class="text-slate-900 text-lg mb-2">1.2 เงินปรับเพิ่มคุณวุฒิ</strong>
+                                <p class="text-slate-600">ให้ตั้งงบประมาณเฉพาะกรณีที่มีมติคณะรัฐมนตรีรองรับเท่านั้น</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 (Slate Theme) -->
+                    <div class="bg-slate-50/80 p-6 rounded-2xl border border-slate-200 border-l-4 border-l-slate-400 shadow-sm hover:shadow-md transition-all">
+                        <p class="text-lg mb-3 flex items-center gap-2"><i class="fa-solid fa-folder-open text-slate-500"></i> <strong class="text-slate-800">2. เอกสารประกอบการพิจารณา</strong></p>
+                        <div class="bg-white p-5 rounded-xl border border-slate-200">
+                            <p>ขอให้กองจัดทำงบประมาณส่งหลักฐานประกอบการพิจารณา ที่ระบุจำนวนอัตรา บัญชีรายชื่อ และค่าใช้จ่ายที่ชัดเจน หรือเอกสารอื่นที่เกี่ยวข้อง เช่น บัญชีรายชื่อ และหนังสือ/คำสั่ง อนุมัติให้มีสิทธิได้รับเงินเพิ่มต่าง ๆ เป็นต้น</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION G: ค่าใช้จ่ายตามสิทธิ -->
+            <div id="sec-g" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 z-10 relative">
+                <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center">
+                        <i class="fa-solid fa-scale-balanced text-2xl text-indigo-600"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800">ช. ค่าใช้จ่ายตามสิทธิและข้อกำหนดตามกฎหมาย</h2>
+                </div>
+                
+                <div class="mb-8 exact-text text-slate-700 bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <p>ค่าใช้จ่ายตามสิทธิและข้อกำหนดตามกฎหมายให้พิจารณาตั้งตามกฎหมาย ระเบียบ และหลักเกณฑ์ที่กำหนด และ<strong class="text-amber-600">ผลเบิกจ่ายจริงของปีงบประมาณ พ.ศ. 2568 และ 2569</strong> โดยให้สอดคล้องกับจำนวนข้าราชการ ลูกจ้างประจำ ลูกจ้างชั่วคราว และพนักงานราชการ และให้ตั้งงบประมาณ <strong class="text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">เฉพาะข้าราชการ/พนักงานของรัฐที่มีสิทธิได้รับเงินเท่านั้น</strong> เช่น</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 exact-text text-slate-700">
+                    
+                    <!-- Card 1: ค่าเช่าบ้าน (Sky Theme) -->
+                    <div class="bg-sky-50/80 p-6 rounded-2xl border border-sky-100 border-t-4 border-t-sky-400 shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+                                <i class="fa-solid fa-house text-sky-500"></i>
+                            </div>
+                            <strong class="text-sky-800 text-lg">1. ค่าเช่าบ้าน</strong>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-sky-100 h-[calc(100%-4rem)]">
+                            <p>ให้ตั้งงบประมาณตามสัญญาเช่า แต่<strong class="text-rose-600 font-bold bg-rose-50 px-2 py-0.5 rounded mx-1">ต้องไม่เกินอัตราค่าเช่าบ้านที่กระทรวงการคลังกำหนด</strong> ทั้งนี้ กรณีไม่มีสัญญาเช่าให้ใช้ผลเบิกจ่ายจริงเฉลี่ย 3 เดือน (ต.ค. - ธ.ค. 2568) แล้วปรับให้เต็มปี เป็นฐานในการคำนวณงบประมาณปี พ.ศ. 2570</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3: องค์การมหาชน (Purple Theme) -->
+                    <div class="bg-purple-50/80 p-6 rounded-2xl border border-purple-100 border-t-4 border-t-purple-400 shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+                                <i class="fa-solid fa-piggy-bank text-purple-500"></i>
+                            </div>
+                            <strong class="text-purple-800 text-lg leading-tight">3. องค์การมหาชน รัฐวิสาหกิจ ฯลฯ</strong>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-purple-100 h-[calc(100%-4rem)]">
+                            <p>ให้ตั้งงบประมาณรายการเงินสำรองเลี้ยงชีพ เงินช่วยเหลือการศึกษาและค่าเล่าเรียนบุตร และค่ารักษาพยาบาล ให้เป็นไปตามกฎหมาย และระเบียบที่กำหนด ทั้งนี้ กรอบวงเงินรวมค่าใช้จ่ายของทั้งสามรายการ<strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded mx-1">ต้องไม่เกิน ร้อยละ 10 ของผลรวมเงินเดือนพนักงานและลูกจ้าง</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: ชายแดนใต้ (Emerald Theme - Spans 2 cols on lg) -->
+                    <div class="bg-emerald-50/80 p-6 rounded-2xl border border-emerald-100 border-l-4 border-l-emerald-400 shadow-sm hover:shadow-md transition-all lg:col-span-2">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+                                <i class="fa-solid fa-map-location-dot text-emerald-500"></i>
+                            </div>
+                            <strong class="text-emerald-800 text-lg">2. การตั้งงบประมาณให้ผู้ปฏิบัติงานในพื้นที่จังหวัดชายแดนภาคใต้</strong>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl border border-emerald-100">
+                            <p class="mb-5">ให้เป็นไปตามระเบียบกระทรวงการคลังกำหนด (รายละเอียดแจ้งตามหนังสือกระทรวงการคลัง ด่วนที่สุด ที่ กค 0408.5/ว158 ลงวันที่ 25 กันยายน 2560 เรื่อง วิธีปฏิบัติเกี่ยวกับการเบิกจ่ายเงินค่าตอบแทนพิเศษรายเดือนให้แก่เจ้าหน้าที่ผู้ปฏิบัติงานในพื้นที่จังหวัดชายแดนภาคใต้) แบ่งเป็น 2 กรณี</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                                    <p class="mb-3"><strong class="text-slate-900">2.1 ข้าราชการและลูกจ้างประจำ</strong> <strong class="text-amber-600 bg-amber-100 px-2 py-0.5 rounded-md shadow-sm">คนละ 2,500 บาท</strong></p>
+                                    <p class="text-sm text-slate-500 mb-2">ตั้งงบประมาณไว้ 2 ส่วน คือ</p>
+                                    <ul class="ml-4 space-y-2">
+                                        <li class="flex gap-2 items-start"><strong class="text-slate-900 shrink-0">1) งบบุคลากร</strong> <span>รายการเงินสวัสดิการสำหรับการปฏิบัติงานประจำสำนักงานในพื้นที่พิเศษ (สปพ.) จำนวน <strong class="text-slate-900">2,000 บาทต่อเดือน</strong></span></li>
+                                        <li class="flex gap-2 items-start"><strong class="text-slate-900 shrink-0">2) งบดำเนินงาน</strong> <span>รายการค่าตอบแทนพิเศษชายแดนภาคใต้ จำนวน <strong class="text-slate-900">500 บาทต่อเดือน</strong></span></li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-center">
+                                    <p><strong class="text-slate-900">2.2 เจ้าหน้าที่นอกเหนือจาก 2.1 (เช่น พนักงานราชการ)</strong></p>
+                                    <p class="mt-3">ให้ตั้งไว้ที่งบดำเนินงาน รายการเงินค่าตอบแทนพิเศษชายแดนภาคใต้ จำนวน <strong class="text-amber-600 text-xl bg-amber-100 px-3 py-1 rounded-md shadow-sm block w-fit mt-2">2,500 บาทต่อเดือน</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4: กองทุนเงินทดแทน (Orange Theme) -->
+                    <div class="bg-orange-50/80 p-6 rounded-2xl border border-orange-100 border-l-4 border-l-orange-400 shadow-sm hover:shadow-md transition-all lg:col-span-2">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+                                <i class="fa-solid fa-hand-holding-dollar text-orange-500"></i>
+                            </div>
+                            <strong class="text-orange-800 text-lg">4. เงินสมทบกองทุนเงินทดแทน</strong>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl border border-orange-100 flex flex-col lg:flex-row gap-6 items-start">
+                            <div class="lg:w-1/3">
+                                <p class="mb-4">ให้ตั้งงบประมาณตามพระราชบัญญัติเงินทดแทน พ.ศ. 2537 และที่แก้ไขเพิ่มเติม กำหนด</p>
+                                <p><strong class="text-blue-700 bg-blue-50 px-3 py-2 rounded-lg border border-blue-100 inline-block">หลักเกณฑ์เงินสมทบกองทุนเงินทดแทน ตามพระราชบัญญัติเงินทดแทน (ฉบับที่ 2) พ.ศ. 2561</strong></p>
+                            </div>
+                            
+                            <div class="lg:w-2/3 w-full">
+                                <table class="w-full text-sm text-left border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                                    <thead class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-4 border-r border-slate-200 w-16 text-center">ลำดับ</th>
+                                            <th class="p-4 border-r border-slate-200">ประเภท</th>
+                                            <th class="p-4">หลักเกณฑ์</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-t border-slate-200 bg-white hover:bg-slate-50 transition-colors">
+                                            <td class="p-4 border-r border-slate-200 text-center text-slate-800">1</td>
+                                            <td class="p-4 border-r border-slate-200 font-bold text-slate-800">พนักงานราชการ</td>
+                                            <td class="p-4 text-slate-700">อัตราเงินสมทบ <strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded">ร้อยละ 0.2 ของค่าจ้าง</strong> <br><span class="text-slate-500 text-[13px] mt-1 block">(กำหนดเพดานเงินเดือนสูงสุดไม่เกิน 20,000 บาท)</span></td>
+                                        </tr>
+                                        <tr class="border-t border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+                                            <td class="p-4 border-r border-slate-200 text-center text-slate-800">2</td>
+                                            <td class="p-4 border-r border-slate-200 font-bold text-slate-800">ลูกจ้างชั่วคราว</td>
+                                            <td class="p-4 text-slate-700">อัตราเงินสมทบ <strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded">ร้อยละ 0.2 ของค่าจ้าง</strong> <br><span class="text-slate-500 text-[13px] mt-1 block">(กำหนดเพดานเงินเดือนสูงสุดไม่เกิน 12,500 บาท)</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 (Slate Theme) -->
+                    <div class="bg-slate-50/80 p-6 rounded-2xl border border-slate-200 border-l-4 border-l-slate-400 shadow-sm hover:shadow-md transition-all lg:col-span-2">
+                        <p class="text-lg mb-2 flex items-center gap-2"><i class="fa-solid fa-folder-open text-slate-500"></i> <strong class="text-slate-800">5. เอกสารประกอบการพิจารณา</strong></p>
+                        <div class="bg-white p-5 rounded-xl border border-slate-200">
+                            <p>ขอให้กองจัดทำงบประมาณส่งหลักฐานประกอบการพิจารณา ที่ระบุ จำนวนอัตรา บัญชีรายชื่อ และค่าใช้จ่ายที่ชัดเจน หรือเอกสารอื่นที่เกี่ยวข้อง</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+<!-- Hidden GIF to attach JS Functions ensuring execution when injected via innerHTML -->
+<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="display:none;" onload="
+    window.switchPersonnelSection = function(sectionId, btnElement) {
+        document.querySelectorAll('.personnel-content-section').forEach(el => {
+            el.style.display = 'none';
+            el.style.opacity = '0';
+            el.style.animation = 'none';
+            el.classList.remove('active');
+        });
+        
+        document.querySelectorAll('.personnel-tab-btn').forEach(btn => {
+            btn.className = 'personnel-tab-btn bg-white text-slate-600 border border-slate-200 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-700 px-4 py-2.5 rounded-xl text-sm font-bold shadow-sm transition-all flex items-center gap-2';
+        });
+
+        const targetSec = document.getElementById(sectionId);
+        if(targetSec) {
+            targetSec.style.display = 'block';
+            void targetSec.offsetWidth; // Trigger reflow
+            targetSec.style.opacity = '1';
+            targetSec.classList.add('active');
+            targetSec.style.animation = 'fadeInUpPersonnel 0.5s ease-out forwards';
+        }
+
+        if (btnElement) {
+            btnElement.className = 'personnel-tab-btn active bg-sky-600 text-white px-4 py-2.5 rounded-xl text-sm font-bold shadow-md transition-all flex items-center gap-2 border border-sky-600';
+        }
+    };
+">
