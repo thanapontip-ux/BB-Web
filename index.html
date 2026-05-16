@@ -736,49 +736,59 @@
             const container = document.getElementById('rss-container');
             const rssUrl = 'https://www.bb.go.th/rss-topic.php?gid=91&mid=200&catID=0';
             
-            // Show loading state
             container.innerHTML = `
                 <div class="flex flex-col items-center justify-center py-20 bg-white/[0.02] rounded-xl border border-white/5 italic text-slate-500 text-sm">
                     <i class="fa-solid fa-spinner fa-spin text-xl mb-3 opacity-40"></i>
                     Consulting the archives...
                 </div>`;
             
-            try {
-                // Using AllOrigins proxy with a cache-busting timestamp
-                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}&_=${new Date().getTime()}`;
-                const response = await fetch(proxyUrl);
-                
-                if (!response.ok) throw new Error('Proxy server unreachable');
-                
-                const data = await response.json();
-                if (!data.contents) throw new Error('No content received from proxy');
-                
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(data.contents, "text/xml");
-                
-                // Check for parsing errors
-                const parseError = xmlDoc.getElementsByTagName("parsererror");
-                if (parseError.length > 0) throw new Error('XML parsing failed');
+            const proxies = [
+                (url) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+                (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}&_=${new Date().getTime()}`,
+                (url) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`
+            ];
 
-                let items = Array.from(xmlDoc.querySelectorAll("item"));
-                
-                if (items.length === 0) {
-                    throw new Error('No recent records found in the archives.');
+            for (const getProxyUrl of proxies) {
+                const proxyUrl = getProxyUrl(rssUrl);
+                try {
+                    const response = await fetch(proxyUrl);
+                    if (!response.ok) continue;
+
+                    let xmlText = await response.text();
+                    if (!xmlText) continue;
+
+                    // Deep clean XML: remove anything before the first <tag>
+                    const startIndex = xmlText.indexOf('<');
+                    if (startIndex === -1) continue;
+                    xmlText = xmlText.substring(startIndex).trim();
+
+                    if (xmlText.length < 100) continue;
+
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+                    
+                    // Check for parser errors
+                    if (xmlDoc.getElementsByTagName("parsererror").length > 0) continue;
+
+                    const items = xmlDoc.querySelectorAll("item");
+                    if (items && items.length > 0) {
+                        renderRSSItems(Array.from(items).slice(0, 5), container);
+                        console.log(`RSS successfully loaded via: ${proxyUrl}`);
+                        return; 
+                    }
+                } catch (err) {
+                    console.warn(`Proxy failed: ${proxyUrl}`, err);
                 }
-                
-                renderRSSItems(items.slice(0, 5), container);
-
-            } catch (error) {
-                console.error('RSS Fetch Error:', error);
-                container.innerHTML = `
-                    <div class="flex flex-col items-center justify-center py-12 px-6 bg-rose-500/5 rounded-xl border border-rose-500/20 text-center">
-                        <i class="fa-solid fa-circle-exclamation text-rose-500/40 text-2xl mb-3"></i>
-                        <p class="text-slate-400 text-xs font-serif italic mb-4">"The archives are momentarily inaccessible. Our scribes are attending to the connection."</p>
-                        <button onclick="loadRSS()" class="px-4 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-[10px] text-slate-300 uppercase tracking-widest transition-all">
-                            Retry Connection
-                        </button>
-                    </div>`;
             }
+
+            container.innerHTML = `
+                <div class="flex flex-col items-center justify-center py-12 px-6 bg-rose-500/5 rounded-xl border border-rose-500/20 text-center">
+                    <i class="fa-solid fa-circle-exclamation text-rose-500/40 text-2xl mb-3"></i>
+                    <p class="text-slate-400 text-xs font-serif italic mb-4">"The archives are momentarily inaccessible."</p>
+                    <button onclick="loadRSS()" class="px-4 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-[10px] text-slate-300 uppercase tracking-widest transition-all">
+                        Retry Connection
+                    </button>
+                </div>`;
         }
 
         function renderRSSItems(items, container) {

@@ -1,9 +1,16 @@
-<div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 text-slate-300 pt-8" style="animation: personnelFade 0.6s ease-out forwards;">
+<div id="personnel-root" class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 text-slate-300 pt-8">
     <style>
         @keyframes personnelFade {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
+        @keyframes headerHighlight {
+            0% { text-shadow: 0 0 0px transparent; transform: scale(1); }
+            50% { text-shadow: 0 0 15px rgba(56, 189, 248, 0.5); transform: scale(1.02); }
+            100% { text-shadow: 0 0 5px rgba(56, 189, 248, 0.2); transform: scale(1); }
+        }
+        .header-active { animation: headerHighlight 0.8s ease-out; }
+        
         .content-section { display: none; opacity: 0; }
         .content-section.active { display: block; opacity: 1; animation: personnelFade 0.5s ease-out forwards; }
         .exact-text { line-height: 1.7; }
@@ -13,21 +20,21 @@
         #personnel-sticky-header { transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease; overflow: hidden; max-height: 150px; opacity: 1; }
         
         #personnel-sticky-nav.scrolled {
-            position: fixed;
+            position: fixed !important;
             top: 50% !important; /* Force to vertical middle of viewport */
-            left: 1rem;
-            transform: translateY(-50%);
-            padding: 0.75rem;
-            border-radius: 3rem;
-            background-color: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(16px);
-            border-color: rgba(56, 189, 248, 0.3);
-            width: fit-content;
-            max-width: 5rem;
-            margin: 0;
-            z-index: 9999; /* Ensure it stays above everything */
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.1);
-            animation: slideInNav 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            left: 1rem !important;
+            transform: translateY(-50%) !important;
+            padding: 0.75rem !important;
+            border-radius: 3rem !important;
+            background-color: rgba(15, 23, 42, 0.9) !important;
+            backdrop-filter: blur(16px) !important;
+            border-color: rgba(56, 189, 248, 0.3) !important;
+            width: fit-content !important;
+            max-width: 5rem !important;
+            margin: 0 !important;
+            z-index: 2147483647 !important; /* Maximum possible z-index */
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.2) !important;
+            animation: slideInNav 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
         }
         @keyframes slideInNav {
             0% { opacity: 0; transform: translate(-2rem, -50%); }
@@ -35,8 +42,8 @@
         }
         @media (max-width: 768px) {
             #personnel-sticky-nav.scrolled {
-                left: 0.5rem;
-                padding: 0.4rem;
+                left: 0.5rem !important;
+                padding: 0.4rem !important;
             }
         }
         #personnel-sticky-nav.scrolled #personnel-sticky-header {
@@ -70,7 +77,8 @@
         <div id="personnel-sticky-nav" class="sticky top-16 md:top-20 z-40 bg-[#0f172a]/95 backdrop-blur-xl shadow-lg rounded-xl md:rounded-2xl border border-slate-700/60 mb-8 px-3 py-3 md:px-4 md:py-4 max-w-full transition-all duration-300">
             <div id="personnel-sticky-header" class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2 md:mb-3 border-b border-slate-700/50 pb-2 md:pb-3 px-1">
                 <h1 class="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400 flex items-center gap-2">
-                    <i class="fa-solid fa-users-gear text-sky-400"></i> การวิเคราะห์ตามงบรายจ่าย
+                    <!-- Title injected via JS -->
+                    การวิเคราะห์ตามงบรายจ่าย
                 </h1>
                 <span class="text-[11px] md:text-xs text-slate-400 font-medium bg-slate-800/50 px-2 py-1 rounded-md border border-slate-700 hidden sm:inline-flex items-center">
                     <i class="fa-solid fa-hand-pointer mr-1"></i> เลือกประเภทบุคลากร
@@ -760,7 +768,7 @@
                 </div>
                 
                 <div class="mb-8 exact-text text-slate-700 bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                    <p>ค่าใช้จ่ายตามสิทธิและข้อกำหนดตามกฎหมายให้พิจารณาตั้งตามกฎหมาย ระเบียบ และหลักเกณฑ์ที่กำหนด และ<strong class="text-amber-600">ผลเบิกจ่ายจริงของปีงบประมาณ พ.ศ. 2568 และ 2569</strong> โดยให้สอดคล้องกับจำนวนข้าราชการ ลูกจ้างประจำ ลูกจ้างชั่วคราว และพนักงานราชการ และให้ตั้งงบประมาณ <strong class="text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">เฉพาะข้าราชการ/พนักงานของรัฐที่มีสิทธิได้รับเงินเท่านั้น</strong> เช่น</p>
+                    <p>ค่าใช้จ่ายตามสิทธิและข้อกำหนดตามกฎหมายให้พิจารณาตั้งตามกฎหมาย ระเบียบ และหลักเกณฑ์ที่กำหนด และ<strong class="text-amber-600">ผลเบิกจ่ายจริงของปีงบประมาณ พ.ศ. 2568 และ 2569</strong> โดยให้สอดคล้อง with จำนวนข้าราชการ ลูกจ้างประจำ ลูกจ้างชั่วคราว และพนักงานราชการ และให้ตั้งงบประมาณ <strong class="text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">เฉพาะข้าราชการ/พนักงานของรัฐที่มีสิทธิได้รับเงินเท่านั้น</strong> เช่น</p>
                 </div>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 exact-text text-slate-700">
@@ -877,43 +885,38 @@
 <!-- Hidden GIF to attach JS Functions ensuring execution when injected via innerHTML -->
 <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="display:none;" onload="
     window.switchPersonnelSection = function(sectionId, btnElement) {
-        // Hide all sections
         document.querySelectorAll('.content-section').forEach(el => {
             el.classList.remove('active');
         });
         
-        // Show target section
         const targetSec = document.getElementById(sectionId);
         if(targetSec) {
             targetSec.classList.add('active');
             
-            // Update Header Highlight (Title and Icon)
+            // Update Header Highlight
             const headerTitle = document.querySelector('#personnel-sticky-header h1');
             if(headerTitle && btnElement) {
-                const iconClass = btnElement.querySelector('i').className;
                 const sectionTitle = btnElement.querySelector('.btn-text').innerText;
-                headerTitle.innerHTML = `<i class="${iconClass} text-sky-400"></i> ${sectionTitle}`;
-                
-                // Add a quick pulse animation to the header to signal change
-                headerTitle.style.animation = 'none';
-                void headerTitle.offsetWidth; // trigger reflow
-                headerTitle.style.animation = 'fadeIn 0.5s ease-out forwards';
+                // Keep the primary title and show active category as a highlighted badge
+                headerTitle.innerHTML = `
+                    <div class=\"flex flex-col items-start\">
+                        <span class=\"text-xs text-slate-500 uppercase tracking-widest mb-1\">การวิเคราะห์ตามงบรายจ่าย</span>
+                        <div class=\"flex items-center gap-2 header-active\">
+                            <i class=\"${btnElement.querySelector('i').className} text-sky-400\"></i>
+                            <span class=\"text-white drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]\">${sectionTitle}</span>
+                        </div>
+                    </div>`;
             }
 
-            // Scroll user back to top of the content area
             const nav = document.getElementById('personnel-sticky-nav');
             const wasScrolled = nav.classList.contains('scrolled');
+            let y = wasScrolled ? 
+                targetSec.getBoundingClientRect().top + window.pageYOffset - 120 : 
+                document.getElementById('personnel-root').getBoundingClientRect().top + window.pageYOffset - 20;
             
-            let y = 0;
-            if (wasScrolled) {
-                y = targetSec.getBoundingClientRect().top + window.pageYOffset - 120;
-            } else {
-                y = document.querySelector('.max-w-[1500px]').getBoundingClientRect().top + window.pageYOffset - 20;
-            }
             window.scrollTo({top: y, behavior: 'smooth'});
         }
 
-        // Update button UI
         document.querySelectorAll('.personnel-tab-btn').forEach(btn => {
             btn.className = 'personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0';
         });
@@ -923,12 +926,6 @@
         }
     };
 
-    // Remove old Observer
-    if (window.personnelObserver) {
-        window.personnelObserver.disconnect();
-        delete window.personnelObserver;
-    }
-
     if (window.personnelScrollListener) {
         window.removeEventListener('scroll', window.personnelScrollListener);
     }
@@ -936,12 +933,10 @@
         const nav = document.getElementById('personnel-sticky-nav');
         const placeholder = document.getElementById('personnel-nav-placeholder');
         const wrapper = document.getElementById('personnel-content-wrapper');
+        const root = document.getElementById('personnel-root');
         if(!nav) return;
         
-        // Use a threshold to trigger the floating behavior
-        const triggerPoint = 200; 
-
-        if(window.scrollY > triggerPoint) {
+        if(window.scrollY > 200) {
             if (!nav.classList.contains('scrolled')) {
                 if (placeholder) {
                     placeholder.style.height = nav.offsetHeight + 'px';
@@ -949,6 +944,9 @@
                     placeholder.style.display = 'block';
                 }
                 nav.classList.add('scrolled');
+                // Move nav to body to escape any parent containment
+                document.body.appendChild(nav);
+                
                 if (wrapper && window.innerWidth < 1400) {
                     wrapper.style.paddingLeft = window.innerWidth < 768 ? '3.5rem' : '4.5rem';
                 }
@@ -956,6 +954,9 @@
         } else {
             if (nav.classList.contains('scrolled')) {
                 nav.classList.remove('scrolled');
+                // Return nav to its original place
+                if (root) root.insertBefore(nav, placeholder.nextSibling);
+                
                 if (placeholder) placeholder.style.display = 'none';
                 if (wrapper) wrapper.style.paddingLeft = '0';
             }
@@ -976,12 +977,19 @@
     };
     window.addEventListener('resize', window.personnelResizeListener);
 
-    // Initialize UI with the first tab's details
+    // Initialize UI with the first tab
     const firstBtn = document.querySelector('.personnel-tab-btn');
     if (firstBtn) {
         const headerTitle = document.querySelector('#personnel-sticky-header h1');
         const iconClass = firstBtn.querySelector('i').className;
         const sectionTitle = firstBtn.querySelector('.btn-text').innerText;
-        headerTitle.innerHTML = `<i class=\"${iconClass} text-sky-400\"></i> ${sectionTitle}`;
+        headerTitle.innerHTML = `
+            <div class=\"flex flex-col items-start\">
+                <span class=\"text-xs text-slate-500 uppercase tracking-widest mb-1\">การวิเคราะห์ตามงบรายจ่าย</span>
+                <div class=\"flex items-center gap-2\">
+                    <i class=\"${iconClass} text-sky-400\"></i>
+                    <span class=\"text-white\">${sectionTitle}</span>
+                </div>
+            </div>`;
     }
 \">
