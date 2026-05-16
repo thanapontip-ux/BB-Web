@@ -4,8 +4,9 @@
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: none; }
         }
-        .content-section { display: none; opacity: 0; transition: opacity 0.4s ease; }
-        .content-section.active { display: block; opacity: 1; animation: fadeInUp 0.5s ease-out forwards; }
+        .content-section { display: block; opacity: 1; margin-bottom: 5rem; scroll-margin-top: 180px; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease; }
+        .content-section.active { transform: scale(1); opacity: 1; }
+        .content-section:not(.active) { opacity: 0.4; transform: scale(0.98); filter: blur(1px); }
         .exact-text { line-height: 1.7; }
         
         /* Sticky Nav Scroll Effects */
@@ -876,41 +877,52 @@
 <!-- Hidden GIF to attach JS Functions ensuring execution when injected via innerHTML -->
 <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="display:none;" onload="
     window.switchPersonnelSection = function(sectionId, btnElement) {
+        const targetSec = document.getElementById(sectionId);
+        if(targetSec) {
+            window.isAutoScrolling = true;
+            let yOffset = window.innerWidth >= 768 ? -160 : -120;
+            const y = targetSec.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({top: y, behavior: 'smooth'});
+            
+            // Immediate UI update for better feedback
+            updatePersonnelUI(sectionId);
+
+            // Re-enable ScrollSpy after animation finishes
+            setTimeout(() => { window.isAutoScrolling = false; }, 800);
+        }
+    };
+
+    function updatePersonnelUI(activeId) {
         document.querySelectorAll('.content-section').forEach(el => {
-            el.style.display = 'none';
-            el.style.opacity = '0';
-            el.style.animation = 'none';
-            el.classList.remove('active');
+            if (el.id === activeId) el.classList.add('active');
+            else el.classList.remove('active');
         });
         
         document.querySelectorAll('.personnel-tab-btn').forEach(btn => {
-            btn.className = 'personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0';
-        });
-
-        const targetSec = document.getElementById(sectionId);
-        if(targetSec) {
-            targetSec.style.display = 'block';
-            void targetSec.offsetWidth; // Trigger reflow
-            targetSec.style.opacity = '1';
-            targetSec.classList.add('active');
-            targetSec.style.animation = 'fadeInUp 0.5s ease-out forwards';
-            
-            const nav = document.getElementById('personnel-sticky-nav');
-            const wasScrolled = nav.classList.contains('scrolled');
-            
-            let y = targetSec.getBoundingClientRect().top + window.pageYOffset;
-            if (!wasScrolled) {
-                y -= nav.offsetHeight;
+            const isMatch = btn.getAttribute('onclick').includes(activeId);
+            if (isMatch) {
+                btn.className = 'personnel-tab-btn active bg-sky-600 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold shadow-sm transition-all flex items-center gap-1.5 border border-sky-500 whitespace-nowrap shrink-0';
+            } else {
+                btn.className = 'personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0';
             }
-            y -= 100;
+        });
+    }
 
-            window.scrollTo({top: y, behavior: 'smooth'});
-        }
+    // ScrollSpy Observer
+    if (window.personnelObserver) window.personnelObserver.disconnect();
+    window.personnelObserver = new IntersectionObserver((entries) => {
+        if (window.isAutoScrolling) return;
+        
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+                updatePersonnelUI(entry.target.id);
+            }
+        });
+    }, { threshold: [0.2, 0.5], rootMargin: '-20% 0px -40% 0px' });
 
-        if (btnElement) {
-            btnElement.className = 'personnel-tab-btn active bg-sky-600 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold shadow-sm transition-all flex items-center gap-1.5 border border-sky-500 whitespace-nowrap shrink-0';
-        }
-    };
+    document.querySelectorAll('.content-section').forEach(sec => {
+        window.personnelObserver.observe(sec);
+    });
 
     if (window.personnelScrollListener) {
         window.removeEventListener('scroll', window.personnelScrollListener);
@@ -942,7 +954,7 @@
         }
     };
     window.addEventListener('scroll', window.personnelScrollListener);
-    window.personnelScrollListener(); // Trigger immediately to check position on reload
+    window.personnelScrollListener();
 
     if (window.personnelResizeListener) {
         window.removeEventListener('resize', window.personnelResizeListener);
