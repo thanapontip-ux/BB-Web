@@ -155,6 +155,7 @@
             backdrop-filter: blur(16px) !important;
             border-color: rgba(45, 51, 74, 1) !important;
             width: max-content !important;
+            height: max-content !important;
             margin: 0 !important;
             z-index: 2147483647 !important;
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(69, 137, 216, 0.2) !important;
@@ -171,36 +172,38 @@
             }
         }
         #operation-sticky-nav.scrolled #operation-sticky-header {
-            max-height: 0;
-            opacity: 0;
-            margin: 0;
-            padding: 0;
-            border: none;
+            max-height: 0 !important;
+            opacity: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            display: none !important;
         }
         /* Hide text in scrolled mode */
         #operation-sticky-nav.scrolled .tab-btn { 
-            padding: 0; border-radius: 50%; width: 3rem; height: 3rem; justify-content: center; margin: 0; 
-            font-size: 0; /* Hide text */
+            padding: 0 !important; border-radius: 50% !important; width: 3rem !important; height: 3rem !important; justify-content: center !important; margin: 0 !important; 
+            font-size: 0 !important; /* Hide text */
         }
-        #operation-sticky-nav.scrolled .tab-btn i { font-size: 1.25rem; margin: 0; }
+        #operation-sticky-nav.scrolled .tab-btn i { font-size: 1.25rem !important; margin: 0 !important; }
         @media (max-width: 768px) {
-            #operation-sticky-nav.scrolled .tab-btn { width: 2.5rem; height: 2.5rem; }
-            #operation-sticky-nav.scrolled .tab-btn i { font-size: 1.1rem; }
+            #operation-sticky-nav.scrolled .tab-btn { width: 2.5rem !important; height: 2.5rem !important; }
+            #operation-sticky-nav.scrolled .tab-btn i { font-size: 1.1rem !important; }
         }
         #operation-sticky-nav.scrolled #tab-container {
-            display: flex;
-            flex-direction: column;
-            overflow-x: visible;
-            overflow-y: auto;
-            max-height: 70vh;
-            gap: 0.5rem;
-            padding: 0;
+            display: flex !important;
+            flex-direction: column !important;
+            overflow: visible !important;
+            max-height: none !important;
+            height: max-content !important;
+            gap: 0.5rem !important;
+            padding: 0 !important;
+            margin: 0 !important;
         }
         /* Flatten rows into a single column when scrolled */
         #operation-sticky-nav.scrolled #tab-container > div {
-            display: contents; /* Strip out the row wrapper to make buttons stack properly */
+            display: contents !important; /* Strip out the row wrapper to make buttons stack properly */
         }
-        #operation-sticky-nav.scrolled #tab-container::-webkit-scrollbar { display: none; }
+        #operation-sticky-nav.scrolled #tab-container::-webkit-scrollbar { display: none !important; }
     </style>
 </head>
 <body class="bg-white text-slate-700 antialiased min-h-screen relative overflow-x-hidden selection:bg-blue-200 selection:text-blue-900">

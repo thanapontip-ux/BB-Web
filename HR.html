@@ -30,6 +30,7 @@
             backdrop-filter: blur(16px) !important;
             border-color: rgba(226, 232, 240, 1) !important;
             width: max-content !important;
+            height: max-content !important;
             margin: 0 !important;
             z-index: 2147483647 !important; /* Maximum possible z-index */
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(20, 184, 166, 0.1) !important;
@@ -46,28 +47,30 @@
             }
         }
         #personnel-sticky-nav.scrolled #personnel-sticky-header {
-            max-height: 0;
-            opacity: 0;
-            margin: 0;
-            padding: 0;
-            border: none;
+            max-height: 0 !important;
+            opacity: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            display: none !important;
         }
-        #personnel-sticky-nav.scrolled .btn-text { display: none; }
+        #personnel-sticky-nav.scrolled .btn-text { display: none !important; }
         #personnel-sticky-nav.scrolled > div:last-child {
-            flex-direction: column;
-            overflow-x: visible;
-            overflow-y: auto;
-            max-height: 70vh;
-            gap: 0.5rem;
-            padding: 0;
+            flex-direction: column !important;
+            overflow: visible !important;
+            max-height: none !important;
+            height: max-content !important;
+            gap: 0.5rem !important;
+            padding: 0 !important;
+            margin: 0 !important;
         }
-        #personnel-sticky-nav.scrolled > div:last-child::-webkit-scrollbar { display: none; }
-        #personnel-sticky-nav.scrolled .personnel-tab-btn { padding: 0; border-radius: 50%; width: 3rem; height: 3rem; justify-content: center; margin: 0; }
+        #personnel-sticky-nav.scrolled > div:last-child::-webkit-scrollbar { display: none !important; }
+        #personnel-sticky-nav.scrolled .personnel-tab-btn { padding: 0 !important; border-radius: 50% !important; width: 3rem !important; height: 3rem !important; justify-content: center !important; margin: 0 !important; }
         @media (max-width: 768px) {
-            #personnel-sticky-nav.scrolled .personnel-tab-btn { width: 2.5rem; height: 2.5rem; }
-            #personnel-sticky-nav.scrolled .personnel-tab-btn i { font-size: 1.1rem; margin: 0; }
+            #personnel-sticky-nav.scrolled .personnel-tab-btn { width: 2.5rem !important; height: 2.5rem !important; }
+            #personnel-sticky-nav.scrolled .personnel-tab-btn i { font-size: 1.1rem !important; margin: 0 !important; }
         }
-        #personnel-sticky-nav.scrolled .personnel-tab-btn i { font-size: 1.25rem; margin: 0; }
+        #personnel-sticky-nav.scrolled .personnel-tab-btn i { font-size: 1.25rem !important; margin: 0 !important; }
     </style>
 
         <!-- Placeholder for fixed nav to prevent jumping -->
