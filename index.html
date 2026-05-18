@@ -389,10 +389,10 @@
 
             <!-- Group: หลักเกณฑ์ -->
             <div class="px-5 pt-4 pb-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest border-t border-white/5 mt-2">หลักเกณฑ์</div>
-            <a id="nav-criteria-1-2-mobile" onclick="loadPage('guideline.html', document.getElementById('nav-criteria-1-2')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-criteria-1-2-mobile" onclick="loadPage('Criteria-1-2.html', document.getElementById('nav-criteria-1-2')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-book text-md w-6 text-center opacity-80"></i> แนวทางและหลักการ
             </a>
-            <a id="nav-criteria-personnel-mobile" onclick="loadPage('HR.html', document.getElementById('nav-criteria-personnel')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-criteria-personnel-mobile" onclick="loadPage('Criteria-บุคลากร.html', document.getElementById('nav-criteria-personnel')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-users text-md w-6 text-center opacity-80"></i> งบบุคลากร
             </a>
             
@@ -623,7 +623,7 @@
                 contentArea.style.display = 'block';
                 
                 // สำหรับหน้าที่มีพื้นหลังสีเข้ม (Dark Mode Pages)
-                if(pageUrl === 'Criteria.html' || pageUrl === 'guideline.html' || pageUrl === 'HR.html' || pageUrl === 'timeline.html' || pageUrl === 'transfer.html') {
+                if(pageUrl === 'Criteria.html' || pageUrl === 'Criteria-1-2.html' || pageUrl === 'Criteria-บุคลากร.html' || pageUrl === 'timeline.html' || pageUrl === 'transfer.html') {
                     document.body.classList.remove('bg-slate-50');
                     document.body.classList.add('bg-[#070e1e]');
                 } else {
