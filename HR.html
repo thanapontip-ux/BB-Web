@@ -855,9 +855,10 @@
 
 <!-- Hidden GIF to attach JS Functions ensuring execution when injected via innerHTML -->
 <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="display:none;" onload="
-    // Cleanup any existing personnel nav from body to avoid duplicates on re-injection
-    const oldNavInBody = document.body.querySelector('#personnel-sticky-nav');
-    if (oldNavInBody) oldNavInBody.remove();
+    // Cleanup any existing personnel nav from body root to avoid duplicates on re-injection
+    Array.from(document.body.children).forEach(child => {
+        if (child.id === 'personnel-sticky-nav') child.remove();
+    });
 
     window.switchPersonnelSection = function(sectionId, btnElement) {
         document.querySelectorAll('.content-section').forEach(el => {
