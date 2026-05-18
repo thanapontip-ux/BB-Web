@@ -758,6 +758,7 @@
         async function loadRSS() {
             const container = document.getElementById('rss-container');
             const rssUrl = 'https://www.bb.go.th/rss-topic.php?gid=91&mid=200';
+            const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(rssUrl)}`;
             
             container.innerHTML = `
                 <div class="flex flex-col items-center justify-center py-20 bg-white/[0.02] rounded-xl border border-white/5 italic text-slate-500 text-sm">
@@ -765,34 +766,43 @@
                     Consulting the archives...
                 </div>`;
             
-            try {
-                const response = await fetch(rssUrl);
-                if (response.ok) {
+            async function tryFetch(url) {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) return null;
                     let xmlText = await response.text();
                     
                     // Deep clean XML: remove anything before the first <tag>
                     const startIndex = xmlText.indexOf('<');
                     if (startIndex !== -1) {
                         xmlText = xmlText.substring(startIndex).trim();
-                        
                         if (xmlText.length >= 100) {
                             const parser = new DOMParser();
                             const xmlDoc = parser.parseFromString(xmlText, "text/xml");
-                            
-                            // Check for parser errors
                             if (xmlDoc.getElementsByTagName("parsererror").length === 0) {
                                 const items = xmlDoc.querySelectorAll("item");
-                                if (items && items.length > 0) {
-                                    renderRSSItems(Array.from(items).slice(0, 5), container);
-                                    console.log('RSS successfully loaded directly');
-                                    return;
-                                }
+                                if (items && items.length > 0) return items;
                             }
                         }
                     }
+                } catch (err) {
+                    console.warn(`Fetch from ${url} failed:`, err);
                 }
-            } catch (err) {
-                console.warn('Direct fetch failed:', err);
+                return null;
+            }
+
+            // 1. Try direct fetch
+            let items = await tryFetch(rssUrl);
+            
+            // 2. If direct fails, try via proxy
+            if (!items) {
+                console.log('Direct fetch failed, trying proxy...');
+                items = await tryFetch(proxyUrl);
+            }
+
+            if (items) {
+                renderRSSItems(Array.from(items).slice(0, 5), container);
+                return;
             }
 
             container.innerHTML = `
