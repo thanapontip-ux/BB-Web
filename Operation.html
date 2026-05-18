@@ -139,32 +139,97 @@
             animation-play-state: paused;
             transform: scale(1.1) rotate(0deg);
         }
+
+        /* Sticky Nav Scroll Effects */
+        #operation-sticky-nav { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        #operation-sticky-header { transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease; overflow: hidden; max-height: 150px; opacity: 1; }
+        
+        #operation-sticky-nav.scrolled {
+            position: fixed !important;
+            top: 50vh !important;
+            left: 1rem !important;
+            transform: translateY(-50%) !important;
+            padding: 0.5rem !important;
+            border-radius: 3rem !important;
+            background-color: rgba(28, 33, 53, 0.95) !important;
+            backdrop-filter: blur(16px) !important;
+            border-color: rgba(45, 51, 74, 1) !important;
+            width: max-content !important;
+            margin: 0 !important;
+            z-index: 2147483647 !important;
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(69, 137, 216, 0.2) !important;
+            animation: slideInNav 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+        }
+        @keyframes slideInNav {
+            0% { opacity: 0; transform: translate(-2rem, -50%); }
+            100% { opacity: 1; transform: translate(0, -50%); }
+        }
+        @media (max-width: 768px) {
+            #operation-sticky-nav.scrolled {
+                left: 0.5rem !important;
+                padding: 0.35rem !important;
+            }
+        }
+        #operation-sticky-nav.scrolled #operation-sticky-header {
+            max-height: 0;
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        /* Hide text in scrolled mode */
+        #operation-sticky-nav.scrolled .tab-btn { 
+            padding: 0; border-radius: 50%; width: 3rem; height: 3rem; justify-content: center; margin: 0; 
+            font-size: 0; /* Hide text */
+        }
+        #operation-sticky-nav.scrolled .tab-btn i { font-size: 1.25rem; margin: 0; }
+        @media (max-width: 768px) {
+            #operation-sticky-nav.scrolled .tab-btn { width: 2.5rem; height: 2.5rem; }
+            #operation-sticky-nav.scrolled .tab-btn i { font-size: 1.1rem; }
+        }
+        #operation-sticky-nav.scrolled #tab-container {
+            display: flex;
+            flex-direction: column;
+            overflow-x: visible;
+            overflow-y: auto;
+            max-height: 70vh;
+            gap: 0.5rem;
+            padding: 0;
+        }
+        /* Flatten rows into a single column when scrolled */
+        #operation-sticky-nav.scrolled #tab-container > div {
+            display: contents; /* Strip out the row wrapper to make buttons stack properly */
+        }
+        #operation-sticky-nav.scrolled #tab-container::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="bg-white text-slate-700 antialiased min-h-screen relative overflow-x-hidden selection:bg-blue-200 selection:text-blue-900">
 
     <!-- Main Content Container (ขยายกว้างเต็มหน้าจอ พื้นหลังขาว) -->
-    <main class="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-10 py-10 animate-fade-in-up">
+    <main id="operation-root" class="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-10 py-10 animate-fade-in-up">
         
         <!-- Page Title -->
         <div class="flex items-center gap-4 mb-8 group">
             <div class="p-3 bg-white rounded-xl shadow-sm border border-slate-200 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                 <i class="fa-solid fa-coins text-3xl md:text-4xl text-[#d4af37]"></i>
             </div>
-            <!-- ปรับสีหัวข้อหลักให้โดดเด่น (Vivid Blue to Teal) -->
-            <h2 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] to-[#14b8a6] font-serif drop-shadow-sm">
+            <!-- เปลี่ยนสีกลับเป็นสีเดิม (Dark Blue) -->
+            <h2 class="text-3xl md:text-5xl font-bold text-[#0a192f] font-serif drop-shadow-sm">
                 4.2 งบดำเนินงาน
             </h2>
             <div class="h-[2px] flex-grow bg-gradient-to-r from-blue-200 to-transparent mt-2"></div>
         </div>
 
+        <!-- Placeholder for fixed nav to prevent jumping -->
+        <div id="operation-nav-placeholder" style="display: none;"></div>
+        
         <!-- Navigator Menu Bar (Dark Theme) -->
-        <div class="bg-[#1c2135] rounded-2xl p-5 md:p-6 mb-12 shadow-2xl relative overflow-hidden border border-[#2d334a] sticky top-4 z-50 transition-all duration-300 hover:shadow-blue-900/20">
+        <div id="operation-sticky-nav" class="bg-[#1c2135] rounded-2xl p-5 md:p-6 mb-12 shadow-2xl relative overflow-hidden border border-[#2d334a] sticky top-4 z-50 transition-all duration-300 hover:shadow-blue-900/20">
             <!-- decorative subtle glow -->
             <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[60px] pointer-events-none"></div>
 
             <!-- Header part -->
-            <div class="flex flex-col mb-4 gap-2 border-b border-[#2d334a]/60 pb-3 relative z-10 text-center sm:text-left">
+            <div id="operation-sticky-header" class="flex flex-col mb-4 gap-2 border-b border-[#2d334a]/60 pb-3 relative z-10 text-center sm:text-left">
                 <!-- สีเหลืองสว่างพร้อมเงาเรืองแสง -->
                 <h3 class="text-[#FFEB3B] text-xl md:text-2xl font-bold tracking-wide font-serif drop-shadow-[0_0_12px_rgba(253,224,71,0.6)]">
                     รายการหลักเกณฑ์งบดำเนินงาน
@@ -175,35 +240,35 @@
             <div id="tab-container" class="relative z-10 mt-2 flex flex-col gap-3">
                 <!-- แถวที่ 1 -->
                 <div class="flex flex-wrap justify-center gap-3 items-center">
-                    <button data-target="section-overview" onclick="scrollToSection('section-overview', this)" class="tab-btn active-tab flex items-center gap-2 px-4 py-2.5 rounded-xl border border-transparent bg-[#4589d8] text-white font-medium shadow-[0_0_15px_rgba(69,137,216,0.4)] transition-all shrink-0 hover:scale-105">
-                        <i class="fa-solid fa-list-check"></i> ค่าตอบแทน ใช้สอยและวัสดุ
+                    <button title="ค่าตอบแทน ใช้สอยและวัสดุ" data-target="section-overview" onclick="scrollToSection('section-overview', this)" class="tab-btn active-tab flex items-center gap-2 px-4 py-2.5 rounded-xl border border-transparent bg-[#4589d8] text-white font-medium shadow-[0_0_15px_rgba(69,137,216,0.4)] transition-all shrink-0 hover:scale-105">
+                        <i class="fa-solid fa-list-check"></i> <span class="btn-text">ค่าตอบแทน ใช้สอยและวัสดุ</span>
                     </button>
-                    <button data-target="section-cloud" onclick="scrollToSection('section-cloud', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
-                        <i class="fa-solid fa-cloud"></i> ระบบคลาวด์ & AI
+                    <button title="ระบบคลาวด์ & AI" data-target="section-cloud" onclick="scrollToSection('section-cloud', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
+                        <i class="fa-solid fa-cloud"></i> <span class="btn-text">ระบบคลาวด์ & AI</span>
                     </button>
-                    <button data-target="section-cars" onclick="scrollToSection('section-cars', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
-                        <i class="fa-solid fa-car"></i> เช่ารถยนต์ราชการ
+                    <button title="เช่ารถยนต์ราชการ" data-target="section-cars" onclick="scrollToSection('section-cars', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
+                        <i class="fa-solid fa-car"></i> <span class="btn-text">เช่ารถยนต์ราชการ</span>
                     </button>
-                    <button data-target="section-travel" onclick="scrollToSection('section-travel', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
-                        <i class="fa-solid fa-plane-departure"></i> เดินทาง & ฝึกอบรม
+                    <button title="เดินทาง & ฝึกอบรม" data-target="section-travel" onclick="scrollToSection('section-travel', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
+                        <i class="fa-solid fa-plane-departure"></i> <span class="btn-text">เดินทาง & ฝึกอบรม</span>
                     </button>
                 </div>
                 <!-- แถวที่ 2 -->
                 <div class="flex flex-wrap justify-center gap-3 items-center">
-                    <button data-target="section-pr" onclick="scrollToSection('section-pr', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
-                        <i class="fa-solid fa-bullhorn"></i> โฆษณาประชาสัมพันธ์
+                    <button title="โฆษณาประชาสัมพันธ์" data-target="section-pr" onclick="scrollToSection('section-pr', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
+                        <i class="fa-solid fa-bullhorn"></i> <span class="btn-text">โฆษณาประชาสัมพันธ์</span>
                     </button>
-                    <button data-target="section-contracts" onclick="scrollToSection('section-contracts', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
-                        <i class="fa-solid fa-file-signature"></i> จ้างเอกชน & ผูกพันข้ามปี
+                    <button title="จ้างเอกชน & ผูกพันข้ามปี" data-target="section-contracts" onclick="scrollToSection('section-contracts', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
+                        <i class="fa-solid fa-file-signature"></i> <span class="btn-text">จ้างเอกชน & ผูกพันข้ามปี</span>
                     </button>
-                    <button data-target="section-it" onclick="scrollToSection('section-it', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
-                        <i class="fa-solid fa-bolt"></i> IT & สาธารณูปโภค
+                    <button title="IT & สาธารณูปโภค" data-target="section-it" onclick="scrollToSection('section-it', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
+                        <i class="fa-solid fa-bolt"></i> <span class="btn-text">IT & สาธารณูปโภค</span>
                     </button>
                 </div>
             </div>
         </div>
 
-        <section class="mb-12">
+        <section id="operation-content-wrapper" class="mb-12 transition-all duration-300">
             <!-- Box คำอธิบายย่อย (ตกแต่งเพิ่มเติมด้วยไอคอนและสี Vivid) -->
             <div class="bg-blue-50/50 rounded-2xl p-6 md:p-8 mb-10 shadow-sm border-l-4 border-l-blue-500 relative overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-md">
                 <p class="text-lg md:text-xl leading-relaxed text-slate-700 flex flex-col md:flex-row md:items-center gap-2">
@@ -559,8 +624,10 @@
             
             const section = document.getElementById(sectionId);
             if (section) {
+                const nav = document.getElementById('operation-sticky-nav');
+                const wasScrolled = nav && nav.classList.contains('scrolled');
                 // ออฟเซ็ตชดเชยเพื่อให้เนื้อหาไม่โดนแถบเมนูบดบังตอนเลื่อนลง
-                const yOffset = -220; 
+                const yOffset = wasScrolled ? -100 : -220; 
                 const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
                 window.scrollTo({top: y, behavior: 'smooth'});
             }
@@ -596,7 +663,66 @@
             }, observerOptions);
 
             sections.forEach(sec => observer.observe(sec));
+            
+            // Initial call to set up scroll logic
+            if (window.operationScrollListener) {
+                window.operationScrollListener();
+            }
         });
+
+        // Sticky Nav Shrink Logic
+        if (window.operationScrollListener) {
+            window.removeEventListener('scroll', window.operationScrollListener);
+        }
+        window.operationScrollListener = function() {
+            const nav = document.getElementById('operation-sticky-nav');
+            const placeholder = document.getElementById('operation-nav-placeholder');
+            const wrapper = document.getElementById('operation-content-wrapper');
+            const root = document.getElementById('operation-root');
+            if(!nav) return;
+            
+            // Use a threshold based on the root container
+            const threshold = root ? root.offsetTop + 100 : 200;
+            
+            if(window.scrollY > threshold) {
+                if (!nav.classList.contains('scrolled')) {
+                    if (placeholder) {
+                        placeholder.style.height = nav.offsetHeight + 'px';
+                        placeholder.style.marginBottom = '3rem';
+                        placeholder.style.display = 'block';
+                    }
+                    nav.classList.add('scrolled');
+                    // Move nav to body to escape any parent containment
+                    document.body.appendChild(nav);
+                    
+                    if (wrapper && window.innerWidth < 1400) {
+                        wrapper.style.paddingLeft = window.innerWidth < 768 ? '3.5rem' : '4.5rem';
+                    }
+                }
+            } else {
+                if (nav.classList.contains('scrolled')) {
+                    nav.classList.remove('scrolled');
+                    // Return nav to its original place
+                    if (root && placeholder) root.insertBefore(nav, placeholder.nextSibling);
+                    
+                    if (placeholder) placeholder.style.display = 'none';
+                    if (wrapper) wrapper.style.paddingLeft = '0';
+                }
+            }
+        };
+        window.addEventListener('scroll', window.operationScrollListener);
+
+        if (window.operationResizeListener) {
+            window.removeEventListener('resize', window.operationResizeListener);
+        }
+        window.operationResizeListener = function() {
+            const nav = document.getElementById('operation-sticky-nav');
+            const wrapper = document.getElementById('operation-content-wrapper');
+            if(nav && nav.classList.contains('scrolled') && wrapper) {
+                wrapper.style.paddingLeft = window.innerWidth < 1400 ? (window.innerWidth < 768 ? '3.5rem' : '4.5rem') : '0';
+            }
+        };
+        window.addEventListener('resize', window.operationResizeListener);
     </script>
 </body>
 </html>
