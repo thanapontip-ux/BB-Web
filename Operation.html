@@ -604,76 +604,37 @@
 
     </main>
 
-    <!-- Script สำหรับควบคุม Navigator Bar -->
-    <script>
-        function updateTabStyling(targetBtn) {
+    <!-- Hidden GIF to attach JS Functions ensuring execution when injected via innerHTML -->
+    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="display:none;" onload="
+        // Cleanup any existing nav to avoid duplicates
+        Array.from(document.body.children).forEach(child => {
+            if (child.id === 'operation-sticky-nav') child.remove();
+        });
+
+        window.updateOperationTabStyling = function(targetBtn) {
             if (!targetBtn) return;
-            
-            // 1. ลบ Active state จากปุ่มทั้งหมด
-            const buttons = document.querySelectorAll('.tab-btn');
+            const buttons = document.querySelectorAll('#operation-sticky-nav .tab-btn');
             buttons.forEach(b => {
                 b.classList.remove('active-tab', 'bg-[#4589d8]', 'text-white', 'shadow-[0_0_15px_rgba(69,137,216,0.4)]', 'border-transparent');
                 b.classList.add('border-[#3a415c]', 'text-[#8b93b0]', 'hover:bg-[#2d334a]', 'hover:text-white', 'bg-transparent');
             });
-
-            // 2. ใส่ Active state ให้ปุ่มเป้าหมาย
             targetBtn.classList.add('active-tab', 'bg-[#4589d8]', 'text-white', 'shadow-[0_0_15px_rgba(69,137,216,0.4)]', 'border-transparent');
             targetBtn.classList.remove('border-[#3a415c]', 'text-[#8b93b0]', 'hover:bg-[#2d334a]', 'hover:text-white', 'bg-transparent');
-        }
+        };
 
-        // เมื่อกดคลิกที่ปุ่มใดๆ ใน Navigator
-        function scrollToSection(sectionId, btnElement) {
-            updateTabStyling(btnElement);
-            
+        window.scrollToSection = function(sectionId, btnElement) {
+            window.updateOperationTabStyling(btnElement);
             const section = document.getElementById(sectionId);
             if (section) {
                 const nav = document.getElementById('operation-sticky-nav');
                 const wasScrolled = nav && nav.classList.contains('scrolled');
-                // ออฟเซ็ตชดเชยเพื่อให้เนื้อหาไม่โดนแถบเมนูบดบังตอนเลื่อนลง
                 const yOffset = wasScrolled ? -100 : -220; 
                 const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
                 window.scrollTo({top: y, behavior: 'smooth'});
             }
-        }
+        };
 
-        // ระบบจับหน้าจอเพื่อเปลี่ยนปุ่ม Active อัตโนมัติเวลาเลื่อนอ่าน
-        window.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.content-section');
-            
-            // ขอบเขตการจับว่าอ่านถึงส่วนไหน (ค่อนไปทางครึ่งบนของจอ)
-            const observerOptions = {
-                root: null,
-                rootMargin: '-200px 0px -50% 0px', 
-                threshold: 0
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        let targetId = id;
-                        
-                        // Map section (10) กลับไปให้ปุ่ม Travel
-                        if (id === 'section-foreign-travel') targetId = 'section-travel';
-                        
-                        const targetBtn = document.querySelector(`button[data-target="${targetId}"]`);
-                        
-                        if (targetBtn && !targetBtn.classList.contains('active-tab')) {
-                            updateTabStyling(targetBtn);
-                        }
-                    }
-                });
-            }, observerOptions);
-
-            sections.forEach(sec => observer.observe(sec));
-            
-            // Initial call to set up scroll logic
-            if (window.operationScrollListener) {
-                window.operationScrollListener();
-            }
-        });
-
-        // Sticky Nav Shrink Logic
+        // Scroll Logic
         if (window.operationScrollListener) {
             window.removeEventListener('scroll', window.operationScrollListener);
         }
@@ -684,7 +645,6 @@
             const root = document.getElementById('operation-root');
             if(!nav) return;
             
-            // Use a threshold based on the root container
             const threshold = root ? root.offsetTop + 100 : 200;
             
             if(window.scrollY > threshold) {
@@ -695,7 +655,6 @@
                         placeholder.style.display = 'block';
                     }
                     nav.classList.add('scrolled');
-                    // Move nav to body to escape any parent containment
                     document.body.appendChild(nav);
                     
                     if (wrapper && window.innerWidth < 1400) {
@@ -705,7 +664,6 @@
             } else {
                 if (nav.classList.contains('scrolled')) {
                     nav.classList.remove('scrolled');
-                    // Return nav to its original place
                     if (root && placeholder) root.insertBefore(nav, placeholder.nextSibling);
                     
                     if (placeholder) placeholder.style.display = 'none';
@@ -714,7 +672,9 @@
             }
         };
         window.addEventListener('scroll', window.operationScrollListener);
+        window.operationScrollListener();
 
+        // Resize Logic
         if (window.operationResizeListener) {
             window.removeEventListener('resize', window.operationResizeListener);
         }
@@ -726,6 +686,32 @@
             }
         };
         window.addEventListener('resize', window.operationResizeListener);
-    </script>
+
+        // Intersection Observer for highlighting tabs
+        if(window.operationObserver) {
+            window.operationObserver.disconnect();
+        }
+        const sections = document.querySelectorAll('.content-section');
+        const observerOptions = {
+            root: null,
+            rootMargin: '-200px 0px -50% 0px', 
+            threshold: 0
+        };
+        window.operationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    let targetId = id;
+                    if (id === 'section-foreign-travel') targetId = 'section-travel';
+                    
+                    const targetBtn = document.querySelector(`button[data-target='${targetId}']`);
+                    if (targetBtn && !targetBtn.classList.contains('active-tab')) {
+                        window.updateOperationTabStyling(targetBtn);
+                    }
+                }
+            });
+        }, observerOptions);
+        sections.forEach(sec => window.operationObserver.observe(sec));
+    ">
 </body>
 </html>
