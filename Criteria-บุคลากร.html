@@ -21,7 +21,7 @@
         
         #personnel-sticky-nav.scrolled {
             position: fixed !important;
-            top: 50% !important; /* Force to vertical middle of viewport */
+            top: 50vh !important; /* Force to vertical middle of viewport */
             left: 1rem !important;
             transform: translateY(-50%) !important;
             padding: 0.75rem !important;
@@ -615,104 +615,7 @@
                         <p class="text-lg mb-4"><strong class="text-orange-800">1. อัตราเดิม แบ่งเป็น 2 กรณี</strong></p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-white p-5 rounded-xl border border-orange-100 shadow-sm">
-                                <p><strong class="text-slate-900 block mb-2">1.1 หน่วยงานที่ได้รับงบประมาณทั้งหมด<!-- Script execution strategy to support dynamic injection -->
-<script>
-window.switchPersonnelSection = function(sectionId, btnElement) {
-    document.querySelectorAll('.content-section').forEach(function(el) { el.classList.remove('active'); });
-    const targetSec = document.getElementById(sectionId);
-    if(targetSec) {
-        targetSec.classList.add('active');
-        const headerTitle = document.querySelector('#personnel-sticky-header h1');
-        if(headerTitle && btnElement) {
-            const sectionTitle = btnElement.querySelector('.btn-text').innerText;
-            const iconClass = btnElement.querySelector('i').className;
-            headerTitle.innerHTML = '<div class="flex flex-col items-start"><span class="text-xs text-slate-500 uppercase tracking-widest mb-1">การวิเคราะห์ตามงบรายจ่าย</span><div class="flex items-center gap-2 header-active"><i class="' + iconClass + ' text-sky-400"></i><span class="text-white drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]">' + sectionTitle + '</span></div></div>';
-        }
-        const nav = document.getElementById('personnel-sticky-nav');
-        if (nav && nav.classList.contains('scrolled')) {
-            targetSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-    document.querySelectorAll('.personnel-tab-btn').forEach(function(btn) {
-        btn.className = 'personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0';
-    });
-    if (btnElement) {
-        btnElement.className = 'personnel-tab-btn active bg-sky-600 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold shadow-sm transition-all flex items-center gap-1.5 border border-sky-500 whitespace-nowrap shrink-0';
-    }
-};
-
-window.initPersonnelUI = function() {
-    if (window.personnelUIInitialized) return;
-    window.personnelUIInitialized = true;
-    
-    const firstBtn = document.querySelector('.personnel-tab-btn');
-    if (firstBtn) window.switchPersonnelSection('sec-a', firstBtn);
-
-    setTimeout(function() {
-        const root = document.getElementById('personnel-root');
-        if (!root) return;
-        
-        let sentinel = document.getElementById('personnel-top-sentinel');
-        if (!sentinel) {
-            sentinel = document.createElement('div');
-            sentinel.id = 'personnel-top-sentinel';
-            sentinel.style.position = 'absolute';
-            sentinel.style.top = '100px';
-            sentinel.style.height = '1px';
-            sentinel.style.width = '100%';
-            sentinel.style.pointerEvents = 'none';
-            root.style.position = root.style.position || 'relative';
-            root.insertBefore(sentinel, root.firstChild);
-        }
-
-        if (window.IntersectionObserver) {
-            const observer = new IntersectionObserver(function(entries) {
-                const nav = document.getElementById('personnel-sticky-nav');
-                const placeholder = document.getElementById('personnel-nav-placeholder');
-                const wrapper = document.getElementById('personnel-content-wrapper');
-                if(!nav || !placeholder) return;
-
-                entries.forEach(function(entry) {
-                    const isScrolledPast = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-                    if (isScrolledPast) {
-                        if (!nav.classList.contains('scrolled')) {
-                            placeholder.style.height = nav.offsetHeight + 'px';
-                            placeholder.style.marginBottom = '2rem';
-                            placeholder.style.display = 'block';
-                            nav.classList.add('scrolled');
-                            document.body.appendChild(nav);
-                            if (wrapper && window.innerWidth < 1400) {
-                                wrapper.style.paddingLeft = window.innerWidth < 768 ? '3.5rem' : '4.5rem';
-                            }
-                        }
-                    } else {
-                        if (nav.classList.contains('scrolled')) {
-                            nav.classList.remove('scrolled');
-                            root.insertBefore(nav, placeholder.nextSibling);
-                            placeholder.style.display = 'none';
-                            if (wrapper) wrapper.style.paddingLeft = '0';
-                        }
-                    }
-                });
-            }, { threshold: 0 });
-            
-            observer.observe(sentinel);
-        }
-        
-        window.addEventListener('resize', function() {
-            const nav = document.getElementById('personnel-sticky-nav');
-            const wrapper = document.getElementById('personnel-content-wrapper');
-            if(nav && nav.classList.contains('scrolled') && wrapper) {
-                wrapper.style.paddingLeft = window.innerWidth < 1400 ? (window.innerWidth < 768 ? '3.5rem' : '4.5rem') : '0';
-            }
-        });
-    }, 300);
-};
-
-// Start execution
-window.initPersonnelUI();
-</script>
-<img src="x" onerror="if(window.initPersonnelUI) window.initPersonnelUI();" style="display:none;">��รับแผนการใช้จ่ายงบประมาณปี พ.ศ. 2570 ให้หน่วยงานรับรองเอกสารประมาณการดังกล่าวด้วย เพื่อใช้เป็นหลักฐานประกอบการพิจารณา</p>
+                                <p><strong class="text-slate-900 block mb-2">1.1 หน่วยงานที่ได้รับงบประมาณทั้งหมด</strong></p>��รับแผนการใช้จ่ายงบประมาณปี พ.ศ. 2570 ให้หน่วยงานรับรองเอกสารประมาณการดังกล่าวด้วย เพื่อใช้เป็นหลักฐานประกอบการพิจารณา</p>
                             </div>
                         </div>
                     </div>
@@ -952,6 +855,10 @@ window.initPersonnelUI();
 
 <!-- Hidden GIF to attach JS Functions ensuring execution when injected via innerHTML -->
 <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="display:none;" onload="
+    // Cleanup any existing personnel nav from body to avoid duplicates on re-injection
+    const oldNavInBody = document.body.querySelector('#personnel-sticky-nav');
+    if (oldNavInBody) oldNavInBody.remove();
+
     window.switchPersonnelSection = function(sectionId, btnElement) {
         document.querySelectorAll('.content-section').forEach(el => {
             el.classList.remove('active');
@@ -965,12 +872,12 @@ window.initPersonnelUI();
             const headerTitle = document.querySelector('#personnel-sticky-header h1');
             if(headerTitle && btnElement) {
                 const sectionTitle = btnElement.querySelector('.btn-text').innerText;
-                // Keep the primary title and show active category as a highlighted badge
+                const iconClass = btnElement.querySelector('i').className;
                 headerTitle.innerHTML = `
                     <div class='flex flex-col items-start'>
                         <span class='text-xs text-slate-500 uppercase tracking-widest mb-1'>การวิเคราะห์ตามงบรายจ่าย</span>
                         <div class='flex items-center gap-2 header-active'>
-                            <i class='${btnElement.querySelector('i').className} text-sky-400'></i>
+                            <i class='${iconClass} text-sky-400'></i>
                             <span class='text-white drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]'>${sectionTitle}</span>
                         </div>
                     </div>`;
@@ -978,11 +885,15 @@ window.initPersonnelUI();
 
             const nav = document.getElementById('personnel-sticky-nav');
             const wasScrolled = nav.classList.contains('scrolled');
-            let y = wasScrolled ? 
-                targetSec.getBoundingClientRect().top + window.pageYOffset - 120 : 
-                document.getElementById('personnel-root').getBoundingClientRect().top + window.pageYOffset - 20;
             
-            window.scrollTo({top: y, behavior: 'smooth'});
+            // Wait for DOM to update and animation to start
+            requestAnimationFrame(() => {
+                let y = wasScrolled ? 
+                    targetSec.getBoundingClientRect().top + window.pageYOffset - 120 : 
+                    document.getElementById('personnel-root').getBoundingClientRect().top + window.pageYOffset - 20;
+                
+                window.scrollTo({top: y, behavior: 'smooth'});
+            });
         }
 
         document.querySelectorAll('.personnel-tab-btn').forEach(btn => {
@@ -1004,7 +915,10 @@ window.initPersonnelUI();
         const root = document.getElementById('personnel-root');
         if(!nav) return;
         
-        if(window.scrollY > 200) {
+        // Use a more reliable threshold for shrinking
+        const threshold = root ? root.offsetTop + 100 : 200;
+        
+        if(window.scrollY > threshold) {
             if (!nav.classList.contains('scrolled')) {
                 if (placeholder) {
                     placeholder.style.height = nav.offsetHeight + 'px';
@@ -1023,7 +937,7 @@ window.initPersonnelUI();
             if (nav.classList.contains('scrolled')) {
                 nav.classList.remove('scrolled');
                 // Return nav to its original place
-                if (root) root.insertBefore(nav, placeholder.nextSibling);
+                if (root && placeholder) root.insertBefore(nav, placeholder.nextSibling);
                 
                 if (placeholder) placeholder.style.display = 'none';
                 if (wrapper) wrapper.style.paddingLeft = '0';
@@ -1045,19 +959,24 @@ window.initPersonnelUI();
     };
     window.addEventListener('resize', window.personnelResizeListener);
 
-    // Initialize UI with the first tab
+    // Initial state
     const firstBtn = document.querySelector('.personnel-tab-btn');
     if (firstBtn) {
+        const activeBtn = document.querySelector('.personnel-tab-btn.active') || firstBtn;
+        const sectionId = activeBtn.getAttribute('onclick').match(/'([^']+)'/)[1];
+        
         const headerTitle = document.querySelector('#personnel-sticky-header h1');
-        const iconClass = firstBtn.querySelector('i').className;
-        const sectionTitle = firstBtn.querySelector('.btn-text').innerText;
-        headerTitle.innerHTML = `
-            <div class='flex flex-col items-start'>
-                <span class='text-xs text-slate-500 uppercase tracking-widest mb-1'>การวิเคราะห์ตามงบรายจ่าย</span>
-                <div class='flex items-center gap-2'>
-                    <i class='${iconClass} text-sky-400'></i>
-                    <span class='text-white'>${sectionTitle}</span>
-                </div>
-            </div>`;
+        const iconClass = activeBtn.querySelector('i').className;
+        const sectionTitle = activeBtn.querySelector('.btn-text').innerText;
+        if (headerTitle) {
+            headerTitle.innerHTML = `
+                <div class='flex flex-col items-start'>
+                    <span class='text-xs text-slate-500 uppercase tracking-widest mb-1'>การวิเคราะห์ตามงบรายจ่าย</span>
+                    <div class='flex items-center gap-2'>
+                        <i class='${iconClass} text-sky-400'></i>
+                        <span class='text-white'>${sectionTitle}</span>
+                    </div>
+                </div>`;
+        }
     }
-\">
+">
