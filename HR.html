@@ -26,14 +26,14 @@
             transform: translateY(-50%) !important;
             padding: 0.75rem !important;
             border-radius: 3rem !important;
-            background-color: rgba(15, 23, 42, 0.9) !important;
+            background-color: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(16px) !important;
-            border-color: rgba(56, 189, 248, 0.3) !important;
+            border-color: rgba(226, 232, 240, 1) !important;
             width: fit-content !important;
             max-width: 5rem !important;
             margin: 0 !important;
             z-index: 2147483647 !important; /* Maximum possible z-index */
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.2) !important;
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(20, 184, 166, 0.1) !important;
             animation: slideInNav 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
         }
         @keyframes slideInNav {
@@ -74,14 +74,14 @@
         <!-- Placeholder for fixed nav to prevent jumping -->
         <div id="personnel-nav-placeholder" style="display: none;"></div>
         <!-- Compact Sticky Header & Nav Menu -->
-        <div id="personnel-sticky-nav" class="sticky top-16 md:top-20 z-40 bg-[#0f172a]/95 backdrop-blur-xl shadow-lg rounded-xl md:rounded-2xl border border-slate-700/60 mb-8 px-3 py-3 md:px-4 md:py-4 max-w-full transition-all duration-300">
-            <div id="personnel-sticky-header" class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2 md:mb-3 border-b border-slate-700/50 pb-2 md:pb-3 px-1">
+        <div id="personnel-sticky-nav" class="sticky top-16 md:top-20 z-40 bg-white/95 backdrop-blur-xl shadow-sm hover:shadow-md rounded-xl md:rounded-2xl border border-slate-200 mb-8 px-3 py-3 md:px-4 md:py-4 max-w-full transition-all duration-300">
+            <div id="personnel-sticky-header" class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2 md:mb-3 border-b border-slate-100 pb-2 md:pb-3 px-1">
                 <h1 class="text-lg md:text-xl font-bold text-slate-800 flex items-center gap-2">
                     <!-- Title injected via JS -->
                     การวิเคราะห์ตามงบรายจ่าย
                 </h1>
-                <span class="text-[11px] md:text-xs text-slate-400 font-medium bg-slate-800/50 px-2 py-1 rounded-md border border-slate-700 hidden sm:inline-flex items-center">
-                    <i class="fa-solid fa-hand-pointer mr-1"></i> เลือกประเภทบุคลากร
+                <span class="text-[11px] md:text-xs text-slate-500 font-medium bg-slate-50 px-2 py-1 rounded-md border border-slate-200 hidden sm:inline-flex items-center">
+                    <i class="fa-solid fa-hand-pointer mr-1 text-slate-400"></i> เลือกประเภทบุคลากร
                 </span>
             </div>
             
