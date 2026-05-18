@@ -615,36 +615,104 @@
                         <p class="text-lg mb-4"><strong class="text-orange-800">1. อัตราเดิม แบ่งเป็น 2 กรณี</strong></p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-white p-5 rounded-xl border border-orange-100 shadow-sm">
-                                <p><strong class="text-slate-900 block mb-2">1.1 หน่วยงานที่ได้รับงบประมาณทั้งหมด</strong> ให้ใช้ผลเบิกจ่ายจริงของงบประมาณปี 2569 (ไม่รวมส่วนควบ) โดยให้ใช้ ค่าเฉลี่ยเบิกจ่าย 3 เดือน (ต.ค. – ธ.ค. 2564) หากยังไม่เลื่อนเงินเดือนให้ปรับเพิ่มเงินเลื่อนขั้น <strong class="text-amber-600 text-lg">ร้อยละ 6</strong></p>
-                            </div>
-                            <div class="bg-white p-5 rounded-xl border border-orange-100 shadow-sm flex flex-col justify-between">
-                                <p><strong class="text-slate-900 block mb-2">1.2 หน่วยงานที่มีการนำเงินนอกงบประมาณมาสมทบกับเงินเดือน</strong> ให้ใช้ผลเบิกจ่ายจริงงบประมาณปี 2569 (ไม่รวมส่วนควบ) โดยให้ใช้ ค่าเฉลี่ยเบิกจ่าย 3 เดือน (ต.ค. – ธ.ค. 2564) หากยังไม่เลื่อนเงินเดือนให้ปรับเพิ่มเงินเลื่อนขั้น <strong class="text-amber-600 text-lg">ร้อยละ 4</strong></p>
-                            </div>
-                            <div class="bg-amber-100/50 p-4 rounded-xl border border-amber-200 md:col-span-2 shadow-sm text-sm md:text-base">
-                                <p>กรณีหน่วยงานที่มีผลเบิกจ่ายจริงสูงกว่าที่ตั้งงบประมาณให้ใช้วงเงินและอัตราตาม <strong class="text-slate-900">พระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. 2568 เป็นฐานในการคำนวณ</strong> และปรับเพิ่มเงินเลื่อนขั้นร้อยละ 4 สำหรับส่วนที่เหลือให้ใช้เงินนอกงบประมาณสมทบ</p>
-                            </div>
-                        </div>
-                    </div>
+                                <p><strong class="text-slate-900 block mb-2">1.1 หน่วยงานที่ได้รับงบประมาณทั้งหมด<!-- Script execution strategy to support dynamic injection -->
+<script>
+window.switchPersonnelSection = function(sectionId, btnElement) {
+    document.querySelectorAll('.content-section').forEach(function(el) { el.classList.remove('active'); });
+    const targetSec = document.getElementById(sectionId);
+    if(targetSec) {
+        targetSec.classList.add('active');
+        const headerTitle = document.querySelector('#personnel-sticky-header h1');
+        if(headerTitle && btnElement) {
+            const sectionTitle = btnElement.querySelector('.btn-text').innerText;
+            const iconClass = btnElement.querySelector('i').className;
+            headerTitle.innerHTML = '<div class="flex flex-col items-start"><span class="text-xs text-slate-500 uppercase tracking-widest mb-1">การวิเคราะห์ตามงบรายจ่าย</span><div class="flex items-center gap-2 header-active"><i class="' + iconClass + ' text-sky-400"></i><span class="text-white drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]">' + sectionTitle + '</span></div></div>';
+        }
+        const nav = document.getElementById('personnel-sticky-nav');
+        if (nav && nav.classList.contains('scrolled')) {
+            targetSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+    document.querySelectorAll('.personnel-tab-btn').forEach(function(btn) {
+        btn.className = 'personnel-tab-btn bg-slate-800/80 text-slate-300 border border-slate-600 hover:border-sky-400/60 hover:bg-slate-700 hover:text-sky-300 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0';
+    });
+    if (btnElement) {
+        btnElement.className = 'personnel-tab-btn active bg-sky-600 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold shadow-sm transition-all flex items-center gap-1.5 border border-sky-500 whitespace-nowrap shrink-0';
+    }
+};
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Card 2 (Sky Theme) -->
-                        <div class="bg-sky-50/80 p-6 rounded-2xl border border-sky-100 border-l-4 border-l-sky-400 shadow-sm hover:shadow-md transition-all">
-                            <p class="text-lg mb-3"><strong class="text-sky-800">2. การตั้งค่าใช้จ่ายบุคลากรขององค์การมหาชน</strong></p>
-                            <div class="bg-white p-5 rounded-xl border border-sky-100 shadow-sm h-full">
-                                <p>ให้ตั้งงบประมาณตามมติคณะรัฐมนตรี เมื่อวันที่ 28 พฤษภาคม 2561 ซึ่งกำหนดกรอบวงเงินรวมสำหรับค่าใช้จ่ายบุคลากรไว้<strong class="text-amber-600 bg-amber-50 px-2 py-0.5 rounded ml-1">ไม่เกิน ร้อยละ 30 ของแผนการใช้จ่ายเงินประจำปี</strong> (ซึ่งไม่รวมงบประมาณสำหรับการจัดซื้อครุภัณฑ์และสิ่งก่อสร้าง) ยกเว้นหน่วยงานที่มติคณะรัฐมนตรี กำหนดกรอบวงเงินรวมค่าใช้จ่ายด้านบุคลากรขององค์การมหาชนไว้ เป็นการเฉพาะ</p>
-                            </div>
-                        </div>
+window.initPersonnelUI = function() {
+    if (window.personnelUIInitialized) return;
+    window.personnelUIInitialized = true;
+    
+    const firstBtn = document.querySelector('.personnel-tab-btn');
+    if (firstBtn) window.switchPersonnelSection('sec-a', firstBtn);
 
-                        <!-- Card 3 & 4 Stack -->
-                        <div class="space-y-6">
-                            <div class="bg-indigo-50/60 p-6 rounded-2xl border border-indigo-100 border-l-4 border-l-indigo-400 shadow-sm hover:shadow-md transition-all">
-                                <p class="text-lg mb-2"><strong class="text-indigo-800">3. หน่วยงานที่มีเงินนอกงบประมาณ</strong></p>
-                                <p class="bg-white p-4 rounded-xl border border-indigo-100">ขอให้แสดงสถานะการเงินและสัดส่วนค่าใช้จ่ายบุคลากรของหน่วยงานย้อนหลัง 3 ปี (ปีงบประมาณ พ.ศ. 2567 - 2569) เพื่อประกอบการพิจารณาสัดส่วนค่าใช้จ่ายบุคลากร</p>
-                            </div>
+    setTimeout(function() {
+        const root = document.getElementById('personnel-root');
+        if (!root) return;
+        
+        let sentinel = document.getElementById('personnel-top-sentinel');
+        if (!sentinel) {
+            sentinel = document.createElement('div');
+            sentinel.id = 'personnel-top-sentinel';
+            sentinel.style.position = 'absolute';
+            sentinel.style.top = '100px';
+            sentinel.style.height = '1px';
+            sentinel.style.width = '100%';
+            sentinel.style.pointerEvents = 'none';
+            root.style.position = root.style.position || 'relative';
+            root.insertBefore(sentinel, root.firstChild);
+        }
 
-                            <div class="bg-teal-50/60 p-6 rounded-2xl border border-teal-100 border-l-4 border-l-teal-400 shadow-sm hover:shadow-md transition-all">
-                                <p class="text-lg mb-2"><strong class="text-teal-800">4. แผนการใช้จ่ายเงินประจำปีงบประมาณ พ.ศ. 2569</strong></p>
-                                <p class="bg-white p-4 rounded-xl border border-teal-100">ต้องผ่านความเห็นชอบจากคณะกรรมการของหน่วยงานที่กฎหมายมอบอำนาจในการพิจารณาอนุมัติงบประมาณแล้ว สำหรับแผนการใช้จ่ายงบประมาณปี พ.ศ. 2570 ให้หน่วยงานรับรองเอกสารประมาณการดังกล่าวด้วย เพื่อใช้เป็นหลักฐานประกอบการพิจารณา</p>
+        if (window.IntersectionObserver) {
+            const observer = new IntersectionObserver(function(entries) {
+                const nav = document.getElementById('personnel-sticky-nav');
+                const placeholder = document.getElementById('personnel-nav-placeholder');
+                const wrapper = document.getElementById('personnel-content-wrapper');
+                if(!nav || !placeholder) return;
+
+                entries.forEach(function(entry) {
+                    const isScrolledPast = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+                    if (isScrolledPast) {
+                        if (!nav.classList.contains('scrolled')) {
+                            placeholder.style.height = nav.offsetHeight + 'px';
+                            placeholder.style.marginBottom = '2rem';
+                            placeholder.style.display = 'block';
+                            nav.classList.add('scrolled');
+                            document.body.appendChild(nav);
+                            if (wrapper && window.innerWidth < 1400) {
+                                wrapper.style.paddingLeft = window.innerWidth < 768 ? '3.5rem' : '4.5rem';
+                            }
+                        }
+                    } else {
+                        if (nav.classList.contains('scrolled')) {
+                            nav.classList.remove('scrolled');
+                            root.insertBefore(nav, placeholder.nextSibling);
+                            placeholder.style.display = 'none';
+                            if (wrapper) wrapper.style.paddingLeft = '0';
+                        }
+                    }
+                });
+            }, { threshold: 0 });
+            
+            observer.observe(sentinel);
+        }
+        
+        window.addEventListener('resize', function() {
+            const nav = document.getElementById('personnel-sticky-nav');
+            const wrapper = document.getElementById('personnel-content-wrapper');
+            if(nav && nav.classList.contains('scrolled') && wrapper) {
+                wrapper.style.paddingLeft = window.innerWidth < 1400 ? (window.innerWidth < 768 ? '3.5rem' : '4.5rem') : '0';
+            }
+        });
+    }, 300);
+};
+
+// Start execution
+window.initPersonnelUI();
+</script>
+<img src="x" onerror="if(window.initPersonnelUI) window.initPersonnelUI();" style="display:none;">��รับแผนการใช้จ่ายงบประมาณปี พ.ศ. 2570 ให้หน่วยงานรับรองเอกสารประมาณการดังกล่าวด้วย เพื่อใช้เป็นหลักฐานประกอบการพิจารณา</p>
                             </div>
                         </div>
                     </div>
@@ -899,11 +967,11 @@
                 const sectionTitle = btnElement.querySelector('.btn-text').innerText;
                 // Keep the primary title and show active category as a highlighted badge
                 headerTitle.innerHTML = `
-                    <div class=\"flex flex-col items-start\">
-                        <span class=\"text-xs text-slate-500 uppercase tracking-widest mb-1\">การวิเคราะห์ตามงบรายจ่าย</span>
-                        <div class=\"flex items-center gap-2 header-active\">
-                            <i class=\"${btnElement.querySelector('i').className} text-sky-400\"></i>
-                            <span class=\"text-white drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]\">${sectionTitle}</span>
+                    <div class='flex flex-col items-start'>
+                        <span class='text-xs text-slate-500 uppercase tracking-widest mb-1'>การวิเคราะห์ตามงบรายจ่าย</span>
+                        <div class='flex items-center gap-2 header-active'>
+                            <i class='${btnElement.querySelector('i').className} text-sky-400'></i>
+                            <span class='text-white drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]'>${sectionTitle}</span>
                         </div>
                     </div>`;
             }
@@ -984,11 +1052,11 @@
         const iconClass = firstBtn.querySelector('i').className;
         const sectionTitle = firstBtn.querySelector('.btn-text').innerText;
         headerTitle.innerHTML = `
-            <div class=\"flex flex-col items-start\">
-                <span class=\"text-xs text-slate-500 uppercase tracking-widest mb-1\">การวิเคราะห์ตามงบรายจ่าย</span>
-                <div class=\"flex items-center gap-2\">
-                    <i class=\"${iconClass} text-sky-400\"></i>
-                    <span class=\"text-white\">${sectionTitle}</span>
+            <div class='flex flex-col items-start'>
+                <span class='text-xs text-slate-500 uppercase tracking-widest mb-1'>การวิเคราะห์ตามงบรายจ่าย</span>
+                <div class='flex items-center gap-2'>
+                    <i class='${iconClass} text-sky-400'></i>
+                    <span class='text-white'>${sectionTitle}</span>
                 </div>
             </div>`;
     }
