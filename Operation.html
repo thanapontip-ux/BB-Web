@@ -24,18 +24,11 @@
                     },
                     animation: {
                         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'blob': 'blob 7s infinite',
                     },
                     keyframes: {
                         fadeInUp: {
                             '0%': { opacity: '0', transform: 'translateY(20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
                         }
                     }
                 }
@@ -53,45 +46,40 @@
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Vivid Premium White Theme Cards */
+        /* Vivid Pastel Theme Cards (สีและเงาอยู่แค่ในการ์ด) */
         .pastel-card {
-            background: #ffffff; /* เปลี่ยนเป็นสีขาวล้วนตามต้องการ */
             border-radius: 1.25rem;
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.03);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            scroll-margin-top: 180px; /* ชดเชยความสูงของ Navigator Bar ตอนเลื่อนหน้าจอ */
+            scroll-margin-top: 220px; /* ชดเชยความสูงของ Navigator Bar ตอนเลื่อนหน้าจอ */
         }
         .pastel-card:hover {
             transform: translateY(-5px) scale(1.002);
-            /* เพิ่มมิติของขอบขาวด้านในบางๆ ให้ดูคมชัด */
             border-right: 1px solid rgba(0,0,0,0.02);
         }
         
-        /* Vivid Card Variants: สีพื้นขาว ล้วน แต่ใช้ขอบซ้ายสีสด และ Hover เป็นเงาสีสะท้อน */
-        .card-blue { border-left: 6px solid #2563eb; }
+        /* Vivid Card Variants: สีพื้นหลังพาสเทลสดใส + ขอบซ้าย */
+        .card-blue { background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); border-left: 6px solid #2563eb; }
         .card-blue:hover { box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15), 0 0 0 1px rgba(37, 99, 235, 0.05); }
 
-        .card-indigo { border-left: 6px solid #4f46e5; }
+        .card-indigo { background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%); border-left: 6px solid #4f46e5; }
         .card-indigo:hover { box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.15), 0 0 0 1px rgba(79, 70, 229, 0.05); }
 
-        .card-emerald { border-left: 6px solid #059669; }
+        .card-emerald { background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%); border-left: 6px solid #059669; }
         .card-emerald:hover { box-shadow: 0 25px 50px -12px rgba(5, 150, 105, 0.15), 0 0 0 1px rgba(5, 150, 105, 0.05); }
 
-        .card-purple { border-left: 6px solid #9333ea; }
+        .card-purple { background: linear-gradient(135deg, #faf5ff 0%, #ffffff 100%); border-left: 6px solid #9333ea; }
         .card-purple:hover { box-shadow: 0 25px 50px -12px rgba(147, 51, 234, 0.15), 0 0 0 1px rgba(147, 51, 234, 0.05); }
 
-        .card-rose { border-left: 6px solid #e11d48; }
+        .card-rose { background: linear-gradient(135deg, #fff1f2 0%, #ffffff 100%); border-left: 6px solid #e11d48; }
         .card-rose:hover { box-shadow: 0 25px 50px -12px rgba(225, 29, 72, 0.15), 0 0 0 1px rgba(225, 29, 72, 0.05); }
 
-        .card-orange { border-left: 6px solid #ea580c; }
-        .card-orange:hover { box-shadow: 0 25px 50px -12px rgba(234, 88, 12, 0.15), 0 0 0 1px rgba(234, 88, 12, 0.05); }
-
-        .card-teal { border-left: 6px solid #0d9488; }
+        .card-teal { background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%); border-left: 6px solid #0d9488; }
         .card-teal:hover { box-shadow: 0 25px 50px -12px rgba(13, 148, 136, 0.15), 0 0 0 1px rgba(13, 148, 136, 0.05); }
 
-        .card-amber { border-left: 6px solid #d97706; }
+        .card-amber { background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%); border-left: 6px solid #d97706; }
         .card-amber:hover { box-shadow: 0 25px 50px -12px rgba(217, 119, 6, 0.15), 0 0 0 1px rgba(217, 119, 6, 0.05); }
         
         /* Text Color Highlights */
@@ -101,7 +89,7 @@
         .highlight-blue { color: #2563eb; font-weight: 700; }
         .highlight-dark { color: #0f172a; font-weight: 700; }
         
-        /* Interactive List Styling on White BG */
+        /* Interactive List Styling */
         .interactive-list-item {
             position: relative;
             padding: 0.6rem 0.6rem 0.6rem 2.5rem;
@@ -111,9 +99,9 @@
             border: 1px solid transparent;
         }
         .interactive-list-item:hover {
-            background-color: #f8fafc; /* Slate 50 - สีเทาอ่อนมากๆ สำหรับตอน Hover */
+            background-color: rgba(255, 255, 255, 0.6);
             transform: translateX(4px);
-            border-color: #f1f5f9;
+            border-color: rgba(255, 255, 255, 0.8);
         }
         .interactive-list-item::before {
             content: "\f0da";
@@ -122,7 +110,7 @@
             position: absolute;
             left: 0.85rem;
             top: 0.75rem;
-            color: #cbd5e1;
+            color: #94a3b8;
             transition: transform 0.3s ease, color 0.3s ease;
         }
         .interactive-list-item:hover::before {
@@ -130,41 +118,33 @@
             color: #3b82f6;
         }
 
-        /* Animated Floating Background Icons - Adjusted for White BG */
+        /* Animated Floating Background Icons inside Cards ONLY - Vivid & Premium */
         @keyframes float-icon {
             0%, 100% { transform: translateY(0) rotate(-5deg); }
             50% { transform: translateY(-20px) rotate(5deg); }
         }
         .bg-icon {
             position: absolute;
-            opacity: 0.04;
+            /* ปรับความสว่างให้ดู Vivid และ Premium ขึ้น */
+            opacity: 0.08; 
             transition: opacity 0.4s ease, transform 0.4s ease;
             z-index: 0;
             pointer-events: none;
-            animation: float-icon 6s ease-in-out infinite;
+            animation: float-icon 8s ease-in-out infinite;
+            /* เพิ่มเงาสะท้อนเล็กน้อยให้ไอคอนดูนูนขึ้น */
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.05)); 
         }
         .pastel-card:hover .bg-icon {
-            opacity: 0.12; /* สว่างขึ้นตอน hover แบบพรีเมียม */
+            /* ชัดขึ้นเมื่อโฮเวอร์ สร้างมิติความพรีเมียม */
+            opacity: 0.15; 
             animation-play-state: paused;
             transform: scale(1.1) rotate(0deg);
         }
-
-        /* Utilities */
-        .animation-delay-2000 { animation-delay: 2s; }
-        .animation-delay-4000 { animation-delay: 4s; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-700 antialiased min-h-screen relative overflow-x-hidden selection:bg-blue-200 selection:text-blue-900">
+<body class="bg-white text-slate-700 antialiased min-h-screen relative overflow-x-hidden selection:bg-blue-200 selection:text-blue-900">
 
-    <!-- Vibrant Animated Blobs Background (แสดงอยู่นอกกล่องเพื่อให้เพจดูสดใส) -->
-    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-400/30 rounded-full mix-blend-multiply filter blur-[120px] animate-blob"></div>
-        <div class="absolute top-[20%] right-[-10%] w-[50%] h-[50%] bg-amber-400/30 rounded-full mix-blend-multiply filter blur-[120px] animate-blob animation-delay-2000"></div>
-        <div class="absolute bottom-[-20%] left-[20%] w-[50%] h-[50%] bg-emerald-400/30 rounded-full mix-blend-multiply filter blur-[120px] animate-blob animation-delay-4000"></div>
-        <div class="absolute top-[40%] left-[40%] w-[40%] h-[40%] bg-purple-400/20 rounded-full mix-blend-multiply filter blur-[120px] animate-blob animation-delay-2000"></div>
-    </div>
-
-    <!-- Main Content Container (ขยายกว้างเต็มหน้าจอ) -->
+    <!-- Main Content Container (ขยายกว้างเต็มหน้าจอ พื้นหลังขาว) -->
     <main class="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-10 py-10 animate-fade-in-up">
         
         <!-- Page Title -->
@@ -172,7 +152,7 @@
             <div class="p-3 bg-white rounded-xl shadow-sm border border-slate-200 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                 <i class="fa-solid fa-coins text-3xl md:text-4xl text-[#d4af37]"></i>
             </div>
-            <h2 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0a192f] to-blue-800 font-serif drop-shadow-sm">
+            <h2 class="text-3xl md:text-5xl font-bold text-[#0a192f] font-serif drop-shadow-sm">
                 4.2 งบดำเนินงาน
             </h2>
             <div class="h-[2px] flex-grow bg-gradient-to-r from-blue-200 to-transparent mt-2"></div>
@@ -190,34 +170,31 @@
                 </h3>
             </div>
 
-            <!-- Tabs Container (Flex Wrap สำหรับทำ 2 แถว) -->
-            <div id="tab-container" class="relative z-10 mt-2">
-                <div class="flex flex-wrap justify-center sm:justify-start gap-3 items-center">
-                    <!-- Tab 1 (Active) -->
+            <!-- Tabs Container (แบ่งเป็น 2 แถวสวยงาม) -->
+            <div id="tab-container" class="relative z-10 mt-2 flex flex-col gap-3">
+                <!-- แถวที่ 1 -->
+                <div class="flex flex-wrap justify-center gap-3 items-center">
                     <button data-target="section-overview" onclick="scrollToSection('section-overview', this)" class="tab-btn active-tab flex items-center gap-2 px-4 py-2.5 rounded-xl border border-transparent bg-[#4589d8] text-white font-medium shadow-[0_0_15px_rgba(69,137,216,0.4)] transition-all shrink-0 hover:scale-105">
                         <i class="fa-solid fa-list-check"></i> ค่าตอบแทน ใช้สอยและวัสดุ
                     </button>
-                    <!-- Tab 2 -->
                     <button data-target="section-cloud" onclick="scrollToSection('section-cloud', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
                         <i class="fa-solid fa-cloud"></i> ระบบคลาวด์ & AI
                     </button>
-                    <!-- Tab 3 -->
                     <button data-target="section-cars" onclick="scrollToSection('section-cars', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
                         <i class="fa-solid fa-car"></i> เช่ารถยนต์ราชการ
                     </button>
-                    <!-- Tab 4 -->
                     <button data-target="section-travel" onclick="scrollToSection('section-travel', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
                         <i class="fa-solid fa-plane-departure"></i> เดินทาง & ฝึกอบรม
                     </button>
-                    <!-- Tab 5 -->
+                </div>
+                <!-- แถวที่ 2 -->
+                <div class="flex flex-wrap justify-center gap-3 items-center">
                     <button data-target="section-pr" onclick="scrollToSection('section-pr', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
                         <i class="fa-solid fa-bullhorn"></i> โฆษณาประชาสัมพันธ์
                     </button>
-                    <!-- Tab 6 -->
                     <button data-target="section-contracts" onclick="scrollToSection('section-contracts', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
                         <i class="fa-solid fa-file-signature"></i> จ้างเอกชน & ผูกพันข้ามปี
                     </button>
-                    <!-- Tab 7 -->
                     <button data-target="section-it" onclick="scrollToSection('section-it', this)" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#3a415c] text-[#8b93b0] font-medium bg-transparent hover:bg-[#2d334a] hover:text-white transition-all shrink-0 hover:scale-105">
                         <i class="fa-solid fa-bolt"></i> IT & สาธารณูปโภค
                     </button>
@@ -226,9 +203,8 @@
         </div>
 
         <section class="mb-12">
-            <!-- Box คำอธิบายย่อย (สีขาว) -->
-            <div class="bg-white rounded-2xl p-6 md:p-8 mb-10 shadow-sm border-l-4 border-l-blue-500 relative overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-md">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-bl-full -z-10"></div>
+            <!-- Box คำอธิบายย่อย -->
+            <div class="bg-blue-50/50 rounded-2xl p-6 md:p-8 mb-10 shadow-sm border-l-4 border-l-blue-500 relative overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-md">
                 <p class="text-lg md:text-xl leading-relaxed text-slate-700">
                     <strong class="highlight-dark inline-flex items-center gap-2"><i class="fa-solid fa-caret-right text-blue-500"></i> ค่าตอบแทน ใช้สอยและวัสดุ</strong> ให้พิจารณาตามหลักเกณฑ์และอัตราค่าใช้จ่ายฯ ที่สำนักงบประมาณกำหนด รวมทั้งมติคณะรัฐมนตรี กฎหมาย ระเบียบ และหลักเกณฑ์ที่เกี่ยวข้อง โดยมีแนวทางดังนี้
                 </p>
@@ -267,7 +243,7 @@
                             ทั้งนี้ ให้หน่วยรับงบประมาณเสนอโครงการต่อ<strong class="highlight-dark">คณะกรรมการบริหารและจัดหาระบบคอมพิวเตอร์ของกรมและกระทรวงให้ความเห็นชอบ</strong> กรณีงบประมาณโครงการ<strong class="highlight-blue">เกินกว่า 200 ล้านบาท</strong> เสนอให้<strong class="highlight-dark">คณะกรรมการจัดหาระบบคอมพิวเตอร์ของรัฐ กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคมพิจารณาให้ความเห็นชอบก่อน</strong>เสนอหน่วยงานเจ้าภาพหลักของแผนงานบูรณาการรัฐบาลดิจิทัล
                         </p>
                         
-                        <div class="pl-8 border-l-4 border-indigo-200 mt-8 space-y-6 bg-slate-50/50 p-6 rounded-r-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="pl-8 border-l-4 border-indigo-200 mt-8 space-y-6 bg-white/60 p-6 rounded-r-2xl border border-white shadow-sm hover:shadow-md transition-shadow">
                             <p class="leading-relaxed">
                                 <strong class="text-indigo-700 text-xl flex items-center gap-2 mb-3"><i class="fa-solid fa-server text-indigo-500"></i> (4.1) แนวทางจัดหาบริการคลาวด์</strong> 
                                 ใช้รูปแบบการจัดหา<strong class="highlight-dark">แบบรวมศูนย์ (Centralized) ผ่านคลาวด์กลางภาครัฐ (GDCC) เป็นอันดับแรก</strong> และกรณีมีการใช้คลาวด์ ให้ขอรับจัดสรรงบประมาณภายใต้แผนงานบูรณาการรัฐบาลดิจิทัล กรณีคลาวด์กลางภาครัฐ (GDCC) ไม่เพียงพอ หรือไม่มีบริการที่หน่วยรับงบประมาณต้องการ รวมทั้งกรณีเป็นการจัดหาคลาวด์แบบต่อเนื่อง จะได้รับการพิจารณาอนุมัติยกเว้นจากคณะกรรมการจัดทำงบประมาณรายจ่ายบูรณาการ เพื่อให้หน่วยรับงบประมาณจัดหาเอง โดยจะต้อง<strong class="highlight-gold">เชื่อมโยงข้อมูลระบบคลาวด์กับระบบบริหารจัดการคลาวด์กลาง (Cloud Management Platforms) ของกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม</strong><br>
@@ -290,7 +266,7 @@
                             <h3 class="text-2xl md:text-3xl font-bold text-[#0a192f] mb-6 flex items-center gap-3">
                                 <span class="text-emerald-600">(5)</span> การเช่ารถยนต์มาใช้ในราชการ
                             </h3>
-                            <p class="text-base md:text-lg text-slate-700 mb-6 leading-relaxed bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                            <p class="text-base md:text-lg text-slate-700 mb-6 leading-relaxed bg-white/60 p-6 rounded-2xl border border-white shadow-sm">
                                 ขอให้ปฏิบัติตามหลักเกณฑ์การเช่ารถยนต์มาใช้ในราชการตามมติคณะรัฐมนตรีเมื่อวันที่ 22 พฤษภาคม 2550 แจ้งตามหนังสือสำนักเลขาธิการคณะรัฐมนตรี ที่ นร 0505/ว 78 ลงวันที่ 24 พฤษภาคม 2550 และมติคณะรัฐมนตรีเมื่อวันที่ 24 เมษายน 2555 และวันที่ 1 พฤษภาคม 2555 แจ้งตามหนังสือสำนักเลขาธิการคณะรัฐมนตรีด่วนที่สุด ที่ นร 0506/ว 124 ลงวันที่ 4 พฤษภาคม 2555 เรื่อง ขอปรับปรุงมติคณะรัฐมนตรีเรื่อง การเช่ารถยนต์มาใช้ในราชการ (ภาคผนวก 37) และอัตราค่าเช่าให้เป็นไปตามหนังสือกระทรวงการคลัง ด่วนที่สุด ที่ กค 0406.4/ว 64 ลงวันที่ 4 กรกฎาคม 2555 เรื่อง อัตราค่าเช่ารถยนต์มาใช้ในราชการ และหนังสือกระทรวงการคลัง ด่วนที่สุด ที่ กค 0408.4/ว 108 ลงวันที่ 19 มิถุนายน 2566 เรื่อง การกำหนดอัตราค่าเช่ารถยนต์มาใช้ในราชการเพิ่มเติม (เพิ่มรถยนต์ไฟฟ้า - Electric Vehicle : EV) และหนังสือกระทรวงการคลัง ด่วนที่สุด ที่ กค 0408.4/ว 145 ลงวันที่ 30 สิงหาคม 2567 เรื่อง การปรับปรุงอัตราค่าเช่ารถยนต์มาใช้ในราชการ (รถยนต์ไฟฟ้า ประเภทแบตเตอรี่ (BEV)) (ภาคผนวก )
                             </p>
                             
@@ -346,7 +322,7 @@
                             <h3 class="text-2xl font-bold text-[#0a192f] mb-5 flex items-center gap-3">
                                 <span class="text-purple-600">(7)</span> ค่าใช้จ่ายในการเดินทางไปราชการ
                             </h3>
-                            <p class="text-base md:text-lg text-slate-700 leading-relaxed pl-8 border-l-4 border-purple-200 ml-1 bg-slate-50 py-4 pr-4 rounded-r-2xl border-t border-r border-b border-slate-100 shadow-sm">
+                            <p class="text-base md:text-lg text-slate-700 leading-relaxed pl-8 border-l-4 border-purple-200 ml-1 bg-white/60 py-4 pr-4 rounded-r-2xl border-t border-r border-b border-white shadow-sm">
                                 ให้พิจารณาตามระเบียบกระทรวงการคลังว่าด้วยการเบิกค่าใช้จ่ายในการเดินทางไปราชการ พ.ศ. 2550 (ฉบับที่ 2) พ.ศ. 2554 และ (ฉบับที่ 3) พ.ศ. 2565 หนังสือกระทรวงการคลัง ที่ กค 0406.6/ว 104 ลงวันที่ 22 กันยายน 2551 เรื่อง การเทียบตำแหน่ง และหนังสือสำนักงานคณะกรรมการข้าราชการพลเรือน ที่ นร 1008/ว 30 ลงวันที่ 15 กันยายน 2553 เรื่อง หลักเกณฑ์และเงื่อนไขการเทียบตำแหน่งอย่างอื่นเท่ากับการดำรงตำแหน่งข้าราชการพลเรือนสามัญ ตามพระราชบัญญัติระเบียบข้าราชการพลเรือน พ.ศ. 2551 (ภาคผนวก 11) และกรณีของพนักงานราชการ ให้เป็นไปตามประกาศคณะกรรมการบริหารพนักงานราชการ เรื่อง สิทธิประโยชน์ของพนักงานราชการ พ.ศ. 2554 (ภาคผนวก 12)
                             </p>
                         </div>

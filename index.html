@@ -415,8 +415,12 @@
         
         <!-- Background Elements -->
         <div class="absolute inset-0 z-0 overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0 bg-[url('https://www.bb.go.th/web/opt/department/html/images/images01.png')] bg-cover bg-center bg-no-repeat opacity-40"></div>
+            <!-- Dark Overlay for Readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#050b14]/80 via-[#050b14]/90 to-[#050b14]"></div>
+            
             <div class="archive-texture"></div>
-            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/40 via-[#050b14] to-[#050b14]"></div>
             
             <!-- Majestic Soft Glows -->
             <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-blue-900/10 rounded-full blur-[120px] subtle-glow"></div>
@@ -489,36 +493,38 @@
                         <span class="text-[10px] font-sans text-slate-500 uppercase tracking-[0.2em]">Fiscal Year 2570 Overview</span>
                     </div>
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow">
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-8 flex items-center justify-center relative row-span-2 group">
-                            <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                            <div class="w-44 h-44 rounded-full border-[1px] border-white/10 relative flex items-center justify-center">
-                                <div class="absolute inset-[-10px] rounded-full border-[6px] border-[#d4af37]/40 border-t-transparent border-l-transparent transform rotate-12 transition-transform duration-1000 group-hover:rotate-45"></div>
-                                <div class="text-center">
-                                    <span class="block text-[10px] text-slate-500 uppercase tracking-widest mb-1">Current Expenditure</span>
-                                    <span class="block font-sans text-2xl font-bold text-white tracking-tight">2,777,443.0</span>
-                                    <span class="block text-[10px] text-[#d4af37] font-bold mt-1">Million Baht (73.3%)</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-6 flex flex-col justify-center relative group">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-grow">
+                        <!-- Total Budget Framework -->
+                        <div class="bg-black/20 rounded-xl border border-white/5 p-6 flex flex-col justify-center relative group sm:col-span-2">
                             <div class="absolute top-4 right-4 text-[#d4af37]/20 group-hover:text-[#d4af37]/40 transition-colors">
-                                <i class="fa-solid fa-vault text-xl"></i>
+                                <i class="fa-solid fa-vault text-2xl"></i>
                             </div>
-                            <div class="font-sans text-[#d4af37] text-3xl font-bold tracking-tight mb-1">฿ 3,788,000 <span class="text-xs font-sans text-slate-500 font-normal ml-1">M</span></div>
-                            <div class="text-slate-400 text-xs font-medium uppercase tracking-widest">Total Budget Framework</div>
+                            <div class="font-sans text-[#d4af37] text-3xl md:text-4xl font-bold tracking-tight mb-1">฿ 3,788,000 <span class="text-sm font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
+                            <div class="text-slate-400 text-xs font-medium uppercase tracking-widest">วงเงินงบประมาณรวม (Total Budget Framework)</div>
                         </div>
                         
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-6 flex flex-col justify-center relative group overflow-hidden">
-                            <div class="font-sans text-emerald-500/80 text-3xl font-bold tracking-tight mb-1">788,000 <span class="text-xs font-sans text-slate-500 font-normal ml-1">M</span></div>
-                            <div class="text-slate-400 text-xs font-medium uppercase tracking-widest">Investment Expenditure (20.8%)</div>
-                            <div class="absolute bottom-0 right-0 p-4 flex items-end gap-1.5 opacity-20 group-hover:opacity-40 transition-opacity">
-                                <div class="w-1.5 h-4 bg-emerald-500/50 rounded-t-sm"></div>
-                                <div class="w-1.5 h-8 bg-emerald-500/50 rounded-t-sm"></div>
-                                <div class="w-1.5 h-6 bg-emerald-500/50 rounded-t-sm"></div>
-                                <div class="w-1.5 h-10 bg-emerald-500 rounded-t-sm"></div>
-                            </div>
+                        <!-- 1. Current Expenditure -->
+                        <div class="bg-black/20 rounded-xl border border-white/5 p-5 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] transition-colors">
+                            <div class="font-sans text-sky-400 text-xl md:text-2xl font-bold tracking-tight mb-1">2,777,443.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
+                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">รายจ่ายประจำ (73.3%)</div>
+                        </div>
+                        
+                        <!-- 2. Investment Expenditure -->
+                        <div class="bg-black/20 rounded-xl border border-white/5 p-5 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] transition-colors">
+                            <div class="font-sans text-emerald-400 text-xl md:text-2xl font-bold tracking-tight mb-1">788,000.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
+                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">รายจ่ายลงทุน (20.8%)</div>
+                        </div>
+
+                        <!-- 3. Principal Repayment -->
+                        <div class="bg-black/20 rounded-xl border border-white/5 p-5 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] transition-colors">
+                            <div class="font-sans text-rose-400 text-xl md:text-2xl font-bold tracking-tight mb-1">151,520.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
+                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">ชำระคืนต้นเงินกู้ (4.0%)</div>
+                        </div>
+
+                        <!-- 4. Treasury Reserve Replenishment -->
+                        <div class="bg-black/20 rounded-xl border border-white/5 p-5 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] transition-colors">
+                            <div class="font-sans text-amber-400 text-xl md:text-2xl font-bold tracking-tight mb-1">71,037.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
+                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">ชดใช้เงินคงคลัง (1.9%)</div>
                         </div>
                     </div>
                 </div>
@@ -608,7 +614,15 @@
             }
         }
 
+        function cleanupOrphanedNavs() {
+            const floatingNav = document.getElementById('personnel-sticky-nav');
+            if (floatingNav && floatingNav.parentElement === document.body) {
+                floatingNav.remove();
+            }
+        }
+
         function showLanding(navElement) {
+            cleanupOrphanedNavs();
             document.getElementById('landing-page').style.display = 'flex';
             document.getElementById('content-area').style.display = 'none';
             document.body.classList.remove('bg-slate-50');
@@ -620,6 +634,7 @@
 
         async function loadPage(pageUrl, navElement) {
             try {
+                cleanupOrphanedNavs();
                 const response = await fetch(pageUrl);
                 if (!response.ok) throw new Error('Network response was not ok');
                 const html = await response.text();
@@ -629,7 +644,7 @@
                 contentArea.style.display = 'block';
                 
                 // สำหรับหน้าที่มีพื้นหลังสีเข้ม (Dark Mode Pages)
-                if(pageUrl === 'Criteria.html' || pageUrl === 'Criteria-1-2.html' || pageUrl === 'Criteria-บุคลากร.html' || pageUrl === 'timeline.html' || pageUrl === 'transfer.html') {
+                if(pageUrl === 'Criteria-cover.html' || pageUrl === 'guideline.html' || pageUrl === 'HR.html' || pageUrl === 'timeline.html' || pageUrl === 'transfer.html') {
                     document.body.classList.remove('bg-slate-50');
                     document.body.classList.add('bg-[#070e1e]');
                 } else {
