@@ -181,9 +181,11 @@
         }
         /* Hide text in scrolled mode */
         #operation-sticky-nav.scrolled .tab-btn { 
-            padding: 0 !important; border-radius: 50% !important; width: 3rem !important; height: 3rem !important; justify-content: center !important; margin: 0 !important; 
+            padding: 0 !important; border-radius: 50% !important; width: 3rem !important; height: 3rem !important; justify-content: center !important; align-items: center !important; margin: 0 !important; 
             font-size: 0 !important; /* Hide text */
+            gap: 0 !important;
         }
+        #operation-sticky-nav.scrolled .tab-btn .btn-text { display: none !important; }
         #operation-sticky-nav.scrolled .tab-btn i { font-size: 1.25rem !important; margin: 0 !important; }
         @media (max-width: 768px) {
             #operation-sticky-nav.scrolled .tab-btn { width: 2.5rem !important; height: 2.5rem !important; }
