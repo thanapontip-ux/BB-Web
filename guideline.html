@@ -1,86 +1,84 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หลักเกณฑ์การจัดสรรงบประมาณ พ.ศ. 2570</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Sarabun', 'sans-serif'],
-                    },
-                    colors: {
-                        'bb-blue': '#0a192f',
-                        'bb-gold': '#d4af37',
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                        'slide-up': 'slideUp 0.6s ease-out forwards',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
+<div id="guideline-root" class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 text-slate-300 pt-8">
+    <style>
+        @keyframes guidelineFade {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes guidelineHeaderHighlight {
+            0% { text-shadow: 0 0 0px transparent; transform: scale(1); }
+            50% { text-shadow: 0 0 15px rgba(253, 205, 14, 0.5); transform: scale(1.02); }
+            100% { text-shadow: 0 0 5px rgba(253, 205, 14, 0.2); transform: scale(1); }
+        }
+        .guideline-header-active { animation: guidelineHeaderHighlight 0.8s ease-out; }
+        
+        .content-section { display: none; opacity: 0; }
+        .content-section.active { display: block; opacity: 1; animation: guidelineFade 0.5s ease-out forwards; }
+        .exact-text { line-height: 1.7; }
+        
+        /* Sticky Nav Scroll Effects */
+        #guideline-sticky-nav { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        #guideline-sticky-header { transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease; overflow: hidden; max-height: 150px; opacity: 1; }
+        
+        #guideline-sticky-nav.scrolled {
+            position: fixed !important;
+            top: 50vh !important;
+            left: 1rem !important;
+            transform: translateY(-50%) !important;
+            padding: 0.5rem !important;
+            border-radius: 3rem !important;
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(16px) !important;
+            border-color: rgba(226, 232, 240, 1) !important;
+            width: max-content !important;
+            height: max-content !important;
+            margin: 0 !important;
+            z-index: 2147483647 !important;
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(253, 205, 14, 0.1) !important;
+            animation: slideInGuidelineNav 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+        }
+        @keyframes slideInGuidelineNav {
+            0% { opacity: 0; transform: translate(-2rem, -50%); }
+            100% { opacity: 1; transform: translate(0, -50%); }
+        }
+        @media (max-width: 768px) {
+            #guideline-sticky-nav.scrolled {
+                left: 0.5rem !important;
+                padding: 0.35rem !important;
             }
         }
-    </script>
-
-    <style>
-        /* Background remains transparent to inherit the light theme from index.html */
-        .mixed-glass-wrapper {
-            background-color: transparent; 
-            min-height: 100vh;
+        #guideline-sticky-nav.scrolled #guideline-sticky-header {
+            max-height: 0 !important;
+            opacity: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            display: none !important;
         }
-
-        /* Light Cards for Zen Theme */
-        .glass-card-light {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        #guideline-sticky-nav.scrolled .btn-text { display: none !important; }
+        #guideline-sticky-nav.scrolled > div:last-child {
+            flex-direction: column !important;
+            overflow: visible !important;
+            max-height: none !important;
+            height: max-content !important;
+            gap: 0.5rem !important;
+            padding: 0 !important;
+            margin: 0 !important;
         }
-
-        .glass-card-light:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-            border-color: #cbd5e1;
+        #guideline-sticky-nav.scrolled .guideline-tab-btn { padding: 0 !important; border-radius: 50% !important; width: 3rem !important; height: 3rem !important; justify-content: center !important; margin: 0 !important; }
+        @media (max-width: 768px) {
+            #guideline-sticky-nav.scrolled .guideline-tab-btn { width: 2.5rem !important; height: 2.5rem !important; }
+            #guideline-sticky-nav.scrolled .guideline-tab-btn i { font-size: 1.1rem !important; margin: 0 !important; }
         }
+        #guideline-sticky-nav.scrolled .guideline-tab-btn i { font-size: 1.25rem !important; margin: 0 !important; }
 
-        .text-highlight-light {
-            color: #0d9488; /* text-teal-600 */
+        .text-highlight-theme {
+            color: #d97706; /* text-amber-600 */
             font-weight: 700;
-            background-color: #f0fdfa; /* bg-teal-50 */
+            background-color: #fffbeb; /* bg-amber-50 */
             padding: 0.1rem 0.3rem;
             border-radius: 0.25rem;
         }
-
-        /* Animations */
-        .animate-fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Gemini AI Feature Animation */
+        
         .ai-glow {
             box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
             animation: aiPulse 4s infinite alternate ease-in-out;
@@ -90,281 +88,556 @@
             100% { box-shadow: 0 0 30px rgba(139, 92, 246, 0.2); border-color: rgba(139, 92, 246, 0.3); }
         }
     </style>
-</head>
-<body class="antialiased bg-transparent text-slate-800">
 
-    <!-- Wrapper สำหรับนำไปใช้เป็น Body Part ใน index.html -->
-    <div class="mixed-glass-wrapper w-full h-full pb-16 pt-8 px-4 sm:px-6 lg:px-8 relative overflow-hidden font-sans">
+    <!-- Placeholder for fixed nav -->
+    <div id="guideline-nav-placeholder" style="display: none;"></div>
+    
+    <!-- Compact Sticky Header & Nav Menu -->
+    <div id="guideline-sticky-nav" class="sticky top-16 md:top-20 z-40 bg-white/95 backdrop-blur-xl shadow-sm hover:shadow-md rounded-xl md:rounded-2xl border border-slate-200 mb-8 px-3 py-3 md:px-4 md:py-4 max-w-full transition-all duration-300">
+        <div id="guideline-sticky-header" class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2 md:mb-3 border-b border-slate-100 pb-2 md:pb-3 px-1">
+            <h1 class="text-lg md:text-xl font-bold text-slate-800 flex items-center gap-2">
+                แนวทางและหลักการสำคัญ ปี 2570
+            </h1>
+            <span class="text-[11px] md:text-xs text-slate-500 font-medium bg-slate-50 px-2 py-1 rounded-md border border-slate-200 hidden sm:inline-flex items-center">
+                <i class="fa-solid fa-hand-pointer mr-1 text-slate-400"></i> เลือกแนวทางเพื่อดูรายละเอียด
+            </span>
+        </div>
         
-        <!-- Background Decorative Elements (Zen Light Theme) -->
-        <div class="absolute top-40 left-10 w-96 h-96 bg-teal-600/5 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="absolute bottom-40 right-10 w-96 h-96 bg-amber-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <!-- Tab Menu -->
+        <div class="flex flex-nowrap justify-start gap-2 overflow-x-auto custom-scrollbar pb-1 px-1">
+            <button title="1. ความสอดคล้องยุทธศาสตร์" onclick="switchGuidelineSection('guideline-sec-1', this)" class="guideline-tab-btn active bg-cyan-600 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold shadow-sm transition-all flex items-center gap-1.5 border border-cyan-500 whitespace-nowrap shrink-0">
+                <i class="fa-solid fa-landmark text-base"></i> <span class="btn-text">1. ความสอดคล้องยุทธศาสตร์</span>
+            </button>
+            <button title="2. Pro-Growth Budget" onclick="switchGuidelineSection('guideline-sec-2', this)" class="guideline-tab-btn bg-slate-50 text-slate-500 border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                <i class="fa-solid fa-seedling text-base"></i> <span class="btn-text">2. Pro-Growth Budget</span>
+            </button>
+            <button title="3. Precisely Targeted" onclick="switchGuidelineSection('guideline-sec-3', this)" class="guideline-tab-btn bg-slate-50 text-slate-500 border border-slate-200 hover:border-amber-300 hover:bg-amber-50 hover:text-amber-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                <i class="fa-solid fa-bullseye text-base"></i> <span class="btn-text">3. Precisely Targeted</span>
+            </button>
+            <button title="4. Data Analytics" onclick="switchGuidelineSection('guideline-sec-4', this)" class="guideline-tab-btn bg-slate-50 text-slate-500 border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                <i class="fa-solid fa-chart-pie text-base"></i> <span class="btn-text">4. Data Analytics</span>
+            </button>
+            <button title="5. ครอบคลุมทุกแหล่งเงิน" onclick="switchGuidelineSection('guideline-sec-5', this)" class="guideline-tab-btn bg-slate-50 text-slate-500 border border-slate-200 hover:border-rose-300 hover:bg-rose-50 hover:text-rose-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                <i class="fa-solid fa-piggy-bank text-base"></i> <span class="btn-text">5. ครอบคลุมทุกแหล่งเงิน</span>
+            </button>
+            <button title="6. มิติพื้นที่ (Area)" onclick="switchGuidelineSection('guideline-sec-6', this)" class="guideline-tab-btn bg-slate-50 text-slate-500 border border-slate-200 hover:border-sky-300 hover:bg-sky-50 hover:text-sky-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                <i class="fa-solid fa-map-location-dot text-base"></i> <span class="btn-text">6. มิติพื้นที่ (Area)</span>
+            </button>
+            <button title="7. การปรับเพิ่มงบฯ" onclick="switchGuidelineSection('guideline-sec-7', this)" class="guideline-tab-btn bg-slate-50 text-slate-500 border border-slate-200 hover:border-fuchsia-300 hover:bg-fuchsia-50 hover:text-fuchsia-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                <i class="fa-solid fa-arrow-trend-up text-base"></i> <span class="btn-text">7. การปรับเพิ่มงบฯ</span>
+            </button>
+            <button title="8. การตามกฎหมาย" onclick="switchGuidelineSection('guideline-sec-8', this)" class="guideline-tab-btn bg-slate-50 text-slate-500 border border-slate-200 hover:border-slate-300 hover:bg-slate-100 hover:text-slate-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                <i class="fa-solid fa-scale-balanced text-base"></i> <span class="btn-text">8. การตามกฎหมาย</span>
+            </button>
+            <button title="9. โครงสร้างงบ 8 กลุ่ม" onclick="switchGuidelineSection('guideline-sec-structure', this)" class="guideline-tab-btn bg-slate-50 text-slate-500 border border-slate-200 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                <i class="fa-solid fa-layer-group text-base"></i> <span class="btn-text">9. โครงสร้างงบ 8 กลุ่ม</span>
+            </button>
+        </div>
+    </div>
 
-        <div class="max-w-[1400px] mx-auto relative z-10">
-            
-            <!-- Header Section -->
-            <div class="glass-card-light rounded-[2.5rem] p-8 md:p-10 mb-10 text-center animate-fade-in-up border-t-[4px] border-amber-400" style="animation-delay: 0.1s;">
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-800 drop-shadow-sm font-sans">ก. แนวทางและหลักการสำคัญในการจัดทำงบประมาณปี 2570</h2>
+    <!-- Content Area -->
+    <div id="guideline-content-wrapper" class="pb-20 transition-all duration-300">
+        
+        <!-- SECTION 1 -->
+        <div id="guideline-sec-1" class="content-section active bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 relative">
+            <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                <div class="w-12 h-12 rounded-xl bg-cyan-100 flex items-center justify-center">
+                    <i class="fa-solid fa-landmark text-2xl text-cyan-600"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">1. ความสอดคล้องกับยุทธศาสตร์</h2>
             </div>
-
-            <!-- Content Grid: 8 Guidelines -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-6 md:gap-x-8 md:gap-y-12 mt-8">
-                
-                <!-- Card 1 -->
-                <div class="glass-card-light px-8 pb-8 pt-10 rounded-3xl relative group animate-fade-in-up" style="animation-delay: 0.2s;">
-                    <div class="absolute -top-6 left-6 md:left-8 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-500 text-white flex items-center justify-center text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 z-20">
-                        <i class="fa-solid fa-landmark"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><span class="text-cyan-600">1.</span> ความสอดคล้องกับยุทธศาสตร์</h3>
-                    <p class="text-slate-700 leading-relaxed text-[15px] md:text-base relative z-10 text-justify mb-3">
-                        <strong class="text-highlight-light">มุ่งเน้นดำเนินการขับเคลื่อนนโยบายสำคัญของรัฐบาล</strong>ในการแก้ไขปัญหาของประชาชน <strong class="text-highlight-light">รักษาเสถียรภาพทางเศรษฐกิจ</strong> ควบคู่กับการ<strong class="text-highlight-light">รักษาวินัยและเสริมสร้างความเข้มแข็งทางการคลัง</strong>ให้สามารถรองรับความผันผวนทางเศรษฐกิจและตอบสนองต่อความท้าทายต่าง ๆ ที่เปลี่ยนแปลงไปอย่างรวดเร็ว โดยดำเนินการให้<strong class="text-highlight-light">สอดคล้องกับยุทธศาสตร์ชาติ</strong>
+            <div class="space-y-6 exact-text text-slate-700">
+                <div class="bg-cyan-50/80 rounded-2xl p-6 border border-cyan-100 border-l-4 border-l-cyan-500 shadow-sm">
+                    <p class="text-lg leading-relaxed text-justify mb-4">
+                        <strong class="text-highlight-theme">มุ่งเน้นดำเนินการขับเคลื่อนนโยบายสำคัญของรัฐบาล</strong>ในการแก้ไขปัญหาของประชาชน <strong class="text-highlight-theme">รักษาเสถียรภาพทางเศรษฐกิจ</strong> ควบคู่กับการ<strong class="text-highlight-theme">รักษาวินัยและเสริมสร้างความเข้มแข็งทางการคลัง</strong>ให้สามารถรองรับความผันผวนทางเศรษฐกิจและตอบสนองต่อความท้าทายต่าง ๆ ที่เปลี่ยนแปลงไปอย่างรวดเร็ว โดยดำเนินการให้<strong class="text-highlight-theme">สอดคล้องกับยุทธศาสตร์ชาติ</strong>
                     </p>
-                    <ul class="list-disc pl-5 space-y-1.5 text-[14px] md:text-[15px] text-slate-600 relative z-10">
-                        <li>ยุทธศาสตร์ชาติ (พ.ศ. 2561 - 2540)</li>
-                        <li>แผนแม่บทภายใต้ยุทธศาสตร์ชาติ (พ.ศ. 2566 - 2540) (ฉบับแก้ไขเพิ่มเติม)</li>
-                        <li>แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 13 (พ.ศ. 2566 – 2570)</li>
-                        <li>นโยบายและแผนระดับชาติว่าด้วยความมั่นคงแห่งชาติ (พ.ศ. 2566 – 2570)</li>
-                        <li>เป้าหมายการพัฒนาที่ยั่งยืน แผนปฏิบัติราชการของกระทรวง ความจำเป็นและภารกิจของหน่วยรับงบประมาณ</li>
-                        <li>รวมทั้งน้อมนำ<strong class="text-highlight-light">หลักปรัชญาของเศรษฐกิจพอเพียง</strong>มาเป็นแนวทางในการจัดสรรงบประมาณ</li>
+                    <ul class="list-none space-y-3 ml-2">
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-cyan-600 mt-1.5"></i> ยุทธศาสตร์ชาติ (พ.ศ. 2561 - 2540)</li>
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-cyan-600 mt-1.5"></i> แผนแม่บทภายใต้ยุทธศาสตร์ชาติ (พ.ศ. 2566 - 2540) (ฉบับแก้ไขเพิ่มเติม)</li>
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-cyan-600 mt-1.5"></i> แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 13 (พ.ศ. 2566 – 2570)</li>
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-cyan-600 mt-1.5"></i> นโยบายและแผนระดับชาติว่าด้วยความมั่นคงแห่งชาติ (พ.ศ. 2566 – 2570)</li>
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-cyan-600 mt-1.5"></i> เป้าหมายการพัฒนาที่ยั่งยืน แผนปฏิบัติราชการของกระทรวง ความจำเป็นและภารกิจของหน่วยรับงบประมาณ</li>
+                        <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-cyan-600 mt-1.5"></i> รวมทั้งน้อมนำ<strong class="text-highlight-theme">หลักปรัชญาของเศรษฐกิจพอเพียง</strong>มาเป็นแนวทางในการจัดสรรงบประมาณ</li>
                     </ul>
                 </div>
+            </div>
+        </div>
 
-                <!-- Card 2 -->
-                <div class="glass-card-light px-8 pb-8 pt-10 rounded-3xl relative group animate-fade-in-up" style="animation-delay: 0.3s;">
-                    <div class="absolute -top-6 right-6 md:right-8 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-400 text-white flex items-center justify-center text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 z-20">
-                        <i class="fa-solid fa-seedling"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><span class="text-emerald-500">2.</span> Pro-Growth Budget Initiative</h3>
-                    <p class="text-slate-700 leading-relaxed text-[15px] md:text-base relative z-10 text-justify mb-3">
-                        จัดทำงบประมาณเพื่อกระตุ้น สนับสนุน และ<strong class="text-highlight-light">ส่งเสริมการเติบโตทางเศรษฐกิจ (Pro – Growth Budget Initiative)</strong> อย่างเต็มศักยภาพ ทั่วถึง และมีคุณภาพ โดยมุ่งแก้ไขปัญหาเร่งด่วนของประเทศควบคู่กับการผลักดัน<strong class="text-highlight-light">การปฏิรูปประเทศ (Transformation)</strong> เพื่อสร้างโอกาสและความเสมอภาคทางเศรษฐกิจและสังคม ให้ความสำคัญกับ:
-                    </p>
-                    <ul class="list-disc pl-5 space-y-1.5 text-[14px] md:text-[15px] text-slate-600 relative z-10">
-                        <li>การ<strong class="text-highlight-light">ส่งเสริมและสนับสนุนการใช้พลังงานสะอาด</strong> พร้อมทั้งการสร้างความมั่นคงทางพลังงานในภาพรวมของประเทศ</li>
-                        <li>การปรับตัวและการดำเนินการเพื่อลดผลกระทบจากการเปลี่ยนแปลงสภาพภูมิอากาศ <strong class="text-highlight-light">(Climate Change)</strong></li>
-                        <li>การป้องกันภัยพิบัติและการเตรียมความพร้อมรับมือภัยต่าง ๆ ที่เกิดขึ้นในปัจจุบันและอนาคต</li>
-                        <li>การเพิ่มความสามารถในการแข่งขันเพื่อส่งเสริมการวางรากฐานการพัฒนาประเทศในระยะยาว การพัฒนาโครงสร้างพื้นฐาน เพื่อให้ประชาชนมีคุณภาพชีวิตที่ดีและมีสวัสดิการที่เหมาะสม <strong class="text-highlight-light">ลดความเหลื่อมล้ำ</strong></li>
-                        <li>คำนึงถึงมิติเพศภาวะ <strong class="text-highlight-light">(Gender - Responsive Budgeting : GRB)</strong></li>
-                        <li>เพิ่มประสิทธิภาพและความโปร่งใสในการบริหารจัดการภาครัฐอย่างบูรณาการ โดยการใช้<strong class="text-highlight-light">นวัตกรรม เทคโนโลยีดิจิทัล</strong>ให้เกิดประโยชน์สูงสุด</li>
-                    </ul>
+        <!-- SECTION 2 -->
+        <div id="guideline-sec-2" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 relative">
+            <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                <div class="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center">
+                    <i class="fa-solid fa-seedling text-2xl text-emerald-600"></i>
                 </div>
-
-                <!-- Card 3 -->
-                <div class="glass-card-light px-8 pb-8 pt-10 rounded-3xl relative group animate-fade-in-up" style="animation-delay: 0.4s;">
-                    <div class="absolute -top-6 left-6 md:left-8 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-400 text-white flex items-center justify-center text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 z-20">
-                        <i class="fa-solid fa-bullseye"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><span class="text-amber-500">3.</span> Precisely Targeted Budgeting</h3>
-                    <p class="text-slate-700 leading-relaxed text-[15px] md:text-base relative z-10 text-justify mb-3">
-                        จัดทำงบประมาณแบบ<strong class="text-highlight-light">แม่นยำ ตรงเป้าหมาย และตอบโจทย์</strong>ในการแก้ไขปัญหาของประเทศ <strong class="text-highlight-light">(Precisely Targeted Budgeting)</strong> ยึดหลักการจัดทำงบประมาณแบบฐานศูนย์ <strong class="text-highlight-light">(Zero - Based Budgeting)</strong> โดยพิจารณาความจำเป็นเร่งด่วน ลำดับความสำคัญ และความเหมาะสมกับสถานการณ์ในปัจจุบัน เพื่อเพิ่มประสิทธิภาพในการใช้จ่ายงบประมาณ
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">2. Pro-Growth Budget Initiative</h2>
+            </div>
+            <div class="space-y-6 exact-text text-slate-700">
+                <div class="bg-emerald-50/80 rounded-2xl p-6 border border-emerald-100 border-l-4 border-l-emerald-500 shadow-sm">
+                    <p class="text-lg leading-relaxed text-justify mb-4">
+                        จัดทำงบประมาณเพื่อกระตุ้น สนับสนุน และ<strong class="text-highlight-theme">ส่งเสริมการเติบโตทางเศรษฐกิจ (Pro – Growth Budget Initiative)</strong> อย่างเต็มศักยภาพ ทั่วถึง และมีคุณภาพ โดยมุ่งแก้ไขปัญหาเร่งด่วนของประเทศควบคู่กับการผลักดัน<strong class="text-highlight-theme">การปฏิรูปประเทศ (Transformation)</strong> เพื่อสร้างโอกาสและความเสมอภาคทางเศรษฐกิจและสังคม ให้ความสำคัญกับ:
                     </p>
-                    <ul class="list-disc pl-5 space-y-1.5 text-[14px] md:text-[15px] text-slate-600 relative z-10">
-                        <li>พิจารณาทบทวนเพื่อชะลอ ปรับลด หรือยกเลิกการดำเนินโครงการที่หมดความจำเป็นหรือมีความสำคัญในระดับต่ำ และลดรายจ่ายประจำที่ซ้ำซ้อน</li>
-                        <li>คำนึงถึง<strong class="text-highlight-light">การใช้จ่ายงบประมาณอย่างคุ้มค่า (Value for Money : VfM)</strong> ประหยัด (Economy) มีประสิทธิภาพ (Efficiency) และประสิทธิผล (Effectiveness)</li>
-                        <li>รวมถึงศักยภาพการดำเนินงานของหน่วยรับงบประมาณในปีที่ผ่านมา</li>
-                    </ul>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="glass-card-light px-8 pb-8 pt-10 rounded-3xl relative group animate-fade-in-up" style="animation-delay: 0.5s;">
-                    <div class="absolute -top-6 right-6 md:right-8 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white flex items-center justify-center text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 z-20">
-                        <i class="fa-solid fa-chart-pie"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><span class="text-indigo-500">4.</span> Demand - Driven by Data Analytics</h3>
-                    <p class="text-slate-700 leading-relaxed text-[15px] md:text-base relative z-10 text-justify">
-                        จัดทำแผนงาน/โครงการ โดยมีการ<strong class="text-highlight-light">กำหนดเป้าหมาย ตัวชี้วัด ผลลัพธ์ที่ชัดเจน</strong> และ/หรือตอบโจทย์ความต้องการของประชาชนบนพื้นฐานของการ<strong class="text-highlight-light">วิเคราะห์ข้อมูลจริง (Demand - Driven by Data Analytics)</strong> ซึ่งควรส่งผลต่อศักยภาพทางเศรษฐกิจอย่างมีนัยสำคัญและชัดเจน ตลอดจนมีการ<strong class="text-highlight-light">บูรณาการการทำงานร่วมกัน</strong>ระหว่างหน่วยงานเพื่อลดความซ้ำซ้อน เกิดความคุ้มค่าในการใช้จ่ายงบประมาณ
-                    </p>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="glass-card-light px-8 pb-8 pt-10 rounded-3xl relative group animate-fade-in-up" style="animation-delay: 0.6s;">
-                    <div class="absolute -top-6 left-6 md:left-8 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-500 text-white flex items-center justify-center text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 z-20">
-                        <i class="fa-solid fa-piggy-bank"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><span class="text-rose-500">5.</span> ครอบคลุมทุกแหล่งเงิน</h3>
-                    <p class="text-slate-700 leading-relaxed text-[15px] md:text-base relative z-10 text-justify mb-3">
-                        จัดทำงบประมาณโดยพิจารณาให้<strong class="text-highlight-light">ครอบคลุมทุกแหล่งเงิน</strong> ทั้งเงินงบประมาณและเงินนอกงบประมาณ โดยให้หน่วยรับงบประมาณพิจารณา<strong class="text-highlight-light">นำเงินนอกงบประมาณ</strong> เช่น เงินรายได้ เงินสะสมคงเหลือ <strong class="text-highlight-light">มาดำเนินภารกิจของหน่วยรับงบประมาณเป็นลำดับแรก</strong> รวมทั้งพิจารณาแหล่งเงินอื่น เพื่อดำเนินโครงการภาครัฐที่มุ่งเน้นการพัฒนาโครงสร้างพื้นฐานของประเทศ เช่น:
-                    </p>
-                    <ul class="list-disc pl-5 space-y-1.5 text-[14px] md:text-[15px] text-slate-600 relative z-10">
-                        <li><strong class="text-highlight-light">เงินกู้</strong></li>
-                        <li><strong class="text-highlight-light">การร่วมทุนระหว่างภาครัฐและเอกชน (Public Private Partnerships : PPP)</strong></li>
-                        <li>การระดมทุนผ่าน<strong class="text-highlight-light">กองทุนเพื่อการพัฒนาโครงสร้างพื้นฐาน และกองทุนรวมโครงสร้างพื้นฐานเพื่ออนาคตประเทศไทย (Thailand Future Fund: TFFIF)</strong></li>
-                    </ul>
-                    <p class="text-slate-700 text-[14px] md:text-[15px] mt-3 font-medium relative z-10">เพื่อลดภาระงบประมาณของประเทศ</p>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="glass-card-light px-8 pb-8 pt-10 rounded-3xl relative group animate-fade-in-up" style="animation-delay: 0.7s;">
-                    <div class="absolute -top-6 right-6 md:right-8 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-400 text-white flex items-center justify-center text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 z-20">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><span class="text-cyan-500">6.</span> งบประมาณมิติพื้นที่ (Area)</h3>
-                    <p class="text-slate-700 leading-relaxed text-[15px] md:text-base relative z-10 text-justify">
-                        ให้ความสำคัญกับการจัดทำ<strong class="text-highlight-light">งบประมาณมิติพื้นที่ (Area)</strong> ให้สอดคล้องกับแผนพัฒนาพื้นที่ ระดับภูมิภาค กลุ่มจังหวัด จังหวัด และท้องถิ่น ตรงตามความต้องการของประชาชนในพื้นที่ รวมทั้ง<strong class="text-highlight-light">เพิ่มความร่วมมือระหว่างราชการส่วนกลางและส่วนท้องถิ่น</strong>ในการขับเคลื่อนนโยบายรัฐบาล
-                    </p>
-                </div>
-
-                <!-- Card 7 -->
-                <div class="glass-card-light px-8 pb-8 pt-10 rounded-3xl relative group animate-fade-in-up" style="animation-delay: 0.8s;">
-                    <div class="absolute -top-6 left-6 md:left-8 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-purple-500 text-white flex items-center justify-center text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 z-20">
-                        <i class="fa-solid fa-arrow-trend-up"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><span class="text-fuchsia-500">7.</span> คำขอปรับเพิ่มไม่ควรเกินร้อยละ 20</h3>
-                    <p class="text-slate-700 leading-relaxed text-[15px] md:text-base relative z-10 text-justify">
-                        การจัดทำคำของบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. 2570 ควรพิจารณาให้สอดคล้องกับสถานการณ์ปัจจุบัน เป็นไปตามหลักการใช้จ่ายงบประมาณอย่างคุ้มค่าและเกิดประโยชน์สูงสุด โดยภาพรวม<strong class="text-highlight-light">คำของบประมาณรายจ่ายประจำปีของหน่วยรับงบประมาณปรับเพิ่มขึ้นไม่ควรเกินร้อยละ 20</strong> ของงบประมาณตามพระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. 2569 โดยส่วนที่เพิ่มขึ้นควรเป็นรายจ่ายลงทุน หรือรายจ่ายเพื่อสนับสนุนนโยบายรัฐบาล เว้นแต่ที่ต้องดำเนินการตามข้อผูกพันที่เกิดจากกฎหมาย สัญญา ข้อตกลงระหว่างประเทศ ค่าใช้จ่ายเพื่อการชำระหนี้ และค่าใช้จ่ายตามสิทธิ
-                    </p>
-                </div>
-
-                <!-- Card 8 -->
-                <div class="glass-card-light px-8 pb-8 pt-10 rounded-3xl relative group animate-fade-in-up" style="animation-delay: 0.9s;">
-                    <div class="absolute -top-6 right-6 md:right-8 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-slate-500 to-slate-400 text-white flex items-center justify-center text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 z-20">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2"><span class="text-slate-500">8.</span> ดำเนินการตามกฎหมาย</h3>
-                    <p class="text-slate-700 leading-relaxed text-[15px] md:text-base relative z-10 text-justify">
-                        <strong class="text-highlight-light">ดำเนินการให้เป็นไปตามบทบัญญัติของรัฐธรรมนูญ</strong>แห่งราชอาณาจักรไทย พุทธศักราช 2560 <strong class="text-highlight-light">พระราชบัญญัติวินัยการเงินการคลังของรัฐ</strong> พ.ศ. 2561 <strong class="text-highlight-light">พระราชบัญญัติวิธีการงบประมาณ</strong> พ.ศ. 2561 กฎหมาย ระเบียบ และมติคณะรัฐมนตรีที่เกี่ยวข้องกับการจัดทำงบประมาณรายจ่ายประจำปี <strong class="text-highlight-light">ข้อสังเกตของคณะกรรมาธิการวิสามัญพิจารณาร่างพระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ</strong> สภาผู้แทนราษฎร และคณะกรรมาธิการวิสามัญพิจารณาศึกษาร่างพระราชบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ วุฒิสภา
-                    </p>
-                </div>
-
-                <!-- Bottom Footer Card (Continuation / List) -->
-                <div class="glass-card-light p-8 rounded-3xl relative overflow-hidden animate-fade-in-up lg:col-span-2 mt-4" style="animation-delay: 1.0s;">
-                    <div class="flex flex-col md:flex-row gap-8 relative z-10 items-center">
-                        <div class="md:w-1/3">
-                            <h3 class="text-2xl font-bold text-slate-800 mb-2">โครงสร้างงบประมาณ 8 กลุ่ม</h3>
-                            <p class="text-slate-600 leading-relaxed text-sm md:text-base">
-                                จำแนกกลุ่มงบประมาณเพื่อให้สอดคล้องตามมาตรา 14 ของพระราชบัญญัติวิธีการงบประมาณ พ.ศ. 2561 ดังนี้
-                            </p>
-                            <div class="mt-4 flex gap-2">
-                                <div class="w-12 h-2 bg-blue-500 rounded-full"></div>
-                                <div class="w-4 h-2 bg-blue-300 rounded-full"></div>
-                                <div class="w-4 h-2 bg-blue-200 rounded-full"></div>
-                            </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm">
+                            <li class="flex gap-3 items-start"><i class="fa-solid fa-bolt text-emerald-500 mt-1.5"></i> <span>การส่งเสริมและสนับสนุนการใช้<strong class="text-highlight-theme">พลังงานสะอาด</strong> และความมั่นคงทางพลังงาน</span></li>
                         </div>
-                        <div class="md:w-2/3 bg-slate-50/80 rounded-[2rem] p-6 border border-slate-200 shadow-sm w-full">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-700 font-medium text-[14px] md:text-[15px]">
-                                <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1.5"></i> <span>1. งบประมาณรายจ่ายงบกลาง</span></li>
-                                <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1.5"></i> 
-                                    <span>2. งบประมาณรายจ่ายของหน่วยรับงบประมาณ<br>
-                                    <span class="text-slate-500 font-normal text-sm block mt-1">(1) แผนงานพื้นฐาน<br>(2) แผนงานยุทธศาสตร์</span></span>
-                                </li>
-                                <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1.5"></i> <span>3. งบประมาณรายจ่ายบูรณาการ (แผนงานบูรณาการ)</span></li>
-                                <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1.5"></i> <span>4. งบประมาณรายจ่ายบุคลากร (แผนงานบุคลากรภาครัฐ)</span></li>
-                                <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1.5"></i> <span>5. งบประมาณรายจ่ายสำหรับทุนหมุนเวียน</span></li>
-                                <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1.5"></i> <span>5. งบประมาณรายจ่ายเพื่อการชำระหนี้ภาครัฐ</span></li>
-                                <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1.5"></i> <span>7. งบประมาณรายจ่ายเพื่อชดใช้เงินคงคลัง</span></li>
-                                <li class="flex gap-3 items-start"><i class="fa-solid fa-circle-check text-blue-500 mt-1.5"></i> <span>8. งบประมาณรายจ่ายเพื่อชดใช้เงินทุนสำรองจ่าย</span></li>
-                            </div>
+                        <div class="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm">
+                            <li class="flex gap-3 items-start"><i class="fa-solid fa-cloud-sun text-emerald-500 mt-1.5"></i> <span>การลดผลกระทบจากการเปลี่ยนแปลงสภาพภูมิอากาศ <strong class="text-highlight-theme">(Climate Change)</strong></span></li>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm">
+                            <li class="flex gap-3 items-start"><i class="fa-solid fa-shield-virus text-emerald-500 mt-1.5"></i> <span>การป้องกันภัยพิบัติและการเตรียมความพร้อมรับมือภัยต่าง ๆ</span></li>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm">
+                            <li class="flex gap-3 items-start"><i class="fa-solid fa-users-viewfinder text-emerald-500 mt-1.5"></i> <span>การเพิ่มความสามารถในการแข่งขัน <strong class="text-highlight-theme">ลดความเหลื่อมล้ำ</strong> และสวัสดิการที่เหมาะสม</span></li>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm">
+                            <li class="flex gap-3 items-start"><i class="fa-solid fa-venus-mars text-emerald-500 mt-1.5"></i> <span>มิติเพศภาวะ <strong class="text-highlight-theme">(Gender - Responsive Budgeting : GRB)</strong></span></li>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm">
+                            <li class="flex gap-3 items-start"><i class="fa-solid fa-microchip text-emerald-500 mt-1.5"></i> <span>การใช้<strong class="text-highlight-theme">นวัตกรรม และเทคโนโลยีดิจิทัล</strong> ในการบริหารจัดการภาครัฐ</span></li>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- ✨ Gemini API Feature Section ✨ -->
-                <div class="glass-card-light p-8 rounded-3xl relative overflow-hidden lg:col-span-2 mt-4 ai-glow animate-fade-in-up" style="animation-delay: 1.1s;">
-                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-purple-400/20 rounded-full blur-[40px] pointer-events-none"></div>
-                    <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-blue-400/20 rounded-full blur-[40px] pointer-events-none"></div>
-                    
-                    <div class="relative z-10">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white flex items-center justify-center text-xl shadow-lg">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                            </div>
+        <!-- SECTION 3 -->
+        <div id="guideline-sec-3" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 relative">
+            <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
+                    <i class="fa-solid fa-bullseye text-2xl text-amber-600"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">3. Precisely Targeted Budgeting</h2>
+            </div>
+            <div class="space-y-6 exact-text text-slate-700">
+                <div class="bg-amber-50/80 rounded-2xl p-6 border border-amber-100 border-l-4 border-l-amber-500 shadow-sm">
+                    <p class="text-lg leading-relaxed text-justify mb-6">
+                        จัดทำงบประมาณแบบ<strong class="text-highlight-theme">แม่นยำ ตรงเป้าหมาย และตอบโจทย์</strong>ในการแก้ไขปัญหาของประเทศ <strong class="text-highlight-theme">(Precisely Targeted Budgeting)</strong> ยึดหลักการจัดทำงบประมาณแบบฐานศูนย์ <strong class="text-highlight-theme">(Zero - Based Budgeting)</strong>
+                    </p>
+                    <div class="space-y-4">
+                        <div class="bg-white p-5 rounded-xl border-l-4 border-amber-400 shadow-sm">
+                            <p>พิจารณาทบทวนเพื่อ<strong class="text-rose-600">ชะลอ ปรับลด หรือยกเลิก</strong>การดำเนินโครงการที่หมดความจำเป็นหรือมีความสำคัญในระดับต่ำ และลดรายจ่ายประจำที่ซ้ำซ้อน</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border-l-4 border-emerald-400 shadow-sm">
+                            <p>คำนึงถึง<strong class="text-highlight-theme">การใช้จ่ายงบประมาณอย่างคุ้มค่า (Value for Money : VfM)</strong> ประหยัด (Economy) มีประสิทธิภาพ (Efficiency) และประสิทธิผล (Effectiveness)</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border-l-4 border-blue-400 shadow-sm">
+                            <p>พิจารณาศักยภาพการดำเนินงานของหน่วยรับงบประมาณในปีที่ผ่านมาประกอบการจัดสรร</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4 -->
+        <div id="guideline-sec-4" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 relative">
+            <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center">
+                    <i class="fa-solid fa-chart-pie text-2xl text-indigo-600"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">4. Demand - Driven by Data Analytics</h2>
+            </div>
+            <div class="space-y-6 exact-text text-slate-700">
+                <div class="bg-indigo-50/80 rounded-2xl p-6 border border-indigo-100 border-l-4 border-l-indigo-500 shadow-sm">
+                    <p class="text-lg leading-relaxed text-justify mb-4">
+                        จัดทำแผนงาน/โครงการ โดยมีการ<strong class="text-highlight-theme">กำหนดเป้าหมาย ตัวชี้วัด ผลลัพธ์ที่ชัดเจน</strong> และตอบโจทย์ความต้องการของประชาชนบนพื้นฐานของการ<strong class="text-highlight-theme">วิเคราะห์ข้อมูลจริง (Demand - Driven by Data Analytics)</strong>
+                    </p>
+                    <div class="bg-white p-5 rounded-xl border border-indigo-100 shadow-md">
+                        <p class="leading-relaxed">การดำเนินงานควรส่งผลต่อศักยภาพทางเศรษฐกิจอย่างมีนัยสำคัญและชัดเจน ตลอดจนมีการ<strong class="text-highlight-theme">บูรณาการการทำงานร่วมกัน</strong>ระหว่างหน่วยงานเพื่อลดความซ้ำซ้อน เกิดความคุ้มค่าในการใช้จ่ายงบประมาณ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5 -->
+        <div id="guideline-sec-5" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 relative">
+            <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                <div class="w-12 h-12 rounded-xl bg-rose-100 flex items-center justify-center">
+                    <i class="fa-solid fa-piggy-bank text-2xl text-rose-600"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">5. ครอบคลุมทุกแหล่งเงิน</h2>
+            </div>
+            <div class="space-y-6 exact-text text-slate-700">
+                <div class="bg-rose-50/80 rounded-2xl p-6 border border-rose-100 border-l-4 border-l-rose-500 shadow-sm">
+                    <p class="text-lg leading-relaxed text-justify mb-6">
+                        จัดทำงบประมาณโดยพิจารณาให้<strong class="text-highlight-theme">ครอบคลุมทุกแหล่งเงิน</strong> ทั้งเงินงบประมาณและเงินนอกงบประมาณ โดยให้หน่วยรับงบประมาณพิจารณา<strong class="text-highlight-theme">นำเงินนอกงบประมาณ</strong> (เงินรายได้ เงินสะสมคงเหลือ) <strong class="text-highlight-theme">มาดำเนินภารกิจเป็นลำดับแรก</strong>
+                    </p>
+                    <h4 class="font-bold text-rose-800 mb-4">แหล่งเงินอื่นเพื่อโครงสร้างพื้นฐาน:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 rounded-xl text-center border border-rose-100 shadow-sm hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-hand-holding-dollar text-3xl text-rose-400 mb-2"></i>
+                            <div class="font-bold text-slate-800">เงินกู้</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl text-center border border-rose-100 shadow-sm hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-handshake-simple text-3xl text-rose-400 mb-2"></i>
+                            <div class="font-bold text-slate-800">PPP (Public Private Partnerships)</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl text-center border border-rose-100 shadow-sm hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-building-columns text-3xl text-rose-400 mb-2"></i>
+                            <div class="font-bold text-slate-800">Thailand Future Fund (TFFIF)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6 -->
+        <div id="guideline-sec-6" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 relative">
+            <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                <div class="w-12 h-12 rounded-xl bg-sky-100 flex items-center justify-center">
+                    <i class="fa-solid fa-map-location-dot text-2xl text-sky-600"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">6. งบประมาณมิติพื้นที่ (Area)</h2>
+            </div>
+            <div class="space-y-6 exact-text text-slate-700">
+                <div class="bg-sky-50/80 rounded-2xl p-6 border border-sky-100 border-l-4 border-l-sky-500 shadow-sm">
+                    <p class="text-lg leading-relaxed text-justify mb-4">
+                        ให้ความสำคัญกับการจัดทำ<strong class="text-highlight-theme">งบประมาณมิติพื้นที่ (Area)</strong> ให้สอดคล้องกับแผนพัฒนาพื้นที่ ระดับภูมิภาค กลุ่มจังหวัด จังหวัด และท้องถิ่น ตรงตามความต้องการของประชาชนในพื้นที่
+                    </p>
+                    <div class="bg-white p-5 rounded-xl border border-sky-200 shadow-inner">
+                        <p class="font-medium text-sky-800 flex items-center gap-2 italic">
+                            <i class="fa-solid fa-plus-circle"></i> เพิ่มความร่วมมือระหว่างราชการส่วนกลางและส่วนท้องถิ่นในการขับเคลื่อนนโยบายรัฐบาล
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7 -->
+        <div id="guideline-sec-7" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 relative">
+            <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                <div class="w-12 h-12 rounded-xl bg-fuchsia-100 flex items-center justify-center">
+                    <i class="fa-solid fa-arrow-trend-up text-2xl text-fuchsia-600"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">7. คำขอปรับเพิ่มไม่ควรเกินร้อยละ 20</h2>
+            </div>
+            <div class="space-y-6 exact-text text-slate-700">
+                <div class="bg-fuchsia-50/80 rounded-2xl p-6 border border-fuchsia-100 border-l-4 border-l-fuchsia-500 shadow-sm">
+                    <div class="bg-white p-6 rounded-2xl border-2 border-fuchsia-200 shadow-md mb-6">
+                        <p class="text-xl font-bold text-center text-slate-800">
+                            ภาพรวมคำของบประมาณปรับเพิ่มขึ้น <span class="text-rose-600 underline decoration-2 underline-offset-4">ไม่ควรเกินร้อยละ 20</span> ของงบประมาณปี 2569
+                        </p>
+                    </div>
+                    <p class="text-lg leading-relaxed text-justify">
+                        ส่วนที่เพิ่มขึ้นควรเป็น<strong class="text-highlight-theme">รายจ่ายลงทุน</strong> หรือรายจ่ายเพื่อสนับสนุนนโยบายรัฐบาล <strong class="text-rose-600">ยกเว้น</strong> ภาระผูกพันตามกฎหมาย สัญญา ข้อตกลงระหว่างประเทศ ค่าชำระหนี้ และค่าใช้จ่ายตามสิทธิ
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 8 -->
+        <div id="guideline-sec-8" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 relative">
+            <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                <div class="w-12 h-12 rounded-xl bg-slate-200 flex items-center justify-center">
+                    <i class="fa-solid fa-scale-balanced text-2xl text-slate-600"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">8. ดำเนินการตามกฎหมาย</h2>
+            </div>
+            <div class="space-y-6 exact-text text-slate-700">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 border-l-4 border-l-slate-500 shadow-sm">
+                    <p class="text-lg leading-relaxed text-justify mb-4">
+                        <strong class="text-highlight-theme">ดำเนินการให้เป็นไปตามบทบัญญัติของกฎหมายและระเบียบที่เกี่ยวข้องอย่างเคร่งครัด</strong>
+                    </p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <li class="flex gap-3 items-start p-3 bg-white rounded-lg border border-slate-100"><i class="fa-solid fa-check-double text-emerald-500 mt-1"></i> รัฐธรรมนูญแห่งราชอาณาจักรไทย 2560</li>
+                        <li class="flex gap-3 items-start p-3 bg-white rounded-lg border border-slate-100"><i class="fa-solid fa-check-double text-emerald-500 mt-1"></i> พ.ร.บ. วินัยการเงินการคลัง 2561</li>
+                        <li class="flex gap-3 items-start p-3 bg-white rounded-lg border border-slate-100"><i class="fa-solid fa-check-double text-emerald-500 mt-1"></i> พ.ร.บ. วิธีการงบประมาณ 2561</li>
+                        <li class="flex gap-3 items-start p-3 bg-white rounded-lg border border-slate-100"><i class="fa-solid fa-check-double text-emerald-500 mt-1"></i> มติคณะรัฐมนตรีที่เกี่ยวข้อง</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 9: Structure -->
+        <div id="guideline-sec-structure" class="content-section bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200 p-6 md:p-10 relative">
+            <div class="flex items-center gap-4 mb-8 pb-4 border-b border-slate-200">
+                <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                    <i class="fa-solid fa-layer-group text-2xl text-blue-600"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800">โครงสร้างงบประมาณ 8 กลุ่ม</h2>
+            </div>
+            <div class="space-y-6 exact-text text-slate-700">
+                <div class="bg-blue-50/80 rounded-2xl p-6 border border-blue-100 shadow-sm">
+                    <p class="mb-6 font-medium">จำแนกตามมาตรา 14 ของ พ.ร.บ. วิธีการงบประมาณ พ.ศ. 2561:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex gap-4 items-center bg-white p-4 rounded-xl shadow-sm border border-blue-100">
+                            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">1</span>
+                            <span class="font-bold">งบประมาณรายจ่ายงบกลาง</span>
+                        </div>
+                        <div class="flex gap-4 items-center bg-white p-4 rounded-xl shadow-sm border border-blue-100">
+                            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">2</span>
                             <div>
-                                <h3 class="text-xl md:text-2xl font-bold text-slate-800">✨ ผู้ช่วย AI ประเมินโครงการ</h3>
-                                <p class="text-slate-500 text-sm mt-1">วิเคราะห์ความสอดคล้องของโครงการด้วย Gemini 2.5</p>
+                                <span class="font-bold">งบประมาณรายจ่ายหน่วยรับงบฯ</span>
+                                <div class="text-xs text-slate-500 mt-1">แผนงานพื้นฐาน / แผนงานยุทธศาสตร์</div>
                             </div>
                         </div>
-                        
-                        <p class="text-slate-600 mb-5 text-[15px]">ลองพิมพ์รายละเอียดโครงการเบื้องต้นของคุณ เพื่อให้ AI ตรวจสอบว่าสอดคล้องกับหลักเกณฑ์การจัดสรรงบประมาณ พ.ศ. 2570 ทั้ง 8 ข้อด้านบนหรือไม่ พร้อมรับข้อเสนอแนะในการปรับปรุง</p>
-                        
-                        <div class="relative mb-4">
-                            <textarea id="aiProjectInput" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-700 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-violet-400 transition-all resize-none shadow-inner text-sm md:text-base" rows="4" placeholder="ตัวอย่าง: โครงการติดตั้งแผงโซลาร์เซลล์ในโรงพยาบาลชุมชน เพื่อลดค่าไฟและเป็นมิตรกับสิ่งแวดล้อม..."></textarea>
-                            <div id="aiErrorMsg" class="hidden absolute -bottom-6 left-2 text-red-500 text-xs font-semibold"><i class="fa-solid fa-circle-exclamation"></i> กรุณากรอกรายละเอียดโครงการก่อนเริ่มวิเคราะห์</div>
+                        <div class="flex gap-4 items-center bg-white p-4 rounded-xl shadow-sm border border-blue-100">
+                            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">3</span>
+                            <span class="font-bold">งบประมาณรายจ่ายบูรณาการ</span>
                         </div>
-
-                        <button id="aiAnalyzeBtn" onclick="window.runGeminiAnalysis()" class="bg-gradient-to-r from-violet-600 to-fuchsia-500 hover:from-violet-700 hover:to-fuchsia-600 text-white font-bold py-3 px-6 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto">
-                            <i class="fa-solid fa-sparkles"></i> ✨ เริ่มการวิเคราะห์ด้วย AI
-                        </button>
-
-                        <!-- Result Container -->
-                        <div id="aiResultContainer" class="hidden mt-6 p-6 bg-white/80 rounded-2xl border border-violet-100 shadow-sm relative">
-                            <div id="aiResultText" class="text-slate-700 text-[15px] leading-relaxed whitespace-pre-wrap font-medium">
-                                <!-- Loading / Results will appear here -->
-                            </div>
+                        <div class="flex gap-4 items-center bg-white p-4 rounded-xl shadow-sm border border-blue-100">
+                            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">4</span>
+                            <span class="font-bold">งบประมาณรายจ่ายบุคลากร</span>
+                        </div>
+                        <div class="flex gap-4 items-center bg-white p-4 rounded-xl shadow-sm border border-blue-100">
+                            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">5</span>
+                            <span class="font-bold">งบประมาณสำหรับทุนหมุนเวียน</span>
+                        </div>
+                        <div class="flex gap-4 items-center bg-white p-4 rounded-xl shadow-sm border border-blue-100">
+                            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">6</span>
+                            <span class="font-bold">งบประมาณเพื่อการชำระหนี้ภาครัฐ</span>
+                        </div>
+                        <div class="flex gap-4 items-center bg-white p-4 rounded-xl shadow-sm border border-blue-100">
+                            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">7</span>
+                            <span class="font-bold">งบประมาณเพื่อชดใช้เงินคงคลัง</span>
+                        </div>
+                        <div class="flex gap-4 items-center bg-white p-4 rounded-xl shadow-sm border border-blue-100">
+                            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">8</span>
+                            <span class="font-bold">งบประมาณเพื่อชดใช้เงินทุนสำรองจ่าย</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
+    </div>
+
+    <!-- ✨ AI Section ✨ -->
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div class="bg-[#1e1b4b] rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden ai-glow border border-indigo-500/30">
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-violet-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-blue-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+            
+            <div class="relative z-10">
+                <div class="flex flex-col md:flex-row items-center gap-6 mb-8">
+                    <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white flex items-center justify-center text-3xl shadow-[0_0_30px_rgba(139,92,246,0.5)]">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl md:text-4xl font-bold text-white mb-2">✨ ผู้ช่วย AI ประเมินโครงการ</h3>
+                        <p class="text-slate-400 text-base md:text-lg">วิเคราะห์ความสอดคล้องของโครงการด้วยเทคโนโลยี Gemini 2.5</p>
+                    </div>
+                </div>
+                
+                <p class="text-slate-300 mb-8 text-lg max-w-3xl leading-relaxed">
+                    พิมพ์รายละเอียดโครงการของคุณด้านล่าง เพื่อให้ AI ตรวจสอบความสอดคล้องกับหลักเกณฑ์ปี 2570 พร้อมรับข้อเสนอแนะเชิงลึกแบบมืออาชีพจากสำนักงบประมาณ
+                </p>
+                
+                <div class="relative mb-6">
+                    <textarea id="aiProjectInput" class="w-full bg-white/5 border border-white/10 rounded-2xl p-6 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:bg-white/10 transition-all resize-none shadow-2xl text-lg" rows="4" placeholder="ตัวอย่าง: โครงการเพิ่มประสิทธิภาพการบริหารจัดการน้ำชุมชนด้วยระบบ IoT เพื่อเกษตรกรรมยั่งยืน..."></textarea>
+                    <div id="aiErrorMsg" class="hidden absolute -bottom-7 left-2 text-rose-400 text-sm font-bold animate-bounce"><i class="fa-solid fa-circle-exclamation"></i> กรุณากรอกรายละเอียดโครงการก่อนเริ่มวิเคราะห์</div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button id="aiAnalyzeBtn" onclick="window.runGeminiAnalysis()" class="bg-gradient-to-r from-violet-600 to-fuchsia-500 hover:from-violet-700 hover:to-fuchsia-600 text-white font-bold py-4 px-10 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-3 hover:scale-[1.05] active:scale-[0.95] text-lg">
+                        <i class="fa-solid fa-sparkles"></i> ✨ วิเคราะห์โครงการด้วย AI
+                    </button>
+                    <button onclick="document.getElementById('aiProjectInput').value = ''" class="bg-white/5 hover:bg-white/10 text-slate-300 font-bold py-4 px-8 rounded-2xl transition-all border border-white/10">
+                        ล้างข้อมูล
+                    </button>
+                </div>
+
+                <!-- Result Container -->
+                <div id="aiResultContainer" class="hidden mt-10 p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl relative">
+                    <div id="aiResultText" class="text-slate-200 text-lg leading-relaxed whitespace-pre-wrap">
+                        <!-- Results will appear here -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Hidden GIF to attach JS Functions ensuring execution when injected via innerHTML -->
-    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="display:none;" onload="
-        window.runGeminiAnalysis = async function() {
-            const inputEl = document.getElementById('aiProjectInput');
-            const btnEl = document.getElementById('aiAnalyzeBtn');
-            const resultContainer = document.getElementById('aiResultContainer');
-            const resultText = document.getElementById('aiResultText');
-            const errorMsg = document.getElementById('aiErrorMsg');
+    <!-- Navigation Back Button -->
+    <div class="text-center mt-12 pb-16">
+        <button onclick="showLanding(document.getElementById('nav-home'))" class="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all transform hover:scale-105">
+            <i class="fa-solid fa-house"></i> กลับสู่หน้าหลัก
+        </button>
+    </div>
+</div>
 
-            const input = inputEl.value.trim();
-            if (!input) {
-                errorMsg.classList.remove('hidden');
-                setTimeout(() => errorMsg.classList.add('hidden'), 3000);
-                return;
+<!-- Hidden GIF for JS injection -->
+<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="display:none;" onload="
+    // Cleanup existing sticky navs
+    Array.from(document.body.children).forEach(child => {
+        if (child.id === 'guideline-sticky-nav') child.remove();
+    });
+
+    window.switchGuidelineSection = function(sectionId, btnElement) {
+        document.querySelectorAll('.content-section').forEach(el => {
+            el.classList.remove('active');
+        });
+        
+        const targetSec = document.getElementById(sectionId);
+        if(targetSec) {
+            targetSec.classList.add('active');
+            
+            // Update Header
+            const headerTitle = document.querySelector('#guideline-sticky-header h1');
+            if(headerTitle && btnElement) {
+                const sectionTitle = btnElement.querySelector('.btn-text').innerText;
+                const iconClass = btnElement.querySelector('i').className;
+                
+                // Extract color class from button (e.g., bg-cyan-600 -> text-cyan-600)
+                let colorClass = 'text-amber-600';
+                btnElement.classList.forEach(cls => {
+                    if(cls.startsWith('bg-') && !cls.includes('slate')) {
+                        colorClass = cls.replace('bg-', 'text-');
+                    }
+                });
+
+                headerTitle.innerHTML = `
+                    <div class='flex flex-col items-start'>
+                        <span class='text-[10px] font-sans text-slate-500 uppercase tracking-widest mb-1'>แนวทางและหลักการสำคัญ ปี 2570</span>
+                        <div class='flex items-center gap-2 guideline-header-active'>
+                            <i class='${iconClass} ${colorClass}'></i>
+                            <span class='font-sans font-bold text-slate-800 text-lg md:text-xl'>${sectionTitle}</span>
+                        </div>
+                    </div>`;
             }
 
-            errorMsg.classList.add('hidden');
-            btnEl.disabled = true;
-            btnEl.innerHTML = `<i class='fa-solid fa-circle-notch fa-spin'></i> AI กำลังประมวลผล...`;
-            resultContainer.classList.remove('hidden');
-            resultText.innerHTML = `<div class='flex items-center gap-3 text-violet-600 font-semibold animate-pulse'><i class='fa-solid fa-wand-magic-sparkles'></i> ✨ AI ของ Gemini กำลังวิเคราะห์ความสอดคล้องกับงบประมาณปี 2570...</div>`;
-
-            const apiKey = ''; // API Key is provided by execution environment
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const nav = document.getElementById('guideline-sticky-nav');
+            const wasScrolled = nav.classList.contains('scrolled');
             
-            const prompt = `รายละเอียดโครงการ: ${input}\n\nกรุณาวิเคราะห์ความสอดคล้องของโครงการนี้กับหลักเกณฑ์การจัดสรรงบประมาณปี 2570 ทั้ง 8 ข้อ โดยระบุว่าโครงการนี้สอดคล้องกับข้อใดบ้าง (สรุปสั้นๆ) พร้อมให้ข้อเสนอแนะ 1-2 ข้อในการปรับปรุงให้อนุมัติง่ายขึ้น`;
-            
-            const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { parts: [{ text: `คุณคือผู้เชี่ยวชาญจากสำนักงบประมาณไทย ให้คำปรึกษาด้วยความเป็นมืออาชีพ เข้าใจง่าย จัดรูปแบบผลลัพธ์ด้วย Markdown โดยใช้ตัวหนาสำหรับหัวข้อ และใช้ Bullet points ตอบกระชับไม่เกิน 3-4 ย่อหน้า` }] }
-            };
+            requestAnimationFrame(() => {
+                let y = wasScrolled ? 
+                    targetSec.getBoundingClientRect().top + window.pageYOffset - 120 : 
+                    document.getElementById('guideline-root').getBoundingClientRect().top + window.pageYOffset - 20;
+                
+                window.scrollTo({top: y, behavior: 'smooth'});
+            });
+        }
 
-            const delays = [1000, 2000, 4000, 8000, 16000];
-            let success = false;
-            let dataText = '';
+        // Reset all buttons
+        document.querySelectorAll('.guideline-tab-btn').forEach(btn => {
+            const titleAttr = btn.getAttribute('title');
+            let baseColor = 'amber';
+            if(titleAttr.includes('1')) baseColor = 'cyan';
+            else if(titleAttr.includes('2')) baseColor = 'emerald';
+            else if(titleAttr.includes('3')) baseColor = 'amber';
+            else if(titleAttr.includes('4')) baseColor = 'indigo';
+            else if(titleAttr.includes('5')) baseColor = 'rose';
+            else if(titleAttr.includes('6')) baseColor = 'sky';
+            else if(titleAttr.includes('7')) baseColor = 'fuchsia';
+            else if(titleAttr.includes('8')) baseColor = 'slate';
+            else if(titleAttr.includes('9')) baseColor = 'blue';
 
-            for (let i = 0; i < 5; i++) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-                    const result = await response.json();
-                    dataText = result.candidates?.[0]?.content?.parts?.[0]?.text || 'ไม่สามารถวิเคราะห์ข้อมูลได้';
-                    success = true;
-                    break;
-                } catch (error) {
-                    if (i === 4) break;
-                    await new Promise(res => setTimeout(res, delays[i]));
+            btn.className = `guideline-tab-btn bg-slate-50 text-slate-500 border border-slate-200 hover:border-${baseColor}-300 hover:bg-${baseColor}-50 hover:text-${baseColor}-700 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0`;
+        });
+
+        if (btnElement) {
+            const titleAttr = btnElement.getAttribute('title');
+            let activeColor = 'amber';
+            if(titleAttr.includes('1')) activeColor = 'cyan';
+            else if(titleAttr.includes('2')) activeColor = 'emerald';
+            else if(titleAttr.includes('3')) activeColor = 'amber';
+            else if(titleAttr.includes('4')) activeColor = 'indigo';
+            else if(titleAttr.includes('5')) activeColor = 'rose';
+            else if(titleAttr.includes('6')) activeColor = 'sky';
+            else if(titleAttr.includes('7')) activeColor = 'fuchsia';
+            else if(titleAttr.includes('8')) activeColor = 'slate';
+            else if(titleAttr.includes('9')) activeColor = 'blue';
+
+            btnElement.className = `guideline-tab-btn active bg-${activeColor}-600 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold shadow-sm transition-all flex items-center gap-1.5 border border-${activeColor}-500 whitespace-nowrap shrink-0`;
+        }
+    };
+
+    if (window.guidelineScrollListener) {
+        window.removeEventListener('scroll', window.guidelineScrollListener);
+    }
+    window.guidelineScrollListener = function() {
+        const nav = document.getElementById('guideline-sticky-nav');
+        const placeholder = document.getElementById('guideline-nav-placeholder');
+        const wrapper = document.getElementById('guideline-content-wrapper');
+        const root = document.getElementById('guideline-root');
+        if(!nav) return;
+        
+        const threshold = root ? root.offsetTop + 100 : 200;
+        
+        if(window.scrollY > threshold) {
+            if (!nav.classList.contains('scrolled')) {
+                if (placeholder) {
+                    placeholder.style.height = nav.offsetHeight + 'px';
+                    placeholder.style.marginBottom = '2rem';
+                    placeholder.style.display = 'block';
+                }
+                nav.classList.add('scrolled');
+                document.body.appendChild(nav);
+                
+                if (wrapper && window.innerWidth < 1400) {
+                    wrapper.style.paddingLeft = window.innerWidth < 768 ? '3.5rem' : '4.5rem';
                 }
             }
-
-            if (success) {
-                // Simple Markdown to HTML formatting for Bold and Italics
-                let formattedText = dataText
-                    .replace(/\*\*(.*?)\*\*/g, `<strong class='text-violet-800 text-lg block mt-3 mb-1'>$1</strong>`)
-                    .replace(/\*(.*?)\*/g, `<em class='text-slate-800 font-bold'>$1</em>`)
-                    .replace(/\n- /g, `<br><i class='fa-solid fa-check text-emerald-500 mr-2 mt-2'></i>`)
-                    .replace(/\n\* /g, `<br><i class='fa-solid fa-check text-emerald-500 mr-2 mt-2'></i>`);
-
-                resultText.innerHTML = formattedText;
-            } else {
-                resultText.innerHTML = `<span class='text-red-500'><i class='fa-solid fa-circle-exclamation'></i> ขออภัย เกิดข้อผิดพลาดในการเชื่อมต่อกับ Gemini API กรุณาลองใหม่อีกครั้ง</span>`;
+        } else {
+            if (nav.classList.contains('scrolled')) {
+                nav.classList.remove('scrolled');
+                if (root && placeholder) root.insertBefore(nav, placeholder.nextSibling);
+                if (placeholder) placeholder.style.display = 'none';
+                if (wrapper) wrapper.style.paddingLeft = '0';
             }
+        }
+    };
+    window.addEventListener('scroll', window.guidelineScrollListener);
+    window.guidelineScrollListener();
 
-            btnEl.disabled = false;
-            btnEl.innerHTML = `<i class='fa-solid fa-sparkles'></i> ✨ เริ่มการวิเคราะห์ด้วย AI`;
+    // AI Analysis Script
+    window.runGeminiAnalysis = async function() {
+        const inputEl = document.getElementById('aiProjectInput');
+        const btnEl = document.getElementById('aiAnalyzeBtn');
+        const resultContainer = document.getElementById('aiResultContainer');
+        const resultText = document.getElementById('aiResultText');
+        const errorMsg = document.getElementById('aiErrorMsg');
+
+        const input = inputEl.value.trim();
+        if (!input) {
+            errorMsg.classList.remove('hidden');
+            setTimeout(() => errorMsg.classList.add('hidden'), 3000);
+            return;
+        }
+
+        errorMsg.classList.add('hidden');
+        btnEl.disabled = true;
+        btnEl.innerHTML = `<i class='fa-solid fa-circle-notch fa-spin'></i> AI กำลังประมวลผล...`;
+        resultContainer.classList.remove('hidden');
+        resultText.innerHTML = `<div class='flex items-center gap-3 text-violet-400 font-bold animate-pulse'><i class='fa-solid fa-wand-magic-sparkles'></i> ✨ AI กำลังวิเคราะห์ความสอดคล้องกับงบประมาณปี 2570...</div>`;
+
+        const apiKey = ''; // Key would be injected or handled via backend proxy
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${apiKey}`;
+        
+        const prompt = `โครงการ: ${input}\n\nวิเคราะห์ความสอดคล้องกับหลักเกณฑ์จัดสรรงบประมาณปี 2570 (8 ข้อ) และให้ข้อเสนอแนะ 2 ข้อเพื่อให้ผ่านการอนุมัติง่ายขึ้น`;
+        
+        const payload = {
+            contents: [{ parts: [{ text: prompt }] }],
+            systemInstruction: { parts: [{ text: `คุณคือผู้เชี่ยวชาญจากสำนักงบประมาณไทย ตอบคำถามด้วยความเป็นมืออาชีพ จัดรูปแบบ Markdown สวยงาม ใช้ Bullet points และตัวหนาสำหรับหัวข้อสำคัญ` }] }
         };
-    ">
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+            const result = await response.json();
+            const dataText = result.candidates?.[0]?.content?.parts?.[0]?.text || 'ไม่สามารถวิเคราะห์ได้';
+            
+            // Basic formatting
+            let formattedText = dataText
+                .replace(/\*\*(.*?)\*\*/g, `<strong class='text-violet-300 block mt-4 mb-1'>$1</strong>`)
+                .replace(/\n- /g, `<br><i class='fa-solid fa-check text-emerald-400 mr-2 mt-2'></i>`)
+                .replace(/\n\* /g, `<br><i class='fa-solid fa-check text-emerald-400 mr-2 mt-2'></i>`);
+
+            resultText.innerHTML = formattedText;
+        } catch (error) {
+            resultText.innerHTML = `<span class='text-rose-400 font-bold'><i class='fa-solid fa-triangle-exclamation'></i> เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาลองใหม่อีกครั้ง</span>`;
+        }
+
+        btnEl.disabled = false;
+        btnEl.innerHTML = `<i class='fa-solid fa-sparkles'></i> ✨ วิเคราะห์โครงการด้วย AI`;
+    };
+
+    // Initial state
+    const firstBtn = document.querySelector('.guideline-tab-btn');
+    if (firstBtn) {
+        const sectionId = firstBtn.getAttribute('onclick').match(/'([^']+)'/)[1];
+        window.switchGuidelineSection(sectionId, firstBtn);
+    }
+">
