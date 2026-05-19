@@ -725,6 +725,9 @@
         window.initTimelineObserver = function() {
             // ตั้งเวลาดีเลย์เล็กน้อยเพื่อให้เบราว์เซอร์ Render โค้ด HTML ที่ดึงมาใหม่ให้เสร็จก่อน
             setTimeout(() => {
+                const timelineRoot = document.getElementById('timeline-root');
+                const navContainer = document.querySelector('.quick-nav-container');
+
                 // 1. Scroll-Triggered Reveal Animations
                 const animateNodes = document.querySelectorAll('#timeline-root .animate-node');
                 if (animateNodes.length > 0) {
@@ -771,6 +774,21 @@
                     }, scrollSpyOptions);
 
                     sections.forEach(section => scrollSpy.observe(section));
+                }
+
+                // 3. Toggle Sidebar Nav on Scroll
+                if (navContainer) {
+                    if (window._timelineScrollHandler) {
+                        window.removeEventListener('scroll', window._timelineScrollHandler);
+                    }
+                    window._timelineScrollHandler = () => {
+                        if (window.scrollY > 400) {
+                            navContainer.classList.add('is-scrolled');
+                        } else {
+                            navContainer.classList.remove('is-scrolled');
+                        }
+                    };
+                    window.addEventListener('scroll', window._timelineScrollHandler);
                 }
             }, 200);
         };

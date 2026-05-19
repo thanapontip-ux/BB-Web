@@ -52,7 +52,7 @@
         .timeline-node::before {
             content: '';
             position: absolute;
-            left: -2.6rem; /* Adjust based on parent padding and line width */
+            left: calc(-2.5rem - 7.5px); /* Precisely center on the 3px line */
             top: 0.25rem;
             width: 18px;
             height: 18px;
@@ -63,7 +63,7 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         @media (min-width: 768px) {
-            .timeline-node::before { left: -5.1rem; }
+            .timeline-node::before { left: calc(-5rem - 7.5px); }
         }
         .timeline-node:hover::before {
             transform: scale(1.4);
@@ -151,14 +151,38 @@
             display: flex;
             justify-content: center;
             overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        /* Transformation to Sidebar on Scroll */
+        .quick-nav-container.is-scrolled {
+            position: fixed;
+            top: 50%;
+            left: 1.5rem;
+            transform: translateY(-50%);
+            width: auto;
+            margin: 0;
+            padding: 1rem;
+            background: rgba(15, 23, 42, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
         .quick-nav {
             display: flex;
             gap: 0.5rem;
             overflow-x: auto;
             padding: 0.25rem;
             scrollbar-width: none;
+            transition: all 0.5s ease;
         }
+        .is-scrolled .quick-nav {
+            flex-direction: column;
+            overflow-x: visible;
+        }
+
         .quick-nav::-webkit-scrollbar { display: none; }
         .nav-month-btn {
             white-space: nowrap;
@@ -172,6 +196,12 @@
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
         }
+        .is-scrolled .nav-month-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.7rem;
+            text-align: left;
+        }
+
         .nav-month-btn:hover {
             background: rgba(241, 245, 249, 0.8);
             color: #0f172a;
@@ -180,6 +210,10 @@
             background: #1e293b;
             color: white;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .is-scrolled .nav-month-btn.active {
+            background: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
         }
 
         .exact-text { line-height: 1.8; }
@@ -441,8 +475,8 @@
                     <span class="text-xs font-black text-rose-500 uppercase tracking-widest">จ. 21 ก.ย. 69 เป็นต้นไป</span>
                     <div class="status-badge bg-rose-50 text-rose-600 border border-rose-100"><i class="fa-solid fa-crown"></i> ROYAL ASSENT</div>
                 </div>
-                <div class="decision-highlight bg-rose-600 text-white border-rose-900 shadow-2xl scale-[1.02]">
-                    <p class="text-xl md:text-2xl font-black leading-relaxed"><span class="number-badge bg-white text-rose-600">11</span> สลค. นำร่าง พ.ร.บ. งบประมาณฯ 2570 ขึ้นทูลเกล้าฯ ถวาย เพื่อประกาศบังคับใช้เป็นกฎหมายต่อไป</p>
+                <div class="decision-highlight bg-rose-50 text-rose-900 border-rose-200 shadow-2xl scale-[1.02]">
+                    <p class="text-xl md:text-2xl font-black leading-relaxed"><span class="number-badge bg-rose-600 text-white">11</span> สลค. นำร่าง พ.ร.บ. งบประมาณฯ 2570 ขึ้นทูลเกล้าฯ ถวาย เพื่อประกาศบังคับใช้เป็นกฎหมายต่อไป</p>
                 </div>
             </div>
         </div>
