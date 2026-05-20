@@ -6,14 +6,19 @@
     <title>หน้าปก - หลักเกณฑ์การจัดสรรงบประมาณ 2570</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Sarabun:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Sarabun', 'sans-serif'] },
+                    fontFamily: {
+                        sans: ['Sarabun', 'sans-serif'],
+                        display: ['Kanit', 'sans-serif'],
+                        title: ['Chakra Petch', 'sans-serif'],
+                        mono: ['Inter', 'sans-serif']
+                    },
                     colors: {
                         'bb-blue': '#0a192f',
                         'bb-gold': '#d4af37',
