@@ -105,7 +105,7 @@
         /* Headers and Badges */
         .month-header {
             position: sticky;
-            top: 5rem;
+            top: 4rem;
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
             z-index: 20;
@@ -143,9 +143,6 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid #e2e8f0;
             margin: -3rem -1rem 3rem -1rem;
             padding: 0.75rem 1rem;
             display: flex;
@@ -191,8 +188,10 @@
             font-size: 0.85rem;
             font-weight: 800;
             color: #64748b;
-            background: transparent;
-            border: 1px solid transparent;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
         }
@@ -200,30 +199,35 @@
             padding: 0.5rem 1rem;
             font-size: 0.7rem;
             text-align: left;
+            background: transparent;
+            border: 1px solid transparent;
+            backdrop-filter: none;
+            box-shadow: none;
         }
 
         .nav-month-btn:hover {
-            background: rgba(241, 245, 249, 0.8);
+            background: rgba(241, 245, 249, 1);
             color: #0f172a;
+            border-color: #cbd5e1;
+            transform: translateY(-1px);
         }
         .nav-month-btn.active {
             background: #1e293b;
             color: white;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: #1e293b;
         }
         .is-scrolled .nav-month-btn.active {
             background: #3b82f6;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            border-color: #3b82f6;
         }
 
         .exact-text { line-height: 1.8; }
     </style>
 
     <!-- Page Header -->
-    <div class="mb-20 text-center animate-node is-visible">
-        <span class="bg-indigo-50 text-indigo-600 border border-indigo-100 text-[0.65rem] font-black px-6 py-2 uppercase tracking-[0.2em] rounded-full inline-block mb-8 shadow-sm">
-            <i class="fa-regular fa-calendar-check mr-2"></i> GOVERNMENT APPROVAL PIPELINE
-        </span>
+    <div class="mb-12 mt-12 text-center animate-node is-visible">
         <h2 class="text-4xl md:text-7xl font-black mb-6 tracking-tighter text-slate-900 leading-tight">
             ปฏิทินงบประมาณ <span class="text-blue-600">2570</span>
         </h2>
