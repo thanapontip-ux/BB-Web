@@ -220,6 +220,29 @@
                 height: auto;
             }
         }
+        
+        /* Custom Sub-dropdown visibility and style */
+        .group-sub {
+            position: relative;
+        }
+        .sub-dropdown-box {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            padding-left: 0.25rem;
+            width: 15rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 50;
+        }
+        .group-sub:hover .sub-dropdown-box {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        .group-sub:hover .fa-chevron-right {
+            transform: translateX(4px);
+        }
     </style>
 </head>
 <body class="bg-[#050b14] text-slate-800 antialiased pt-20 flex flex-col min-h-screen">
@@ -300,13 +323,33 @@
                         </a>
                         <!-- Drop-down Box -->
                         <div class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <div class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 overflow-hidden ring-1 ring-white/5">
+                            <div class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 ring-1 ring-white/5">
                                 <a id="nav-budget" onclick="loadPage('budget.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
                                     <i class="fa-solid fa-book w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> กรอบกฎหมาย
                                 </a>
-                                <a id="nav-law" onclick="loadPage('law.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-gavel w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> กฎหมาย
-                                </a>
+                                <!-- กฎหมาย (Sub-Dropdown) -->
+                                <div class="relative group-sub">
+                                    <a id="nav-law" onclick="loadPage('law.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center justify-between group/item">
+                                        <span class="flex items-center gap-3">
+                                            <i class="fa-solid fa-gavel w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> กฎหมาย
+                                        </span>
+                                        <i class="fa-solid fa-chevron-right text-[10px] opacity-70 transition-transform duration-300"></i>
+                                    </a>
+                                    <!-- Sub-dropdown Box -->
+                                    <div class="sub-dropdown-box absolute left-[100%] top-0 pl-1 w-60 opacity-0 invisible transition-all duration-300 z-50">
+                                        <div class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 overflow-hidden ring-1 ring-white/5">
+                                            <a id="nav-law-overview" onclick="loadPage('law.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i class="fa-solid fa-list w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> ภาพรวมกฎหมาย
+                                            </a>
+                                            <a id="nav-law-act" onclick="loadPage('law-act.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i class="fa-solid fa-file-shield w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> พ.ร.บ. วิธีการงบประมาณ
+                                            </a>
+                                            <a id="nav-fiscal-act" onclick="loadPage('fiscal-act.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i class="fa-solid fa-building-columns w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> พ.ร.บ. วินัยการเงินการคลังของรัฐ
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <a id="nav-order" onclick="loadPage('order.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
                                     <i class="fa-solid fa-bullhorn w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> ข้อสั่งการ
                                 </a>
@@ -382,8 +425,14 @@
             <a id="nav-budget-mobile" onclick="loadPage('budget.html', document.getElementById('nav-budget')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-book text-md w-6 text-center opacity-80"></i> กรอบกฎหมาย
             </a>
-            <a id="nav-law-mobile" onclick="loadPage('law.html', document.getElementById('nav-law')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
-                <i class="fa-solid fa-gavel text-md w-6 text-center opacity-80"></i> กฎหมาย
+            <a id="nav-law-mobile" onclick="loadPage('law.html', document.getElementById('nav-law-overview') || document.getElementById('nav-law')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-gavel text-md w-6 text-center opacity-80"></i> กฎหมาย (ภาพรวม)
+            </a>
+            <a id="nav-law-act-mobile" onclick="loadPage('law-act.html', document.getElementById('nav-law-act')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-file-shield text-xs w-4 text-center opacity-70"></i> พ.ร.บ. วิธีการงบประมาณ
+            </a>
+            <a id="nav-fiscal-act-mobile" onclick="loadPage('fiscal-act.html', document.getElementById('nav-fiscal-act')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-building-columns text-xs w-4 text-center opacity-70"></i> พ.ร.บ. วินัยการเงินการคลังของรัฐ
             </a>
             <a id="nav-order-mobile" onclick="loadPage('order.html', document.getElementById('nav-order')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-bullhorn text-md w-6 text-center opacity-80"></i> ข้อสั่งการ
@@ -667,6 +716,13 @@
                     }
                 }
 
+                // เริ่มการทำงานของ Law Search & Navigation หากเปิดหน้า law-act.html หรือ fiscal-act.html
+                if (pageUrl === 'law-act.html' || pageUrl === 'fiscal-act.html') {
+                    if (typeof window.initLawAct === 'function') {
+                        window.initLawAct();
+                    }
+                }
+
             } catch (error) {
                 document.getElementById('landing-page').style.display = 'none';
                 const contentArea = document.getElementById('content-area');
@@ -793,6 +849,210 @@
                     window.addEventListener('scroll', window._timelineScrollHandler);
                 }
             }, 200);
+        };
+
+        window.initLawAct = function() {
+            setTimeout(() => {
+                const searchInput = document.getElementById('law-search');
+                const clearBtn = document.getElementById('clear-search-btn');
+                const searchStatus = document.getElementById('search-status');
+                const searchCount = document.getElementById('search-count');
+                const cards = document.querySelectorAll('.section-card');
+                const chapters = document.querySelectorAll('.chapter-container');
+                const noResults = document.getElementById('no-search-results');
+                
+                if (!searchInput) return;
+
+                // 1. Search Filter
+                searchInput.addEventListener('input', function() {
+                    let query = searchInput.value.trim().toLowerCase();
+                    // Convert Thai numbers to Arabic numbers in search query
+                    query = query.replace(/[๐-๙]/g, function(d) {
+                        return "๐๑๒๓๔๕๖๗๘๙".indexOf(d);
+                    });
+                    
+                    if (query === '') {
+                        clearBtn.classList.add('hidden');
+                        searchStatus.classList.add('hidden');
+                        noResults.classList.add('hidden');
+                        
+                        // Show all cards and chapters
+                        cards.forEach(card => {
+                            card.classList.remove('hidden');
+                            removeHighlights(card);
+                        });
+                        chapters.forEach(ch => ch.classList.remove('hidden'));
+                        return;
+                    }
+
+                    clearBtn.classList.remove('hidden');
+                    
+                    let matchCount = 0;
+                    
+                    chapters.forEach(ch => {
+                        let chHasMatch = false;
+                        const chCards = ch.querySelectorAll('.section-card');
+                        
+                        chCards.forEach(card => {
+                            const secNum = card.getAttribute('data-section-num') || '';
+                            const secNumThai = card.getAttribute('data-section-num-thai') || '';
+                            const textContainer = card.querySelector('.exact-text');
+                            const text = textContainer ? textContainer.textContent.toLowerCase() : '';
+                            
+                            const isNumMatch = secNum.includes(query) || secNumThai.includes(query) || 
+                                               `มาตรา${secNum}`.includes(query) || `มาตรา${secNumThai}`.includes(query) ||
+                                               `มาตรา ${secNum}`.includes(query) || `มาตรา ${secNumThai}`.includes(query);
+                            const isTextMatch = text.includes(query);
+                            
+                            if (isNumMatch || isTextMatch) {
+                                card.classList.remove('hidden');
+                                chHasMatch = true;
+                                matchCount++;
+                                
+                                if (isTextMatch && textContainer) {
+                                    highlightText(card, query);
+                                } else {
+                                    removeHighlights(card);
+                                }
+                            } else {
+                                card.classList.add('hidden');
+                                removeHighlights(card);
+                            }
+                        });
+                        
+                        if (chHasMatch) {
+                            ch.classList.remove('hidden');
+                        } else {
+                            ch.classList.add('hidden');
+                        }
+                    });
+                    
+                    searchCount.textContent = matchCount;
+                    searchStatus.classList.remove('hidden');
+                    
+                    if (matchCount === 0) {
+                        noResults.classList.remove('hidden');
+                    } else {
+                        noResults.classList.add('hidden');
+                    }
+                });
+
+                clearBtn.addEventListener('click', function() {
+                    searchInput.value = '';
+                    searchInput.dispatchEvent(new Event('input'));
+                });
+
+                function removeHighlights(card) {
+                    const textElements = card.querySelectorAll('.sec-text-content');
+                    textElements.forEach(el => {
+                        if (el.getAttribute('data-orig-html')) {
+                            el.innerHTML = el.getAttribute('data-orig-html');
+                        }
+                    });
+                }
+
+                function highlightText(card, query) {
+                    const textElements = card.querySelectorAll('.sec-text-content');
+                    textElements.forEach(el => {
+                        if (!el.getAttribute('data-orig-html')) {
+                            el.setAttribute('data-orig-html', el.innerHTML);
+                        }
+                        
+                        const origHTML = el.getAttribute('data-orig-html');
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = origHTML;
+                        
+                        highlightNode(tempDiv, query);
+                        el.innerHTML = tempDiv.innerHTML;
+                    });
+                }
+
+                function highlightNode(node, query) {
+                    if (node.nodeType === 3) {
+                        const text = node.nodeValue;
+                        const lowerText = text.toLowerCase();
+                        const idx = lowerText.indexOf(query);
+                        if (idx >= 0) {
+                            const parent = node.parentNode;
+                            const frag = document.createDocumentFragment();
+                            let lastIdx = 0;
+                            
+                            let currentIdx = lowerText.indexOf(query, lastIdx);
+                            while (currentIdx >= 0) {
+                                if (currentIdx > lastIdx) {
+                                    frag.appendChild(document.createTextNode(text.substring(lastIdx, currentIdx)));
+                                }
+                                const mark = document.createElement('mark');
+                                mark.className = 'bg-amber-100 text-amber-900 font-bold px-0.5 rounded border border-amber-200/50';
+                                mark.textContent = text.substring(currentIdx, currentIdx + query.length);
+                                frag.appendChild(mark);
+                                
+                                lastIdx = currentIdx + query.length;
+                                currentIdx = lowerText.indexOf(query, lastIdx);
+                            }
+                            
+                            if (lastIdx < text.length) {
+                                frag.appendChild(document.createTextNode(text.substring(lastIdx)));
+                            }
+                            
+                            parent.replaceChild(frag, node);
+                        }
+                    } else if (node.nodeType === 1 && node.childNodes && !/^(style|script)$/i.test(node.tagName)) {
+                        for (let i = node.childNodes.length - 1; i >= 0; i--) {
+                            highlightNode(node.childNodes[i], query);
+                        }
+                    }
+                }
+
+                // 2. Intelligent Scroll Spy & Sidebar Click
+                const sidebarLinks = document.querySelectorAll('.sidebar-law-link');
+                const chapterContainers = document.querySelectorAll('.chapter-container');
+                
+                sidebarLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetEl = document.getElementById(targetId);
+                        if (targetEl) {
+                            const yOffset = -90;
+                            const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                            window.scrollTo({top: y, behavior: 'smooth'});
+                            
+                            sidebarLinks.forEach(l => {
+                                l.classList.remove('border-[#FDCD0E]', 'text-[#FDCD0E]', 'bg-slate-50', 'pl-4');
+                                l.classList.add('border-transparent', 'text-slate-500');
+                            });
+                            this.classList.add('border-[#FDCD0E]', 'text-[#FDCD0E]', 'bg-slate-50', 'pl-4');
+                            this.classList.remove('border-transparent', 'text-slate-500');
+                        }
+                    });
+                });
+
+                if (chapterContainers.length > 0 && sidebarLinks.length > 0) {
+                    const scrollSpyOptions = {
+                        root: null,
+                        rootMargin: '-10% 0px -60% 0px',
+                        threshold: 0
+                    };
+
+                    const scrollSpy = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                sidebarLinks.forEach(link => {
+                                    link.classList.remove('border-[#FDCD0E]', 'text-[#FDCD0E]', 'bg-slate-50', 'pl-4');
+                                    link.classList.add('border-transparent', 'text-slate-500');
+                                    if (link.getAttribute('href') === `#${entry.target.id}`) {
+                                        link.classList.add('border-[#FDCD0E]', 'text-[#FDCD0E]', 'bg-slate-50', 'pl-4');
+                                        link.classList.remove('border-transparent', 'text-slate-500');
+                                    }
+                                });
+                            }
+                        });
+                    }, scrollSpyOptions);
+
+                    chapterContainers.forEach(ch => scrollSpy.observe(ch));
+                }
+            }, 100);
         };
 
         // ===============================================
