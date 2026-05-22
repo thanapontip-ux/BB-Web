@@ -359,6 +359,12 @@
                                              <a id="nav-integration-transfer" onclick="loadPage('integration-transfer.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
                                                  <i class="fa-solid fa-arrows-split-up-and-left w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> ระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการ
                                              </a>
+                                             <a id="nav-procurement-act" onclick="loadPage('procurement-act.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                 <i class="fa-solid fa-file-signature w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> พ.ร.บ. จัดซื้อจัดจ้าง
+                                             </a>
+                                             <a id="nav-finance-reg" onclick="loadPage('finance-reg.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                 <i class="fa-solid fa-file-invoice w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> ระเบียบกระทรวงการคลัง
+                                             </a>
                                         </div>
                                     </div>
                                 </div>
@@ -457,6 +463,12 @@
             </a>
             <a id="nav-integration-transfer-mobile" onclick="loadPage('integration-transfer.html', document.getElementById('nav-integration-transfer')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
                 <i class="fa-solid fa-arrows-split-up-and-left text-xs w-4 text-center opacity-70"></i> ระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการ
+            </a>
+            <a id="nav-procurement-act-mobile" onclick="loadPage('procurement-act.html', document.getElementById('nav-procurement-act')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-file-signature text-xs w-4 text-center opacity-70"></i> พ.ร.บ. จัดซื้อจัดจ้าง
+            </a>
+            <a id="nav-finance-reg-mobile" onclick="loadPage('finance-reg.html', document.getElementById('nav-finance-reg')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-file-invoice text-xs w-4 text-center opacity-70"></i> ระเบียบกระทรวงการคลัง
             </a>
             <a id="nav-order-mobile" onclick="loadPage('order.html', document.getElementById('nav-order')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-bullhorn text-md w-6 text-center opacity-80"></i> ข้อสั่งการ
@@ -741,7 +753,7 @@
                 }
 
                 // เริ่มการทำงานของ Law Search & Navigation หากเปิดหน้า law-act.html, fiscal-act.html, budget-reg.html, rule-transfer.html หรือ debt-commitment.html
-                if (pageUrl === 'law-act.html' || pageUrl === 'fiscal-act.html' || pageUrl === 'budget-reg.html' || pageUrl === 'rule-transfer.html' || pageUrl === 'debt-commitment.html' || pageUrl === 'integration-transfer.html') {
+                if (pageUrl === 'law-act.html' || pageUrl === 'fiscal-act.html' || pageUrl === 'budget-reg.html' || pageUrl === 'rule-transfer.html' || pageUrl === 'debt-commitment.html' || pageUrl === 'integration-transfer.html' || pageUrl === 'procurement-act.html' || pageUrl === 'finance-reg.html') {
                     if (typeof window.initLawAct === 'function') {
                         window.initLawAct();
                     }
