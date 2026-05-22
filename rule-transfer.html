@@ -1,0 +1,490 @@
+
+<div class="space-y-8 animate-fade-in relative">
+    <!-- Ambient blue glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-gradient-to-b from-blue-500/5 to-transparent rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <!-- Header Hero Card -->
+    <div class="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-[2rem] p-8 md:p-12 shadow-2xl border border-white/10 relative overflow-hidden">
+        <!-- Accent circles -->
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+        
+        <div class="relative flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="px-4 py-1.5 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> มีผลบังคับใช้
+                    </span>
+                    <span class="px-4 py-1.5 bg-white/5 border border-white/10 text-slate-300 rounded-full text-xs font-semibold">
+                        หลักเกณฑ์สำนักงบประมาณ
+                    </span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    หลักเกณฑ์ว่าด้วยการใช้งบประมาณรายจ่าย<br>การโอนเงินจัดสรรหรือการเปลี่ยนแปลงเงินจัดสรร พ.ศ. 2562
+                </h1>
+                <p class="text-slate-400 text-sm md:text-base max-w-2xl font-light">
+                    เพื่อให้การปฏิบัติงานเกี่ยวกับการใช้จ่ายงบประมาณรายจ่าย การโอนเงินจัดสรรหรือการเปลี่ยนแปลงเงินจัดสรรเป็นไปด้วยความรวดเร็วและมีประสิทธิภาพ
+                </p>
+            </div>
+            <div class="flex-shrink-0">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                    <i class="fa-solid fa-money-bill-transfer text-3xl md:text-4xl text-slate-950"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Metadata Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 pt-8 border-t border-white/10 text-slate-300 text-xs md:text-sm">
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">ประกาศ ณ วันที่</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-regular fa-calendar text-blue-400"></i> 31 กรกฎาคม 2562
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">วันบังคับใช้</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-check text-blue-400"></i> 31 กรกฎาคม 2562
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">ผู้ลงนามประกาศ</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-user-shield text-blue-400"></i> ผู้อำนวยการสำนักงบประมาณ
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">จำนวนเนื้อหา</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-file-invoice text-blue-400"></i> 6 ส่วน (11 ข้อ)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Engine Container -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm relative overflow-hidden">
+        <div class="relative max-w-3xl mx-auto">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i class="fa-solid fa-magnifying-glass text-slate-400 text-md"></i>
+            </div>
+            <input type="text" id="law-search" placeholder="ค้นหาตามข้อ หรือคำสำคัญในหลักเกณฑ์ (เช่น งบลงทุน, ข้อ 3, การโอน)..." 
+                   class="w-full pl-11 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#2563eb] focus:ring-4 focus:ring-[#2563eb]/15 transition-all duration-300">
+            <button id="clear-search-btn" class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors hidden">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </div>
+        <div id="search-status" class="text-center text-xs md:text-sm text-slate-500 mt-3 font-medium hidden">
+            พบ <span id="search-count" class="text-[#2563eb] font-bold">0</span> ข้อที่ตรงกับผลการค้นหา
+        </div>
+    </div>
+
+    <!-- Main Layout Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <!-- Sidebar Navigation (Col 1) -->
+        <div class="hidden lg:block lg:col-span-1">
+            <div class="sticky top-24 space-y-4">
+                <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm space-y-4">
+                    <div class="font-bold text-slate-800 text-sm flex items-center gap-2 uppercase tracking-wider pb-3 border-b border-slate-100">
+                        <i class="fa-solid fa-list-ol text-blue-600"></i> สารบัญหลักเกณฑ์
+                    </div>
+                    <nav class="space-y-1 max-h-[60vh] overflow-y-auto custom-scrollbar text-xs">
+
+                        <a href="#ch-intro" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            บทนำ (ข้อ 1 - 2)
+                        </a>
+
+                        <a href="#ch-types" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            ประเภทงบรายจ่าย (ข้อ 3)
+                        </a>
+
+                        <a href="#ch-alloc" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            การจัดสรรและใช้งบรายจ่าย (ข้อ 4 - 5)
+                        </a>
+
+                        <a href="#ch-outside" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            การใช้เงินนอกงบประมาณสมทบ (ข้อ 6 - 7)
+                        </a>
+
+                        <a href="#ch-transfer" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            การโอนและเปลี่ยนแปลงเงินจัดสรร (ข้อ 8 - 9)
+                        </a>
+
+                        <a href="#ch-central" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            การบริหารงบกลางและข้อตกลง (ข้อ 10 - 11)
+                        </a>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area (Col 2) -->
+        <div class="lg:col-span-3 space-y-12" id="law-sections-container">
+
+            <!-- CHAPTER SECTION: บทนำ (ข้อ 1 - 2) -->
+            <div id="ch-intro" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-circle-info text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">บทนำ (ข้อ 1 - 2)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">ขอบเขตและการบังคับใช้</p>
+                    </div>
+                </div>
+
+                <!-- Preamble Info Card -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 shadow-inner text-slate-700 leading-relaxed font-sans space-y-4">
+                    <div class="text-center font-bold text-lg text-slate-800">หลักเกณฑ์ว่าด้วยการใช้งบประมาณรายจ่าย การโอนเงินจัดสรรหรือการเปลี่ยนแปลงเงินจัดสรร พ.ศ. 2562</div>
+                    <p class="indent-8 font-light">เพื่อให้การปฏิบัติงานเกี่ยวกับการใช้จ่ายงบประมาณรายจ่าย การโอนเงินจัดสรรหรือการเปลี่ยนแปลงเงินจัดสรร เป็นไปด้วยความรวดเร็ว มีประสิทธิภาพ</p>
+                    <p class="indent-8 font-light">อาศัยอำนาจตามความในข้อ 28 ของระเบียบว่าด้วยการบริหารงบประมาณ พ.ศ. 2562 ผู้อำนวยการสำนักงบประมาณจึงกำหนดหลักเกณฑ์การใช้งบประมาณรายจ่าย การโอนเงินจัดสรรหรือการเปลี่ยนแปลงเงินจัดสรร ไว้ดังต่อไปนี้</p>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 1 (1) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="1" data-section-num-thai="1">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 1
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 1
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">หลักเกณฑ์นี้เรียกว่า “หลักเกณฑ์ว่าด้วยการใช้งบประมาณรายจ่าย การโอนเงินจัดสรร หรือการเปลี่ยนแปลงเงินจัดสรร พ.ศ. 2562”</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 2 (2) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="2" data-section-num-thai="2">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 2
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 2
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">หลักเกณฑ์นี้ใช้บังคับตั้งแต่วันที่ 31 กรกฎาคม 2562</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: ประเภทงบรายจ่าย (ข้อ 3) -->
+            <div id="ch-types" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-list-ol text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">ประเภทงบรายจ่าย (ข้อ 3)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">การจำแนกประเภทรายจ่ายเป็น 5 งบรายจ่าย</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 3 (3) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="3" data-section-num-thai="3">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 3
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 3
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">เพื่อประโยชน์ในการควบคุมการใช้งบประมาณรายจ่าย ให้จำแนกประเภทรายจ่ายเป็นห้างบรายจ่าย ดังนี้</p>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">งบบุคลากร หมายถึง รายจ่ายที่กำหนดให้จ่ายเพื่อการบริหารงานบุคลากรภาครัฐ ได้แก่ รายจ่ายที่จ่ายในลักษณะเงินเดือน ค่าจ้างประจำ ค่าจ้างชั่วคราว และค่าตอบแทนพนักงานราชการ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content"><span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">งบดำเนินงาน</span> หมายถึง รายจ่ายที่กำหนดให้จ่ายเพื่อการบริหารงานประจำ ได้แก่ รายจ่ายที่จ่ายในลักษณะค่าตอบแทน ค่าใช้สอย ค่าวัสดุ และค่าสาธารณูปโภค</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content"><span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">งบลงทุน</span> หมายถึง รายจ่ายที่กำหนดให้จ่ายเพื่อการลงทุน ได้แก่ รายจ่ายที่จ่ายในลักษณะค่าครุภัณฑ์ ค่าที่ดินและสิ่งก่อสร้าง</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(4)</span><span class="sec-text-content">งบเงินอุดหนุน หมายถึง รายจ่ายที่กำหนดให้จ่ายเป็นค่าบำรุงหรือเพื่อช่วยเหลือ สนับสนุน การดำเนินงานของรัฐวิสาหกิจ เอกชนหรือกิจการอันเป็นสาธารณประโยชน์ รวมถึงเงินอุดหนุนสถาบันพระมหากษัตริย์ และการศาสนา ตลอดจนงบประมาณรายจ่ายของหน่วยงานของรัฐที่มีกฎหมายกำหนดให้ได้รับงบประมาณเป็นเงินอุดหนุน งบเงินอุดหนุนมี 2 ประเภท ได้แก่</span></div>
+                            <div class="flex gap-3 pl-12 mt-2.5 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">ก.</span><span class="sec-text-content">เงินอุดหนุนทั่วไป หมายถึง เงินที่กำหนดให้จ่ายตามวัตถุประสงค์ของรายการ</span></div>
+                            <div class="flex gap-3 pl-12 mt-2.5 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">ข.</span><span class="sec-text-content">เงินอุดหนุนเฉพาะกิจ หมายถึง เงินที่กำหนดให้จ่ายตามวัตถุประสงค์ของรายการและตามรายละเอียดที่สำนักงบประมาณกำหนด</span></div>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">รายจ่ายงบเงินอุดหนุนรายการใดจะเป็นรายจ่ายประเภทเงินอุดหนุนทั่วไปหรือเงินอุดหนุนเฉพาะกิจ ให้เป็นไปตามที่สำนักงบประมาณกำหนด</p>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(5)</span><span class="sec-text-content">งบรายจ่ายอื่น หมายถึง รายจ่ายที่ไม่เข้าลักษณะประเภทงบรายจ่ายใดงบรายจ่ายหนึ่ง รวมถึงรายจ่าย ดังนี้</span></div>
+                            <div class="flex gap-3 pl-12 mt-2.5 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">ก.</span><span class="sec-text-content">เงินราชการลับ</span></div>
+                            <div class="flex gap-3 pl-12 mt-2.5 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">ข.</span><span class="sec-text-content">เงินค่าปรับที่จ่ายคืนให้แก่ผู้ขายหรือผู้รับจ้าง</span></div>
+                            <div class="flex gap-3 pl-12 mt-2.5 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">ค.</span><span class="sec-text-content">ค่าจ้างที่ปรึกษาเพื่อศึกษา วิจัย ประเมินผล หรือพัฒนาระบบต่างๆ ซึ่งมิใช่เพื่อการจัดหาหรือปรับปรุงครุภัณฑ์ ที่ดินและหรือสิ่งก่อสร้าง</span></div>
+                            <div class="flex gap-3 pl-12 mt-2.5 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">ง.</span><span class="sec-text-content">ค่าใช้จ่ายในการเดินทางไปราชการต่างประเทศชั่วคราว</span></div>
+                            <div class="flex gap-3 pl-12 mt-2.5 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">จ.</span><span class="sec-text-content">รายจ่ายเพื่อชำระหนี้เงินกู้</span></div>
+                            <div class="flex gap-3 pl-12 mt-2.5 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">ฉ.</span><span class="sec-text-content">ค่าใช้จ่ายสำหรับกองทุนหรือเงินทุนหมุนเวียนที่ตั้งขึ้นภายในหน่วยรับงบประมาณ</span></div>
+                            <div class="flex gap-3 pl-12 mt-2.5 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">ช.</span><span class="sec-text-content">รายการที่สำนักงบประมาณกำหนดให้ใช้จ่ายในงบรายจ่ายนี้เป็นกรณีไป</span></div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: การจัดสรรและใช้งบรายจ่าย (ข้อ 4 - 5) -->
+            <div id="ch-alloc" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-coins text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">การจัดสรรและใช้งบรายจ่าย (ข้อ 4 - 5)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">การจัดสรรงบประมาณและการถัวจ่าย</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 4 (4) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="4" data-section-num-thai="4">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 4
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 4
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">งบประมาณรายจ่ายที่กำหนดไว้ในแต่ละรายการตามกฎหมายว่าด้วยงบประมาณรายจ่าย สำนักงบประมาณจะอนุมัติเงินจัดสรรให้เป็นงบรายจ่ายใดๆ ให้สอดคล้องกับวัตถุประสงค์ของการใช้งบประมาณรายจ่าย ดังนี้</p>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานพื้นฐาน งบประมาณรายจ่ายแผนงานยุทธศาสตร์ และงบประมาณรายจ่ายแผนงานบูรณาการ จัดสรรเป็น<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">งบดำเนินงาน</span> <span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">งบลงทุน</span> งบเงินอุดหนุน และงบรายจ่ายอื่น</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานบุคลากรภาครัฐ จัดสรรเป็นงบบุคลากร <span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">งบดำเนินงาน</span> และงบเงินอุดหนุน</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content">งบประมาณรายจ่ายสำหรับทุนหมุนเวียน จัดสรรเป็นงบเงินอุดหนุน และงบรายจ่ายอื่น</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(4)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานบริหารจัดการหนี้ภาครัฐ งบประมาณรายจ่ายเพื่อชดใช้เงินคงคลัง และงบประมาณรายจ่ายเพื่อชดใช้เงินทุนสำรองจ่าย จัดสรรเป็นงบรายจ่ายอื่น</span></div>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 5 (5) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="5" data-section-num-thai="5">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 5
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 5
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">การใช้งบประมาณรายจ่ายแต่ละงบรายจ่ายที่ได้รับอนุมัติเงินจัดสรร หรือจากการโอนเงินจัดสรร หรือจากการเปลี่ยนแปลงเงินจัดสรร ให้เป็นไปตามหลักเกณฑ์ ดังนี้</p>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">งบบุคลากร ให้ใช้จ่ายเป็นรายจ่ายใดๆ ที่สำนักงบประมาณกำหนดว่าเป็นรายจ่ายในงบรายจ่ายนี้ และให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">ถัวจ่าย</span>กันได้ในงบรายจ่ายเดียวกันและอยู่ภายใต้แผนงานเดียวกัน</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content"><span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">งบดำเนินงาน</span> ให้ใช้จ่ายเป็นรายจ่ายใดๆ ที่กำหนดว่าเป็นรายจ่ายในงบรายจ่ายนี้ และให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">ถัวจ่าย</span>กันได้ภายใต้แผนงานเดียวกัน เว้นแต่รายจ่ายลักษณะค่าสาธารณูปโภคให้นำไป<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">ถัวจ่าย</span>เป็นรายจ่ายในลักษณะอื่นเมื่อไม่มีหนี้ค่าสาธารณูปโภคค้างชำระ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content"><span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">งบลงทุน</span> ให้ใช้จ่ายเป็นรายจ่ายใดๆ ที่กำหนดว่าเป็นรายจ่ายในงบรายจ่ายนี้</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(4)</span><span class="sec-text-content">งบเงินอุดหนุน ให้ใช้จ่ายเป็นรายจ่ายใดๆ ที่กำหนดว่าเป็นรายจ่ายในงบรายจ่ายนี้ ดังนี้</span></div>
+                            <div class="flex gap-3 pl-12 mt-2.5 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">ก.</span><span class="sec-text-content">ประเภทเงินอุดหนุนทั่วไป ให้ใช้จ่ายตามรายการและจำนวนเงินที่กำหนด</span></div>
+                            <div class="flex gap-3 pl-12 mt-2.5 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">ข.</span><span class="sec-text-content">ประเภทเงินอุดหนุนเฉพาะกิจ ให้ใช้จ่ายตามรายการ จำนวนเงินและรายละเอียดอื่นใดที่กำหนด และให้นำความใน (1) (2) และ (3) มาใช้บังคับโดยอนุโลม</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(5)</span><span class="sec-text-content">งบรายจ่ายอื่น ให้ใช้จ่ายเป็นรายจ่ายใดๆ ที่กำหนดว่าเป็นรายจ่ายในงบรายจ่ายนี้ ตามรายการและจำนวนเงินที่กำหนด และให้นำความใน (1) (2) และ (3) มาใช้บังคับโดยอนุโลม</span></div>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ทั้งนี้ การเปลี่ยนแปลงประเภทงบรายจ่ายเพื่อให้ถูกต้องตามการจำแนกประเภทรายจ่ายที่กำหนดในข้อ 3 ให้กระทำได้โดยไม่ต้องขอทำความตกลงกับสำนักงบประมาณ</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: การใช้เงินนอกงบประมาณสมทบ (ข้อ 6 - 7) -->
+            <div id="ch-outside" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-hand-holding-dollar text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">การใช้เงินนอกงบประมาณสมทบ (ข้อ 6 - 7)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">หลักเกณฑ์การนำเงินนอกงบประมาณมาสมทบ</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 6 (6) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="6" data-section-num-thai="6">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 6
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 6
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">งบประมาณรายจ่ายตามเอกสารประกอบกฎหมายว่าด้วยงบประมาณรายจ่ายที่ได้ปรับปรุงตามผลการพิจารณาของรัฐสภาแล้ว กรณีที่ระบุวงเงินนอกงบประมาณไว้สำหรับผลผลิตหรือโครงการใด เมื่อสำนักงบประมาณอนุมัติเงินจัดสรรแล้ว ให้หน่วยรับงบประมาณพิจารณานำเงินนอกงบประมาณตามอำนาจหน้าที่ของหน่วยรับงบประมาณเพื่อสมทบกับเงินจัดสรรที่ได้รับเพื่อดำเนินการให้บรรลุวัตถุประสงค์ของผลผลิตหรือโครงการดังกล่าว</p>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">กรณีเป็นรายการในงบลงทุน และเอกสารประกอบกฎหมายว่าด้วยงบประมาณรายจ่ายระบุจำนวนเงินนอกงบประมาณสำหรับรายการใด ให้หน่วยรับงบประมาณพิจารณานำเงินนอกงบประมาณตามอำนาจหน้าที่เพื่อสมทบกับเงินจัดสรรตามจำนวนเงินนอกงบประมาณที่ระบุสำหรับรายการนั้น แต่หากจะใช้เงินนอกงบประมาณสมทบเกินกว่าจำนวนเงินตามเอกสารงบประมาณให้ขอทำความตกลงกับสำนักงบประมาณก่อน</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 7 (7) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="7" data-section-num-thai="7">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 7
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 7
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">นอกเหนือจากที่กำหนดตามข้อ 6 กรณีที่หน่วยรับงบประมาณจะใช้เงินนอกงบประมาณสมทบกับเงินจัดสรร ให้ขอทำความตกลงกับสำนักงบประมาณก่อน ยกเว้นกรณีนำไปสมทบกับเงินจัดสรรเป็นค่าใช้จ่ายดังต่อไปนี้ของศาล</p>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">ค่าใช้จ่ายในการชำระหนี้เงินกู้ หรือดอกเบี้ยเงินกู้ และค่าใช้จ่ายตามคำพิพากษาหรือคำสั่ง</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">รายการครุภัณฑ์ที่มีวงเงินต่อหน่วยต่ำกว่าหนึ่งล้านบาท หรือค่าสิ่งก่อสร้างที่มีวงเงินต่อหน่วยต่ำกว่าสิบล้านบาทตามลำดับ โดยสมทบได้ไม่เกินร้อยละสิบ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content">ค่าใช้จ่ายในงบบุคลากรและ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">งบดำเนินงาน</span></span></div>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">การอนุญาตให้หน่วยรับงบประมาณใช้เงินนอกงบประมาณสมทบงบบุคลากรตาม (3) กรณีเป็นค่าใช้จ่ายสำหรับอัตราบุคลากรตั้งใหม่ ไม่ถือว่าการใช้เงินนอกงบประมาณสมทบนั้นเป็นข้อผูกพันว่าสำนักงบประมาณได้ให้ความเห็นชอบหรือความยินยอมที่จะจัดสรรงบประมาณสำหรับอัตราตั้งใหม่ให้ต่อไป</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: การโอนและเปลี่ยนแปลงเงินจัดสรร (ข้อ 8 - 9) -->
+            <div id="ch-transfer" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-money-bill-transfer text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">การโอนและเปลี่ยนแปลงเงินจัดสรร (ข้อ 8 - 9)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">การโอนเงินจัดสรรกรณีจำเป็นหรือมีเงินเหลือจ่าย</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 8 (8) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="8" data-section-num-thai="8">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 8
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 8
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">กรณีมีความจำเป็นเพื่อจัดทำผลผลิตหรือโครงการให้บรรลุเป้าหมายตามแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณ หัวหน้าหน่วยรับงบประมาณอาจโอนเงินจัดสรรหรือเปลี่ยนแปลงเงินจัดสรรภายใต้แผนงานผลผลิตหรือโครงการเดียวกันได้ โดยไม่ต้องขออนุมัติจากสำนักงบประมาณ Under เงื่อนไข ดังนี้</p>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">ต้องมิใช่การ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">โอนเงินจัดสรร</span>หรือ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">เปลี่ยนแปลงเงินจัดสรร</span>จากรายจ่ายในงบบุคลากร รายการค่าครุภัณฑ์ที่มีวงเงินต่อหน่วยตั้งแต่หนึ่งล้านบาทขึ้นไป รายการค่าที่ดิน รายการสิ่งก่อสร้างที่มีวงเงินต่อหน่วยตั้งแต่สิบล้านบาทขึ้นไป หรือรายการก่อหนี้ผูกพันข้ามปีงบประมาณ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">ต้องไม่นำไปกำหนดเป็นอัตราบุคลากรตั้งใหม่ รายการค่าจัดหาครุภัณฑ์ยานพาหนะ รายการค่าครุภัณฑ์ที่มีวงเงินต่อหน่วยตั้งแต่หนึ่งล้านบาทขึ้นไป รายการค่าที่ดิน รายการค่าสิ่งก่อสร้างที่มีวงเงินต่อหน่วยตั้งแต่สิบล้านบาทขึ้นไป หรือเป็นค่าใช้จ่ายในการเดินทางไปราชการต่างประเทศชั่วคราวที่ไม่ได้กำหนดไว้ในแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณ และต้องไม่เป็นการก่อหนี้ผูกพันข้ามปีงบประมาณ</span></div>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">กรณีมีเงินจัดสรรเหลือจ่ายจากการดำเนินงานบรรลุวัตถุประสงค์หรือจากการจัดซื้อจัดจ้างแล้ว หัวหน้าหน่วยรับงบประมาณอาจโอนเงินจัดสรรหรือเปลี่ยนแปลงเงินจัดสรรดังกล่าวไปใช้จ่ายเป็นรายจ่ายใดๆ ภายใต้แผนงานผลผลิตหรือโครงการเดียวกันและภายใต้เงื่อนไขตาม (2) ได้ โดยไม่ต้องขออนุมัติจากสำนักงบประมาณ</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 9 (9) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="9" data-section-num-thai="9">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 9
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 9
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ในกรณีที่หน่วยรับงบประมาณได้รับอนุมัติจัดสรรงบประมาณสำหรับรายการค่าครุภัณฑ์ หรือสิ่งก่อสร้างที่มิใช่รายการก่อหนี้ผูกพันข้ามปีงบประมาณ หากผลการจัดซื้อจัดจ้างสูงกว่างบประมาณที่ได้รับจัดสรร หัวหน้าหน่วยรับงบประมาณอาจโอนเงินจัดสรรจากรายการอื่นภายใต้แผนงานเดียวกันหรือนำเงินนอกงบประมาณไปเพิ่มวงเงินรายการค่าครุภัณฑ์หรือสิ่งก่อสร้างนั้นได้ไม่เกินร้อยละสิบของวงเงินที่ได้รับการจัดสรรงบประมาณ</p>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">รายการตามวรรคหนึ่ง ในกรณีที่เงินจัดสรรได้รวมรายการค่าครุภัณฑ์หรือสิ่งก่อสร้างหลายหน่วยไว้ในรายการเดียวกัน ให้ถือว่าครุภัณฑ์หรือสิ่งก่อสร้างหนึ่งหน่วยเป็นหนึ่งรายการ</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: การบริหารงบกลางและข้อตกลง (ข้อ 10 - 11) -->
+            <div id="ch-central" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-gavel text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">การบริหารงบกลางและข้อตกลง (ข้อ 10 - 11)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">การนำเกณฑ์ไปปรับใช้กับงบกลางและการขอทำความตกลง</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 10 (10) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="10" data-section-num-thai="10">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 10
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 10
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">การอนุมัติเงินจัดสรรงบประมาณรายจ่ายงบกลาง สำนักงบประมาณจะอนุมัติเงินจัดสรรเป็นงบรายจ่ายใดๆ ตามที่กำหนดในข้อ 3 ให้สอดคล้องกับวัตถุประสงค์ของการใช้จ่ายแต่ละกรณี ทั้งนี้ ให้นำความตามข้อ 5 ข้อ 7 ข้อ 8 และข้อ 9 มาใช้กับการใช้งบประมาณรายจ่าย การโอนเงินจัดสรรและการเปลี่ยนแปลงเงินจัดสรรงบประมาณรายจ่ายงบกลางด้วย ยกเว้นการโอนเงินจัดสรรและเปลี่ยนแปลงเงินจัดสรรงบกลางรายการเงินสำรองจ่ายเพื่อกรณีฉุกเฉินหรือจำเป็น</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 11 (11) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="11" data-section-num-thai="11">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 11
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 11
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">การโอนเงินจัดสรรและหรือเปลี่ยนแปลงเงินจัดสรรนอกเหนือจากที่กำหนดไว้ในหลักเกณฑ์นี้ ให้ขอทำความตกลงกับสำนักงบประมาณ</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Signature Card -->
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 shadow-sm flex flex-col items-center justify-center space-y-3 mt-12 text-slate-700">
+                <div class="text-center font-semibold">ประกาศ ณ วันที่ 31 กรกฎาคม 2562</div>
+                <div class="text-center mt-4">
+                    <p class="font-bold">(นายเดชาภิวัฒน์ ณ สงขลา)</p>
+                    <p class="text-sm text-slate-500 mt-1">ผู้อำนวยการสำนักงบประมาณ</p>
+                </div>
+            </div>
+
+            <!-- No Results Card -->
+            <div id="no-search-results" class="bg-white border border-slate-200 rounded-2xl p-12 text-center shadow-sm hidden">
+                <div class="w-16 h-16 rounded-2xl bg-blue-50/50 border border-blue-200/50/50 flex items-center justify-center mx-auto mb-4 text-blue-600">
+                    <i class="fa-solid fa-triangle-exclamation text-3xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 mb-2">ไม่พบผลลัพธ์การค้นหา</h3>
+                <p class="text-slate-500 text-sm max-w-md mx-auto">
+                    ไม่พบข้อที่ตรงกับคีย์เวิร์ดของคุณ โปรดลองใช้คำอื่น เช่น "งบลงทุน", "โอนเงิน", "จัดสรร" หรือค้นหาตัวเลขข้อโดยตรง
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</div>

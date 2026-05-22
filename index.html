@@ -347,6 +347,18 @@
                                             <a id="nav-fiscal-act" onclick="loadPage('fiscal-act.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
                                                 <i class="fa-solid fa-building-columns w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> พ.ร.บ. วินัยการเงินการคลังของรัฐ
                                             </a>
+                                            <a id="nav-budget-reg" onclick="loadPage('budget-reg.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i class="fa-solid fa-file-invoice-dollar w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> ระเบียบว่าด้วยการบริหารงบประมาณ
+                                            </a>
+                                            <a id="nav-rule-transfer" onclick="loadPage('rule-transfer.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i class="fa-solid fa-money-bill-transfer w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> หลักเกณฑ์การใช้งบประมาณรายจ่ายการโอนเงิน
+                                            </a>
+                                            <a id="nav-debt-commitment" onclick="loadPage('debt-commitment.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i class="fa-solid fa-file-contract w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> ระเบียบว่าด้วยการก่อหนี้ผูกพันงบประมาณ
+                                            </a>
+                                             <a id="nav-integration-transfer" onclick="loadPage('integration-transfer.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                 <i class="fa-solid fa-arrows-split-up-and-left w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> ระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการ
+                                             </a>
                                         </div>
                                     </div>
                                 </div>
@@ -433,6 +445,18 @@
             </a>
             <a id="nav-fiscal-act-mobile" onclick="loadPage('fiscal-act.html', document.getElementById('nav-fiscal-act')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
                 <i class="fa-solid fa-building-columns text-xs w-4 text-center opacity-70"></i> พ.ร.บ. วินัยการเงินการคลังของรัฐ
+            </a>
+            <a id="nav-budget-reg-mobile" onclick="loadPage('budget-reg.html', document.getElementById('nav-budget-reg')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-file-invoice-dollar text-xs w-4 text-center opacity-70"></i> ระเบียบว่าด้วยการบริหารงบประมาณ
+            </a>
+            <a id="nav-rule-transfer-mobile" onclick="loadPage('rule-transfer.html', document.getElementById('nav-rule-transfer')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-money-bill-transfer text-xs w-4 text-center opacity-70"></i> หลักเกณฑ์การใช้งบประมาณรายจ่ายการโอนเงิน
+            </a>
+            <a id="nav-debt-commitment-mobile" onclick="loadPage('debt-commitment.html', document.getElementById('nav-debt-commitment')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-file-contract text-xs w-4 text-center opacity-70"></i> ระเบียบว่าด้วยการก่อหนี้ผูกพันงบประมาณ
+            </a>
+            <a id="nav-integration-transfer-mobile" onclick="loadPage('integration-transfer.html', document.getElementById('nav-integration-transfer')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-arrows-split-up-and-left text-xs w-4 text-center opacity-70"></i> ระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการ
             </a>
             <a id="nav-order-mobile" onclick="loadPage('order.html', document.getElementById('nav-order')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-bullhorn text-md w-6 text-center opacity-80"></i> ข้อสั่งการ
@@ -716,8 +740,8 @@
                     }
                 }
 
-                // เริ่มการทำงานของ Law Search & Navigation หากเปิดหน้า law-act.html หรือ fiscal-act.html
-                if (pageUrl === 'law-act.html' || pageUrl === 'fiscal-act.html') {
+                // เริ่มการทำงานของ Law Search & Navigation หากเปิดหน้า law-act.html, fiscal-act.html, budget-reg.html, rule-transfer.html หรือ debt-commitment.html
+                if (pageUrl === 'law-act.html' || pageUrl === 'fiscal-act.html' || pageUrl === 'budget-reg.html' || pageUrl === 'rule-transfer.html' || pageUrl === 'debt-commitment.html' || pageUrl === 'integration-transfer.html') {
                     if (typeof window.initLawAct === 'function') {
                         window.initLawAct();
                     }
@@ -901,7 +925,9 @@
                             
                             const isNumMatch = secNum.includes(query) || secNumThai.includes(query) || 
                                                `มาตรา${secNum}`.includes(query) || `มาตรา${secNumThai}`.includes(query) ||
-                                               `มาตรา ${secNum}`.includes(query) || `มาตรา ${secNumThai}`.includes(query);
+                                               `มาตรา ${secNum}`.includes(query) || `มาตรา ${secNumThai}`.includes(query) ||
+                                               `ข้อ${secNum}`.includes(query) || `ข้อ${secNumThai}`.includes(query) ||
+                                               `ข้อ ${secNum}`.includes(query) || `ข้อ ${secNumThai}`.includes(query);
                             const isTextMatch = text.includes(query);
                             
                             if (isNumMatch || isTextMatch) {
@@ -983,7 +1009,7 @@
                                     frag.appendChild(document.createTextNode(text.substring(lastIdx, currentIdx)));
                                 }
                                 const mark = document.createElement('mark');
-                                mark.className = 'bg-amber-100 text-amber-900 font-bold px-0.5 rounded border border-amber-200/50';
+                                mark.className = 'bg-blue-100 text-blue-900 font-bold px-0.5 rounded border border-blue-200/50';
                                 mark.textContent = text.substring(currentIdx, currentIdx + query.length);
                                 frag.appendChild(mark);
                                 
@@ -1019,10 +1045,10 @@
                             window.scrollTo({top: y, behavior: 'smooth'});
                             
                             sidebarLinks.forEach(l => {
-                                l.classList.remove('border-[#FDCD0E]', 'text-[#FDCD0E]', 'bg-slate-50', 'pl-4');
+                                l.classList.remove('border-blue-600', 'text-blue-600', 'bg-slate-50', 'pl-4');
                                 l.classList.add('border-transparent', 'text-slate-500');
                             });
-                            this.classList.add('border-[#FDCD0E]', 'text-[#FDCD0E]', 'bg-slate-50', 'pl-4');
+                            this.classList.add('border-blue-600', 'text-blue-600', 'bg-slate-50', 'pl-4');
                             this.classList.remove('border-transparent', 'text-slate-500');
                         }
                     });
@@ -1039,10 +1065,10 @@
                         entries.forEach(entry => {
                             if (entry.isIntersecting) {
                                 sidebarLinks.forEach(link => {
-                                    link.classList.remove('border-[#FDCD0E]', 'text-[#FDCD0E]', 'bg-slate-50', 'pl-4');
+                                    link.classList.remove('border-blue-600', 'text-blue-600', 'bg-slate-50', 'pl-4');
                                     link.classList.add('border-transparent', 'text-slate-500');
                                     if (link.getAttribute('href') === `#${entry.target.id}`) {
-                                        link.classList.add('border-[#FDCD0E]', 'text-[#FDCD0E]', 'bg-slate-50', 'pl-4');
+                                        link.classList.add('border-blue-600', 'text-blue-600', 'bg-slate-50', 'pl-4');
                                         link.classList.remove('border-transparent', 'text-slate-500');
                                     }
                                 });

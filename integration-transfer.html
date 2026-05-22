@@ -1,0 +1,731 @@
+
+<div class="space-y-8 animate-fade-in relative">
+    <!-- Ambient blue glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-gradient-to-b from-blue-500/5 to-transparent rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <!-- Header Hero Card -->
+    <div class="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-[2rem] p-8 md:p-12 shadow-2xl border border-white/10 relative overflow-hidden">
+        <!-- Accent circles -->
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+        
+        <div class="relative flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="px-4 py-1.5 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> มีผลบังคับใช้
+                    </span>
+                    <span class="px-4 py-1.5 bg-white/5 border border-white/10 text-slate-300 rounded-full text-xs font-semibold">
+                        ระเบียบสำนักงบประมาณ
+                    </span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    ระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการ<br>และงบประมาณรายจ่ายบุคลากรระหว่างหน่วยรับงบประมาณ พ.ศ. 2562
+                </h1>
+                <p class="text-slate-400 text-sm md:text-base max-w-2xl font-light">
+                    เพื่อให้การบริหารงบประมาณรายจ่ายบูรณาการ และงบประมาณรายจ่ายบุคลากร เกิดประสิทธิภาพสูงสุด สามารถโอนงบประมาณรายจ่ายไปตั้งเป็นงบประมาณรายจ่ายของหน่วยรับงบประมาณอื่นได้ตามความจำเป็น
+                </p>
+            </div>
+            <div class="flex-shrink-0">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                    <i class="fa-solid fa-arrows-split-up-and-left text-3xl md:text-4xl text-slate-950"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Metadata Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 pt-8 border-t border-white/10 text-slate-300 text-xs md:text-sm">
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">ประกาศ ณ วันที่</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-regular fa-calendar text-blue-400"></i> 19 กรกฎาคม 2562
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">วันบังคับใช้</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-check text-blue-400"></i> 31 กรกฎาคม 2562
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">ผู้ลงนามประกาศ</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-user-shield text-blue-400"></i> ผู้อำนวยการสำนักงบประมาณ
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">จำนวนเนื้อหา</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-file-invoice text-blue-400"></i> 4 ส่วน + แผนผัง (15 ข้อ)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Engine Container -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm relative overflow-hidden">
+        <div class="relative max-w-3xl mx-auto">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i class="fa-solid fa-magnifying-glass text-slate-400 text-md"></i>
+            </div>
+            <input type="text" id="law-search" placeholder="ค้นหาตามข้อ หรือคำสำคัญในระเบียบ (เช่น ไตรมาส, งบประมาณเหลือจ่าย, ผู้มีอำนาจกำกับ, ข้อ 8)..." 
+                   class="w-full pl-11 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#2563eb] focus:ring-4 focus:ring-[#2563eb]/15 transition-all duration-300">
+            <button id="clear-search-btn" class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors hidden">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </div>
+        <div id="search-status" class="text-center text-xs md:text-sm text-slate-500 mt-3 font-medium hidden">
+            พบ <span id="search-count" class="text-[#2563eb] font-bold">0</span> ข้อที่ตรงกับผลการค้นหา
+        </div>
+    </div>
+
+    <!-- Main Layout Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <!-- Sidebar Navigation (Col 1) -->
+        <div class="hidden lg:block lg:col-span-1">
+            <div class="sticky top-24 space-y-4">
+                <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm space-y-4">
+                    <div class="font-bold text-slate-800 text-sm flex items-center gap-2 uppercase tracking-wider pb-3 border-b border-slate-100">
+                        <i class="fa-solid fa-list-ol text-blue-600"></i> สารบัญระเบียบ
+                    </div>
+                    <nav class="space-y-1 max-h-[60vh] overflow-y-auto custom-scrollbar text-xs">
+
+                        <a href="#ch-intro" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            บทนำ (ข้อ 1 - 4)
+                        </a>
+
+                        <a href="#ch-general" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            การโอนงบประมาณทั่วไป (ข้อ 5 - 6)
+                        </a>
+
+                        <a href="#ch-integrated" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            หมวด 1 งบรายจ่ายบูรณาการ (ข้อ 7 - 12)
+                        </a>
+
+                        <a href="#ch-personnel" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            หมวด 2 งบรายจ่ายบุคลากร (ข้อ 13 - 15)
+                        </a>
+
+                        <a href="#ch-flow" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            ขั้นตอนการดำเนินงาน (Flowcharts)
+                        </a>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area (Col 2) -->
+        <div class="lg:col-span-3 space-y-12" id="law-sections-container">
+
+            <!-- CHAPTER SECTION: บทนำ (ข้อ 1 - 4) -->
+            <div id="ch-intro" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-circle-info text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">บทนำ (ข้อ 1 - 4)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">ชื่อระเบียบ วันบังคับใช้ คำนิยาม และขอบเขตการยกเว้น</p>
+                    </div>
+                </div>
+
+                <!-- Preamble Info Card -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 shadow-inner text-slate-700 leading-relaxed font-sans space-y-4">
+                    <div class="text-center font-bold text-lg text-slate-800">ระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการและงบประมาณรายจ่ายบุคลากรระหว่างหน่วยรับงบประมาณ พ.ศ. 2562</div>
+                    <p class="indent-8 font-light">โดยที่เป็นการสมควรมีระเบียบสำหรับการโอนงบประมาณรายจ่ายบูรณาการและงบประมาณรายจ่ายบุคลากรระหว่างหน่วยรับงบประมาณ เพื่อให้การบริหารงบประมาณรายจ่ายเกิดประสิทธิภาพสูงสุด โดยสามารถโอนงบประมาณรายจ่ายที่หน่วยรับงบประมาณไม่สามารถใช้จ่ายหรือก่อหนี้ผูกพันให้เป็นไปตามแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณ หรืองบประมาณรายจ่ายที่หมดความจำเป็น ไปตั้งเป็นงบประมาณรายจ่ายของหน่วยรับงบประมาณอื่นภายใต้แผนงานบูรณาการเดียวกัน หรือภายใต้แผนงานบุคลากรภาครัฐได้</p>
+                    <p class="indent-8 font-light">อาศัยอำนาจตามความในมาตรา 35 วรรคสอง แห่งพระราชบัญญัติวิธีการงบประมาณ พ.ศ. 2561 ผู้อำนวยการสำนักงบประมาณโดยความเห็นชอบของคณะรัฐมนตรี วางระเบียบไว้ ดังต่อไปนี้</p>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 1 (1) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="1" data-section-num-thai="1">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 1
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 1
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ระเบียบนี้เรียกว่า “ระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการ และงบประมาณรายจ่ายบุคลากรระหว่างหน่วยรับงบประมาณ พ.ศ. 2562”</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 2 (2) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="2" data-section-num-thai="2">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 2
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 2
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ระเบียบนี้ใช้บังคับตั้งแต่วันที่ 31 กรกฎาคม 2562 เป็นต้นไป</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 3 (3) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="3" data-section-num-thai="3">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 3
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 3
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ในระเบียบนี้</p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“งบประมาณรายจ่ายบูรณาการ”</strong> <span class="sec-text-content">หมายความว่า งบประมาณรายจ่ายที่ตั้งไว้ในแผนงานบูรณาการตามกฎหมายว่าด้วยงบประมาณรายจ่าย</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“งบประมาณรายจ่ายบุคลากร”</strong> <span class="sec-text-content">หมายความว่า งบประมาณรายจ่ายที่ตั้งไว้ในแผนงานบุคลากรภาครัฐตามกฎหมายว่าด้วยงบประมาณรายจ่าย</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“ผู้มีอำนาจกำกับแผนงานบูรณาการ”</strong> <span class="sec-text-content">หมายความว่า ผู้ที่คณะรัฐมนตรีมอบหมายให้เป็นประธานคณะกรรมการจัดทำ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">งบประมาณรายจ่ายบูรณาการ</span> หรือมอบหมายให้เป็นผู้กำกับแผนงานบูรณาการไว้เป็นการเฉพาะ</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“หน่วยงานเจ้าภาพ”</strong> <span class="sec-text-content">หมายความว่า <span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">หน่วยรับงบประมาณ</span>ที่เป็นเจ้าภาพหลักในการจัดทำ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">งบประมาณรายจ่ายบูรณาการ</span></span></p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 4 (4) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="4" data-section-num-thai="4">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 4
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 4
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ระเบียบนี้ไม่ใช้บังคับแก่งบประมาณรายจ่ายที่ตั้งไว้เป็นเงินอุดหนุนทั่วไปสำหรับหน่วยรับงบประมาณ ดังต่อไปนี้</p>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">หน่วยงานของรัฐสภา ศาลยุติธรรม ศาลปกครอง ศาลรัฐธรรมนูญ องค์กรอิสระตามรัฐธรรมนูญ และองค์กรอัยการ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">องค์การมหาชนหรือหน่วยงานของรัฐที่มีกฎหมายกำหนดให้ได้รับการจัดสรรงบประมาณเป็นเงินอุดหนุน</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content">องค์กรปกครองส่วนท้องถิ่น</span></div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: การโอนงบประมาณทั่วไป (ข้อ 5 - 6) -->
+            <div id="ch-general" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-circle-check text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">การโอนงบประมาณทั่วไป (ข้อ 5 - 6)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">เงื่อนไขการโอนงบประมาณและผู้รักษาการตามระเบียบ</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 5 (5) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="5" data-section-num-thai="5">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 5
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 5
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">งบประมาณรายจ่ายบูรณาการหรืองบประมาณรายจ่ายบุคลากรที่ตั้งไว้สำหรับหน่วยรับงบประมาณใด จะโอนไปตั้งเป็นงบประมาณรายจ่ายของหน่วยรับงบประมาณอื่นภายใต้แผนงานบูรณาการเดียวกันหรือภายใต้แผนงานบุคลากรภาครัฐได้เฉพาะในกรณีที่หน่วยรับงบประมาณใช้จ่ายหรือก่อหนี้ผูกพันไม่เป็นไปตามแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณที่ได้รับความเห็นชอบจากสำนักงบประมาณ</p>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">งบประมาณรายจ่ายตามวรรคหนึ่ง ให้รวมถึงงบประมาณที่เหลือจากการใช้จ่ายหรือดำเนินการบรรลุวัตถุประสงค์ของรายการที่ได้รับจัดสรรแล้ว และยังไม่ได้นำไปใช้จ่ายหรือก่อหนี้ผูกพันรายการใหม่ด้วย</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 6 (6) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="6" data-section-num-thai="6">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 6
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 6
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ให้ผู้อำนวยการสำนักงบประมาณรักษาการตามระเบียบนี้ และให้มีอำนาจกำหนดวิธีปฏิบัติเกี่ยวกับการโอนงบประมาณภายใต้ระเบียบนี้ได้ตามความจำเป็น กับให้มีอำนาจวินิจฉัยปัญหาเกี่ยวกับการปฏิบัติตามระเบียบนี้</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: หมวด 1 การโอนงบประมาณรายจ่ายบูรณาการ (ข้อ 7 - 12) -->
+            <div id="ch-integrated" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-diagram-project text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">หมวด 1 การโอนงบประมาณรายจ่ายบูรณาการ (ข้อ 7 - 12)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">การตรวจสอบผลการใช้จ่าย การปรับลด และการจัดสรรคืนงบประมาณรายจ่ายบูรณาการ</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 7 (7) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="7" data-section-num-thai="7">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 7
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 7
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">เมื่อสิ้นไตรมาสที่สองของปีงบประมาณ ให้สำนักงบประมาณตรวจสอบผลการใช้จ่ายงบประมาณของหน่วยรับงบประมาณ หากปรากฏว่ามีงบประมาณรายจ่ายบูรณาการในกรณีตามที่กำหนดไว้ในข้อ 5 ให้สำนักงบประมาณแจ้งให้หน่วยรับงบประมาณทราบและตรวจสอบข้อมูลโดยเร็ว</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 8 (8) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="8" data-section-num-thai="8">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 8
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 8
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">เมื่อได้รับแจ้งจากสำนักงบประมาณตามข้อ 7 ให้หน่วยรับงบประมาณดำเนินการ ดังต่อไปนี้</p>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">กรณีงบประมาณที่ใช้จ่ายหรือก่อหนี้ผูกพันไม่เป็นไปตามแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณ ให้รายงานต่อหน่วยงานเจ้าภาพภายในสิบห้าวันนับแต่วันที่ได้รับแจ้ง ในกรณีที่เห็นว่างบประมาณรายการใดยังมีความจำเป็นต้องดำเนินการต่อไป ให้ชี้แจงเหตุผลความจำเป็นไว้ในรายงานนั้นด้วย และให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">หน่วยรับงบประมาณ</span>ส่งสำเนารายงานดังกล่าวให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">สำนักงบประมาณ</span>พิจารณาเสนอความเห็น เพื่อประกอบการพิจารณาของหน่วยงานเจ้าภาพด้วย ทั้งนี้ หากหน่วยงานเจ้าภาพเห็นควรให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">หน่วยรับงบประมาณ</span>ใช้จ่ายงบประมาณดังกล่าวต่อไปได้ ให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">หน่วยรับงบประมาณ</span>เร่งดำเนินการตามแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณต่อไป แต่หากเห็นควรให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">หน่วยรับงบประมาณ</span>ระงับการใช้จ่ายงบประมาณ เพื่อนำงบประมาณโอนไปให้หน่วยงานอื่น ให้หน่วยงานเจ้าภาพเสนอ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">ผู้มีอำนาจกำกับ</span>แผนงานบูรณาการพิจารณา</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">กรณีเป็นงบประมาณเหลือจ่าย ให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">หน่วยรับงบประมาณ</span>ชี้แจงความประสงค์ที่จะนำงบประมาณไปใช้จ่ายโดยให้ชี้แจงเหตุผล ความจำเป็น และรายละเอียดค่าใช้จ่าย ต่อหน่วยงานเจ้าภาพ และให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">หน่วยรับงบประมาณ</span>ส่งสำเนารายงานดังกล่าวให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">สำนักงบประมาณ</span>ทราบ เพื่อพิจารณาเสนอความเห็นประกอบการพิจารณาของหน่วยงานเจ้าภาพด้วย ทั้งนี้ หากหน่วยงานเจ้าภาพพิจารณาเห็นควรให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">หน่วยรับงบประมาณ</span>ใช้จ่ายงบประมาณเหลือจ่ายดังกล่าว ให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">หน่วยรับงบประมาณ</span>เสนอ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">สำนักงบประมาณ</span>เพื่อพิจารณาอนุมัติโอนหรือเปลี่ยนแปลงงบประมาณต่อไป แต่หากไม่เห็นควรให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">หน่วยรับงบประมาณ</span>นำงบประมาณเหลือจ่ายไปใช้จ่าย ให้<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">สำนักงบประมาณ</span>ปรับลดเงินจัดสรรงบประมาณเหลือจ่ายดังกล่าว</span></div>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 9 (9) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="9" data-section-num-thai="9">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 9
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 9
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ในกรณีที่ผู้มีอำนาจกำกับแผนงานบูรณาการพิจารณารายงานของหน่วยงานเจ้าภาพตามข้อ 8 แล้ว เห็นควรให้หน่วยรับงบประมาณใช้จ่ายงบประมาณดังกล่าวต่อไปได้ ให้หน่วยรับงบประมาณเร่งดำเนินการให้เป็นไปตามแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณ แต่หากผู้มีอำนาจกำกับแผนงานบูรณาการเห็นควรให้หน่วยรับงบประมาณระงับการใช้จ่ายงบประมาณรายการใด ให้สำนักงบประมาณปรับลดเงินจัดสรรของหน่วยรับงบประมาณต่อไป ทั้งนี้ หากมีงบประมาณรายจ่ายบูรณาการที่สำนักงบประมาณยังมิได้อนุมัติเงินจัดสรรให้ระงับการอนุมัติเงินจัดสรรงบประมาณรายการนั้น</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 10 (10) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="10" data-section-num-thai="10">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 10
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 10
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">หน่วยรับงบประมาณใดที่มีความจำเป็นต้องขอรับโอนงบประมาณรายจ่ายบูรณาการจากหน่วยรับงบประมาณอื่นเพื่อดำเนินการตามแผนงานบูรณาการที่ไม่ก่อให้เกิดรายการก่อหนี้ผูกพันข้ามปีงบประมาณ ให้ยื่นคำขอรับการจัดสรรงบประมาณต่อผู้มีอำนาจกำกับแผนงานบูรณาการ โดยให้เสนอไปยังหน่วยงานเจ้าภาพ พร้อมชี้แจงเหตุผล ความจำเป็น และรายละเอียดค่าใช้จ่าย ตลอดจนความพร้อมที่จะดำเนินการ และให้หน่วยงานเจ้าภาพพิจารณาเหตุผล ความจำเป็น ความพร้อมในการดำเนินการ รวมทั้งความเหมาะสมของโครงการหรือรายการเพื่อประกอบการพิจารณาของผู้มีอำนาจกำกับแผนงานบูรณาการ ทั้งนี้ การยื่นคำขอรับการจัดสรรงบประมาณให้กระทำได้เมื่อสิ้นไตรมาสที่สองของปีงบประมาณแล้ว</p>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ให้หน่วยรับงบประมาณส่งสำเนาคำขอรับการจัดสรรงบประมาณตามวรรคหนึ่งให้แก่สำนักงบประมาณเพื่อพิจารณาเสนอความเห็นประกอบการพิจารณาของผู้มีอำนาจกำกับแผนงานบูรณาการ โดยให้เสนอความเห็นไปยังหน่วยงานเจ้าภาพ พร้อมทั้งจำนวนเงินที่ได้ปรับลดเงินจัดสรรหรือระงับการอนุมัติเงินจัดสรรไว้ตามข้อ 8 และข้อ 9 ซึ่งเป็นจำนวนเงินที่อาจโอนไปให้หน่วยงานที่ขอรับการจัดสรรได้</p>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ในกรณีที่หน่วยงานเจ้าภาพจะขอรับโอนงบประมาณรายจ่ายบูรณาการ ให้แจ้งสำนักงบประมาณเพื่อพิจารณาเสนอความเห็นประกอบการพิจารณาของผู้มีอำนาจกำกับแผนงานบูรณาการตามที่กำหนดในวรรคสองก่อน แล้วจึงเสนอคำขอรับการจัดสรรงบประมาณพร้อมทั้งความเห็นของสำนักงบประมาณต่อผู้มีอำนาจกำกับแผนงานบูรณาการ</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 11 (11) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="11" data-section-num-thai="11">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 11
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 11
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">เมื่อผู้มีอำนาจกำกับแผนงานบูรณาการอนุมัติหลักการแล้ว ให้หน่วยรับงบประมาณที่ขอรับการจัดสรรงบประมาณส่งรายละเอียดค่าใช้จ่ายพร้อมทั้งจัดทำแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณส่งให้สำนักงบประมาณพิจารณาภายในสิบห้าวันนับแต่วันที่ได้รับอนุมัติ</p>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">เมื่อสำนักงบประมาณให้ความเห็นชอบแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณแล้ว ให้โอนงบประมาณรายจ่ายบูรณาการจากหน่วยรับงบประมาณที่ได้ปรับลดเงินจัดสรร หรือระงับการอนุมัติเงินจัดสรรไว้ตามข้อ 8 และข้อ 9 ไปให้แก่หน่วยรับงบประมาณที่ขอรับเงินจัดสรรตามความเหมาะสม เมื่อดำเนินการโอนงบประมาณแล้วให้แจ้งผู้มีอำนาจกำกับแผนงานบูรณาการทราบ</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 12 (12) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="12" data-section-num-thai="12">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 12
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 12
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">งบประมาณรายจ่ายบูรณาการที่สำนักงบประมาณได้ปรับลดเงินจัดสรร หรือระงับการอนุมัติเงินจัดสรรของหน่วยรับงบประมาณใดไว้ตามข้อ 9 หากมิได้โอนไปให้หน่วยรับงบประมาณอื่น ให้สำนักงบประมาณจัดสรรงบประมาณคืนแก่หน่วยรับงบประมาณเดิม</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: หมวด 2 การโอนงบประมาณรายจ่ายบุคลากร (ข้อ 13 - 15) -->
+            <div id="ch-personnel" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-user-tie text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">หมวด 2 การโอนงบประมาณรายจ่ายบุคลากร (ข้อ 13 - 15)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">การตรวจสอบและลำดับขั้นตอนการขอโอนงบประมาณรายจ่ายบุคลากร</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 13 (13) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="13" data-section-num-thai="13">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 13
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 13
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ภายหลังสิ้นเดือนพฤษภาคม ให้สำนักงบประมาณและหน่วยรับงบประมาณร่วมกันตรวจสอบผลการใช้จ่ายงบประมาณของหน่วยรับงบประมาณ หากปรากฏว่ามีงบประมาณรายจ่ายบุคลากรในกรณีตามที่กำหนดไว้ในข้อ 5 สำนักงบประมาณอาจปรับลดเงินจัดสรรหรือปรับลดงบประมาณรายจ่ายที่ยังมิได้อนุมัติเงินจัดสรร เพื่อโอนให้หน่วยรับงบประมาณอื่นที่ได้รับจัดสรรงบประมาณรายจ่ายแผนงานบุคลากรภาครัฐไม่เพียงพอต่อไป</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 14 (14) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="14" data-section-num-thai="14">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 14
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 14
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">หน่วยรับงบประมาณใดที่มีความจำเป็นต้องขอรับโอนงบประมาณรายจ่ายบุคลากรจากหน่วยรับงบประมาณอื่น ให้ยื่นคำขอต่อสำนักงบประมาณพร้อมทั้งชี้แจงเหตุผล ความจำเป็น และรายละเอียดค่าใช้จ่ายตามแบบที่สำนักงบประมาณกำหนด ทั้งนี้ การยื่นคำขอรับการจัดสรรงบประมาณ ให้กระทำได้เมื่อสิ้นไตรมาสที่สามของปีงบประมาณแล้ว</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 15 (15) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="15" data-section-num-thai="15">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 15
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 15
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">เมื่อสำนักงบประมาณตรวจสอบผลการใช้จ่ายงบประมาณของหน่วยรับงบประมาณตามข้อ 13 และความจำเป็นในการใช้จ่ายงบประมาณของหน่วยรับงบประมาณตามข้อ 14 แล้ว กรณีมีความจำเป็นต้องโอนงบประมาณรายจ่ายบุคลากรจากหน่วยรับงบประมาณใดไปให้หน่วยรับงบประมาณอื่น ให้สำนักงบประมาณพิจารณาโอนงบประมาณภายในกระทรวงเดียวกันก่อน แล้วจึงพิจารณาโอนงบประมาณให้หน่วยรับงบประมาณต่างกระทรวงในลำดับถัดไป และเมื่อโอนงบประมาณแล้ว ให้สำนักงบประมาณแจ้งให้หน่วยรับงบประมาณที่ปรับลดเงินจัดสรรหรือปรับลดงบประมาณรายจ่ายทราบในโอกาสแรก</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: ขั้นตอนการดำเนินการตามระเบียบ -->
+            <div id="ch-flow" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-arrows-split-up-and-left text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">ขั้นตอนการดำเนินการตามระเบียบ</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">แผนผังแสดงขั้นตอนการตรวจสอบ ปรับลด และขอรับโอนงบประมาณ</p>
+                    </div>
+                </div>
+                
+                <div class="flow-tabs-container bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm">
+                    <input type="radio" id="flow-tab-1" name="flow-tabs" class="hidden" checked>
+                    <input type="radio" id="flow-tab-2" name="flow-tabs" class="hidden">
+                    <input type="radio" id="flow-tab-3" name="flow-tabs" class="hidden">
+                    
+                    <!-- Tab Buttons Bar -->
+                    <div class="flex flex-wrap gap-2 border-b border-slate-100 pb-4 mb-8">
+                        <label for="flow-tab-1" class="flow-tab-label px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 cursor-pointer transition-all duration-300 border border-transparent">
+                            1. บูรณาการ (ตรวจสอบและปรับลด)
+                        </label>
+                        <label for="flow-tab-2" class="flow-tab-label px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 cursor-pointer transition-all duration-300 border border-transparent">
+                            2. บูรณาการ (ขอรับโอนงบประมาณ)
+                        </label>
+                        <label for="flow-tab-3" class="flow-tab-label px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 cursor-pointer transition-all duration-300 border border-transparent">
+                            3. บุคลากร (ตรวจสอบและโอน)
+                        </label>
+                    </div>
+                    
+                    <!-- Tab Content 1 -->
+                    <div id="flow-content-1" class="flow-content space-y-8 animate-fade-in hidden">
+                        <div class="bg-blue-50/50/40 border border-blue-200/50/40 p-5 rounded-2xl text-slate-700 text-xs md:text-sm mb-6">
+                            <h5 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-triangle-exclamation text-blue-600"></i> ข้อมูลเพิ่มเติมขอบเขตการบังคับใช้ (ข้อ 4)
+                            </h5>
+                            <p class="font-light leading-relaxed">ระเบียบนี้ <strong class="text-slate-900 font-semibold">ไม่ใช้บังคับ</strong> แก่งบประมาณรายจ่ายที่ตั้งไว้เป็นเงินอุดหนุนทั่วไปสำหรับ: (1) หน่วยงานรัฐสภา ศาลยุติธรรม ศาลปกครอง ศาลรัฐธรรมนูญ องค์กรอิสระตามรัฐธรรมนูญ องค์กรอัยการ (2) องค์การมหาชนหรือหน่วยงานรัฐที่มีกฎหมายกำหนดให้ได้รับงบประมาณเป็นเงินอุดหนุน (3) องค์กรปกครองส่วนท้องถิ่น</p>
+                        </div>
+                        
+                        <div class="relative pl-8 border-l-2 border-blue-400/25 space-y-8 py-2">
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">1</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">สิ้นไตรมาสที่สอง</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">สำนักงบประมาณตรวจสอบผลการใช้จ่าย</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">ตรวจสอบผลการใช้จ่ายงบประมาณของหน่วยรับงบประมาณ หากปรากฏว่างบประมาณรายจ่ายบูรณาการมีกรณีใช้จ่ายหรือก่อหนี้ไม่เป็นไปตามแผน หรือมีงบประมาณเหลือจ่าย (ตามข้อ 5) สำนักงบประมาณจะแจ้งให้หน่วยรับงบประมาณทราบและตรวจสอบข้อมูลโดยเร็ว (ข้อ 7)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">2</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">ภายใน 15 วัน นับแต่ได้รับแจ้ง</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">หน่วยรับงบประมาณรายงานความจำเป็นหรือรายละเอียด</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">หน่วยรับงบประมาณจัดทำรายงานส่งไปยังหน่วยงานเจ้าภาพ และส่งสำเนารายงานให้สำนักงบประมาณเพื่อเสนอความเห็นประกอบการพิจารณา (ข้อ 8) โดยจำแนกเป็น 2 กรณีดังนี้:</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3 bg-slate-50 p-4 rounded-xl border border-slate-200/50">
+                                        <div class="space-y-1">
+                                            <span class="text-xs font-bold text-slate-800 block"><i class="fa-solid fa-business-time text-blue-600"></i> กรณีใช้งบประมาณไม่เป็นไปตามแผน:</span>
+                                            <span class="text-xs text-slate-500 font-light block leading-relaxed">หากรายการใดยังมีความจำเป็นต้องดำเนินโครงการต่อไป ให้ชี้แจงเหตุผลความจำเป็นไว้ในรายงานนั้นด้วย</span>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <span class="text-xs font-bold text-slate-800 block"><i class="fa-solid fa-coins text-blue-600"></i> กรณีเป็นงบประมาณเหลือจ่าย:</span>
+                                            <span class="text-xs text-slate-500 font-light block leading-relaxed">ชี้แจงความประสงค์ที่จะนำงบเหลือจ่ายไปใช้จ่าย พร้อมเหตุผลความจำเป็น และรายละเอียดค่าใช้จ่ายที่เกี่ยวข้อง</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">3</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">กระบวนการพิจารณา</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">หน่วยงานเจ้าภาพพิจารณาร่วมกับความเห็นสำนักงบประมาณ</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">พิจารณาตามข้อมูลชี้แจงของหน่วยรับงบประมาณ (ข้อ 8) มีผลลัพธ์แยกตามกรณีดังนี้:</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+                                        <div class="bg-emerald-50/50 p-4 rounded-xl border border-emerald-100/50 space-y-1">
+                                            <span class="text-xs font-bold text-emerald-800 block"><i class="fa-solid fa-check-circle"></i> กรณีหน่วยงานเจ้าภาพเห็นควรให้ใช้จ่ายต่อ</span>
+                                            <span class="text-xs text-slate-600 font-light block">1. <u>กรณีล่าช้ากว่าแผน</u>: ให้หน่วยรับงบประมาณเร่งดำเนินการตามแผนการปฏิบัติงานต่อไป</span>
+                                            <span class="text-xs text-slate-600 font-light block">2. <u>กรณีงบเหลือจ่าย</u>: ให้หน่วยรับงบประมาณเสนอสำนักงบประมาณอนุมัติโอนหรือเปลี่ยนแปลงต่อไป</span>
+                                        </div>
+                                        <div class="bg-rose-50/50 p-4 rounded-xl border border-rose-100/50 space-y-1">
+                                            <span class="text-xs font-bold text-rose-800 block"><i class="fa-solid fa-ban"></i> กรณีหน่วยงานเจ้าภาพเห็นควรให้ระงับ/ปรับลด</span>
+                                            <span class="text-xs text-slate-600 font-light block">1. <u>กรณีล่าช้ากว่าแผน</u>: เสนอผู้มีอำนาจกำกับแผนงานบูรณาการ เพื่อขอยืนยันระงับการใช้จ่ายและนำเงินไปโอนให้หน่วยรับงบประมาณอื่น</span>
+                                            <span class="text-xs text-slate-600 font-light block">2. <u>กรณีงบเหลือจ่าย</u>: สำนักงบประมาณดำเนินการปรับลดเงินจัดสรรงบประมาณเหลือจ่ายนั้นทันที</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">4</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">ชี้ขาดระงับงบประมาณ</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">ผู้มีอำนาจกำกับแผนงานบูรณาการชี้ขาดและปรับลดงบประมาณ</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">กรณีเสนอระงับการใช้จ่ายงบประมาณล่าช้า หากผู้มีอำนาจกำกับแผนงานบูรณาการเห็นชอบให้ระงับ ให้สำนักงบประมาณดำเนินการปรับลดเงินจัดสรรของหน่วยรับงบประมาณต่อไป ทั้งนี้ หากรายการใดสำนักงบประมาณยังไม่ได้อนุมัติเงินจัดสรร ให้ระงับการอนุมัติเงินจัดสรรรายการนั้นทันที (ข้อ 9) แต่หากผู้มีอำนาจเห็นควรให้ดำเนินการต่อ ก็ให้เร่งดำเนินการต่อไป</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Content 2 -->
+                    <div id="flow-content-2" class="flow-content space-y-8 animate-fade-in hidden">
+                        <div class="relative pl-8 border-l-2 border-blue-400/25 space-y-8 py-2">
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">1</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">หลังสิ้นไตรมาสที่สอง</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">ยื่นคำขอรับโอนงบประมาณรายจ่ายบูรณาการ</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">หน่วยรับงบประมาณที่ต้องการใช้งบประมาณ ยื่นคำขอรับจัดสรรต่อผู้มีอำนาจกำกับแผนงานบูรณาการโดยเสนอไปยังหน่วยงานเจ้าภาพ พร้อมแสดงเหตุผล ความจำเป็น รายละเอียดโครงการ และความพร้อมในการดำเนินการ ซึ่งโครงการนี้ต้องไม่ก่อให้เกิดภาระผูกพันข้ามปีงบประมาณ (ข้อ 10 วรรคหนึ่ง)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">2</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">สำเนาเสนอสำนักงบประมาณ</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">สำนักงบประมาณเสนอความเห็นและคำนวณวงเงินโอน</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">ส่งสำเนาคำขอรับการจัดสรรให้สำนักงบประมาณพิจารณาเสนอความเห็นไปยังหน่วยงานเจ้าภาพ พร้อมแจ้งรายละเอียดจำนวนเงินสะสมที่ปรับลดหรือระงับไว้ตามข้อ 8 และข้อ 9 เพื่อระบุจำนวนเงินที่สามารถโอนได้ (ข้อ 10 วรรคสอง/วรรคสาม)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">3</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">อนุมัติหลักการ</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">ผู้มีอำนาจกำกับแผนงานบูรณาการอนุมัติหลักการ</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">ผู้มีอำนาจกำกับฯ พิจารณาความสอดคล้องและความเหมาะสมของโครงการรวมถึงความเห็นของสำนักงบประมาณและหน่วยงานเจ้าภาพ แล้วดำเนินการอนุมัติหลักการจัดสรรงบประมาณ</p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">4</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">ภายใน 15 วัน นับจากอนุมัติ</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">หน่วยรับงบประมาณส่งรายละเอียดและแผนการปฏิบัติงาน</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">หน่วยรับงบประมาณที่ได้รับการอนุมัติหลักการแล้ว จัดทำรายละเอียดค่าใช้จ่าย แผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณ เสนอต่อสำนักงบประมาณเพื่อขอความเห็นชอบ (ข้อ 11 วรรคหนึ่ง)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">5</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">โอนเงินงบประมาณ</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">สำนักงบประมาณโอนเงินจัดสรรและรายงานผล</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">เมื่อสำนักงบประมาณให้ความเห็นชอบแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณแล้ว ให้โอนเงินงบประมาณที่ได้ปรับลดหรือระงับไว้ตามข้อ 8 และข้อ 9 ไปให้แก่หน่วยรับงบประมาณที่ขอรับเงินจัดสรรตามความเหมาะสม และแจ้งให้ผู้มีอำนาจกำกับฯ ทราบ (ข้อ 11 วรรคสอง)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative group/step bg-slate-50/50 p-4 rounded-xl border border-slate-200/50">
+                                <div class="absolute -left-[41px] top-4.5 w-6 h-6 rounded-full bg-slate-400 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-white font-bold">!</div>
+                                <div class="space-y-1">
+                                    <h5 class="text-sm font-bold text-slate-700">การคืนงบประมาณในกรณีไม่มีหน่วยงานรับโอน (ข้อ 12)</h5>
+                                    <p class="text-slate-500 text-xs font-light leading-relaxed">งบประมาณรายจ่ายบูรณาการที่ปรับลดหรือระงับไว้ตามข้อ 9 หากตรวจสอบในที่สุดแล้วไม่มีการโอนไปให้หน่วยรับงบประมาณอื่นใด ให้สำนักงบประมาณโอนจัดสรรงบประมาณดังกล่าวคืนแก่หน่วยรับงบประมาณเดิม</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Content 3 -->
+                    <div id="flow-content-3" class="flow-content space-y-8 animate-fade-in hidden">
+                        <div class="relative pl-8 border-l-2 border-blue-400/25 space-y-8 py-2">
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">1</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">ภายหลังสิ้นเดือนพฤษภาคม</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">ร่วมกันตรวจสอบและพิจารณาปรับลดงบประมาณบุคลากร</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">สำนักงบประมาณและหน่วยรับงบประมาณร่วมกันตรวจสอบผลการใช้จ่ายงบประมาณของหน่วยรับงบประมาณ หากงบประมาณรายจ่ายบุคลากรใช้จ่ายไม่ทันตามแผนหรือมีเหลือจ่าย (ตามข้อ 5) สำนักงบประมาณอาจดำเนินการปรับลดเงินจัดสรรหรือปรับลดงบประมาณรายจ่ายที่ยังไม่ได้อนุมัติเงินจัดสรร (ข้อ 13)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">2</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">สิ้นไตรมาสสาม (สิ้นเดือนมิถุนายน)</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">หน่วยรับงบประมาณยื่นคำขอรับโอนงบประมาณบุคลากร</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">หน่วยรับงบประมาณที่มีความจำเป็นยื่นคำขอรับโอนงบประมาณรายจ่ายบุคลากรต่อสำนักงบประมาณ พร้อมชี้แจงเหตุผลความจำเป็นและรายละเอียดค่าใช้จ่ายตามแบบที่สำนักงบประมาณกำหนด (ข้อ 14)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative group/step">
+                                <div class="absolute -left-[41px] top-0.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-white shadow-md flex items-center justify-center text-[10px] text-blue-400 font-bold group-hover/step:scale-110 transition-all duration-300">3</div>
+                                <div class="space-y-2">
+                                    <span class="px-2.5 py-0.5 bg-blue-100 text-blue-800 rounded-md text-[10px] font-bold tracking-wide uppercase">การดำเนินการโอน</span>
+                                    <h4 class="text-base md:text-lg font-bold text-slate-800">โอนงบประมาณตามลำดับความสัมพันธ์กระทรวง</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm font-light leading-relaxed">เมื่อสำนักงบประมาณพิจารณาตรวจสอบความจำเป็นและยอดจัดสรรงบประมาณบุคลากรแล้ว กรณีที่จำเป็นต้องโอน ให้สำนักงบประมาณโอนงบประมาณโดยมีเงื่อนไขการเรียงลำดับดังนี้ (ข้อ 15):</p>
+                                    
+                                    <div class="flex flex-col gap-3 mt-3 max-w-xl">
+                                        <div class="flex items-center gap-3 bg-blue-500/10 p-3 rounded-xl border border-blue-500/20">
+                                            <span class="w-6 h-6 rounded-lg bg-blue-500 text-white font-bold flex items-center justify-center text-xs">1</span>
+                                            <span class="text-xs md:text-sm text-slate-800 font-semibold">พิจารณาโอนงบประมาณรายจ่ายบุคลากรภายในกระทรวงเดียวกันก่อน</span>
+                                        </div>
+                                        <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                            <span class="w-6 h-6 rounded-lg bg-slate-300 text-slate-700 font-bold flex items-center justify-center text-xs">2</span>
+                                            <span class="text-xs md:text-sm text-slate-600">พิจารณาโอนงบประมาณรายจ่ายบุคลากรให้หน่วยงานต่างกระทรวงในลำดับถัดไป</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-2">หมายเหตุ: เมื่อโอนงบประมาณเสร็จสิ้นแล้ว ให้สำนักงบประมาณดำเนินการแจ้งให้หน่วยรับงบประมาณที่ปรับลดเงินจัดสรรหรือปรับลดงบประมาณรายจ่ายทราบในโอกาสแรก</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Style sheet for the pure CSS tabs -->
+                <style>
+                    /* Initially hide all flow contents except flow-tab-1 */
+                    #flow-tab-1:checked ~ #flow-content-1 {
+                        display: block !important;
+                    }
+                    #flow-tab-2:checked ~ #flow-content-2 {
+                        display: block !important;
+                    }
+                    #flow-tab-3:checked ~ #flow-content-3 {
+                        display: block !important;
+                    }
+                    
+                    /* Styling active tab labels */
+                    #flow-tab-1:checked ~ div.flex label[for="flow-tab-1"],
+                    #flow-tab-2:checked ~ div.flex label[for="flow-tab-2"],
+                    #flow-tab-3:checked ~ div.flex label[for="flow-tab-3"] {
+                        background-color: #2563eb;
+                        color: #0f172a;
+                        border-color: #2563eb;
+                        box-shadow: 0 4px 12px rgba(253, 205, 14, 0.2);
+                    }
+                </style>
+            </div>
+
+            <!-- Signature Card -->
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 shadow-sm flex flex-col items-center justify-center space-y-3 mt-12 text-slate-700">
+                <div class="text-center font-semibold">ประกาศ ณ วันที่ 19 กรกฎาคม พ.ศ. 2562</div>
+                <div class="text-center mt-4">
+                    <p class="font-bold">(นายเดชาภิวัฒน์ ณ สงขลา)</p>
+                    <p class="text-sm text-slate-500 mt-1">ผู้อำนวยการสำนักงบประมาณ</p>
+                </div>
+            </div>
+
+            <!-- No Results Card -->
+            <div id="no-search-results" class="bg-white border border-slate-200 rounded-2xl p-12 text-center shadow-sm hidden">
+                <div class="w-16 h-16 rounded-2xl bg-blue-50/50 border border-blue-200/50/50 flex items-center justify-center mx-auto mb-4 text-blue-600">
+                    <i class="fa-solid fa-triangle-exclamation text-3xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 mb-2">ไม่พบผลลัพธ์การค้นหา</h3>
+                <p class="text-slate-500 text-sm max-w-md mx-auto">
+                    ไม่พบข้อที่ตรงกับคีย์เวิร์ดของคุณ โปรดลองใช้คำอื่น เช่น "ไตรมาส", "โอนงบประมาณ", "บูรณาการ", "งบบุคลากร" หรือค้นหาตัวเลขข้อโดยตรง
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</div>

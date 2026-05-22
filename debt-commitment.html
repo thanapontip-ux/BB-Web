@@ -1,0 +1,407 @@
+
+<div class="space-y-8 animate-fade-in relative">
+    <!-- Ambient blue glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-gradient-to-b from-blue-500/5 to-transparent rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <!-- Header Hero Card -->
+    <div class="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-[2rem] p-8 md:p-12 shadow-2xl border border-white/10 relative overflow-hidden">
+        <!-- Accent circles -->
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+        
+        <div class="relative flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="px-4 py-1.5 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> มีผลบังคับใช้
+                    </span>
+                    <span class="px-4 py-1.5 bg-white/5 border border-white/10 text-slate-300 rounded-full text-xs font-semibold">
+                        ระเบียบสำนักงบประมาณ
+                    </span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    ระเบียบว่าด้วยการก่อหนี้ผูกพันข้ามปีงบประมาณ<br>พ.ศ. 2562
+                </h1>
+                <p class="text-slate-400 text-sm md:text-base max-w-2xl font-light">
+                    เพื่อให้การบริหารงบประมาณรายจ่ายรายการก่อหนี้ผูกพันข้ามปีงบประมาณ และหน่วยรับงบประมาณใช้จ่ายงบประมาณเป็นไปด้วยความรวดเร็ว มีประสิทธิภาพ และประหยัดคุ้มค่า
+                </p>
+            </div>
+            <div class="flex-shrink-0">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                    <i class="fa-solid fa-file-invoice-dollar text-3xl md:text-4xl text-slate-950"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Metadata Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 pt-8 border-t border-white/10 text-slate-300 text-xs md:text-sm">
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">ประกาศ ณ วันที่</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-regular fa-calendar text-blue-400"></i> 19 กรกฎาคม 2562
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">วันบังคับใช้</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-check text-blue-400"></i> 31 กรกฎาคม 2562
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">ผู้ลงนามประกาศ</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-user-shield text-blue-400"></i> ผู้อำนวยการสำนักงบประมาณ
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">จำนวนเนื้อหา</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-file-invoice text-blue-400"></i> 5 ส่วน (9 ข้อ)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Engine Container -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm relative overflow-hidden">
+        <div class="relative max-w-3xl mx-auto">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i class="fa-solid fa-magnifying-glass text-slate-400 text-md"></i>
+            </div>
+            <input type="text" id="law-search" placeholder="ค้นหาตามข้อ หรือคำสำคัญในระเบียบ (เช่น ครุภัณฑ์, คณะรัฐมนตรี, ข้อ 4)..." 
+                   class="w-full pl-11 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#2563eb] focus:ring-4 focus:ring-[#2563eb]/15 transition-all duration-300">
+            <button id="clear-search-btn" class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors hidden">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </div>
+        <div id="search-status" class="text-center text-xs md:text-sm text-slate-500 mt-3 font-medium hidden">
+            พบ <span id="search-count" class="text-[#2563eb] font-bold">0</span> ข้อที่ตรงกับผลการค้นหา
+        </div>
+    </div>
+
+    <!-- Main Layout Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <!-- Sidebar Navigation (Col 1) -->
+        <div class="hidden lg:block lg:col-span-1">
+            <div class="sticky top-24 space-y-4">
+                <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm space-y-4">
+                    <div class="font-bold text-slate-800 text-sm flex items-center gap-2 uppercase tracking-wider pb-3 border-b border-slate-100">
+                        <i class="fa-solid fa-list-ol text-blue-600"></i> สารบัญระเบียบ
+                    </div>
+                    <nav class="space-y-1 max-h-[60vh] overflow-y-auto custom-scrollbar text-xs">
+
+                        <a href="#ch-intro" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            บทนำ (ข้อ 1 - 3)
+                        </a>
+
+                        <a href="#ch-obligation" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            การก่อหนี้ผูกพัน (ข้อ 4)
+                        </a>
+
+                        <a href="#ch-price" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            ความเหมาะสมของราคา (ข้อ 5 - 6)
+                        </a>
+
+                        <a href="#ch-change" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            การเปลี่ยนแปลงรายการ (ข้อ 7)
+                        </a>
+
+                        <a href="#ch-admin" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                            การบริหารและรักษาการ (ข้อ 8 - 9)
+                        </a>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area (Col 2) -->
+        <div class="lg:col-span-3 space-y-12" id="law-sections-container">
+
+            <!-- CHAPTER SECTION: บทนำ (ข้อ 1 - 3) -->
+            <div id="ch-intro" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-circle-info text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">บทนำ (ข้อ 1 - 3)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">ชื่อระเบียบ วันบังคับใช้ และการยกเลิกข้อกำหนดเดิม</p>
+                    </div>
+                </div>
+
+                <!-- Preamble Info Card -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 shadow-inner text-slate-700 leading-relaxed font-sans space-y-4">
+                    <div class="text-center font-bold text-lg text-slate-800">ระเบียบว่าด้วยการก่อหนี้ผูกพันข้ามปีงบประมาณ พ.ศ. 2562</div>
+                    <p class="indent-8 font-light">โดยที่เป็นการสมควรมีระเบียบสำหรับการบริหารงบประมาณรายจ่ายรายการก่อหนี้ผูกพันข้ามปีงบประมาณ เพื่อให้หน่วยรับงบประมาณใช้จ่ายงบประมาณอย่างมีประสิทธิภาพ</p>
+                    <p class="indent-8 font-light">อาศัยอำนาจตามความในมาตรา 41 แห่งพระราชบัญญัติวิธีการงบประมาณ พ.ศ. 2561 ผู้อำนวยการสำนักงบประมาณโดยความเห็นชอบของคณะรัฐมนตรี วางระเบียบไว้ ดังต่อไปนี้</p>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 1 (1) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="1" data-section-num-thai="1">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 1
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 1
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ระเบียบนี้เรียกว่า “ระเบียบว่าด้วยการก่อหนี้ผูกพันข้ามปีงบประมาณ พ.ศ. 2562”</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 2 (2) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="2" data-section-num-thai="2">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 2
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 2
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ระเบียบนี้ให้ใช้บังคับตั้งแต่วันที่ 31 กรกฎาคม 2562 เป็นต้นไป</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 3 (3) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="3" data-section-num-thai="3">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 3
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 3
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">บรรดาระเบียบ ข้อบังคับ มติคณะรัฐมนตรี และคำสั่งอื่นใดขัดหรือแย้งกับระเบียบนี้ ให้ใช้ระเบียบนี้แทน</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: การก่อหนี้ผูกพัน (ข้อ 4) -->
+            <div id="ch-obligation" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-circle-check text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">การก่อหนี้ผูกพัน (ข้อ 4)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">การดำเนินการหลังจากคณะรัฐมนตรีอนุมัติรายการและวงเงิน</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 4 (4) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="4" data-section-num-thai="4">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 4
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 4
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">เมื่อคณะรัฐมนตรีได้อนุมัติรายการและวงเงินก่อหนี้ผูกพันข้ามปีงบประมาณแล้ว ให้หน่วยรับงบประมาณดำเนินการ ดังต่อไปนี้</p>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">ในกรณีที่เป็นรายการครุภัณฑ์ ที่ดิน หรือสิ่งก่อสร้าง ให้เสนอผลการจัดซื้อจัดจ้างที่ได้ดำเนินการแล้วต่อสำนักงบประมาณเพื่อพิจารณาให้ความเห็นชอบ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">ความเหมาะสมของราคา</span>ก่อนทำสัญญาก่อหนี้ผูกพัน เว้นแต่เป็นรายการที่สำนักงบประมาณได้เคยให้ความเห็นชอบ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">ความเหมาะสมของราคา</span>ไว้แล้ว</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">ในกรณีที่เป็นรายการก่อหนี้ผูกพันซึ่งเป็นรายจ่ายประจำในงบดำเนินงาน งบเงินอุดหนุน หรืองบรายจ่ายอื่น ให้ดำเนินการก่อหนี้ผูกพันภายในวงเงินที่<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">คณะรัฐมนตรี</span><span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">อนุมัติ</span> ทั้งนี้ ตามหลักเกณฑ์ เงื่อนไข หรือวิธีปฏิบัติที่กระทรวงการคลังกำหนด รวมทั้งกฎหมาย ข้อบังคับ ระเบียบ และมติ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">คณะรัฐมนตรี</span>ที่เกี่ยวข้อง ตลอดจนมาตรฐานของทางราชการ โดยให้คำนึงถึงความคุ้มค่าและประหยัด</span></div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: ความเหมาะสมของราคา (ข้อ 5 - 6) -->
+            <div id="ch-price" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-tag text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">ความเหมาะสมของราคา (ข้อ 5 - 6)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">รายละเอียดและขั้นตอนขอความเห็นชอบความเหมาะสมของราคา</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 5 (5) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="5" data-section-num-thai="5">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 5
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 5
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">การเสนอให้สำนักงบประมาณพิจารณาความเหมาะสมของราคาตามข้อ 4 สำหรับรายการครุภัณฑ์ ที่ดิน และสิ่งก่อสร้าง ไม่ว่าจะเบิกจ่ายในงบรายจ่ายใด ให้หน่วยรับงบประมาณเสนอรายละเอียดประกอบ ดังต่อไปนี้</p>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">รายการครุภัณฑ์แต่ละรายการ ให้ระบุ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">ราคากลาง</span>และคุณลักษณะเฉพาะของแต่ละรายการที่กำหนดไว้</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">รายการที่ดิน ให้ระบุ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">ราคากลาง</span>ที่กำหนดไว้ เนื้อที่ของที่ดินและแผนผังสังเขปของที่ดินแต่ละรายการ จังหวัด อำเภอ และตำบล ซึ่งเป็นที่ตั้งของที่ดิน รวมทั้ง<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">ราคากลาง</span>ของที่ดินซึ่งกรมที่ดินเป็นผู้ประมาณการ ราคาที่ดินที่ซื้อขายกันในท้องตลาดในบริเวณและเวลาใกล้เคียง และราคาที่ดินซึ่งทางราชการประเมินเพื่อเสียภาษี</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content">รายการก่อสร้าง ให้ระบุประเภทของสิ่งก่อสร้าง <span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">ราคากลาง</span>ที่กำหนดไว้ แบบรูปและรายการก่อสร้าง หรือรายละเอียดอื่นใดที่จะเป็นประโยชน์ในการพิจารณาของสำนักงบประมาณ เช่น ขนาด หรือเนื้อที่ของอาคารที่จะก่อสร้าง เว้นแต่สิ่งก่อสร้างนั้นๆ เป็นสิ่งก่อสร้างที่สำนักงบประมาณได้กำหนดแบบแปลนมาตรฐานขึ้นไว้ หรือหน่วยรับงบประมาณได้กำหนดแบบแปลนมาตรฐานซึ่งได้รับความเห็นชอบจากสำนักงบประมาณแล้ว ไม่ต้องส่งแบบรูปและรายการก่อสร้างให้สำนักงบประมาณ</span></div>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 6 (6) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="6" data-section-num-thai="6">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 6
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 6
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">เมื่อได้รับความเห็นชอบเกี่ยวกับความเหมาะสมของราคาจากสำนักงบประมาณแล้ว ให้หน่วยรับงบประมาณดำเนินการทำสัญญาก่อหนี้ผูกพันตามวงเงินและรายละเอียดที่สำนักงบประมาณกำหนด</p>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">วงเงินและรายละเอียดที่สำนักงบประมาณได้ให้ความเห็นชอบแล้วจะเปลี่ยนแปลงแก้ไขมิได้ เว้นแต่ได้ทำความตกลงกับสำนักงบประมาณ</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: การเปลี่ยนแปลงรายการ (ข้อ 7) -->
+            <div id="ch-change" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-rotate text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">การเปลี่ยนแปลงรายการ (ข้อ 7)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">หลักเกณฑ์การเปลี่ยนแปลงรายการ วงเงิน หรือขยายระยะเวลา</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 7 (7) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="7" data-section-num-thai="7">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 7
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 7
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ในกรณีที่มีความจำเป็นต้องเปลี่ยนแปลงรายการ วงเงิน ระยะเวลา หรือรายละเอียดของรายการก่อหนี้ผูกพันข้ามปีงบประมาณที่ได้รับอนุมัติจากคณะรัฐมนตรีแล้ว ให้หน่วยรับงบประมาณดำเนินการ ดังต่อไปนี้</p>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">การเปลี่ยนแปลงรายละเอียดของรายการโดยไม่เพิ่มวงเงินก่อหนี้ผูกพันให้ทำความตกลงกับสำนักงบประมาณ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">การขยายระยะเวลาก่อหนี้ผูกพันโดยไม่เพิ่มวงเงินก่อหนี้ผูกพัน ให้เสนอขอ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>ต่อรัฐมนตรีเจ้าสังกัด และรายงานสำนักงบประมาณทราบภายในสิบห้าวันนับแต่วันที่ได้รับ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">อนุมัติ</span></span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content">การเปลี่ยนแปลงรายการหรือการเพิ่มวงเงินก่อหนี้ผูกพันเกินวงเงินที่<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">คณะรัฐมนตรี</span><span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">อนุมัติ</span> ให้เสนอขอ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>ต่อ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">คณะรัฐมนตรี</span> โดยต้องส่งผลการจัดซื้อจัดจ้างหรือรายละเอียดอื่นใดที่เกี่ยวข้อง ให้สำนักงบประมาณพิจารณาเพื่อเสนอความเห็นประกอบการพิจารณาของ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">คณะรัฐมนตรี</span>ด้วย ทั้งนี้ การขอเพิ่มวงเงินที่ต้องขยายระยะเวลาก่อหนี้ผูกพันให้เสนอขอ<span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">อนุมัติ</span><span class="text-blue-600 bg-blue-50/70 border border-blue-100/30 font-semibold px-1.5 py-0.5 rounded transition-colors duration-200">คณะรัฐมนตรี</span>ในคราวเดียวกัน</span></div>
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ให้สำนักงบประมาณกำหนดหลักเกณฑ์ หรือวิธีปฏิบัติเกี่ยวกับการเปลี่ยนแปลงรายละเอียดของรายการก่อหนี้ผูกพันตาม (1) รวมทั้งการบริหารวงเงินงบประมาณรายจ่ายที่ตั้งไว้สำหรับรายการก่อหนี้ผูกพันข้ามปีได้ตามความเหมาะสม</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CHAPTER SECTION: การบริหารและรักษาการ (ข้อ 8 - 9) -->
+            <div id="ch-admin" class="chapter-container space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                        <i class="fa-solid fa-gavel text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 chapter-header-title">การบริหารและรักษาการ (ข้อ 8 - 9)</h2>
+                        <p class="text-slate-400 text-xs md:text-sm">การเบิกจ่ายตามระเบียบบริหารงบประมาณ และผู้รักษาการระเบียบ</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Section Card: ข้อ 8 (8) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="8" data-section-num-thai="8">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 8
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 8
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">การขออนุมัติเงินจัดสรรและการใช้รายจ่ายตามระเบียบนี้ ให้ปฏิบัติตามระเบียบว่าด้วยการบริหารงบประมาณโดยอนุโลม</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Section Card: ข้อ 9 (9) -->
+                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="9" data-section-num-thai="9">
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                    ข้อ 9
+                                </h4>
+                            </div>
+                            <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                                Clause 9
+                            </span>
+                        </div>
+                        <div class="space-y-3 exact-text">
+                            <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ให้ผู้อำนวยการสำนักงบประมาณเป็นผู้รักษาการตามระเบียบนี้ และให้มีอำนาจวินิจฉัยปัญหาเกี่ยวกับการปฏิบัติตามระเบียบนี้</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Signature Card -->
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 shadow-sm flex flex-col items-center justify-center space-y-3 mt-12 text-slate-700">
+                <div class="text-center font-semibold">ประกาศ ณ วันที่ 19 กรกฎาคม พ.ศ. 2562</div>
+                <div class="text-center mt-4">
+                    <p class="font-bold">(นายเดชาภิวัฒน์ ณ สงขลา)</p>
+                    <p class="text-sm text-slate-500 mt-1">ผู้อำนวยการสำนักงบประมาณ</p>
+                </div>
+            </div>
+
+            <!-- No Results Card -->
+            <div id="no-search-results" class="bg-white border border-slate-200 rounded-2xl p-12 text-center shadow-sm hidden">
+                <div class="w-16 h-16 rounded-2xl bg-blue-50/50 border border-blue-200/50/50 flex items-center justify-center mx-auto mb-4 text-blue-600">
+                    <i class="fa-solid fa-triangle-exclamation text-3xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 mb-2">ไม่พบผลลัพธ์การค้นหา</h3>
+                <p class="text-slate-500 text-sm max-w-md mx-auto">
+                    ไม่พบข้อที่ตรงกับคีย์เวิร์ดของคุณ โปรดลองใช้คำอื่น เช่น "ครุภัณฑ์", "ก่อหนี้", "งบดำเนินงาน" หรือค้นหาตัวเลขข้อโดยตรง
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</div>
