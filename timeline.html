@@ -53,15 +53,18 @@
                     #0d9488 0%,
                     /* Stage 1: Planning (Teal) */
                     #0d9488 15%,
-                    #2563eb 30%,
+                    #2563eb 25%,
                     /* Stage 2: Preparation (Blue) */
-                    #2563eb 50%,
-                    #7c3aed 65%,
+                    #2563eb 45%,
+                    #7c3aed 55%,
                     /* Stage 3: Adoption (Purple) */
-                    #7c3aed 80%,
-                    #d97706 90%,
+                    #7c3aed 70%,
+                    #d97706 75%,
                     /* Stage 4: Execution (Amber) */
-                    #d97706 100%);
+                    #d97706 85%,
+                    #e11d48 92%,
+                    /* Stage 5: Evaluation (Rose) */
+                    #e11d48 100%);
             border-radius: 4px;
             z-index: 0;
         }
@@ -118,6 +121,16 @@
             transform: scale(1.3);
         }
 
+        .stage-5-node:hover::before {
+            border-color: #e11d48;
+            box-shadow: 0 0 15px rgba(225, 29, 72, 0.6);
+            transform: scale(1.3);
+        }
+
+        .border-l-rose-600 {
+            border-left-color: #e11d48 !important;
+        }
+
         /* Specialized "Decision" Component for official actions */
         .decision-highlight {
             border-left: 5px solid #64748b;
@@ -161,10 +174,10 @@
             background: rgba(248, 250, 252, 0.95);
             backdrop-filter: blur(12px);
             z-index: 20;
-            padding: 1.25rem 0;
+            padding: 1.25rem 2rem;
             margin-bottom: 2.5rem;
             margin-left: -2rem;
-            padding-left: 2rem;
+            margin-right: -2rem;
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             transition: all 0.3s ease;
         }
@@ -194,154 +207,98 @@
             color: #475569;
         }
 
-        /* Sticky Quick Navigation (Redesigned as 4-Stage Stepper) */
-        .quick-nav-container {
-            position: sticky;
-            top: calc(4.8rem + 76px);
-            /* immediately after the month header */
-            z-index: 15;
-            margin: -0.5rem -1rem 2rem -1rem;
-            padding: 0.75rem 1rem;
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Transformation to Sticky Sub-header on Scroll */
-        .quick-nav-container.is-scrolled {
-            position: sticky;
-            top: calc(4.8rem + 76px);
-            z-index: 15;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-            border-radius: 0;
-            margin-left: -2rem;
-            margin-right: -2rem;
-            padding: 0.5rem 2rem;
-        }
-
-        .quick-nav {
-            display: flex;
-            gap: 0.75rem;
-            overflow-x: auto;
-            padding: 0.25rem;
-            scrollbar-width: none;
-            transition: all 0.5s ease;
-        }
-
-        .quick-nav::-webkit-scrollbar {
-            display: none;
-        }
-
         .nav-stage-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            white-space: nowrap;
-            padding: 0.6rem 1.25rem;
+            justify-content: flex-start;
+            height: 2.2rem;
+            width: 2.2rem; /* Circular by default */
+            padding-left: 0.35rem;
+            padding-right: 0;
             border-radius: 9999px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 800;
             color: #64748b;
             background: #ffffff;
             border: 1px solid rgba(0, 0, 0, 0.08);
             backdrop-filter: blur(8px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
             cursor: pointer;
+            overflow: hidden;
+            flex-shrink: 0;
         }
 
         .nav-stage-btn:hover {
-            background: #f8fafc;
+            width: 10rem; /* Expanded width on hover to fit Stage 5 description */
+            padding-right: 1rem;
             color: #0f172a;
             border-color: rgba(0, 0, 0, 0.12);
             transform: translateY(-1px);
         }
 
         .nav-stage-btn.active {
-            color: white;
-            background: #1e293b;
+            color: white !important;
         }
 
         .nav-stage-btn.active[data-target="stage-1"] {
-            border-color: #0d9488;
+            background: #0d9488 !important;
+            border-color: #0d9488 !important;
             box-shadow: 0 0 15px rgba(13, 148, 136, 0.2);
         }
 
         .nav-stage-btn.active[data-target="stage-2"] {
-            border-color: #2563eb;
+            background: #2563eb !important;
+            border-color: #2563eb !important;
             box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
         }
 
         .nav-stage-btn.active[data-target="stage-3"] {
-            border-color: #7c3aed;
+            background: #7c3aed !important;
+            border-color: #7c3aed !important;
             box-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
         }
 
         .nav-stage-btn.active[data-target="stage-4"] {
-            border-color: #d97706;
+            background: #d97706 !important;
+            border-color: #d97706 !important;
             box-shadow: 0 0 15px rgba(217, 119, 6, 0.2);
         }
 
-        .is-scrolled .nav-stage-btn {
-            padding: 0.4rem 1rem;
-            font-size: 0.75rem;
-            text-align: center;
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
-            color: #64748b;
+        .nav-stage-btn.active[data-target="stage-5"] {
+            background: #e11d48 !important;
+            border-color: #e11d48 !important;
+            box-shadow: 0 0 15px rgba(225, 29, 72, 0.2);
         }
 
-        .is-scrolled .nav-stage-btn:hover {
-            background: #f8fafc;
-            color: #0f172a;
-            border-color: rgba(0, 0, 0, 0.12);
+        .nav-stage-btn .btn-text {
+            max-width: 0;
+            opacity: 0;
+            white-space: nowrap;
+            transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease, margin 0.3s ease;
+            overflow: hidden;
+            display: inline-block;
         }
 
-        .is-scrolled .nav-stage-btn.active {
-            color: white;
-        }
-
-        .is-scrolled .nav-stage-btn.active[data-target="stage-1"] {
-            background: #0d9488;
-            border-color: #0d9488;
-            box-shadow: 0 0 12px rgba(13, 148, 136, 0.3);
-        }
-
-        .is-scrolled .nav-stage-btn.active[data-target="stage-2"] {
-            background: #2563eb;
-            border-color: #2563eb;
-            box-shadow: 0 0 12px rgba(37, 99, 235, 0.3);
-        }
-
-        .is-scrolled .nav-stage-btn.active[data-target="stage-3"] {
-            background: #7c3aed;
-            border-color: #7c3aed;
-            box-shadow: 0 0 12px rgba(124, 58, 237, 0.3);
-        }
-
-        .is-scrolled .nav-stage-btn.active[data-target="stage-4"] {
-            background: #d97706;
-            border-color: #d97706;
-            box-shadow: 0 0 12px rgba(217, 119, 6, 0.3);
+        .nav-stage-btn:hover .btn-text {
+            max-width: 150px;
+            opacity: 1;
+            margin-left: 0.4rem;
         }
 
         .step-indicator {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 1.25rem;
-            height: 1.25rem;
-            font-size: 0.7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            font-size: 0.75rem;
             font-weight: 900;
             border-radius: 50%;
             color: #475569;
             background: rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
         .active .step-indicator {
@@ -353,8 +310,8 @@
             line-height: 1.8;
         }
 
-        .scroll-mt-custom {
-            scroll-margin-top: 215px;
+        .scroll-mt-32 {
+            scroll-margin-top: 215px !important;
         }
     </style>
 
@@ -373,30 +330,35 @@
     <div class="timeline-journey">
 
         <!-- STAGE 1: Budget Planning (การวางแผนงบประมาณ) -->
-        <div id="stage-1" class="scroll-mt-custom">
-            <div class="month-header animate-node">
-                <div class="phase-indicator bg-teal-50 text-teal-700 border border-teal-200">STAGE 1: BUDGET PLANNING
-                    (การวางแผน)</div>
-                <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
-                    <i class="fa-solid fa-map-location-dot text-teal-500"></i> การวางแผนงบประมาณ <span
-                        class="text-teal-500 text-sm md:text-lg font-bold font-mono">(เมษายน 2569)</span>
-                </h3>
-            </div>
-
-            <!-- Sticky Quick Navigation / Stepper -->
-            <div class="quick-nav-container">
-                <div class="quick-nav" id="quick-nav">
+        <div id="stage-1" class="scroll-mt-32">
+            <div class="month-header animate-node flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div>
+                    <div class="phase-indicator bg-teal-50 text-teal-700 border border-teal-200">STAGE 1: BUDGET PLANNING (การวางแผน)</div>
+                    <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
+                        <i class="fa-solid fa-map-location-dot text-teal-500"></i> การวางแผนงบประมาณ <span
+                            class="text-teal-500 text-sm md:text-lg font-bold font-mono">(เมษายน 2569)</span>
+                    </h3>
+                </div>
+                <div class="hidden md:flex items-center gap-2 flex-wrap">
                     <button onclick="scrollToSection('stage-1')" class="nav-stage-btn active" data-target="stage-1">
-                        <span class="step-indicator">1</span> Planning (วางแผน)
+                        <span class="step-indicator">1</span>
+                        <span class="btn-text">Planning (วางแผน)</span>
                     </button>
                     <button onclick="scrollToSection('stage-2')" class="nav-stage-btn" data-target="stage-2">
-                        <span class="step-indicator">2</span> Preparation (จัดทำ)
+                        <span class="step-indicator">2</span>
+                        <span class="btn-text">Preparation (จัดทำ)</span>
                     </button>
                     <button onclick="scrollToSection('stage-3')" class="nav-stage-btn" data-target="stage-3">
-                        <span class="step-indicator">3</span> Adoption (อนุมัติ)
+                        <span class="step-indicator">3</span>
+                        <span class="btn-text">Adoption (อนุมัติ)</span>
                     </button>
                     <button onclick="scrollToSection('stage-4')" class="nav-stage-btn" data-target="stage-4">
-                        <span class="step-indicator">4</span> Execution (บริหาร)
+                        <span class="step-indicator">4</span>
+                        <span class="btn-text">Execution (บริหาร)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-5')" class="nav-stage-btn" data-target="stage-5">
+                        <span class="step-indicator">5</span>
+                        <span class="btn-text">Evaluation (ประเมิน)</span>
                     </button>
                 </div>
             </div>
@@ -532,14 +494,37 @@
         </div>
 
         <!-- STAGE 2: Budget Preparation (การจัดทำงบประมาณ) -->
-        <div id="stage-2" class="scroll-mt-custom">
-            <div class="month-header animate-node">
-                <div class="phase-indicator bg-blue-50 text-blue-700 border border-blue-200">STAGE 2: BUDGET PREPARATION
-                    (การจัดทำ)</div>
-                <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
-                    <i class="fa-solid fa-file-invoice-dollar text-blue-500"></i> การจัดทำงบประมาณ <span
-                        class="text-blue-500 text-sm md:text-lg font-bold font-mono">(พฤษภาคม - มิถุนายน 2569)</span>
-                </h3>
+        <div id="stage-2" class="scroll-mt-32">
+            <div class="month-header animate-node flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div>
+                    <div class="phase-indicator bg-blue-50 text-blue-700 border border-blue-200">STAGE 2: BUDGET PREPARATION (การจัดทำ)</div>
+                    <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
+                        <i class="fa-solid fa-file-invoice-dollar text-blue-500"></i> การจัดทำงบประมาณ <span
+                            class="text-blue-500 text-sm md:text-lg font-bold font-mono">(พฤษภาคม - มิถุนายน 2569)</span>
+                    </h3>
+                </div>
+                <div class="hidden md:flex items-center gap-2 flex-wrap">
+                    <button onclick="scrollToSection('stage-1')" class="nav-stage-btn" data-target="stage-1">
+                        <span class="step-indicator">1</span>
+                        <span class="btn-text">Planning (วางแผน)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-2')" class="nav-stage-btn active" data-target="stage-2">
+                        <span class="step-indicator">2</span>
+                        <span class="btn-text">Preparation (จัดทำ)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-3')" class="nav-stage-btn" data-target="stage-3">
+                        <span class="step-indicator">3</span>
+                        <span class="btn-text">Adoption (อนุมัติ)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-4')" class="nav-stage-btn" data-target="stage-4">
+                        <span class="step-indicator">4</span>
+                        <span class="btn-text">Execution (บริหาร)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-5')" class="nav-stage-btn" data-target="stage-5">
+                        <span class="step-indicator">5</span>
+                        <span class="btn-text">Evaluation (ประเมิน)</span>
+                    </button>
+                </div>
             </div>
 
             <div class="timeline-node stage-2-node animate-node">
@@ -633,14 +618,37 @@
         </div>
 
         <!-- STAGE 3: Budget Adoption (การอนุมัติงบประมาณ) -->
-        <div id="stage-3" class="scroll-mt-custom">
-            <div class="month-header animate-node">
-                <div class="phase-indicator bg-purple-50 text-purple-700 border border-purple-200">STAGE 3: BUDGET
-                    ADOPTION (การอนุมัติ)</div>
-                <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
-                    <i class="fa-solid fa-landmark-dome text-purple-500"></i> การอนุมัติงบประมาณ <span
-                        class="text-purple-500 text-sm md:text-lg font-bold font-mono">(กรกฎาคม - กันยายน 2569)</span>
-                </h3>
+        <div id="stage-3" class="scroll-mt-32">
+            <div class="month-header animate-node flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div>
+                    <div class="phase-indicator bg-purple-50 text-purple-700 border border-purple-200">STAGE 3: BUDGET ADOPTION (การอนุมัติ)</div>
+                    <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
+                        <i class="fa-solid fa-landmark-dome text-purple-500"></i> การอนุมัติงบประมาณ <span
+                            class="text-purple-500 text-sm md:text-lg font-bold font-mono">(กรกฎาคม - กันยายน 2569)</span>
+                    </h3>
+                </div>
+                <div class="hidden md:flex items-center gap-2 flex-wrap">
+                    <button onclick="scrollToSection('stage-1')" class="nav-stage-btn" data-target="stage-1">
+                        <span class="step-indicator">1</span>
+                        <span class="btn-text">Planning (วางแผน)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-2')" class="nav-stage-btn" data-target="stage-2">
+                        <span class="step-indicator">2</span>
+                        <span class="btn-text">Preparation (จัดทำ)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-3')" class="nav-stage-btn active" data-target="stage-3">
+                        <span class="step-indicator">3</span>
+                        <span class="btn-text">Adoption (อนุมัติ)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-4')" class="nav-stage-btn" data-target="stage-4">
+                        <span class="step-indicator">4</span>
+                        <span class="btn-text">Execution (บริหาร)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-5')" class="nav-stage-btn" data-target="stage-5">
+                        <span class="step-indicator">5</span>
+                        <span class="btn-text">Evaluation (ประเมิน)</span>
+                    </button>
+                </div>
             </div>
 
             <div class="timeline-node stage-3-node animate-node">
@@ -715,15 +723,37 @@
         </div>
 
         <!-- STAGE 4: Budget Execution (การบริหารงบประมาณ) -->
-        <div id="stage-4" class="scroll-mt-custom">
-            <div class="month-header animate-node">
-                <div class="phase-indicator bg-amber-50 text-amber-700 border border-amber-200">STAGE 4: BUDGET
-                    EXECUTION & EVALUATION (การบริหารและประเมินผล)</div>
-                <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
-                    <i class="fa-solid fa-hand-holding-dollar text-amber-500"></i> การบริหารงบประมาณ <span
-                        class="text-amber-500 text-sm md:text-lg font-bold font-mono">(1 ต.ค. 2569 - 30 ก.ย. 2570
-                        เป็นต้นไป)</span>
-                </h3>
+        <div id="stage-4" class="scroll-mt-32">
+            <div class="month-header animate-node flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div>
+                    <div class="phase-indicator bg-amber-50 text-amber-700 border border-amber-200">STAGE 4: BUDGET EXECUTION (การบริหารงบประมาณ)</div>
+                    <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
+                        <i class="fa-solid fa-hand-holding-dollar text-amber-500"></i> การบริหารงบประมาณ <span
+                            class="text-amber-500 text-sm md:text-lg font-bold font-mono">(1 ต.ค. 2569 - 30 ก.ย. 2570)</span>
+                    </h3>
+                </div>
+                <div class="hidden md:flex items-center gap-2 flex-wrap">
+                    <button onclick="scrollToSection('stage-1')" class="nav-stage-btn" data-target="stage-1">
+                        <span class="step-indicator">1</span>
+                        <span class="btn-text">Planning (วางแผน)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-2')" class="nav-stage-btn" data-target="stage-2">
+                        <span class="step-indicator">2</span>
+                        <span class="btn-text">Preparation (จัดทำ)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-3')" class="nav-stage-btn" data-target="stage-3">
+                        <span class="step-indicator">3</span>
+                        <span class="btn-text">Adoption (อนุมัติ)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-4')" class="nav-stage-btn active" data-target="stage-4">
+                        <span class="step-indicator">4</span>
+                        <span class="btn-text">Execution (บริหาร)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-5')" class="nav-stage-btn" data-target="stage-5">
+                        <span class="step-indicator">5</span>
+                        <span class="btn-text">Evaluation (ประเมิน)</span>
+                    </button>
+                </div>
             </div>
 
             <div class="timeline-node stage-4-node animate-node">
@@ -761,8 +791,7 @@
                 <div class="flex items-center gap-3 mb-3">
                     <span class="text-xs font-black text-slate-500 uppercase tracking-widest">ตลอดปีงบประมาณ (1 ต.ค. 69
                         - 30 ก.ย. 70)</span>
-                    <div class="status-badge"><i class="fa-solid fa-arrows-spin text-amber-600"></i> SPENDING &
-                        MONITORING</div>
+                    <div class="status-badge"><i class="fa-solid fa-arrows-spin text-amber-600"></i> SPENDING & EXECUTION</div>
                 </div>
                 <div class="space-y-4">
                     <p class="text-base md:text-lg text-slate-700 font-bold">
@@ -782,24 +811,57 @@
                 </div>
             </div>
 
-            <div class="timeline-node stage-4-node animate-node">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-xs font-black text-amber-600 uppercase tracking-widest">ต.ค. 70 เป็นต้นไป
-                        (หลังสิ้นปีงบฯ)</span>
-                    <div class="status-badge border-amber-200 bg-amber-50 text-amber-600"><i
-                            class="fa-solid fa-chart-line"></i> EVALUATION & AUDITING</div>
+        </div>
+
+        <!-- STAGE 5: Budget Monitor & Evaluation (การติดตามและประเมินผล) -->
+        <div id="stage-5" class="scroll-mt-32">
+            <div class="month-header animate-node flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div>
+                    <div class="phase-indicator bg-rose-50 text-rose-700 border border-rose-200">STAGE 5: MONITOR & EVALUATION (การติดตามและประเมินผล)</div>
+                    <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
+                        <i class="fa-solid fa-chart-line text-rose-500"></i> การติดตามและประเมินผล <span
+                            class="text-rose-500 text-sm md:text-lg font-bold font-mono">(ตุลาคม 2570 เป็นต้นไป)</span>
+                    </h3>
                 </div>
-                <div class="decision-highlight border-l-amber-600 bg-amber-50/10 space-y-4">
+                <div class="hidden md:flex items-center gap-2 flex-wrap">
+                    <button onclick="scrollToSection('stage-1')" class="nav-stage-btn" data-target="stage-1">
+                        <span class="step-indicator">1</span>
+                        <span class="btn-text">Planning (วางแผน)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-2')" class="nav-stage-btn" data-target="stage-2">
+                        <span class="step-indicator">2</span>
+                        <span class="btn-text">Preparation (จัดทำ)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-3')" class="nav-stage-btn" data-target="stage-3">
+                        <span class="step-indicator">3</span>
+                        <span class="btn-text">Adoption (อนุมัติ)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-4')" class="nav-stage-btn" data-target="stage-4">
+                        <span class="step-indicator">4</span>
+                        <span class="btn-text">Execution (บริหาร)</span>
+                    </button>
+                    <button onclick="scrollToSection('stage-5')" class="nav-stage-btn active" data-target="stage-5">
+                        <span class="step-indicator">5</span>
+                        <span class="btn-text">Evaluation (ประเมิน)</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="timeline-node stage-5-node animate-node">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-xs font-black text-rose-600 uppercase tracking-widest">ต.ค. 70 เป็นต้นไป (หลังสิ้นปีงบฯ)</span>
+                    <div class="status-badge border-rose-200 bg-rose-50 text-rose-600"><i class="fa-solid fa-chart-line text-rose-600"></i> EVALUATION & AUDITING</div>
+                </div>
+                <div class="decision-highlight border-l-rose-600 bg-rose-50/10 space-y-4">
                     <div class="flex items-center">
-                        <span class="number-badge bg-amber-600">14</span>
-                        <p class="text-base md:text-lg text-slate-800 font-bold leading-relaxed">
-                            กระบวนการรายงานและตรวจสอบบัญชีภาครัฐ</p>
+                        <span class="number-badge bg-rose-600">14</span>
+                        <p class="text-base md:text-lg text-slate-800 font-bold leading-relaxed">กระบวนการรายงานและตรวจสอบบัญชีภาครัฐ</p>
                     </div>
                     <div class="pl-8 space-y-4 text-slate-600 font-medium exact-text text-sm md:text-base">
-                        <p>1. <strong class="text-amber-600 font-semibold">บันทึกรายงานความสำเร็จ (e-MENSCR):</strong>
+                        <p>1. <strong class="text-rose-600 font-semibold">บันทึกรายงานความสำเร็จ (e-MENSCR):</strong>
                             หน่วยรับงบประมาณทำการประเมินผลและบันทึกรายงานผลสัมฤทธิ์ ผลผลิต และผลลัพธ์ของโครงการ ลงในระบบ
                             e-MENSCR เพื่อนำไปใช้ประกอบการวิเคราะห์การเสนอขอตั้งงบในปีถัดๆ ไป</p>
-                        <p>2. <strong class="text-amber-600 font-semibold">การตรวจสอบหลังสิ้นสุดโครงการ (สตง.):</strong>
+                        <p>2. <strong class="text-rose-600 font-semibold">การตรวจสอบหลังสิ้นสุดโครงการ (สตง.):</strong>
                             ภายใน 180 วันนับแต่สิ้นปีงบประมาณ สำนักงานการตรวจเงินแผ่นดิน (สตง.)
                             ดำเนินการตรวจสอบบัญชีและลงตรวจความคุ้มค่าของการดำเนินงานโครงการในสถานที่จริง</p>
                     </div>
