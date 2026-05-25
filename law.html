@@ -20,10 +20,49 @@
     <div class="mb-12 text-center">
         <h1 class="text-3xl md:text-5xl font-bold text-slate-800 mb-4">กฎหมายและระเบียบที่เกี่ยวข้อง</h1>
         <p class="text-slate-500 text-lg md:text-xl max-w-3xl mx-auto">เจาะลึกข้อกฎหมายและระเบียบการบริหารงบประมาณ เพื่อการปฏิบัติงานที่ถูกต้องและโปร่งใส</p>
+        
+        <!-- Premium Global Search Container -->
+        <div class="mt-8 max-w-2xl mx-auto relative px-4">
+            <div class="relative shadow-md rounded-2xl">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <i class="fa-solid fa-magnifying-glass text-slate-400 text-lg"></i>
+                </div>
+                <input type="text" id="global-law-search" placeholder="ค้นหามาตรา ข้อ หรือคำสำคัญในกฎหมายทั้งหมด (เช่น เงินนอกงบประมาณ, มาตรา 35)..." 
+                       class="w-full pl-12 pr-12 py-4 bg-white border border-slate-200 rounded-2xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300 shadow-sm text-sm md:text-base">
+                <button id="global-law-clear-btn" class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors hidden">
+                    <i class="fa-solid fa-circle-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <!-- Search Loading Status -->
+            <div id="global-search-loading" class="mt-4 text-center hidden">
+                <div class="inline-block animate-spin rounded-full h-5 w-5 border-2 border-blue-500 border-t-transparent mr-2 vertical-middle align-middle"></div>
+                <span class="text-slate-500 text-sm align-middle">กำลังโหลดและจัดทำดัชนีกฎหมายทั้งหมด...</span>
+            </div>
+
+            <!-- Search Status Summary -->
+            <div id="global-search-status" class="mt-3 text-sm text-slate-500 font-medium hidden">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                    ค้นหาจากกฎหมาย 8 ฉบับ
+                </span>
+                <span class="ml-2">พบ <span id="global-search-count" class="text-blue-600 font-bold">0</span> ผลลัพธ์</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Results Container -->
+    <div id="global-search-results-container" class="space-y-8 hidden mb-12">
+        <div id="global-search-results-list" class="space-y-8"></div>
+        <div id="global-search-no-results" class="text-center py-16 bg-white rounded-2xl border border-slate-200 shadow-sm hidden">
+            <i class="fa-solid fa-folder-open text-slate-300 text-5xl mb-4"></i>
+            <h3 class="text-lg font-bold text-slate-700">ไม่พบผลการค้นหา</h3>
+            <p class="text-slate-400 text-sm mt-1">ลองใช้คำค้นหาอื่น หรือตรวจสอบตัวสะกด</p>
+        </div>
     </div>
 
     <!-- Content Grid -->
-    <div class="grid grid-cols-1 gap-10">
+    <div id="law-overview-grid" class="grid grid-cols-1 gap-10">
         
         <!-- SECTION 1: พ.ร.บ. วินัยการเงินการคลัง -->
         <div class="law-card bg-white rounded-[1.5rem] shadow-xl border border-slate-200 p-6 md:p-10 relative">
@@ -268,7 +307,7 @@
     </div>
 
     <!-- Navigation Back Button -->
-    <div class="text-center mt-12 pb-16">
+    <div id="law-back-btn-container" class="text-center mt-12 pb-16">
         <button onclick="showLanding(document.getElementById('nav-home'))" class="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all transform hover:scale-105">
             <i class="fa-solid fa-house"></i> กลับสู่หน้าหลัก
         </button>

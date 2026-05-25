@@ -745,6 +745,13 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 setActiveNav(navElement);
 
+                // เริ่มการทำงานของ Global Law Search หากเปิดหน้า law.html
+                if (pageUrl === 'law.html') {
+                    if (typeof window.initGlobalLawSearch === 'function') {
+                        window.initGlobalLawSearch();
+                    }
+                }
+
                 // เริ่มการทำงานของ Timeline Observer หากเปิดหน้า timeline.html
                 if (pageUrl === 'timeline.html') {
                     if (typeof window.initTimelineObserver === 'function') {
@@ -1090,6 +1097,307 @@
 
                     chapterContainers.forEach(ch => scrollSpy.observe(ch));
                 }
+            }, 100);
+        };
+
+        window.initGlobalLawSearch = function() {
+            setTimeout(() => {
+                const searchInput = document.getElementById('global-law-search');
+                const clearBtn = document.getElementById('global-law-clear-btn');
+                const searchLoading = document.getElementById('global-search-loading');
+                const searchStatus = document.getElementById('global-search-status');
+                const searchCount = document.getElementById('global-search-count');
+                const resultsContainer = document.getElementById('global-search-results-container');
+                const resultsList = document.getElementById('global-search-results-list');
+                const noResults = document.getElementById('global-search-no-results');
+                
+                const overviewGrid = document.getElementById('law-overview-grid');
+                const backBtnContainer = document.getElementById('law-back-btn-container');
+
+                if (!searchInput) return;
+
+                const lawPages = [
+                    { file: 'law-act.html', title: 'พ.ร.บ. วิธีการงบประมาณ พ.ศ. 2561', icon: 'fa-solid fa-file-shield', color: 'blue', navId: 'nav-law-act' },
+                    { file: 'fiscal-act.html', title: 'พ.ร.บ. วินัยการเงินการคลังของรัฐ พ.ศ. 2561', icon: 'fa-solid fa-building-columns', color: 'indigo', navId: 'nav-fiscal-act' },
+                    { file: 'budget-reg.html', title: 'ระเบียบว่าด้วยการบริหารงบประมาณ พ.ศ. 2562 และที่แก้ไขเพิ่มเติม', icon: 'fa-solid fa-file-invoice-dollar', color: 'teal', navId: 'nav-budget-reg' },
+                    { file: 'rule-transfer.html', title: 'หลักเกณฑ์การใช้งบประมาณรายจ่ายการโอนเงิน พ.ศ. 2562', icon: 'fa-solid fa-money-bill-transfer', color: 'emerald', navId: 'nav-rule-transfer' },
+                    { file: 'debt-commitment.html', title: 'ระเบียบว่าด้วยการก่อหนี้ผูกพันงบประมาณข้ามปี พ.ศ. 2562', icon: 'fa-solid fa-file-contract', color: 'amber', navId: 'nav-debt-commitment' },
+                    { file: 'integration-transfer.html', title: 'ระเบียบการโอนงบประมาณรายจ่ายบูรณาการและบุคลากร พ.ศ. 2562', icon: 'fa-solid fa-arrows-split-up-and-left', color: 'rose', navId: 'nav-integration-transfer' },
+                    { file: 'procurement-act.html', title: 'พ.ร.บ. จัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐ พ.ศ. 2560', icon: 'fa-solid fa-file-signature', color: 'violet', navId: 'nav-procurement-act' },
+                    { file: 'finance-reg.html', title: 'ระเบียบกระทรวงการคลังว่าด้วยการจัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐ พ.ศ. 2560', icon: 'fa-solid fa-file-invoice', color: 'cyan', navId: 'nav-finance-reg' }
+                ];
+
+                let isIndexing = false;
+                let isIndexed = false;
+                let indexData = [];
+
+                async function ensureIndexed() {
+                    if (isIndexed || isIndexing) return;
+                    isIndexing = true;
+                    searchLoading.classList.remove('hidden');
+                    
+                    try {
+                        const fetchPromises = lawPages.map(async (lp) => {
+                            try {
+                                const response = await fetch(lp.file);
+                                if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+                                const htmlText = await response.text();
+                                
+                                const parser = new DOMParser();
+                                const doc = parser.parseFromString(htmlText, 'text/html');
+                                const cards = doc.querySelectorAll('.section-card');
+                                
+                                const sections = Array.from(cards).map(card => {
+                                    const secNum = card.getAttribute('data-section-num') || '';
+                                    const secNumThai = card.getAttribute('data-section-num-thai') || '';
+                                    const titleEl = card.querySelector('h4');
+                                    const title = titleEl ? titleEl.textContent.trim() : '';
+                                    const exactTextEl = card.querySelector('.exact-text');
+                                    const text = exactTextEl ? exactTextEl.textContent.trim() : '';
+                                    
+                                    const chapterEl = card.closest('.chapter-container');
+                                    const chapterId = chapterEl ? chapterEl.getAttribute('id') : '';
+                                    const chapterTitleEl = chapterEl ? chapterEl.querySelector('.chapter-header-title') : null;
+                                    const chapterTitle = chapterTitleEl ? chapterTitleEl.textContent.trim() : '';
+
+                                    return {
+                                        secNum,
+                                        secNumThai,
+                                        title,
+                                        text,
+                                        chapterId,
+                                        chapterTitle,
+                                        html: card.innerHTML,
+                                        className: card.className
+                                    };
+                                });
+
+                                return { ...lp, sections };
+                            } catch (e) {
+                                console.error(`Error loading page ${lp.file}:`, e);
+                                return { ...lp, sections: [] };
+                            }
+                        });
+
+                        indexData = await Promise.all(fetchPromises);
+                        isIndexed = true;
+                    } catch (err) {
+                        console.error("Error pre-indexing laws:", err);
+                    } finally {
+                        isIndexing = false;
+                        searchLoading.classList.add('hidden');
+                    }
+                }
+
+                // Helper highlighting function specifically for global search
+                function highlightGlobalNode(node, query) {
+                    if (node.nodeType === 3) {
+                        const text = node.nodeValue;
+                        const lowerText = text.toLowerCase();
+                        const idx = lowerText.indexOf(query);
+                        if (idx >= 0) {
+                            const parent = node.parentNode;
+                            const frag = document.createDocumentFragment();
+                            let lastIdx = 0;
+                            
+                            let currentIdx = lowerText.indexOf(query, lastIdx);
+                            while (currentIdx >= 0) {
+                                if (currentIdx > lastIdx) {
+                                    frag.appendChild(document.createTextNode(text.substring(lastIdx, currentIdx)));
+                                }
+                                const mark = document.createElement('mark');
+                                mark.className = 'bg-yellow-200 text-slate-900 font-bold px-0.5 rounded border border-yellow-300';
+                                mark.textContent = text.substring(currentIdx, currentIdx + query.length);
+                                frag.appendChild(mark);
+                                
+                                lastIdx = currentIdx + query.length;
+                                currentIdx = lowerText.indexOf(query, lastIdx);
+                            }
+                            
+                            if (lastIdx < text.length) {
+                                frag.appendChild(document.createTextNode(text.substring(lastIdx)));
+                            }
+                            
+                            parent.replaceChild(frag, node);
+                        }
+                    } else if (node.nodeType === 1 && node.childNodes && !/^(style|script)$/i.test(node.tagName)) {
+                        for (let i = node.childNodes.length - 1; i >= 0; i--) {
+                            highlightGlobalNode(node.childNodes[i], query);
+                        }
+                    }
+                }
+
+                // Function to perform search
+                async function performSearch() {
+                    await ensureIndexed();
+
+                    let query = searchInput.value.trim().toLowerCase();
+                    query = query.replace(/[๐-๙]/g, function(d) {
+                        return "๐๑๒๓๔๕๖๗๘๙".indexOf(d);
+                    });
+
+                    if (query === '') {
+                        clearBtn.classList.add('hidden');
+                        searchStatus.classList.add('hidden');
+                        resultsContainer.classList.add('hidden');
+                        noResults.classList.add('hidden');
+                        
+                        overviewGrid.classList.remove('hidden');
+                        backBtnContainer.classList.remove('hidden');
+                        return;
+                    }
+
+                    clearBtn.classList.remove('hidden');
+                    overviewGrid.classList.add('hidden');
+                    backBtnContainer.classList.add('hidden');
+                    resultsContainer.classList.remove('hidden');
+
+                    let totalMatches = 0;
+                    resultsList.innerHTML = '';
+
+                    indexData.forEach(lp => {
+                        const matches = lp.sections.filter(sec => {
+                            const isNumMatch = sec.secNum.includes(query) || sec.secNumThai.includes(query) || 
+                                               `มาตรา${sec.secNum}`.includes(query) || `มาตรา${sec.secNumThai}`.includes(query) ||
+                                               `มาตรา ${sec.secNum}`.includes(query) || `มาตรา ${sec.secNumThai}`.includes(query) ||
+                                               `ข้อ${sec.secNum}`.includes(query) || `ข้อ${sec.secNumThai}`.includes(query) ||
+                                               `ข้อ ${sec.secNum}`.includes(query) || `ข้อ ${sec.secNumThai}`.includes(query);
+                            const isTextMatch = sec.text.toLowerCase().includes(query) || sec.title.toLowerCase().includes(query);
+                            return isNumMatch || isTextMatch;
+                        });
+
+                        if (matches.length > 0) {
+                            totalMatches += matches.length;
+
+                            // Create Group Header
+                            const groupHeader = document.createElement('div');
+                            groupHeader.className = 'mt-8 mb-4 p-4 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-between shadow-sm';
+                            
+                            // Map color to tailwind classes
+                            let badgeColor = 'bg-blue-100 text-blue-800 border-blue-200';
+                            if (lp.color === 'indigo') badgeColor = 'bg-indigo-100 text-indigo-800 border-indigo-200';
+                            else if (lp.color === 'teal') badgeColor = 'bg-teal-100 text-teal-800 border-teal-200';
+                            else if (lp.color === 'emerald') badgeColor = 'bg-emerald-100 text-emerald-800 border-emerald-200';
+                            else if (lp.color === 'amber') badgeColor = 'bg-amber-100 text-amber-800 border-amber-200';
+                            else if (lp.color === 'rose') badgeColor = 'bg-rose-100 text-rose-800 border-rose-200';
+                            else if (lp.color === 'violet') badgeColor = 'bg-violet-100 text-violet-800 border-violet-200';
+                            else if (lp.color === 'cyan') badgeColor = 'bg-cyan-100 text-cyan-800 border-cyan-200';
+
+                            groupHeader.innerHTML = `
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg flex items-center justify-center ${badgeColor.split(' ')[0]}">
+                                        <i class="${lp.icon} text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-slate-800 text-base md:text-lg">${lp.title}</h3>
+                                        <p class="text-xs text-slate-500">พบ ${matches.length} รายการที่ตรงกัน</p>
+                                    </div>
+                                </div>
+                                <button onclick="loadPage('${lp.file}', document.getElementById('${lp.navId}'))" 
+                                        class="px-3 py-1.5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold rounded-lg text-xs md:text-sm shadow-sm transition-all transform hover:scale-105 duration-200 shrink-0">
+                                    เปิดดูเล่มเต็ม <i class="fa-solid fa-arrow-right ml-1"></i>
+                                </button>
+                            `;
+                            resultsList.appendChild(groupHeader);
+
+                            // Create matching cards grid/list
+                            const cardGrid = document.createElement('div');
+                            cardGrid.className = 'grid grid-cols-1 md:grid-cols-2 gap-4';
+                            
+                            matches.forEach(match => {
+                                const cardWrapper = document.createElement('div');
+                                cardWrapper.className = `bg-white border border-slate-200/80 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between`;
+                                
+                                // Insert card content
+                                cardWrapper.innerHTML = `
+                                    <div>
+                                        ${match.chapterTitle ? `<div class="mb-2 text-xs font-bold text-slate-400 uppercase tracking-wider">${match.chapterTitle}</div>` : ''}
+                                        <div class="flex items-start justify-between gap-4 mb-3">
+                                            <h4 class="text-base md:text-lg font-extrabold text-slate-800 border-b border-blue-200 pb-0.5 inline-block">
+                                                ${match.title}
+                                            </h4>
+                                        </div>
+                                        <div class="space-y-3 exact-text text-sm md:text-base text-slate-600 leading-relaxed font-sans">
+                                            ${match.html}
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 pt-3 border-t border-slate-100 flex justify-end">
+                                        <button class="goto-section-btn flex items-center gap-1.5 text-[#2563eb] hover:text-blue-800 font-bold text-xs md:text-sm transition-colors"
+                                                data-file="${lp.file}" data-nav-id="${lp.navId}" data-sec-num="${match.secNum}">
+                                            ไปยังมาตรานี้ <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                        </button>
+                                    </div>
+                                `;
+
+                                // Remove hidden classes in parsed nodes
+                                cardWrapper.querySelectorAll('.hidden').forEach(el => el.classList.remove('hidden'));
+
+                                // Highlight matches
+                                if (isIndexed) {
+                                    const contentElements = cardWrapper.querySelectorAll('.sec-text-content, p, span, li');
+                                    contentElements.forEach(el => {
+                                        if (el.children.length === 0) {
+                                            const tempDiv = document.createElement('div');
+                                            tempDiv.innerHTML = el.innerHTML;
+                                            highlightGlobalNode(tempDiv, query);
+                                            el.innerHTML = tempDiv.innerHTML;
+                                        }
+                                    });
+                                }
+
+                                cardGrid.appendChild(cardWrapper);
+                            });
+
+                            resultsList.appendChild(cardGrid);
+                        }
+                    });
+
+                    searchCount.textContent = totalMatches;
+                    searchStatus.classList.remove('hidden');
+
+                    if (totalMatches === 0) {
+                        noResults.classList.remove('hidden');
+                    } else {
+                        noResults.classList.add('hidden');
+                    }
+
+                    // Attach click handlers to "Go to Section" buttons
+                    document.querySelectorAll('.goto-section-btn').forEach(btn => {
+                        btn.addEventListener('click', async function() {
+                            const file = this.getAttribute('data-file');
+                            const navId = this.getAttribute('data-nav-id');
+                            const secNum = this.getAttribute('data-sec-num');
+                            const navEl = document.getElementById(navId);
+
+                            await loadPage(file, navEl);
+
+                            // Scroll to and highlight card
+                            setTimeout(() => {
+                                const card = document.querySelector(`[data-section-num="${secNum}"]`);
+                                if (card) {
+                                    const yOffset = -120;
+                                    const y = card.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                                    window.scrollTo({ top: y, behavior: 'smooth' });
+                                    
+                                    // Visual highlight effect
+                                    card.classList.add('ring-4', 'ring-blue-500/50', 'border-blue-500');
+                                    setTimeout(() => {
+                                        card.classList.remove('ring-4', 'ring-blue-500/50', 'border-blue-500');
+                                    }, 2500);
+                                }
+                            }, 350);
+                        });
+                    });
+                }
+
+                // Attach event listeners
+                searchInput.addEventListener('focus', ensureIndexed);
+                searchInput.addEventListener('input', performSearch);
+
+                clearBtn.addEventListener('click', function() {
+                    searchInput.value = '';
+                    performSearch();
+                });
             }, 100);
         };
 
