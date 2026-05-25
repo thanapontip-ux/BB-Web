@@ -212,7 +212,8 @@
             align-items: center;
             justify-content: flex-start;
             height: 2.2rem;
-            width: 2.2rem; /* Circular by default */
+            width: 2.2rem;
+            /* Circular by default */
             padding-left: 0.35rem;
             padding-right: 0;
             border-radius: 9999px;
@@ -230,7 +231,8 @@
         }
 
         .nav-stage-btn:hover {
-            width: 10rem; /* Expanded width on hover to fit Stage 5 description */
+            width: 10rem;
+            /* Expanded width on hover to fit Stage 5 description */
             padding-right: 1rem;
             color: #0f172a;
             border-color: rgba(0, 0, 0, 0.12);
@@ -313,6 +315,81 @@
         .scroll-mt-32 {
             scroll-margin-top: 215px !important;
         }
+
+        .sticky-date-indicator {
+            position: sticky;
+            top: 50vh;
+            /* Centered vertically in the viewport */
+            z-index: 30;
+            width: 0;
+            height: 0;
+            /* Zero size in flow to prevent pushing nodes down */
+            left: 0;
+            pointer-events: none;
+        }
+
+        .sticky-date-indicator .indicator-box {
+            position: absolute;
+            transform: translateY(-50%);
+            /* Center vertically on the parent */
+            left: -8.5rem;
+            /* Pushed further left to avoid blocking content on PC */
+            display: inline-flex;
+            align-items: center;
+            background: #ffffff;
+            border-left: 4px solid var(--accent-color, #0d9488);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, left 0.3s ease;
+            white-space: nowrap;
+            pointer-events: auto;
+        }
+
+        .sticky-date-indicator .indicator-text {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #475569;
+            font-family: 'Inter', 'Sarabun', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .sticky-date-indicator[data-stage="stage-1"] .indicator-text {
+            color: #0d9488;
+        }
+
+        .sticky-date-indicator[data-stage="stage-2"] .indicator-text {
+            color: #2563eb;
+        }
+
+        .sticky-date-indicator[data-stage="stage-3"] .indicator-text {
+            color: #7c3aed;
+        }
+
+        .sticky-date-indicator[data-stage="stage-4"] .indicator-text {
+            color: #d97706;
+        }
+
+        .sticky-date-indicator[data-stage="stage-5"] .indicator-text {
+            color: #e11d48;
+        }
+
+        @media (max-width: 767px) {
+            .sticky-date-indicator .indicator-box {
+                left: -3rem;
+                /* Align to the left inside mobile padding */
+                transform: translateY(-50%) rotate(-90deg);
+                /* Rotate 90 degrees counter-clockwise from horizontal */
+                border-left: none;
+                border-bottom: 4px solid var(--accent-color, #0d9488);
+                /* Bottom border faces the timeline line when rotated */
+                border-radius: 6px;
+                padding: 0.4rem 0.8rem;
+            }
+        }
     </style>
 
     <!-- Page Header -->
@@ -328,12 +405,19 @@
 
     <!-- Timeline Content Journey -->
     <div class="timeline-journey">
+        <!-- Floating Sticky Date Indicator -->
+        <div id="sticky-date-indicator" class="sticky-date-indicator">
+            <div class="indicator-box">
+                <span class="indicator-text">--</span>
+            </div>
+        </div>
 
         <!-- STAGE 1: Budget Planning (การวางแผนงบประมาณ) -->
         <div id="stage-1" class="scroll-mt-32">
             <div class="month-header animate-node flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div>
-                    <div class="phase-indicator bg-teal-50 text-teal-700 border border-teal-200">STAGE 1: BUDGET PLANNING (การวางแผน)</div>
+                    <div class="phase-indicator bg-teal-50 text-teal-700 border border-teal-200">STAGE 1: BUDGET
+                        PLANNING (การวางแผน)</div>
                     <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
                         <i class="fa-solid fa-map-location-dot text-teal-500"></i> การวางแผนงบประมาณ <span
                             class="text-teal-500 text-sm md:text-lg font-bold font-mono">(เมษายน 2569)</span>
@@ -497,10 +581,12 @@
         <div id="stage-2" class="scroll-mt-32">
             <div class="month-header animate-node flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div>
-                    <div class="phase-indicator bg-blue-50 text-blue-700 border border-blue-200">STAGE 2: BUDGET PREPARATION (การจัดทำ)</div>
+                    <div class="phase-indicator bg-blue-50 text-blue-700 border border-blue-200">STAGE 2: BUDGET
+                        PREPARATION (การจัดทำ)</div>
                     <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
                         <i class="fa-solid fa-file-invoice-dollar text-blue-500"></i> การจัดทำงบประมาณ <span
-                            class="text-blue-500 text-sm md:text-lg font-bold font-mono">(พฤษภาคม - มิถุนายน 2569)</span>
+                            class="text-blue-500 text-sm md:text-lg font-bold font-mono">(พฤษภาคม - มิถุนายน
+                            2569)</span>
                     </h3>
                 </div>
                 <div class="hidden md:flex items-center gap-2 flex-wrap">
@@ -621,10 +707,12 @@
         <div id="stage-3" class="scroll-mt-32">
             <div class="month-header animate-node flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div>
-                    <div class="phase-indicator bg-purple-50 text-purple-700 border border-purple-200">STAGE 3: BUDGET ADOPTION (การอนุมัติ)</div>
+                    <div class="phase-indicator bg-purple-50 text-purple-700 border border-purple-200">STAGE 3: BUDGET
+                        ADOPTION (การอนุมัติ)</div>
                     <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
                         <i class="fa-solid fa-landmark-dome text-purple-500"></i> การอนุมัติงบประมาณ <span
-                            class="text-purple-500 text-sm md:text-lg font-bold font-mono">(กรกฎาคม - กันยายน 2569)</span>
+                            class="text-purple-500 text-sm md:text-lg font-bold font-mono">(กรกฎาคม - กันยายน
+                            2569)</span>
                     </h3>
                 </div>
                 <div class="hidden md:flex items-center gap-2 flex-wrap">
@@ -726,10 +814,12 @@
         <div id="stage-4" class="scroll-mt-32">
             <div class="month-header animate-node flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div>
-                    <div class="phase-indicator bg-amber-50 text-amber-700 border border-amber-200">STAGE 4: BUDGET EXECUTION (การบริหารงบประมาณ)</div>
+                    <div class="phase-indicator bg-amber-50 text-amber-700 border border-amber-200">STAGE 4: BUDGET
+                        EXECUTION (การบริหารงบประมาณ)</div>
                     <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
                         <i class="fa-solid fa-hand-holding-dollar text-amber-500"></i> การบริหารงบประมาณ <span
-                            class="text-amber-500 text-sm md:text-lg font-bold font-mono">(1 ต.ค. 2569 - 30 ก.ย. 2570)</span>
+                            class="text-amber-500 text-sm md:text-lg font-bold font-mono">(1 ต.ค. 2569 - 30 ก.ย.
+                            2570)</span>
                     </h3>
                 </div>
                 <div class="hidden md:flex items-center gap-2 flex-wrap">
@@ -791,7 +881,8 @@
                 <div class="flex items-center gap-3 mb-3">
                     <span class="text-xs font-black text-slate-500 uppercase tracking-widest">ตลอดปีงบประมาณ (1 ต.ค. 69
                         - 30 ก.ย. 70)</span>
-                    <div class="status-badge"><i class="fa-solid fa-arrows-spin text-amber-600"></i> SPENDING & EXECUTION</div>
+                    <div class="status-badge"><i class="fa-solid fa-arrows-spin text-amber-600"></i> SPENDING &
+                        EXECUTION</div>
                 </div>
                 <div class="space-y-4">
                     <p class="text-base md:text-lg text-slate-700 font-bold">
@@ -817,7 +908,8 @@
         <div id="stage-5" class="scroll-mt-32">
             <div class="month-header animate-node flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div>
-                    <div class="phase-indicator bg-rose-50 text-rose-700 border border-rose-200">STAGE 5: MONITOR & EVALUATION (การติดตามและประเมินผล)</div>
+                    <div class="phase-indicator bg-rose-50 text-rose-700 border border-rose-200">STAGE 5: MONITOR &
+                        EVALUATION (การติดตามและประเมินผล)</div>
                     <h3 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight flex items-center gap-3">
                         <i class="fa-solid fa-chart-line text-rose-500"></i> การติดตามและประเมินผล <span
                             class="text-rose-500 text-sm md:text-lg font-bold font-mono">(ตุลาคม 2570 เป็นต้นไป)</span>
@@ -849,13 +941,15 @@
 
             <div class="timeline-node stage-5-node animate-node">
                 <div class="flex items-center gap-3 mb-2">
-                    <span class="text-xs font-black text-rose-600 uppercase tracking-widest">ต.ค. 70 เป็นต้นไป (หลังสิ้นปีงบฯ)</span>
-                    <div class="status-badge border-rose-200 bg-rose-50 text-rose-600"><i class="fa-solid fa-chart-line text-rose-600"></i> EVALUATION & AUDITING</div>
+                    <span class="text-xs font-black text-rose-600 uppercase tracking-widest">ต.ค. 70 เป็นต้นไป</span>
+                    <div class="status-badge border-rose-200 bg-rose-50 text-rose-600"><i
+                            class="fa-solid fa-chart-line text-rose-600"></i> EVALUATION & AUDITING</div>
                 </div>
                 <div class="decision-highlight border-l-rose-600 bg-rose-50/10 space-y-4">
                     <div class="flex items-center">
                         <span class="number-badge bg-rose-600">14</span>
-                        <p class="text-base md:text-lg text-slate-800 font-bold leading-relaxed">กระบวนการรายงานและตรวจสอบบัญชีภาครัฐ</p>
+                        <p class="text-base md:text-lg text-slate-800 font-bold leading-relaxed">
+                            กระบวนการรายงานและตรวจสอบบัญชีภาครัฐ</p>
                     </div>
                     <div class="pl-8 space-y-4 text-slate-600 font-medium exact-text text-sm md:text-base">
                         <p>1. <strong class="text-rose-600 font-semibold">บันทึกรายงานความสำเร็จ (e-MENSCR):</strong>
