@@ -1394,15 +1394,10 @@
 
                                 // Highlight matches
                                 if (isIndexed) {
-                                    const contentElements = cardWrapper.querySelectorAll('.sec-text-content, p, span, li');
-                                    contentElements.forEach(el => {
-                                        if (el.children.length === 0) {
-                                            const tempDiv = document.createElement('div');
-                                            tempDiv.innerHTML = el.innerHTML;
-                                            highlightGlobalNode(tempDiv, query);
-                                            el.innerHTML = tempDiv.innerHTML;
-                                        }
-                                    });
+                                    const exactTextEl = cardWrapper.querySelector('.exact-text');
+                                    if (exactTextEl) {
+                                        highlightGlobalNode(exactTextEl, query);
+                                    }
                                 }
 
                                 cardGrid.appendChild(cardWrapper);
