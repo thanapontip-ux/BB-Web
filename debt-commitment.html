@@ -1,17 +1,17 @@
 
-<div class="space-y-8 animate-fade-in relative">
-    <!-- Ambient blue glow -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-gradient-to-b from-blue-500/5 to-transparent rounded-full blur-[100px] pointer-events-none -z-10"></div>
+<div class="space-y-8 animate-fade-in relative pb-16 lg:pb-0">
+    <!-- Ambient amber glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-gradient-to-b from-amber-500/5 to-transparent rounded-full blur-[100px] pointer-events-none -z-10"></div>
     <!-- Header Hero Card -->
     <div class="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-[2rem] p-8 md:p-12 shadow-2xl border border-white/10 relative overflow-hidden">
         <!-- Accent circles -->
-        <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
-        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl"></div>
+        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl"></div>
         
         <div class="relative flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div class="space-y-4">
                 <div class="flex items-center gap-3">
-                    <span class="px-4 py-1.5 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                    <span class="px-4 py-1.5 bg-emerald-500/20 border border-emerald-500/30 text-amber-400 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> มีผลบังคับใช้
                     </span>
                     <span class="px-4 py-1.5 bg-white/5 border border-white/10 text-slate-300 rounded-full text-xs font-semibold">
@@ -26,7 +26,7 @@
                 </p>
             </div>
             <div class="flex-shrink-0">
-                <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center shadow-lg shadow-blue-500/20">
                     <i class="fa-solid fa-file-invoice-dollar text-3xl md:text-4xl text-slate-950"></i>
                 </div>
             </div>
@@ -37,25 +37,25 @@
             <div class="space-y-1">
                 <div class="text-slate-500 font-medium">ประกาศ ณ วันที่</div>
                 <div class="font-semibold text-white flex items-center gap-2">
-                    <i class="fa-regular fa-calendar text-blue-400"></i> 19 กรกฎาคม 2562
+                    <i class="fa-regular fa-calendar text-amber-400"></i> 19 กรกฎาคม 2562
                 </div>
             </div>
             <div class="space-y-1">
                 <div class="text-slate-500 font-medium">วันบังคับใช้</div>
                 <div class="font-semibold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-calendar-check text-blue-400"></i> 31 กรกฎาคม 2562
+                    <i class="fa-solid fa-calendar-check text-amber-400"></i> 31 กรกฎาคม 2562
                 </div>
             </div>
             <div class="space-y-1">
                 <div class="text-slate-500 font-medium">ผู้ลงนามประกาศ</div>
                 <div class="font-semibold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-user-shield text-blue-400"></i> ผู้อำนวยการสำนักงบประมาณ
+                    <i class="fa-solid fa-user-shield text-amber-400"></i> ผู้อำนวยการสำนักงบประมาณ
                 </div>
             </div>
             <div class="space-y-1">
                 <div class="text-slate-500 font-medium">จำนวนเนื้อหา</div>
                 <div class="font-semibold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-file-invoice text-blue-400"></i> 5 ส่วน (9 ข้อ)
+                    <i class="fa-solid fa-file-invoice text-amber-400"></i> 5 ส่วน (9 ข้อ)
                 </div>
             </div>
         </div>
@@ -68,13 +68,13 @@
                 <i class="fa-solid fa-magnifying-glass text-slate-400 text-md"></i>
             </div>
             <input type="text" id="law-search" placeholder="ค้นหาตามข้อ หรือคำสำคัญในระเบียบ (เช่น ครุภัณฑ์, คณะรัฐมนตรี, ข้อ 4)..." 
-                   class="w-full pl-11 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#2563eb] focus:ring-4 focus:ring-[#2563eb]/15 transition-all duration-300">
+                   class="w-full pl-11 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/15 transition-all duration-300">
             <button id="clear-search-btn" class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors hidden">
                 <i class="fa-solid fa-circle-xmark"></i>
             </button>
         </div>
         <div id="search-status" class="text-center text-xs md:text-sm text-slate-500 mt-3 font-medium hidden">
-            พบ <span id="search-count" class="text-[#2563eb] font-bold">0</span> ข้อที่ตรงกับผลการค้นหา
+            พบ <span id="search-count" class="text-amber-500 font-bold">0</span> ข้อที่ตรงกับผลการค้นหา
         </div>
     </div>
 
@@ -86,27 +86,27 @@
             <div class="sticky top-24 space-y-4">
                 <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm space-y-4">
                     <div class="font-bold text-slate-800 text-sm flex items-center gap-2 uppercase tracking-wider pb-3 border-b border-slate-100">
-                        <i class="fa-solid fa-list-ol text-blue-600"></i> สารบัญระเบียบ
+                        <i class="fa-solid fa-list-ol text-amber-500"></i> สารบัญระเบียบ
                     </div>
                     <nav class="space-y-1 max-h-[60vh] overflow-y-auto custom-scrollbar text-xs">
 
-                        <a href="#ch-intro" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-intro" data-active-class="border-amber-600 text-amber-600 bg-amber-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             บทนำ (ข้อ 1 - 3)
                         </a>
 
-                        <a href="#ch-obligation" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-obligation" data-active-class="border-amber-600 text-amber-600 bg-amber-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             การก่อหนี้ผูกพัน (ข้อ 4)
                         </a>
 
-                        <a href="#ch-price" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-price" data-active-class="border-amber-600 text-amber-600 bg-amber-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             ความเหมาะสมของราคา (ข้อ 5 - 6)
                         </a>
 
-                        <a href="#ch-change" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-change" data-active-class="border-amber-600 text-amber-600 bg-amber-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             การเปลี่ยนแปลงรายการ (ข้อ 7)
                         </a>
 
-                        <a href="#ch-admin" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-admin" data-active-class="border-amber-600 text-amber-600 bg-amber-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             การบริหารและรักษาการ (ข้อ 8 - 9)
                         </a>
 
@@ -121,7 +121,7 @@
             <!-- CHAPTER SECTION: บทนำ (ข้อ 1 - 3) -->
             <div id="ch-intro" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center text-white font-bold shrink-0 shadow-md shadow-amber-500/10">
                         <i class="fa-solid fa-circle-info text-sm"></i>
                     </div>
                     <div>
@@ -140,10 +140,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 1 (1) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="1" data-section-num-thai="1">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="1" data-section-num-thai="1">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-amber-200 pb-1 inline-block">
                                     ข้อ 1
                                 </h4>
                             </div>
@@ -158,10 +158,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 2 (2) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="2" data-section-num-thai="2">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="2" data-section-num-thai="2">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-amber-200 pb-1 inline-block">
                                     ข้อ 2
                                 </h4>
                             </div>
@@ -176,10 +176,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 3 (3) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="3" data-section-num-thai="3">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="3" data-section-num-thai="3">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-amber-200 pb-1 inline-block">
                                     ข้อ 3
                                 </h4>
                             </div>
@@ -199,7 +199,7 @@
             <!-- CHAPTER SECTION: การก่อหนี้ผูกพัน (ข้อ 4) -->
             <div id="ch-obligation" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center text-white font-bold shrink-0 shadow-md shadow-amber-500/10">
                         <i class="fa-solid fa-circle-check text-sm"></i>
                     </div>
                     <div>
@@ -211,10 +211,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 4 (4) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="4" data-section-num-thai="4">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="4" data-section-num-thai="4">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-amber-200 pb-1 inline-block">
                                     ข้อ 4
                                 </h4>
                             </div>
@@ -224,8 +224,8 @@
                         </div>
                         <div class="space-y-3 exact-text">
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">เมื่อคณะรัฐมนตรีได้<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>รายการและวงเงินก่อหนี้ผูกพันข้ามปีงบประมาณแล้ว ให้หน่วยรับงบประมาณดำเนินการ ดังต่อไปนี้</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">ในกรณีที่เป็นรายการครุภัณฑ์ ที่ดิน หรือสิ่งก่อสร้าง ให้เสนอผลการจัดซื้อจัดจ้างที่ได้ดำเนินการแล้วต่อสำนักงบประมาณเพื่อพิจารณาให้ความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>ความเหมาะสมของราคาก่อนทำสัญญาก่อหนี้ผูกพัน <span class="text-emerald-600 bg-emerald-50 border border-emerald-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เว้นแต่</span>เป็นรายการที่สำนักงบประมาณได้เคยให้ความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>ความเหมาะสมของราคาไว้แล้ว</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">ในกรณีที่เป็นรายการก่อหนี้ผูกพันซึ่งเป็นรายจ่ายประจำในงบดำเนินงาน งบเงินอุดหนุน หรืองบรายจ่ายอื่น ให้ดำเนินการก่อหนี้ผูกพันภายในวงเงินที่คณะรัฐมนตรี<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span> ทั้งนี้ ตามหลักเกณฑ์ เงื่อนไข หรือวิธีปฏิบัติที่กระทรวงการคลังกำหนด รวมทั้งกฎหมาย ข้อบังคับ ระเบียบ และมติคณะรัฐมนตรีที่เกี่ยวข้อง ตลอดจนมาตรฐานของทางราชการ โดยให้คำนึงถึงความคุ้มค่าและประหยัด</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-amber-500 flex-shrink-0">(1)</span><span class="sec-text-content">ในกรณีที่เป็นรายการครุภัณฑ์ ที่ดิน หรือสิ่งก่อสร้าง ให้เสนอผลการจัดซื้อจัดจ้างที่ได้ดำเนินการแล้วต่อสำนักงบประมาณเพื่อพิจารณาให้ความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>ความเหมาะสมของราคาก่อนทำสัญญาก่อหนี้ผูกพัน <span class="text-emerald-600 bg-emerald-50 border border-emerald-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เว้นแต่</span>เป็นรายการที่สำนักงบประมาณได้เคยให้ความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>ความเหมาะสมของราคาไว้แล้ว</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-amber-500 flex-shrink-0">(2)</span><span class="sec-text-content">ในกรณีที่เป็นรายการก่อหนี้ผูกพันซึ่งเป็นรายจ่ายประจำในงบดำเนินงาน งบเงินอุดหนุน หรืองบรายจ่ายอื่น ให้ดำเนินการก่อหนี้ผูกพันภายในวงเงินที่คณะรัฐมนตรี<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span> ทั้งนี้ ตามหลักเกณฑ์ เงื่อนไข หรือวิธีปฏิบัติที่กระทรวงการคลังกำหนด รวมทั้งกฎหมาย ข้อบังคับ ระเบียบ และมติคณะรัฐมนตรีที่เกี่ยวข้อง ตลอดจนมาตรฐานของทางราชการ โดยให้คำนึงถึงความคุ้มค่าและประหยัด</span></div>
 
                         </div>
                     </div>
@@ -236,7 +236,7 @@
             <!-- CHAPTER SECTION: ความเหมาะสมของราคา (ข้อ 5 - 6) -->
             <div id="ch-price" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center text-white font-bold shrink-0 shadow-md shadow-amber-500/10">
                         <i class="fa-solid fa-tag text-sm"></i>
                     </div>
                     <div>
@@ -248,10 +248,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 5 (5) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="5" data-section-num-thai="5">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="5" data-section-num-thai="5">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-amber-200 pb-1 inline-block">
                                     ข้อ 5
                                 </h4>
                             </div>
@@ -261,18 +261,18 @@
                         </div>
                         <div class="space-y-3 exact-text">
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">การเสนอให้สำนักงบประมาณพิจารณาความเหมาะสมของราคาตามข้อ 4 สำหรับรายการครุภัณฑ์ ที่ดิน และสิ่งก่อสร้าง ไม่ว่าจะเบิกจ่ายในงบรายจ่ายใด ให้หน่วยรับงบประมาณเสนอรายละเอียดประกอบ ดังต่อไปนี้</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">รายการครุภัณฑ์แต่ละรายการ ให้ระบุราคากลางและคุณลักษณะเฉพาะของแต่ละรายการที่กำหนดไว้</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">รายการที่ดิน ให้ระบุราคากลางที่กำหนดไว้ เนื้อที่ของที่ดินและแผนผังสังเขปของที่ดินแต่ละรายการ จังหวัด อำเภอ และตำบล ซึ่งเป็นที่ตั้งของที่ดิน รวมทั้งราคากลางของที่ดินซึ่งกรมที่ดินเป็นผู้ประมาณการ ราคาที่ดินที่ซื้อขายกันในท้องตลาดในบริเวณและเวลาใกล้เคียง และราคาที่ดินซึ่งทางราชการประเมินเพื่อเสียภาษี</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content">รายการก่อสร้าง ให้ระบุประเภทของสิ่งก่อสร้าง ราคากลางที่กำหนดไว้ แบบรูปและรายการก่อสร้าง หรือรายละเอียดอื่นใดที่จะเป็นประโยชน์ในการพิจารณาของสำนักงบประมาณ เช่น ขนาด หรือเนื้อที่ของอาคารที่จะก่อสร้าง <span class="text-emerald-600 bg-emerald-50 border border-emerald-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เว้นแต่</span>สิ่งก่อสร้างนั้นๆ เป็นสิ่งก่อสร้างที่สำนักงบประมาณได้กำหนดแบบแปลนมาตรฐานขึ้นไว้ หรือหน่วยรับงบประมาณได้กำหนดแบบแปลนมาตรฐานซึ่งได้รับความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>จากสำนักงบประมาณแล้ว ไม่ต้องส่งแบบรูปและรายการก่อสร้างให้สำนักงบประมาณ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-amber-500 flex-shrink-0">(1)</span><span class="sec-text-content">รายการครุภัณฑ์แต่ละรายการ ให้ระบุราคากลางและคุณลักษณะเฉพาะของแต่ละรายการที่กำหนดไว้</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-amber-500 flex-shrink-0">(2)</span><span class="sec-text-content">รายการที่ดิน ให้ระบุราคากลางที่กำหนดไว้ เนื้อที่ของที่ดินและแผนผังสังเขปของที่ดินแต่ละรายการ จังหวัด อำเภอ และตำบล ซึ่งเป็นที่ตั้งของที่ดิน รวมทั้งราคากลางของที่ดินซึ่งกรมที่ดินเป็นผู้ประมาณการ ราคาที่ดินที่ซื้อขายกันในท้องตลาดในบริเวณและเวลาใกล้เคียง และราคาที่ดินซึ่งทางราชการประเมินเพื่อเสียภาษี</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-amber-500 flex-shrink-0">(3)</span><span class="sec-text-content">รายการก่อสร้าง ให้ระบุประเภทของสิ่งก่อสร้าง ราคากลางที่กำหนดไว้ แบบรูปและรายการก่อสร้าง หรือรายละเอียดอื่นใดที่จะเป็นประโยชน์ในการพิจารณาของสำนักงบประมาณ เช่น ขนาด หรือเนื้อที่ของอาคารที่จะก่อสร้าง <span class="text-emerald-600 bg-emerald-50 border border-emerald-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เว้นแต่</span>สิ่งก่อสร้างนั้นๆ เป็นสิ่งก่อสร้างที่สำนักงบประมาณได้กำหนดแบบแปลนมาตรฐานขึ้นไว้ หรือหน่วยรับงบประมาณได้กำหนดแบบแปลนมาตรฐานซึ่งได้รับความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>จากสำนักงบประมาณแล้ว ไม่ต้องส่งแบบรูปและรายการก่อสร้างให้สำนักงบประมาณ</span></div>
 
                         </div>
                     </div>
 
                     <!-- Section Card: ข้อ 6 (6) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="6" data-section-num-thai="6">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="6" data-section-num-thai="6">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-amber-200 pb-1 inline-block">
                                     ข้อ 6
                                 </h4>
                             </div>
@@ -293,7 +293,7 @@
             <!-- CHAPTER SECTION: การเปลี่ยนแปลงรายการ (ข้อ 7) -->
             <div id="ch-change" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center text-white font-bold shrink-0 shadow-md shadow-amber-500/10">
                         <i class="fa-solid fa-rotate text-sm"></i>
                     </div>
                     <div>
@@ -305,10 +305,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 7 (7) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="7" data-section-num-thai="7">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="7" data-section-num-thai="7">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-amber-200 pb-1 inline-block">
                                     ข้อ 7
                                 </h4>
                             </div>
@@ -318,9 +318,9 @@
                         </div>
                         <div class="space-y-3 exact-text">
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ในกรณีที่มีความจำเป็นต้องเปลี่ยนแปลงรายการ วงเงิน ระยะเวลา หรือรายละเอียดของรายการก่อหนี้ผูกพันข้ามปีงบประมาณที่ได้รับ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>จากคณะรัฐมนตรีแล้ว ให้หน่วยรับงบประมาณดำเนินการ ดังต่อไปนี้</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">การเปลี่ยนแปลงรายละเอียดของรายการโดยไม่เพิ่มวงเงินก่อหนี้ผูกพันให้ทำ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">ความตกลง</span>กับสำนักงบประมาณ</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">การขยายระยะเวลาก่อหนี้ผูกพันโดยไม่เพิ่มวงเงินก่อหนี้ผูกพัน ให้เสนอขอ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>ต่อรัฐมนตรีเจ้าสังกัด และรายงานสำนักงบประมาณทราบภายใน<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">สิบห้าวัน</span>นับแต่วันที่ได้รับ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span></span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content">การเปลี่ยนแปลงรายการหรือการเพิ่มวงเงินก่อหนี้ผูกพันเกินวงเงินที่คณะรัฐมนตรี<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span> ให้เสนอขอ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>ต่อคณะรัฐมนตรี โดยต้องส่งผลการจัดซื้อจัดจ้างหรือรายละเอียดอื่นใดที่เกี่ยวข้อง ให้สำนักงบประมาณพิจารณาเพื่อเสนอความเห็นประกอบการพิจารณาของคณะรัฐมนตรีด้วย ทั้งนี้ การขอเพิ่มวงเงินที่ต้องขยายระยะเวลาก่อหนี้ผูกพันให้เสนอขอ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>คณะรัฐมนตรีในคราวเดียวกัน</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-amber-500 flex-shrink-0">(1)</span><span class="sec-text-content">การเปลี่ยนแปลงรายละเอียดของรายการโดยไม่เพิ่มวงเงินก่อหนี้ผูกพันให้ทำ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">ความตกลง</span>กับสำนักงบประมาณ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-amber-500 flex-shrink-0">(2)</span><span class="sec-text-content">การขยายระยะเวลาก่อหนี้ผูกพันโดยไม่เพิ่มวงเงินก่อหนี้ผูกพัน ให้เสนอขอ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>ต่อรัฐมนตรีเจ้าสังกัด และรายงานสำนักงบประมาณทราบภายใน<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">สิบห้าวัน</span>นับแต่วันที่ได้รับ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span></span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-amber-500 flex-shrink-0">(3)</span><span class="sec-text-content">การเปลี่ยนแปลงรายการหรือการเพิ่มวงเงินก่อหนี้ผูกพันเกินวงเงินที่คณะรัฐมนตรี<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span> ให้เสนอขอ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>ต่อคณะรัฐมนตรี โดยต้องส่งผลการจัดซื้อจัดจ้างหรือรายละเอียดอื่นใดที่เกี่ยวข้อง ให้สำนักงบประมาณพิจารณาเพื่อเสนอความเห็นประกอบการพิจารณาของคณะรัฐมนตรีด้วย ทั้งนี้ การขอเพิ่มวงเงินที่ต้องขยายระยะเวลาก่อหนี้ผูกพันให้เสนอขอ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>คณะรัฐมนตรีในคราวเดียวกัน</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ให้สำนักงบประมาณกำหนดหลักเกณฑ์ หรือวิธีปฏิบัติเกี่ยวกับการเปลี่ยนแปลงรายละเอียดของรายการก่อหนี้ผูกพันตาม (1) รวมทั้งการบริหารวงเงินงบประมาณรายจ่ายที่ตั้งไว้สำหรับรายการก่อหนี้ผูกพันข้ามปีได้ตามความเหมาะสม</p>
 
                         </div>
@@ -332,7 +332,7 @@
             <!-- CHAPTER SECTION: การบริหารและรักษาการ (ข้อ 8 - 9) -->
             <div id="ch-admin" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center text-white font-bold shrink-0 shadow-md shadow-amber-500/10">
                         <i class="fa-solid fa-gavel text-sm"></i>
                     </div>
                     <div>
@@ -344,10 +344,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 8 (8) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="8" data-section-num-thai="8">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="8" data-section-num-thai="8">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-amber-200 pb-1 inline-block">
                                     ข้อ 8
                                 </h4>
                             </div>
@@ -362,10 +362,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 9 (9) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="9" data-section-num-thai="9">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="9" data-section-num-thai="9">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-amber-200 pb-1 inline-block">
                                     ข้อ 9
                                 </h4>
                             </div>
@@ -393,7 +393,7 @@
 
             <!-- No Results Card -->
             <div id="no-search-results" class="bg-white border border-slate-200 rounded-2xl p-12 text-center shadow-sm hidden">
-                <div class="w-16 h-16 rounded-2xl bg-blue-50/50 border border-blue-200/50/50 flex items-center justify-center mx-auto mb-4 text-blue-600">
+                <div class="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200/50 flex items-center justify-center mx-auto mb-4 text-amber-500">
                     <i class="fa-solid fa-triangle-exclamation text-3xl"></i>
                 </div>
                 <h3 class="text-lg font-bold text-slate-800 mb-2">ไม่พบผลลัพธ์การค้นหา</h3>
@@ -402,6 +402,54 @@
                 </p>
             </div>
             
+        
+    <!-- Mobile Bottom Sticky Nav Bar -->
+    <div class="fixed bottom-4 left-4 right-4 z-40 bg-slate-900/95 backdrop-blur-md border border-white/10 px-4 py-3 rounded-2xl shadow-xl lg:hidden flex justify-between items-center text-white">
+        <div class="flex items-center gap-2">
+            <i class="fa-solid fa-list-ol text-amber-400 text-lg"></i>
+            <span class="text-xs font-bold tracking-wide">สารบัญระเบียบสำนักงบประมาณ</span>
+        </div>
+        <button onclick="toggleMobileChaptersSheet()" class="px-4 py-1.5 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl text-xs flex items-center gap-1.5 transition-all">
+            เลือกหมวด <i class="fa-solid fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Chapters Bottom Sheet Modal -->
+    <div id="mobile-chapters-sheet" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden hidden transition-all duration-300">
+        <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[2rem] p-6 max-h-[80vh] overflow-y-auto flex flex-col gap-4 shadow-2xl">
+            <div class="flex justify-between items-center pb-3 border-b border-slate-100">
+                <span class="font-bold text-slate-800 text-base flex items-center gap-2">
+                    <i class="fa-solid fa-list-ol text-amber-500"></i> สารบัญ
+                </span>
+                <button onclick="toggleMobileChaptersSheet()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <nav class="space-y-1 py-2 text-sm">
+                
+                <a href="#ch-intro" onclick="selectMobileChapter('ch-intro')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    บทนำ (ข้อ 1 - 3)
+                </a>
+
+                <a href="#ch-obligation" onclick="selectMobileChapter('ch-obligation')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    การก่อหนี้ผูกพัน (ข้อ 4)
+                </a>
+
+                <a href="#ch-price" onclick="selectMobileChapter('ch-price')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    ความเหมาะสมของราคา (ข้อ 5 - 6)
+                </a>
+
+                <a href="#ch-change" onclick="selectMobileChapter('ch-change')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    การเปลี่ยนแปลงรายการ (ข้อ 7)
+                </a>
+
+                <a href="#ch-admin" onclick="selectMobileChapter('ch-admin')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    การบริหารและรักษาการ (ข้อ 8 - 9)
+                </a>
+            </nav>
         </div>
     </div>
+
+</div>
+</div>
 </div>

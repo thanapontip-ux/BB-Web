@@ -243,6 +243,143 @@
         .group-sub:hover .fa-chevron-right {
             transform: translateX(4px);
         }
+
+        /* ==========================================================================
+           Slate & Navy Redesign Overrides for Law Pages
+           ========================================================================== */
+        
+        /* Set base background when content is shown */
+        body.bg-slate-50 {
+            background-color: #f8fafc !important;
+        }
+
+        /* Section Card redesign */
+        .section-card {
+            background-color: #ffffff !important;
+            border-color: #e2e8f0 !important;
+            border-width: 1px !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.035) !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        .section-card:hover {
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08) !important;
+            transform: translateY(-2px) !important;
+            border-color: #cbd5e1 !important;
+        }
+        .chapter-container {
+            transition: opacity 0.3s ease !important;
+        }
+        .exact-text {
+            line-height: 1.8 !important;
+            font-size: 0.95rem !important;
+        }
+        .sec-text-content {
+            font-size: 0.95rem !important;
+            line-height: 1.8 !important;
+            color: #334155 !important;
+        }
+        
+        /* Inline Highlighting Rules */
+        .sec-text-content span.text-amber-600,
+        .sec-text-content span.text-amber-700,
+        .sec-text-content span.text-emerald-600,
+        .sec-text-content span.text-emerald-700,
+        .sec-text-content span.text-blue-600,
+        .sec-text-content span.text-blue-700,
+        .sec-text-content span.text-indigo-600,
+        .sec-text-content span.text-indigo-700 {
+            display: inline !important;
+            padding: 0.15rem 0.35rem !important;
+            margin: 0 0.1rem !important;
+            border-radius: 0.375rem !important;
+            font-weight: 600 !important;
+            font-size: 0.9em !important;
+            white-space: normal !important;
+            vertical-align: baseline !important;
+            border-width: 1px !important;
+        }
+        
+        .sec-text-content span.text-amber-600,
+        .sec-text-content span.text-amber-700 {
+            color: #b45309 !important;
+            background-color: #fef3c7 !important;
+            border-color: #fde68a !important;
+        }
+        
+        .sec-text-content span.text-emerald-600,
+        .sec-text-content span.text-emerald-700 {
+            color: #047857 !important;
+            background-color: #d1fae5 !important;
+            border-color: #a7f3d0 !important;
+        }
+        
+        .sec-text-content span.text-blue-600,
+        .sec-text-content span.text-blue-700,
+        .sec-text-content span.text-indigo-600,
+        .sec-text-content span.text-indigo-700 {
+            color: #1d4ed8 !important;
+            background-color: #dbeafe !important;
+            border-color: #bfdbfe !important;
+        }
+
+        /* Override definition strong tags inside content paragraphs */
+        .sec-text-content strong,
+        .exact-text p strong {
+            display: inline !important;
+            padding: 0.15rem 0.35rem !important;
+            border-radius: 0.375rem !important;
+            font-weight: 700 !important;
+            background-color: #eff6ff !important;
+            color: #1e3a8a !important;
+            border: 1px solid #bfdbfe !important;
+            font-size: 0.95em !important;
+            vertical-align: baseline !important;
+        }
+
+        /* Part subheadings inside content */
+        .chapter-container div[class*="bg-gradient-to-r"] {
+            border-left-width: 4px !important;
+            border-radius: 0 0.5rem 0.5rem 0 !important;
+            font-weight: 700 !important;
+            padding: 0.75rem 1rem !important;
+            box-shadow: inset 1px 0 0 rgba(0,0,0,0.02) !important;
+        }
+
+        /* Glassmorphic Sidebar Navigation & Reading Progress */
+        .sidebar-progress-track {
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 3px;
+            background-color: #e2e8f0;
+            border-radius: 9999px;
+            pointer-events: none;
+        }
+        .sidebar-progress-fill {
+            position: absolute;
+            left: 0;
+            width: 3px;
+            background-color: #2563eb;
+            border-radius: 9999px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
+        }
+
+        /* Card Entrance Animation on Render/Filter */
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .section-card:not(.hidden) {
+            animation: cardEntrance 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
     </style>
 </head>
 <body class="bg-[#050b14] text-slate-800 antialiased pt-20 flex flex-col min-h-screen">
@@ -1088,7 +1225,7 @@
                                     frag.appendChild(document.createTextNode(text.substring(lastIdx, currentIdx)));
                                 }
                                 const mark = document.createElement('mark');
-                                mark.className = 'bg-blue-100 text-blue-900 font-bold px-0.5 rounded border border-blue-200/50';
+                                mark.className = 'bg-blue-50 text-blue-600 font-bold px-1 py-0.5 rounded border border-blue-200/60 shadow-sm transition-all duration-300';
                                 mark.textContent = text.substring(currentIdx, currentIdx + query.length);
                                 frag.appendChild(mark);
                                 
@@ -1113,6 +1250,64 @@
                 const sidebarLinks = document.querySelectorAll('.sidebar-law-link');
                 const chapterContainers = document.querySelectorAll('.chapter-container');
                 
+                const getActiveClasses = (el) => {
+                    const attr = el.getAttribute('data-active-class');
+                    return attr ? attr.split(' ') : ['border-blue-600', 'text-blue-600', 'bg-slate-50', 'pl-4'];
+                };
+
+                const removeActiveClasses = () => {
+                    sidebarLinks.forEach(l => {
+                        const activeClasses = getActiveClasses(l);
+                        l.classList.remove(...activeClasses);
+                        l.classList.add('border-transparent', 'text-slate-500');
+                    });
+                };
+
+                // Dynamic progress track injection
+                const sidebarNav = document.querySelector('.sidebar-law-link')?.parentElement;
+                if (sidebarNav && !sidebarNav.querySelector('.sidebar-progress-track')) {
+                    sidebarNav.classList.add('relative', 'pl-4');
+                    
+                    const track = document.createElement('div');
+                    track.className = 'sidebar-progress-track';
+                    
+                    const fill = document.createElement('div');
+                    fill.className = 'sidebar-progress-fill';
+                    track.appendChild(fill);
+                    
+                    sidebarNav.appendChild(track);
+                }
+
+                const updateSidebarProgress = () => {
+                    if (!sidebarNav) return;
+                    const activeLink = Array.from(sidebarLinks).find(link => {
+                        const activeClasses = getActiveClasses(link);
+                        return activeClasses.every(cls => link.classList.contains(cls));
+                    });
+                    const fill = sidebarNav.querySelector('.sidebar-progress-fill');
+                    if (fill && activeLink) {
+                        const navRect = sidebarNav.getBoundingClientRect();
+                        const linkRect = activeLink.getBoundingClientRect();
+                        const top = linkRect.top - navRect.top + 8; // align vertically
+                        const height = linkRect.height - 16;
+                        fill.style.top = `${top}px`;
+                        fill.style.height = `${height}px`;
+
+                        // Dynamically update fill color based on the text color of the active link
+                        const computedStyle = window.getComputedStyle(activeLink);
+                        const activeColor = computedStyle.color;
+                        fill.style.backgroundColor = activeColor;
+                        
+                        // Parse rgb or other format to form rgba box shadow
+                        if (activeColor.startsWith('rgb')) {
+                            const rgba = activeColor.replace('rgb', 'rgba').replace(')', ', 0.4)');
+                            fill.style.boxShadow = `0 0 8px ${rgba}`;
+                        } else {
+                            fill.style.boxShadow = `0 0 8px ${activeColor}`;
+                        }
+                    }
+                };
+                
                 sidebarLinks.forEach(link => {
                     link.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -1123,12 +1318,11 @@
                             const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
                             window.scrollTo({top: y, behavior: 'smooth'});
                             
-                            sidebarLinks.forEach(l => {
-                                l.classList.remove('border-blue-600', 'text-blue-600', 'bg-slate-50', 'pl-4');
-                                l.classList.add('border-transparent', 'text-slate-500');
-                            });
-                            this.classList.add('border-blue-600', 'text-blue-600', 'bg-slate-50', 'pl-4');
+                            removeActiveClasses();
+                            const activeClasses = getActiveClasses(this);
+                            this.classList.add(...activeClasses);
                             this.classList.remove('border-transparent', 'text-slate-500');
+                            updateSidebarProgress();
                         }
                     });
                 });
@@ -1144,20 +1338,42 @@
                         entries.forEach(entry => {
                             if (entry.isIntersecting) {
                                 sidebarLinks.forEach(link => {
-                                    link.classList.remove('border-blue-600', 'text-blue-600', 'bg-slate-50', 'pl-4');
+                                    const activeClasses = getActiveClasses(link);
+                                    link.classList.remove(...activeClasses);
                                     link.classList.add('border-transparent', 'text-slate-500');
                                     if (link.getAttribute('href') === `#${entry.target.id}`) {
-                                        link.classList.add('border-blue-600', 'text-blue-600', 'bg-slate-50', 'pl-4');
+                                        link.classList.add(...activeClasses);
                                         link.classList.remove('border-transparent', 'text-slate-500');
                                     }
                                 });
+                                updateSidebarProgress();
                             }
                         });
                     }, scrollSpyOptions);
 
                     chapterContainers.forEach(ch => scrollSpy.observe(ch));
                 }
+
+                // Initial progress position trigger
+                setTimeout(updateSidebarProgress, 200);
             }, 100);
+        };
+
+        window.toggleMobileChaptersSheet = function() {
+            const sheet = document.getElementById('mobile-chapters-sheet');
+            if (sheet) {
+                sheet.classList.toggle('hidden');
+            }
+        };
+
+        window.selectMobileChapter = function(chapterId) {
+            window.toggleMobileChaptersSheet();
+            const targetEl = document.getElementById(chapterId);
+            if (targetEl) {
+                const yOffset = -90;
+                const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({top: y, behavior: 'smooth'});
+            }
         };
 
         window.initGlobalLawSearch = function() {

@@ -1,17 +1,17 @@
 
-<div class="space-y-8 animate-fade-in relative">
-    <!-- Ambient blue glow -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-gradient-to-b from-blue-500/5 to-transparent rounded-full blur-[100px] pointer-events-none -z-10"></div>
+<div class="space-y-8 animate-fade-in relative pb-16 lg:pb-0">
+    <!-- Ambient teal glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-gradient-to-b from-teal-500/5 to-transparent rounded-full blur-[100px] pointer-events-none -z-10"></div>
     <!-- Header Hero Card -->
     <div class="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-[2rem] p-8 md:p-12 shadow-2xl border border-white/10 relative overflow-hidden">
         <!-- Accent circles -->
-        <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
-        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-teal-500/10 rounded-full blur-2xl"></div>
+        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-teal-500/10 rounded-full blur-2xl"></div>
         
         <div class="relative flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div class="space-y-4">
                 <div class="flex items-center gap-3">
-                    <span class="px-4 py-1.5 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                    <span class="px-4 py-1.5 bg-emerald-500/20 border border-emerald-500/30 text-teal-400 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> มีผลบังคับใช้
                     </span>
                     <span class="px-4 py-1.5 bg-white/5 border border-white/10 text-slate-300 rounded-full text-xs font-semibold">
@@ -26,7 +26,7 @@
                 </p>
             </div>
             <div class="flex-shrink-0">
-                <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-400 flex items-center justify-center shadow-lg shadow-blue-500/20">
                     <i class="fa-solid fa-file-invoice-dollar text-3xl md:text-4xl text-slate-950"></i>
                 </div>
             </div>
@@ -37,25 +37,25 @@
             <div class="space-y-1">
                 <div class="text-slate-500 font-medium">ประกาศ ณ วันที่</div>
                 <div class="font-semibold text-white flex items-center gap-2">
-                    <i class="fa-regular fa-calendar text-blue-400"></i> 31 กรกฎาคม 2562
+                    <i class="fa-regular fa-calendar text-teal-400"></i> 31 กรกฎาคม 2562
                 </div>
             </div>
             <div class="space-y-1">
                 <div class="text-slate-500 font-medium">วันบังคับใช้</div>
                 <div class="font-semibold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-calendar-check text-blue-400"></i> 31 กรกฎาคม 2562
+                    <i class="fa-solid fa-calendar-check text-teal-400"></i> 31 กรกฎาคม 2562
                 </div>
             </div>
             <div class="space-y-1">
                 <div class="text-slate-500 font-medium">ผู้รักษาการตามระเบียบ</div>
                 <div class="font-semibold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-user-shield text-blue-400"></i> ผู้อำนวยการสำนักงบประมาณ
+                    <i class="fa-solid fa-user-shield text-teal-400"></i> ผู้อำนวยการสำนักงบประมาณ
                 </div>
             </div>
             <div class="space-y-1">
                 <div class="text-slate-500 font-medium">จำนวนเนื้อหา</div>
                 <div class="font-semibold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-file-invoice text-blue-400"></i> 6 หมวด 1 บทเฉพาะกาล (38 ข้อ)
+                    <i class="fa-solid fa-file-invoice text-teal-400"></i> 6 หมวด 1 บทเฉพาะกาล (38 ข้อ)
                 </div>
             </div>
         </div>
@@ -68,13 +68,13 @@
                 <i class="fa-solid fa-magnifying-glass text-slate-400 text-md"></i>
             </div>
             <input type="text" id="law-search" placeholder="ค้นหาตามข้อ หรือคำสำคัญในระเบียบ (เช่น แผนการปฏิบัติงาน, ข้อ 5)..." 
-                   class="w-full pl-11 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#2563eb] focus:ring-4 focus:ring-[#2563eb]/15 transition-all duration-300">
+                   class="w-full pl-11 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-teal-500 focus:ring-4 focus:ring-teal-500/15 transition-all duration-300">
             <button id="clear-search-btn" class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors hidden">
                 <i class="fa-solid fa-circle-xmark"></i>
             </button>
         </div>
         <div id="search-status" class="text-center text-xs md:text-sm text-slate-500 mt-3 font-medium hidden">
-            พบ <span id="search-count" class="text-[#2563eb] font-bold">0</span> ข้อที่ตรงกับผลการค้นหา
+            พบ <span id="search-count" class="text-teal-500 font-bold">0</span> ข้อที่ตรงกับผลการค้นหา
         </div>
     </div>
 
@@ -86,39 +86,39 @@
             <div class="sticky top-24 space-y-4">
                 <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm space-y-4">
                     <div class="font-bold text-slate-800 text-sm flex items-center gap-2 uppercase tracking-wider pb-3 border-b border-slate-100">
-                        <i class="fa-solid fa-list-ol text-blue-600"></i> สารบัญระเบียบ
+                        <i class="fa-solid fa-list-ol text-teal-500"></i> สารบัญระเบียบ
                     </div>
                     <nav class="space-y-1 max-h-[60vh] overflow-y-auto custom-scrollbar text-xs">
 
-                        <a href="#ch-intro" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-intro" data-active-class="border-teal-600 text-teal-600 bg-teal-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-teal-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             บทนำ
                         </a>
 
-                        <a href="#ch-1" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-1" data-active-class="border-teal-600 text-teal-600 bg-teal-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-teal-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             หมวด 1 บททั่วไป
                         </a>
 
-                        <a href="#ch-2" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-2" data-active-class="border-teal-600 text-teal-600 bg-teal-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-teal-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             หมวด 2 แผนการปฏิบัติงานฯ
                         </a>
 
-                        <a href="#ch-3" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-3" data-active-class="border-teal-600 text-teal-600 bg-teal-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-teal-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             หมวด 3 เงินจัดสรร
                         </a>
 
-                        <a href="#ch-4" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-4" data-active-class="border-teal-600 text-teal-600 bg-teal-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-teal-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             หมวด 4 การใช้และโอนงบประมาณฯ
                         </a>
 
-                        <a href="#ch-5" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-5" data-active-class="border-teal-600 text-teal-600 bg-teal-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-teal-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             หมวด 5 การบริหารงบกลาง
                         </a>
 
-                        <a href="#ch-6" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-6" data-active-class="border-teal-600 text-teal-600 bg-teal-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-teal-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             หมวด 6 การประเมินผลฯ
                         </a>
 
-                        <a href="#ch-specific" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-[#2563eb] hover:bg-slate-50 font-medium transition-all duration-200">
+                        <a href="#ch-specific" data-active-class="border-teal-600 text-teal-600 bg-teal-50/50 pl-4 font-semibold" class="sidebar-law-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-teal-600 hover:bg-slate-50 font-medium transition-all duration-200">
                             บทเฉพาะกาล
                         </a>
 
@@ -133,7 +133,7 @@
             <!-- CHAPTER SECTION: บทนำ (ข้อ 1 - 4) -->
             <div id="ch-intro" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-400 flex items-center justify-center text-white font-bold shrink-0">
                         <i class="fa-solid fa-folder-open text-sm"></i>
                     </div>
                     <div>
@@ -152,10 +152,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 1 (1) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="1" data-section-num-thai="1">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="1" data-section-num-thai="1">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 1
                                 </h4>
                             </div>
@@ -170,10 +170,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 2 (2) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="2" data-section-num-thai="2">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="2" data-section-num-thai="2">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 2
                                 </h4>
                             </div>
@@ -188,10 +188,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 3 (3) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="3" data-section-num-thai="3">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="3" data-section-num-thai="3">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 3
                                 </h4>
                             </div>
@@ -201,45 +201,45 @@
                         </div>
                         <div class="space-y-3 exact-text">
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ข้อ 3 ในระเบียบนี้</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“หน่วยรับงบประมาณ”</strong> <span class="sec-text-content">หมายความว่า หน่วยรับงบประมาณตามที่กําหนดในพระราชบัญญัติ</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“หน่วยรับงบประมาณ”</strong> <span class="sec-text-content">หมายความว่า หน่วยรับงบประมาณตามที่กําหนดในพระราชบัญญัติ</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">วิธีการงบประมาณ  พ.ศ.  2561</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“งบประมาณรายจ่าย”</strong> <span class="sec-text-content">หมายความว่า จํานวนเงินอย่างสูงที่<span class="text-emerald-600 bg-emerald-50 border border-emerald-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุญาตให้</span>จ่ายหรือให้ก่อหนี้</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“งบประมาณรายจ่าย”</strong> <span class="sec-text-content">หมายความว่า จํานวนเงินอย่างสูงที่<span class="text-emerald-600 bg-emerald-50 border border-emerald-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุญาตให้</span>จ่ายหรือให้ก่อหนี้</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ผูกพันได้ตามวัตถุประสงค์และภายในระยะเวลาที่กําหนดไว้ในกฎหมายว่าด้วยงบประมาณรายจ่าย</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“แผนงาน”</strong> <span class="sec-text-content">หมายความว่า แผนงานที่กําหนดไว้ในกฎหมายว่าด้วยงบประมาณรายจ่าย</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“แผนงาน”</strong> <span class="sec-text-content">หมายความว่า แผนงานที่กําหนดไว้ในกฎหมายว่าด้วยงบประมาณรายจ่าย</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">หรือที่กําหนดขึ้นใหม่ในระหว่างปีงบประมาณ</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“ผลผลิต”</strong> <span class="sec-text-content">หมายความว่า ผลผลิตที่กําหนดไว้ในเอกสารประกอบกฎหมายว่าด้วย</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“ผลผลิต”</strong> <span class="sec-text-content">หมายความว่า ผลผลิตที่กําหนดไว้ในเอกสารประกอบกฎหมายว่าด้วย</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">งบประมาณรายจ่าย  หรือที่กําหนดขึ้นใหม่ในระหว่างปีงบประมาณ</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“โครงการ”</strong> <span class="sec-text-content">หมายความว่า โครงการที่กําหนดไว้ในเอกสารประกอบกฎหมายว่าด้วย</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“โครงการ”</strong> <span class="sec-text-content">หมายความว่า โครงการที่กําหนดไว้ในเอกสารประกอบกฎหมายว่าด้วย</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">งบประมาณรายจ่าย  หรือที่กําหนดขึ้นใหม่ในระหว่างปีงบประมาณ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ปีงบประมาณ</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“แผนการปฏิบัติงาน”</strong> <span class="sec-text-content">หมายความว่า แผนการปฏิบัติงานของหน่วยรับงบประมาณในรอบ</span></p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“แผนการใช้จ่ายงบประมาณ”</strong> <span class="sec-text-content">หมายความว่า แผนแสดงรายละเอียดการใช้จ่ายงบประมาณ</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“แผนการปฏิบัติงาน”</strong> <span class="sec-text-content">หมายความว่า แผนการปฏิบัติงานของหน่วยรับงบประมาณในรอบ</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“แผนการใช้จ่ายงบประมาณ”</strong> <span class="sec-text-content">หมายความว่า แผนแสดงรายละเอียดการใช้จ่ายงบประมาณ</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">สําหรับหน่วยรับงบประมาณเพื่อดําเนินงานตามแผนการปฏิบัติงานในรอบปีงบประมาณ</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“งบประมาณรายจ่ายบูรณาการ”</strong> <span class="sec-text-content">หมายความว่า งบประมาณรายจ่ายที่ตั้งไว้ในแผนงาน</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“งบประมาณรายจ่ายบูรณาการ”</strong> <span class="sec-text-content">หมายความว่า งบประมาณรายจ่ายที่ตั้งไว้ในแผนงาน</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">บูรณาการตามกฎหมายว่าด้วยงบประมาณรายจ่าย</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“ผู้มีอํานาจกํากับแผนงานบูรณาการ”</strong> <span class="sec-text-content">หมายความว่า ผู้ที่คณะรัฐมนตรีมอบหมายให้</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“ผู้มีอํานาจกํากับแผนงานบูรณาการ”</strong> <span class="sec-text-content">หมายความว่า ผู้ที่คณะรัฐมนตรีมอบหมายให้</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">เป็นประธานคณะกรรมการจัดทํางบประมาณรายจ่ายบูรณาการ  หรือมอบหมายให้เป็นผู้กํากับ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">แผนงานบูรณาการ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ไว้เป็นการเฉพาะ</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“การโอนงบประมาณรายจ่าย”</strong> <span class="sec-text-content">หมายความว่า การโอนจํานวนเงินงบประมาณรายจ่าย</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“การโอนงบประมาณรายจ่าย”</strong> <span class="sec-text-content">หมายความว่า การโอนจํานวนเงินงบประมาณรายจ่าย</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ที่กําหนดไว้ในกฎหมายว่าด้วยงบประมาณรายจ่ายจากแผนงาน  หรือผลผลิต  หรือโครงการ  หรือรายการใดๆ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ไปตั้งเป็นงบประมาณรายจ่ายของแผนงาน  หรือผลผลิต  หรือโครงการ  หรือรายการอื่น</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“เงินจัดสรร”</strong> <span class="sec-text-content">หมายความว่า ส่วนหนึ่งของงบประมาณรายจ่ายที่แบ่งสรรให้จ่าย  หรือ</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“เงินจัดสรร”</strong> <span class="sec-text-content">หมายความว่า ส่วนหนึ่งของงบประมาณรายจ่ายที่แบ่งสรรให้จ่าย  หรือ</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ให้ก่อหนี้ผูกพันในระยะเวลาหนึ่ง</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“การโอนเงินจัดสรร”</strong> <span class="sec-text-content">หมายความว่า การโอนจํานวนเงินงบประมาณรายจ่ายที่สํานักงบประมาณ</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“การโอนเงินจัดสรร”</strong> <span class="sec-text-content">หมายความว่า การโอนจํานวนเงินงบประมาณรายจ่ายที่สํานักงบประมาณ</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content"><span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>เงินจัดสรรจากแผนงาน  หรือผลผลิต  หรือโครงการ  หรือรายการใดๆ  ไปตั้งเป็นเงินจัดสรรของแผนงาน</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">หรือผลผลิต  หรือโครงการ  หรือรายการอื่น</p>
-                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-blue-200 font-sans"><strong class="text-slate-900 font-semibold bg-blue-50/50 px-1.5 py-0.5 rounded border border-blue-100/50">“การเปลี่ยนแปลงเงินจัดสรร”</strong> <span class="sec-text-content">หมายความว่า การเปลี่ยนแปลงรายการและหรือจํานวน</span></p>
+                            <p class="text-slate-700 leading-relaxed mt-4 pl-4 border-l-2 border-teal-300 font-sans"><strong class="text-slate-900 font-semibold bg-teal-50 px-1.5 py-0.5 rounded border border-teal-100/50">“การเปลี่ยนแปลงเงินจัดสรร”</strong> <span class="sec-text-content">หมายความว่า การเปลี่ยนแปลงรายการและหรือจํานวน</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ของเงินจัดสรรที่ได้รับ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>เงินจัดสรรจากสํานักงบประมาณ</p>
 
                         </div>
                     </div>
 
                     <!-- Section Card: ข้อ 4 (4) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="4" data-section-num-thai="4">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="4" data-section-num-thai="4">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 4
                                 </h4>
                             </div>
@@ -260,7 +260,7 @@
             <!-- CHAPTER SECTION: หมวด 1 บททั่วไป -->
             <div id="ch-1" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-400 flex items-center justify-center text-white font-bold shrink-0">
                         <i class="fa-solid fa-gavel text-sm"></i>
                     </div>
                     <div>
@@ -272,10 +272,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 5 (5) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="5" data-section-num-thai="5">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="5" data-section-num-thai="5">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 5
                                 </h4>
                             </div>
@@ -294,10 +294,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 6 (6) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="6" data-section-num-thai="6">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="6" data-section-num-thai="6">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 6
                                 </h4>
                             </div>
@@ -325,10 +325,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 7 (7) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="7" data-section-num-thai="7">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="7" data-section-num-thai="7">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 7
                                 </h4>
                             </div>
@@ -349,7 +349,7 @@
             <!-- CHAPTER SECTION: หมวด 2 แผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณ -->
             <div id="ch-2" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-400 flex items-center justify-center text-white font-bold shrink-0">
                         <i class="fa-solid fa-route text-sm"></i>
                     </div>
                     <div>
@@ -361,10 +361,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 8 (8) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="8" data-section-num-thai="8">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="8" data-section-num-thai="8">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 8
                                 </h4>
                             </div>
@@ -386,10 +386,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 9 (9) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="9" data-section-num-thai="9">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="9" data-section-num-thai="9">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 9
                                 </h4>
                             </div>
@@ -407,10 +407,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 10 (10) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="10" data-section-num-thai="10">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="10" data-section-num-thai="10">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 10
                                 </h4>
                             </div>
@@ -428,10 +428,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 11 (11) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="11" data-section-num-thai="11">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="11" data-section-num-thai="11">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 11
                                 </h4>
                             </div>
@@ -460,10 +460,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 12 (12) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="12" data-section-num-thai="12">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="12" data-section-num-thai="12">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 12
                                 </h4>
                             </div>
@@ -487,10 +487,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 13 (13) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="13" data-section-num-thai="13">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="13" data-section-num-thai="13">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 13
                                 </h4>
                             </div>
@@ -515,10 +515,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 14 (14) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="14" data-section-num-thai="14">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="14" data-section-num-thai="14">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 14
                                 </h4>
                             </div>
@@ -529,11 +529,11 @@
                         <div class="space-y-3 exact-text">
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ข้อ 14 เมื่อสํานักงบประมาณให้ความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>แผนการปฏิบัติงานและแผนการใช้จ่าย</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">งบประมาณสําหรับงบประมาณรายจ่ายบูรณาการแล้ว  ให้หน่วยรับงบประมาณดําเนินการ  ดังนี้</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">หน่วยรับงบประมาณที่เป็นเจ้าภาพหลัก  ส่งแผนการปฏิบัติงานและแผนการใช้จ่าย</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(1)</span><span class="sec-text-content">หน่วยรับงบประมาณที่เป็นเจ้าภาพหลัก  ส่งแผนการปฏิบัติงานและแผนการใช้จ่าย</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">งบประมาณที่ได้รับความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>แล้ว  ให้ผู้มีอํานาจกํากับแผนงานบูรณาการเพื่อใช้ในการกํากับดูแล</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">และติดตาม  การปฏิบัติงานและการใช้จ่ายหรือก่อหนี้ผูกพันงบประมาณ  ตามแผนงานบูรณาการ  และรายงาน</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">รัฐมนตรีเจ้าสังกัดเพื่อทราบด้วย</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">หน่วยรับงบประมาณอื่น  <span class="text-emerald-600 bg-emerald-50 border border-emerald-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">ยกเว้น</span>หน่วยงานของรัฐสภา  ศาลยุติธรรม  ศาลปกครอง</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(2)</span><span class="sec-text-content">หน่วยรับงบประมาณอื่น  <span class="text-emerald-600 bg-emerald-50 border border-emerald-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">ยกเว้น</span>หน่วยงานของรัฐสภา  ศาลยุติธรรม  ศาลปกครอง</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ศาลรัฐธรรมนูญ  องค์กรอิสระตามรัฐธรรมนูญและองค์กรอัยการ  ให้จัดส่งแผนการปฏิบัติงานและแผนการ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ใช้จ่ายงบประมาณในส่วนของหน่วยรับงบประมาณ  ให้รัฐมนตรีเจ้าสังกัดหรือรัฐมนตรีที่กํากับดูแลหรือควบคุม</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">กิจการของหน่วยรับงบประมาณ  หรือรัฐมนตรีผู้รักษาการตามกฎหมาย  แล้วแต่กรณีทราบ  เพื่อใช้ในการกํากับ</p>
@@ -549,10 +549,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 15 (15) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="15" data-section-num-thai="15">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="15" data-section-num-thai="15">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 15
                                 </h4>
                             </div>
@@ -563,11 +563,11 @@
                         <div class="space-y-3 exact-text">
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ข้อ 15 การปรับแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณที่สํานักงบประมาณ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ให้ความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>แล้ว  ให้กระทําได้ในกรณี  ดังนี้</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">เมื่อกรณีมีความจําเป็นต้องเปลี่ยนแปลงเป้าหมายหรือตัวชี้วัด  ของแผนงาน  ผลผลิต</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(1)</span><span class="sec-text-content">เมื่อกรณีมีความจําเป็นต้องเปลี่ยนแปลงเป้าหมายหรือตัวชี้วัด  ของแผนงาน  ผลผลิต</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">หรือโครงการให้แตกต่างไปจากที่สํานักงบประมาณได้ให้ความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>ไว้แล้ว</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">กําหนด</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">เมื่อมีการโอนงบประมาณรายจ่ายไปให้หน่วยรับงบประมาณอื่นตามวิธีการที่กฎหมาย</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content">เมื่อคณะรัฐมนตรีหรือรัฐมนตรีเจ้าสังกัดหรือรัฐมนตรีที่กํากับดูแลหรือควบคุมกิจการ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(2)</span><span class="sec-text-content">เมื่อมีการโอนงบประมาณรายจ่ายไปให้หน่วยรับงบประมาณอื่นตามวิธีการที่กฎหมาย</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(3)</span><span class="sec-text-content">เมื่อคณะรัฐมนตรีหรือรัฐมนตรีเจ้าสังกัดหรือรัฐมนตรีที่กํากับดูแลหรือควบคุมกิจการ</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ของหน่วยรับงบประมาณมีนโยบายใหม่  และมีความจําเป็นต้องปรับปรุงเป้าหมายของแผนงาน  ผลผลิต</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">หรือโครงการให้สอดคล้องกับนโยบายที่กําหนดขึ้นใหม่นั้น</p>
 
@@ -575,10 +575,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 16 (16) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="16" data-section-num-thai="16">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="16" data-section-num-thai="16">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 16
                                 </h4>
                             </div>
@@ -588,12 +588,12 @@
                         </div>
                         <div class="space-y-3 exact-text">
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ข้อ 16 การปรับแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณให้ดําเนินการ  ดังนี้</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">การปรับแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณของหน่วยรับงบประมาณ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(1)</span><span class="sec-text-content">การปรับแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณของหน่วยรับงบประมาณ</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ให้หน่วยรับงบประมาณเสนอขอปรับแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณต่อรัฐมนตรีเจ้าสังกัด</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">หรือรัฐมนตรีที่กํากับดูแลหรือควบคุมกิจการของหน่วยรับงบประมาณ  หรือรัฐมนตรีผู้รักษาการตามกฎหมาย</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ให้ความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>ในหลักการก่อน  เมื่อได้รับความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span>แล้ว  ให้หน่วยรับงบประมาณส่งแผนดังกล่าว</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ให้สํานักงบประมาณพิจารณาให้ความ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">เห็นชอบ</span></p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">การปรับแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณบูรณาการ  ให้หน่วยรับงบประมาณ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(2)</span><span class="sec-text-content">การปรับแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณบูรณาการ  ให้หน่วยรับงบประมาณ</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">เสนอขอปรับแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณต่อผู้มีอํานาจกํากับแผนงานบูรณาการ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">โดยเสนอผ่านหน่วยรับงบประมาณที่เป็นเจ้าภาพหลัก  เมื่อผู้มีอํานาจกํากับแผนงานบูรณาการให้ความเห็น</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ชอบ</p>
@@ -617,10 +617,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 17 (17) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="17" data-section-num-thai="17">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="17" data-section-num-thai="17">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 17
                                 </h4>
                             </div>
@@ -641,7 +641,7 @@
             <!-- CHAPTER SECTION: หมวด 3 เงินจัดสรร -->
             <div id="ch-3" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-400 flex items-center justify-center text-white font-bold shrink-0">
                         <i class="fa-solid fa-wallet text-sm"></i>
                     </div>
                     <div>
@@ -653,10 +653,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 18 (18) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="18" data-section-num-thai="18">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="18" data-section-num-thai="18">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 18
                                 </h4>
                             </div>
@@ -676,10 +676,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 19 (19) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="19" data-section-num-thai="19">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="19" data-section-num-thai="19">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 19
                                 </h4>
                             </div>
@@ -696,10 +696,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 20 (20) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="20" data-section-num-thai="20">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="20" data-section-num-thai="20">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 20
                                 </h4>
                             </div>
@@ -715,10 +715,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 21 (21) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="21" data-section-num-thai="21">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="21" data-section-num-thai="21">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 21
                                 </h4>
                             </div>
@@ -740,7 +740,7 @@
             <!-- CHAPTER SECTION: หมวด 4 การใช้งบประมาณรายจ่าย การโอนงบประมาณรายจ่าย การโอนเงินจัดสรร หรือการเปลี่ยนแปลงเงินจัดสรร -->
             <div id="ch-4" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-400 flex items-center justify-center text-white font-bold shrink-0">
                         <i class="fa-solid fa-money-bill-transfer text-sm"></i>
                     </div>
                     <div>
@@ -752,10 +752,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 22 (22) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="22" data-section-num-thai="22">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="22" data-section-num-thai="22">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 22
                                 </h4>
                             </div>
@@ -773,10 +773,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 23 (23) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="23" data-section-num-thai="23">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="23" data-section-num-thai="23">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 23
                                 </h4>
                             </div>
@@ -788,30 +788,30 @@
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ข้อ 23 งบประมาณรายจ่ายที่กําหนดไว้ในแต่ละรายการตามกฎหมายว่าด้วยงบประมาณ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">รายจ่ายให้ใช้จ่ายตามแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณที่สอดคล้องกับยุทธศาสตร์ชาติ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ดังนี้</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานยุทธศาสตร์  ให้ใช้สําหรับดําเนินภารกิจที่ได้รับมอบหมาย</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(1)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานยุทธศาสตร์  ให้ใช้สําหรับดําเนินภารกิจที่ได้รับมอบหมาย</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ในเชิงนโยบาย</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานบูรณาการ  ให้ใช้จ่ายตามภารกิจของหน่วยรับงบประมาณ</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานพื้นฐาน  ให้ใช้สําหรับการบริหารงานตามหน้าที่และอํานาจ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(2)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานบูรณาการ  ให้ใช้จ่ายตามภารกิจของหน่วยรับงบประมาณ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(3)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานพื้นฐาน  ให้ใช้สําหรับการบริหารงานตามหน้าที่และอํานาจ</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ที่กําหนดไว้ในแผนงานบูรณาการ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ของหน่วยรับงบประมาณ</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(4)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานบุคลากรภาครัฐ  ให้ใช้สําหรับการบริหารงานบุคลากรภาครัฐ</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(5)</span><span class="sec-text-content">งบประมาณรายจ่ายสําหรับทุนหมุนเวียน  ให้นําไปจ่ายแก่เงินทุนหมุนเวียนตามวงเงิน</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(4)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานบุคลากรภาครัฐ  ให้ใช้สําหรับการบริหารงานบุคลากรภาครัฐ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(5)</span><span class="sec-text-content">งบประมาณรายจ่ายสําหรับทุนหมุนเวียน  ให้นําไปจ่ายแก่เงินทุนหมุนเวียนตามวงเงิน</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">จัดสรร</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ที่กําหนดในการ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>เงิน</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(6)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานบริหารจัดการหนี้ภาครัฐ  ให้ใช้สําหรับชําระต้นเงินกู้</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(6)</span><span class="sec-text-content">งบประมาณรายจ่ายแผนงานบริหารจัดการหนี้ภาครัฐ  ให้ใช้สําหรับชําระต้นเงินกู้</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ดอกเบี้ยเงินกู้  หรือค่าใช้จ่ายในการบริหารหนี้  ตามแผนการบริหารหนี้สาธารณะ  หรือแผนการบริหารหนี้</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ของหน่วยรับงบประมาณ</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(7)</span><span class="sec-text-content">งบประมาณรายจ่ายเพื่อชดใช้เงินคงคลัง  และงบประมาณรายจ่ายเพื่อชดใช้เงินทุน</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(7)</span><span class="sec-text-content">งบประมาณรายจ่ายเพื่อชดใช้เงินคงคลัง  และงบประมาณรายจ่ายเพื่อชดใช้เงินทุน</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">สํารองจ่าย  ให้เบิกจ่ายเพื่อชดใช้เงินคงคลังและเงินทุนสํารองจ่ายตามวิธีการที่กรมบัญชีกลางกําหนด</p>
 
                         </div>
                     </div>
 
                     <!-- Section Card: ข้อ 24 (24) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="24" data-section-num-thai="24">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="24" data-section-num-thai="24">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 24
                                 </h4>
                             </div>
@@ -830,10 +830,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 25 (25) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="25" data-section-num-thai="25">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="25" data-section-num-thai="25">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 25
                                 </h4>
                             </div>
@@ -852,10 +852,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 26 (26) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="26" data-section-num-thai="26">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="26" data-section-num-thai="26">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 26
                                 </h4>
                             </div>
@@ -874,10 +874,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 27 (27) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="27" data-section-num-thai="27">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="27" data-section-num-thai="27">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 27
                                 </h4>
                             </div>
@@ -893,10 +893,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 28 (28) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="28" data-section-num-thai="28">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="28" data-section-num-thai="28">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 28
                                 </h4>
                             </div>
@@ -915,10 +915,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 29 (29) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="29" data-section-num-thai="29">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="29" data-section-num-thai="29">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 29
                                 </h4>
                             </div>
@@ -945,7 +945,7 @@
             <!-- CHAPTER SECTION: หมวด 5 การบริหารงบประมาณรายจ่ายงบกลาง -->
             <div id="ch-5" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-400 flex items-center justify-center text-white font-bold shrink-0">
                         <i class="fa-solid fa-shield-halved text-sm"></i>
                     </div>
                     <div>
@@ -957,10 +957,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 30 (30) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="30" data-section-num-thai="30">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="30" data-section-num-thai="30">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 30
                                 </h4>
                             </div>
@@ -972,14 +972,14 @@
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ข้อ 30 สํานักงบประมาณจะ<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">อนุมัติ</span>เงินจัดสรรงบกลางให้กรมบัญชีกลาง  ตามวงเงินที่ระบุ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ในกฎหมายว่าด้วยงบประมาณรายจ่าย  เพื่อหน่วยรับงบประมาณขอเบิกจ่ายกับกรมบัญชีกลางได้ตามจํานวน</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ที่ต้องจ่ายจริง  สําหรับงบประมาณรายจ่ายงบกลาง  รายการต่างๆ  ดังต่อไปนี้</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">เงินเบี้ยหวัด  บําเหน็จ  บํานาญ</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">เงินช่วยเหลือข้าราชการ  ลูกจ้างและพนักงานของรัฐ</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content">เงินเลื่อนเงินเดือนและเงินปรับวุฒิข้าราชการ</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(4)</span><span class="sec-text-content">เงินสํารอง  เงินสมทบ  และเงินชดเชยของข้าราชการ</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(5)</span><span class="sec-text-content">เงินสมทบของลูกจ้างประจํา</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(6)</span><span class="sec-text-content">ค่าใช้จ่ายในการรักษาพยาบาลของข้าราชการ  ลูกจ้างและพนักงานของรัฐ</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(7)</span><span class="sec-text-content">ค่าใช้จ่ายในการปรับเงินค่าตอบแทนบุคลากรภาครัฐ</span></div>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(8)</span><span class="sec-text-content">ค่าใช้จ่ายชดใช้เงินทดรองราชการเพื่อช่วยเหลือผู้ประสบภัยพิบัติกรณีฉุกเฉิน</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(1)</span><span class="sec-text-content">เงินเบี้ยหวัด  บําเหน็จ  บํานาญ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(2)</span><span class="sec-text-content">เงินช่วยเหลือข้าราชการ  ลูกจ้างและพนักงานของรัฐ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(3)</span><span class="sec-text-content">เงินเลื่อนเงินเดือนและเงินปรับวุฒิข้าราชการ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(4)</span><span class="sec-text-content">เงินสํารอง  เงินสมทบ  และเงินชดเชยของข้าราชการ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(5)</span><span class="sec-text-content">เงินสมทบของลูกจ้างประจํา</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(6)</span><span class="sec-text-content">ค่าใช้จ่ายในการรักษาพยาบาลของข้าราชการ  ลูกจ้างและพนักงานของรัฐ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(7)</span><span class="sec-text-content">ค่าใช้จ่ายในการปรับเงินค่าตอบแทนบุคลากรภาครัฐ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(8)</span><span class="sec-text-content">ค่าใช้จ่ายชดใช้เงินทดรองราชการเพื่อช่วยเหลือผู้ประสบภัยพิบัติกรณีฉุกเฉิน</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">รายการตาม  ( 1 )  ( 2 )  ( 4 )  ( 5 )  ( 6 )  ( 7 )  และ  ( 8 )  ให้เบิกจ่ายโดยตรง  ส่วนรายการตาม  ( 3 )</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ให้โอนไปตั้งจ่ายในงบประมาณรายจ่ายงบบุคลากรของหน่วยรับงบประมาณ</p>
 
@@ -987,10 +987,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 31 (31) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="31" data-section-num-thai="31">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="31" data-section-num-thai="31">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 31
                                 </h4>
                             </div>
@@ -1011,10 +1011,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 32 (32) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="32" data-section-num-thai="32">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="32" data-section-num-thai="32">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 32
                                 </h4>
                             </div>
@@ -1033,10 +1033,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 33 (33) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="33" data-section-num-thai="33">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="33" data-section-num-thai="33">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 33
                                 </h4>
                             </div>
@@ -1064,7 +1064,7 @@
             <!-- CHAPTER SECTION: หมวด 6 การประเมินผลและการรายงาน -->
             <div id="ch-6" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-400 flex items-center justify-center text-white font-bold shrink-0">
                         <i class="fa-solid fa-chart-simple text-sm"></i>
                     </div>
                     <div>
@@ -1076,10 +1076,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 34 (34) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="34" data-section-num-thai="34">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="34" data-section-num-thai="34">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 34
                                 </h4>
                             </div>
@@ -1092,27 +1092,27 @@
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">การปฏิบัติงานและผลการใช้จ่ายงบประมาณตามหลักเกณฑ์  วิธีการ  และระยะเวลาที่ผู้อํานวยการสํานัก</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">งบประมาณ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">กําหนด  โดยให้จัดทํารายงาน  ดังนี้</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(1)</span><span class="sec-text-content">รายงานผลการปฏิบัติงานและผลการใช้จ่ายงบประมาณ  ตามวัตถุประสงค์และเป้าหมาย</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(1)</span><span class="sec-text-content">รายงานผลการปฏิบัติงานและผลการใช้จ่ายงบประมาณ  ตามวัตถุประสงค์และเป้าหมาย</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">หรือตัวชี้วัดที่กําหนดไว้หรือตามที่ได้ตกลงกับสํานักงบประมาณ  ภายใต้แผนการปฏิบัติงานและแผนการใช้</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">จ่าย</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">งบประมาณ  พร้อมทั้งระบุปัญหา  อุปสรรคและแนวทางแก้ไข  เมื่อสิ้นระยะเวลาในแต่ละไตรมาส  ภายในสิบห้า</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">วัน</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">นับแต่วันสิ้นไตรมาส</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(2)</span><span class="sec-text-content">รายงานประจําปีที่แสดงถึงความสําเร็จในการปฏิบัติงานและการใช้งบประมาณรายจ่าย</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(2)</span><span class="sec-text-content">รายงานประจําปีที่แสดงถึงความสําเร็จในการปฏิบัติงานและการใช้งบประมาณรายจ่าย</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">ที่เชื่อมโยงกับเป้าหมายการให้บริการกระทรวง  ยุทธศาสตร์ชาติ  แผนแม่บท  ภายใต้ยุทธศาสตร์ชาติและ</p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">แผนปฏิรูปประเทศโดยมีค่าเป้าหมายและตัวชี้วัดที่ชัดเจน  จัดส่งสํานักงบประมาณภายในสี่<span class="text-blue-600 bg-blue-50 border border-blue-200/60 font-semibold px-1 py-0.5 rounded transition-colors duration-200">สิบห้าวัน</span></p>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">นับแต่วันสิ้นปีงบประมาณ</p>
-                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-blue-600 flex-shrink-0">(3)</span><span class="sec-text-content">รายงานการปรับแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณ  การใช้งบประมาณ</span></div>
+                            <div class="flex gap-3 pl-6 mt-3 text-slate-700 leading-relaxed font-sans"><span class="font-bold text-teal-500 flex-shrink-0">(3)</span><span class="sec-text-content">รายงานการปรับแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณ  การใช้งบประมาณ</span></div>
                             <p class="text-slate-700 leading-relaxed mt-3 font-sans indent-8 sec-text-content">รายจ่ายและการโอนเปลี่ยนแปลงเงินจัดสรร</p>
 
                         </div>
                     </div>
 
                     <!-- Section Card: ข้อ 35 (35) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="35" data-section-num-thai="35">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="35" data-section-num-thai="35">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 35
                                 </h4>
                             </div>
@@ -1132,10 +1132,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 36 (36) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="36" data-section-num-thai="36">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="36" data-section-num-thai="36">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 36
                                 </h4>
                             </div>
@@ -1151,10 +1151,10 @@
                     </div>
 
                     <!-- Section Card: ข้อ 37 (37) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="37" data-section-num-thai="37">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="37" data-section-num-thai="37">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 37
                                 </h4>
                             </div>
@@ -1180,7 +1180,7 @@
             <!-- CHAPTER SECTION: บทเฉพาะกาล -->
             <div id="ch-specific" class="chapter-container space-y-6 scroll-mt-24">
                 <div class="flex items-center gap-4 py-4 border-b border-slate-200/80">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center text-white font-bold shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-400 flex items-center justify-center text-white font-bold shrink-0">
                         <i class="fa-solid fa-clock-rotate-left text-sm"></i>
                     </div>
                     <div>
@@ -1192,10 +1192,10 @@
                 <div class="space-y-6">
 
                     <!-- Section Card: ข้อ 38 (38) -->
-                    <div class="section-card bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group" data-section-num="38" data-section-num-thai="38">
+                    <div class="section-card bg-white border border-slate-200/80 border-l-4 border-l-teal-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-teal-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group" data-section-num="38" data-section-num-thai="38">
                         <div class="flex items-start justify-between gap-4 mb-4">
                             <div>
-                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-blue-200 pb-1 inline-block">
+                                <h4 class="text-lg md:text-xl font-extrabold text-slate-800 border-b-2 border-teal-200 pb-1 inline-block">
                                     ข้อ 38
                                 </h4>
                             </div>
@@ -1219,7 +1219,7 @@
 
             <!-- No Results Card -->
             <div id="no-search-results" class="bg-white border border-slate-200 rounded-2xl p-12 text-center shadow-sm hidden">
-                <div class="w-16 h-16 rounded-2xl bg-blue-50/50 border border-blue-200/50/50 flex items-center justify-center mx-auto mb-4 text-blue-600">
+                <div class="w-16 h-16 rounded-2xl bg-teal-50 border border-teal-200/50 flex items-center justify-center mx-auto mb-4 text-teal-500">
                     <i class="fa-solid fa-triangle-exclamation text-3xl"></i>
                 </div>
                 <h3 class="text-lg font-bold text-slate-800 mb-2">ไม่พบผลลัพธ์การค้นหา</h3>
@@ -1228,6 +1228,66 @@
                 </p>
             </div>
             
+        
+    <!-- Mobile Bottom Sticky Nav Bar -->
+    <div class="fixed bottom-4 left-4 right-4 z-40 bg-slate-900/95 backdrop-blur-md border border-white/10 px-4 py-3 rounded-2xl shadow-xl lg:hidden flex justify-between items-center text-white">
+        <div class="flex items-center gap-2">
+            <i class="fa-solid fa-list-ol text-teal-400 text-lg"></i>
+            <span class="text-xs font-bold tracking-wide">สารบัญระเบียบสำนักงบประมาณ</span>
+        </div>
+        <button onclick="toggleMobileChaptersSheet()" class="px-4 py-1.5 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-xl text-xs flex items-center gap-1.5 transition-all">
+            เลือกหมวด <i class="fa-solid fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Chapters Bottom Sheet Modal -->
+    <div id="mobile-chapters-sheet" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden hidden transition-all duration-300">
+        <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[2rem] p-6 max-h-[80vh] overflow-y-auto flex flex-col gap-4 shadow-2xl">
+            <div class="flex justify-between items-center pb-3 border-b border-slate-100">
+                <span class="font-bold text-slate-800 text-base flex items-center gap-2">
+                    <i class="fa-solid fa-list-ol text-teal-500"></i> สารบัญ
+                </span>
+                <button onclick="toggleMobileChaptersSheet()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <nav class="space-y-1 py-2 text-sm">
+                
+                <a href="#ch-intro" onclick="selectMobileChapter('ch-intro')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    บทนำ
+                </a>
+
+                <a href="#ch-1" onclick="selectMobileChapter('ch-1')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    หมวด 1 บททั่วไป
+                </a>
+
+                <a href="#ch-2" onclick="selectMobileChapter('ch-2')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    หมวด 2 แผนการปฏิบัติงานฯ
+                </a>
+
+                <a href="#ch-3" onclick="selectMobileChapter('ch-3')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    หมวด 3 เงินจัดสรร
+                </a>
+
+                <a href="#ch-4" onclick="selectMobileChapter('ch-4')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    หมวด 4 การใช้และโอนงบประมาณฯ
+                </a>
+
+                <a href="#ch-5" onclick="selectMobileChapter('ch-5')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    หมวด 5 การบริหารงบกลาง
+                </a>
+
+                <a href="#ch-6" onclick="selectMobileChapter('ch-6')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    หมวด 6 การประเมินผลฯ
+                </a>
+
+                <a href="#ch-specific" onclick="selectMobileChapter('ch-specific')" class="block py-3 px-4 rounded-xl text-slate-600 hover:bg-slate-50 font-medium transition-all">
+                    บทเฉพาะกาล
+                </a>
+            </nav>
         </div>
     </div>
+
+</div>
+</div>
 </div>
