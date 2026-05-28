@@ -1954,7 +1954,14 @@
         // ===============================================
         async function loadRSS() {
             const container = document.getElementById('rss-container');
-            const targetRssUrl = 'https://www.bb.go.th/rss-topic.php?gid=91&mid=200';
+            
+            // List of candidate RSS URLs (HTTPS and HTTP, with and without www.)
+            const candidateUrls = [
+                'https://www.bb.go.th/rss-topic.php?gid=91&mid=200',
+                'http://www.bb.go.th/rss-topic.php?gid=91&mid=200',
+                'https://bb.go.th/rss-topic.php?gid=91&mid=200',
+                'http://bb.go.th/rss-topic.php?gid=91&mid=200'
+            ];
             
             container.innerHTML = `
                 <div class="flex flex-col items-center justify-center py-20 bg-white/[0.02] rounded-xl border border-white/5 italic text-slate-500 text-sm">
@@ -1995,33 +2002,51 @@
                 items = await tryFetch('/rss-topic.php?gid=91&mid=200');
             }
 
-            // 2. Try fetching via local Python server proxy if running locally
-            if (!items && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+            // 2. Try fetching via local Python server proxy if running locally (any local server running under HTTP/HTTPS)
+            if (!items && window.location.protocol.startsWith('http') && !window.location.hostname.includes('bb.go.th')) {
                 console.log('Attempting fetch via local dev server proxy...');
-                items = await tryFetch(`/api/proxy?url=${encodeURIComponent(targetRssUrl)}`);
+                for (const targetUrl of candidateUrls) {
+                    console.log(`Proxying: ${targetUrl}`);
+                    items = await tryFetch(`/api/proxy?url=${encodeURIComponent(targetUrl)}`);
+                    if (items) {
+                        console.log(`Successfully loaded RSS via local proxy: ${targetUrl}`);
+                        break;
+                    }
+                }
             }
 
-            // 3. Try direct fetch in case CORS is disabled or we are in a permissive environment
+            // 3. Try direct fetch from the browser to the candidate URLs directly
             if (!items) {
                 console.log('Attempting direct fetch...');
-                items = await tryFetch(targetRssUrl);
+                for (const targetUrl of candidateUrls) {
+                    console.log(`Direct fetching: ${targetUrl}`);
+                    items = await tryFetch(targetUrl);
+                    if (items) {
+                        console.log(`Successfully loaded RSS via direct fetch: ${targetUrl}`);
+                        break;
+                    }
+                }
             }
 
-            // 4. Try public CORS proxies sequentially as fallback (useful if not using local dev server or one is blocked)
+            // 4. Try public CORS proxies sequentially as fallback for the candidate URLs
             if (!items) {
-                const publicProxies = [
-                    `https://corsproxy.io/?${encodeURIComponent(targetRssUrl)}`,
-                    `https://api.allorigins.win/raw?url=${encodeURIComponent(targetRssUrl)}`,
-                    `https://api.codetabs.com/v1/proxy?url=${encodeURIComponent(targetRssUrl)}`,
-                    `https://thingproxy.freeboard.io/fetch/${targetRssUrl}`
+                const publicProxyTemplates = [
+                    (url) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+                    (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+                    (url) => `https://api.codetabs.com/v1/proxy?url=${encodeURIComponent(url)}`,
+                    (url) => `https://thingproxy.freeboard.io/fetch/${url}`
                 ];
 
-                for (const proxyUrl of publicProxies) {
-                    console.log(`Attempting public proxy: ${proxyUrl}`);
-                    items = await tryFetch(proxyUrl);
-                    if (items) {
-                        console.log(`Successfully loaded RSS via proxy: ${proxyUrl}`);
-                        break;
+                for (const targetUrl of candidateUrls) {
+                    if (items) break;
+                    for (const getProxyUrl of publicProxyTemplates) {
+                        const proxyUrl = getProxyUrl(targetUrl);
+                        console.log(`Attempting public proxy: ${proxyUrl}`);
+                        items = await tryFetch(proxyUrl);
+                        if (items) {
+                            console.log(`Successfully loaded RSS via public proxy: ${proxyUrl}`);
+                            break;
+                        }
                     }
                 }
             }
