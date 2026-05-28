@@ -624,6 +624,9 @@
                                 <a id="nav-operation" onclick="loadPage('Operation.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
                                     <i class="fa-solid fa-gears w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> งบดำเนินงาน
                                 </a>
+                                <a id="nav-investment" onclick="loadPage('investment.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i class="fa-solid fa-coins w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> งบลงทุน
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -715,6 +718,9 @@
             </a>
             <a id="nav-operation-mobile" onclick="loadPage('Operation.html', document.getElementById('nav-operation')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-gears text-md w-6 text-center opacity-80"></i> งบดำเนินงาน
+            </a>
+            <a id="nav-investment-mobile" onclick="loadPage('investment.html', document.getElementById('nav-investment')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-coins text-md w-6 text-center opacity-80"></i> งบลงทุน
             </a>
             
             <!-- Group: ประเมินผล -->
@@ -1118,10 +1124,10 @@
         }
 
         function cleanupOrphanedNavs() {
-            const floatingNav = document.getElementById('personnel-sticky-nav');
-            if (floatingNav && floatingNav.parentElement === document.body) {
-                floatingNav.remove();
-            }
+            ['personnel-sticky-nav', 'operation-sticky-nav', 'investment-sticky-nav'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.remove();
+            });
         }
 
         function showLanding(navElement) {
