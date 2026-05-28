@@ -380,6 +380,93 @@
         .section-card:not(.hidden) {
             animation: cardEntrance 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
+        
+        /* Donut Chart Styling & Animations */
+        @keyframes drawDonut1 { from { stroke-dasharray: 0 503; } to { stroke-dasharray: 368.8 503; } }
+        @keyframes drawDonut2 { from { stroke-dasharray: 0 503; } to { stroke-dasharray: 104.6 503; } }
+        @keyframes drawDonut3 { from { stroke-dasharray: 0 503; } to { stroke-dasharray: 20.1 503; } }
+        @keyframes drawDonut4 { from { stroke-dasharray: 0 503; } to { stroke-dasharray: 9.5 503; } }
+        
+        .donut-segment {
+            transition: stroke-width 0.3s ease, filter 0.3s ease;
+        }
+        .donut-segment:hover {
+            stroke-width: 24;
+            filter: drop-shadow(0 0 8px rgba(253, 205, 14, 0.4));
+            cursor: pointer;
+        }
+        .donut-seg-1 { animation: drawDonut1 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .donut-seg-2 { animation: drawDonut2 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .donut-seg-3 { animation: drawDonut3 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .donut-seg-4 { animation: drawDonut4 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* --- Constellation Plexus Background Decoration --- */
+        @keyframes floatPlexus {
+            0% { transform: translateY(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(-10px) rotate(1.5deg) scale(1.03); }
+            100% { transform: translateY(0px) rotate(0deg) scale(1); }
+        }
+        @keyframes pulseNode {
+            0%, 100% { r: 2.5px; opacity: 0.35; }
+            50% { r: 4px; opacity: 0.85; }
+        }
+        @keyframes drawLine {
+            0%, 100% { stroke-dashoffset: 0; opacity: 0.15; }
+            50% { stroke-dashoffset: 12; opacity: 0.35; }
+        }
+        .plexus-svg {
+            animation: floatPlexus 15s ease-in-out infinite alternate;
+            pointer-events: none;
+            filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.1));
+        }
+        .plexus-node {
+            animation: pulseNode 5s ease-in-out infinite;
+        }
+        .plexus-node-alt {
+            animation: pulseNode 4s ease-in-out infinite;
+            animation-delay: -2s;
+        }
+        .plexus-line {
+            stroke-dasharray: 6 3;
+            animation: drawLine 10s linear infinite;
+        }
+
+        /* --- Orbital Background Spinning Rings --- */
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes spinReverseSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+        .animate-spin-slow {
+            animation: spinSlow 120s linear infinite;
+        }
+        .animate-spin-reverse-slow {
+            animation: spinReverseSlow 160s linear infinite;
+        }
+
+        /* --- Premium Glassmorphic Cards --- */
+        .glass-card-premium {
+            background: rgba(10, 25, 47, 0.4) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 
+                0 4px 30px rgba(0, 0, 0, 0.45), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .glass-card-premium:hover {
+            background: rgba(10, 25, 47, 0.55) !important;
+            border-color: rgba(212, 175, 55, 0.45) !important; /* Elegant gold border glow */
+            box-shadow: 
+                0 25px 45px -15px rgba(212, 175, 55, 0.15), 
+                0 0 30px 2px rgba(212, 175, 55, 0.08),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
+            transform: translateY(-5px) !important;
+        }
     </style>
 </head>
 <body class="bg-[#050b14] text-slate-800 antialiased pt-20 flex flex-col min-h-screen">
@@ -655,6 +742,138 @@
             <!-- Majestic Soft Glows -->
             <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-sky-900/10 rounded-full blur-[150px] subtle-glow"></div>
             <div class="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[#d4af37]/10 rounded-full blur-[120px] subtle-glow" style="animation-delay: -4s;"></div>
+
+            <!-- Concentric Rotating Orbital Rings (Central) -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] flex items-center justify-center pointer-events-none z-0 opacity-40">
+                <!-- Outer Ring (Dashed, Cyan) -->
+                <div class="absolute w-[800px] h-[800px] rounded-full border border-dashed border-[#38bdf8]/10 animate-spin-slow"></div>
+                <!-- Middle Ring (Double line, Gold) -->
+                <div class="absolute w-[620px] h-[620px] rounded-full border-2 border-double border-[#d4af37]/10 animate-spin-reverse-slow"></div>
+                <!-- Inner Ring (Dashed, Blue) -->
+                <div class="absolute w-[440px] h-[440px] rounded-full border border-dashed border-[#38bdf8]/15 animate-spin-slow"></div>
+                <!-- Core Glow Ring (Solid Gold Accent) -->
+                <div class="absolute w-[280px] h-[280px] rounded-full border border-[#d4af37]/20 opacity-60"></div>
+            </div>
+
+            <!-- Plexus Corner 1: Top-Left (Gold and Cyan mix) -->
+            <svg class="plexus-svg absolute top-[-5%] left-[-5%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] opacity-35" viewBox="0 0 200 200">
+                <line x1="10" y1="20" x2="50" y2="15" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="10" y1="20" x2="35" y2="75" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="50" y1="15" x2="90" y2="45" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="50" y1="15" x2="35" y2="75" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="50" y1="15" x2="70" y2="70" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="90" y1="45" x2="70" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="90" y1="45" x2="130" y2="85" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="35" y1="75" x2="75" y2="110" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="35" y1="75" x2="20" y2="130" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="75" y1="110" x2="70" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="75" y1="110" x2="130" y2="85" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="75" y1="110" x2="80" y2="160" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="130" y1="85" x2="150" y2="140" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="20" y1="130" x2="80" y2="160" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="80" y1="160" x2="150" y2="140" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                
+                <circle cx="10" cy="20" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="50" cy="15" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="90" cy="45" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="35" cy="75" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="70" cy="70" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="75" cy="110" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="130" cy="85" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="20" cy="130" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="80" cy="160" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="150" cy="140" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+            </svg>
+
+            <!-- Plexus Corner 2: Top-Right (Gold and Cyan mix) -->
+            <svg class="plexus-svg absolute top-[-5%] right-[-5%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] opacity-35" viewBox="0 0 200 200">
+                <line x1="190" y1="20" x2="150" y2="15" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="190" y1="20" x2="165" y2="75" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="150" y1="15" x2="110" y2="45" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="150" y1="15" x2="165" y2="75" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="150" y1="15" x2="130" y2="70" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="110" y1="45" x2="130" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="110" y1="45" x2="70" y2="85" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="165" y1="75" x2="125" y2="110" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="165" y1="75" x2="180" y2="130" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="125" y1="110" x2="130" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="125" y1="110" x2="70" y2="85" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="125" y1="110" x2="120" y2="160" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="70" y1="85" x2="50" y2="140" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="180" y1="130" x2="120" y2="160" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="120" y1="160" x2="50" y2="140" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                
+                <circle cx="190" cy="20" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="150" cy="15" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="110" cy="45" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="165" cy="75" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="130" cy="70" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="125" cy="110" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="70" cy="85" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="180" cy="130" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="120" cy="160" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="50" cy="140" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+            </svg>
+
+            <!-- Plexus Corner 3: Bottom-Left (Gold and Cyan mix) -->
+            <svg class="plexus-svg absolute bottom-[-5%] left-[-5%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] opacity-35" viewBox="0 0 200 200">
+                <line x1="20" y1="180" x2="60" y2="175" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="20" y1="180" x2="45" y2="125" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="60" y1="175" x2="100" y2="145" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="60" y1="175" x2="45" y2="125" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="60" y1="175" x2="75" y2="120" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="100" y1="145" x2="75" y2="120" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="100" y1="145" x2="140" y2="105" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="45" y1="125" x2="85" y2="80" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="45" y1="125" x2="30" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="85" y1="80" x2="75" y2="120" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="85" y1="80" x2="140" y2="105" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="85" y1="80" x2="90" y2="40" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="140" y1="105" x2="160" y2="50" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="30" y1="70" x2="90" y2="40" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="90" y1="40" x2="160" y2="50" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                
+                <circle cx="20" cy="180" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="60" cy="175" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="100" cy="145" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="45" cy="125" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="75" cy="120" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="85" cy="80" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="140" cy="105" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="30" cy="70" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="90" cy="40" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="160" cy="50" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+            </svg>
+
+            <!-- Plexus Corner 4: Bottom-Right (Gold and Cyan mix) -->
+            <svg class="plexus-svg absolute bottom-[-5%] right-[-5%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] opacity-35" viewBox="0 0 200 200">
+                <line x1="180" y1="180" x2="140" y2="175" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="180" y1="180" x2="155" y2="125" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="140" y1="175" x2="100" y2="145" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="140" y1="175" x2="155" y2="125" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="140" y1="175" x2="125" y2="120" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="100" y1="145" x2="125" y2="120" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="100" y1="145" x2="60" y2="105" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="155" y1="125" x2="115" y2="80" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="155" y1="125" x2="170" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="115" y1="80" x2="125" y2="120" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="115" y1="80" x2="60" y2="105" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="115" y1="80" x2="110" y2="40" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="60" y1="105" x2="40" y2="50" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
+                <line x1="170" y1="70" x2="110" y2="40" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                <line x1="110" y1="40" x2="40" y2="50" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
+                
+                <circle cx="180" cy="180" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="140" cy="175" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="100" cy="145" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="155" cy="125" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="125" cy="120" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="115" cy="80" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="60" cy="105" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="170" cy="70" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+                <circle cx="110" cy="40" r="2.5" fill="#d4af37" class="plexus-node" />
+                <circle cx="40" cy="50" r="2.5" fill="#38bdf8" class="plexus-node-alt" />
+            </svg>
         </div>
 
         <div class="relative z-20 max-w-[1400px] mx-auto px-4 lg:px-8 py-16 flex flex-col items-center justify-center h-full w-full">
@@ -683,45 +902,96 @@
             <!-- Values Section - The Three Pillars -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl mb-20 fade-in-up" style="animation-delay: 0.7s;">
                 
-                <div class="group relative flex flex-col items-center text-center gap-4 bg-white/[0.02] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.05] hover:border-[#d4af37]/50 transition-all duration-500 backdrop-blur-sm overflow-hidden">
+                <div class="group relative flex flex-col items-center text-center gap-4 glass-card-premium rounded-2xl p-8 overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <i class="fa-solid fa-landmark text-4xl text-[#d4af37] mb-2 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"></i>
                     <span class="font-sans text-white font-bold text-2xl tracking-wide">ระบบดี <span class="block text-xs font-sans text-slate-500 uppercase tracking-widest mt-1">System</span></span>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">มาตรฐานสากล เทคโนโลยีล้ำสมัย กระบวนการโปร่งใส และการติดตามที่แม่นยำ</p>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed relative z-10">มาตรฐานสากล เทคโนโลยีล้ำสมัย กระบวนการโปร่งใส และการติดตามที่แม่นยำ</p>
+                    <i class="fa-solid fa-landmark absolute -right-6 -bottom-6 text-[150px] opacity-[0.03] text-white pointer-events-none group-hover:scale-110 group-hover:text-[#d4af37] group-hover:opacity-[0.05] transition-all duration-700"></i>
                 </div>
 
-                <div class="group relative flex flex-col items-center text-center gap-4 bg-white/[0.02] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.05] hover:border-[#d4af37]/50 transition-all duration-500 backdrop-blur-sm overflow-hidden">
+                <div class="group relative flex flex-col items-center text-center gap-4 glass-card-premium rounded-2xl p-8 overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <i class="fa-solid fa-user-tie text-4xl text-[#d4af37] mb-2 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"></i>
                     <span class="font-sans text-white font-bold text-2xl tracking-wide">คนดี <span class="block text-xs font-sans text-slate-500 uppercase tracking-widest mt-1">People</span></span>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">บุคลากรเปี่ยมคุณธรรม ซื่อสัตย์สุจริต มีสมรรถนะสูง และยึดประชาชนเป็นศูนย์กลาง</p>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed relative z-10">บุคลากรเปี่ยมคุณธรรม ซื่อสัตย์สุจริต มีสมรรถนะสูง และยึดประชาชนเป็นศูนย์กลาง</p>
+                    <i class="fa-solid fa-user-tie absolute -right-6 -bottom-6 text-[150px] opacity-[0.03] text-white pointer-events-none group-hover:scale-110 group-hover:text-[#d4af37] group-hover:opacity-[0.05] transition-all duration-700"></i>
                 </div>
 
-                <div class="group relative flex flex-col items-center text-center gap-4 bg-white/[0.02] border border-white/10 rounded-2xl p-8 hover:bg-white/[0.05] hover:border-[#d4af37]/50 transition-all duration-500 backdrop-blur-sm overflow-hidden">
+                <div class="group relative flex flex-col items-center text-center gap-4 glass-card-premium rounded-2xl p-8 overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <i class="fa-solid fa-shield-halved text-4xl text-[#d4af37] mb-2 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"></i>
                     <span class="font-sans text-white font-bold text-2xl tracking-wide">การจัดการที่ดี <span class="block text-xs font-sans text-slate-500 uppercase tracking-widest mt-1">Management</span></span>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">บริหารทรัพยากรอย่างคุ้มค่า บูรณาการรอบด้าน และการตัดสินใจบนหลักเหตุผล</p>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed relative z-10">บริหารทรัพยากรอย่างคุ้มค่า บูรณาการรอบด้าน และการตัดสินใจบนหลักเหตุผล</p>
+                    <i class="fa-solid fa-shield-halved absolute -right-6 -bottom-6 text-[150px] opacity-[0.03] text-white pointer-events-none group-hover:scale-110 group-hover:text-[#d4af37] group-hover:opacity-[0.05] transition-all duration-700"></i>
                 </div>
 
             </div>
 
             <!-- Data Visualization Section - The Ledger Room -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 w-full max-w-6xl fade-in-up" style="animation-delay: 0.9s;">
-                
-                <div class="lg:col-span-7 bg-white/[0.03] border border-white/10 rounded-2xl p-8 backdrop-blur-md shadow-2xl relative overflow-hidden flex flex-col">
-                    <div class="flex items-center justify-between mb-8">
-                        <div class="flex gap-2">
-                            <div class="w-3 h-3 rounded-full bg-emerald-600/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-amber-600/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-rose-600/50"></div>
-                        </div>
-                        <span class="text-[10px] font-sans text-slate-500 uppercase tracking-[0.2em]">Fiscal Year 2570 Overview</span>
+            <!-- 1. Fiscal Year 2570 Overview (Full Width) -->
+            <div class="w-full max-w-6xl glass-card-premium rounded-2xl p-8 relative overflow-hidden flex flex-col mb-12 fade-in-up" style="animation-delay: 0.9s;">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-sky-500/50"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500/50"></div>
+                        <div class="w-3 h-3 rounded-full bg-rose-500/50"></div>
                     </div>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-grow">
+                    <span class="text-[10px] font-sans text-slate-500 uppercase tracking-[0.2em]">Fiscal Year 2570 Overview</span>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Left: Donut Chart -->
+                    <div class="lg:col-span-5 flex flex-col items-center justify-center p-4">
+                        <div class="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center">
+                            <!-- SVG Donut -->
+                            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 200 200">
+                                <!-- Background Track -->
+                                <circle cx="100" cy="100" r="80" fill="transparent" stroke="rgba(255,255,255,0.02)" stroke-width="18" />
+                                
+                                <!-- 1. Current Expenditure (73.3% - Sky Blue): starts from 0 to 73.3% -->
+                                <!-- Circumference = 2 * pi * 80 = 502.65 ~ 503 -->
+                                <!-- 73.3% of 503 = 368.8 -->
+                                <!-- Offset = 0 -->
+                                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#38bdf8" stroke-width="18"
+                                        stroke-dasharray="368.8 503" stroke-dashoffset="0" stroke-linecap="round"
+                                        class="donut-segment donut-seg-1 origin-center" />
+                                        
+                                <!-- 2. Investment Expenditure (20.8% - Emerald Green): starts from 73.3% to 94.1% -->
+                                <!-- 20.8% of 503 = 104.6 -->
+                                <!-- Offset = -368.8 -->
+                                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#34d399" stroke-width="18"
+                                        stroke-dasharray="104.6 503" stroke-dashoffset="-368.8" stroke-linecap="round"
+                                        class="donut-segment donut-seg-2 origin-center" />
+                                        
+                                <!-- 3. Principal Repayment (4.0% - Rose Red): starts from 94.1% to 98.1% -->
+                                <!-- 4.0% of 503 = 20.1 -->
+                                <!-- Offset = -473.4 (-368.8 - 104.6) -->
+                                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#f43f5e" stroke-width="18"
+                                        stroke-dasharray="20.1 503" stroke-dashoffset="-473.4" stroke-linecap="round"
+                                        class="donut-segment donut-seg-3 origin-center" />
+                                        
+                                <!-- 4. Treasury Reserve Replenishment (1.9% - Amber Yellow): starts from 98.1% to 100% -->
+                                <!-- 1.9% of 503 = 9.5 -->
+                                <!-- Offset = -493.5 (-473.4 - 20.1) -->
+                                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#fbbf24" stroke-width="18"
+                                        stroke-dasharray="9.5 503" stroke-dashoffset="-493.5" stroke-linecap="round"
+                                        class="donut-segment donut-seg-4 origin-center" />
+                             </svg>
+                            
+                            <!-- Central Text Overlay -->
+                            <div class="absolute text-center flex flex-col items-center justify-center">
+                                <span class="text-[9px] uppercase tracking-[0.2em] text-slate-500 font-bold mb-0.5">งบประมาณรวม</span>
+                                <span class="font-sans text-[#d4af37] text-2xl md:text-3xl font-extrabold tracking-tight">฿ 3.788</span>
+                                <span class="text-[10px] text-slate-400 font-medium mt-0.5">ล้านล้านบาท</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Numeric Breakdown Grid -->
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <!-- Total Budget Framework -->
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-6 flex flex-col justify-center relative group sm:col-span-2">
+                        <div class="bg-black/20 rounded-xl border border-white/5 p-5 flex flex-col justify-center relative group sm:col-span-2">
                             <div class="absolute top-4 right-4 text-[#d4af37]/20 group-hover:text-[#d4af37]/40 transition-colors">
                                 <i class="fa-solid fa-vault text-2xl"></i>
                             </div>
@@ -730,51 +1000,51 @@
                         </div>
                         
                         <!-- 1. Current Expenditure -->
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-5 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] transition-colors">
+                        <div class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#38bdf8] transition-colors">
                             <div class="font-sans text-sky-400 text-xl md:text-2xl font-bold tracking-tight mb-1">2,777,443.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
                             <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">รายจ่ายประจำ (73.3%)</div>
                         </div>
                         
                         <!-- 2. Investment Expenditure -->
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-5 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] transition-colors">
+                        <div class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#34d399] transition-colors">
                             <div class="font-sans text-emerald-400 text-xl md:text-2xl font-bold tracking-tight mb-1">788,000.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
                             <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">รายจ่ายลงทุน (20.8%)</div>
                         </div>
 
                         <!-- 3. Principal Repayment -->
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-5 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] transition-colors">
+                        <div class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#f43f5e] transition-colors">
                             <div class="font-sans text-rose-400 text-xl md:text-2xl font-bold tracking-tight mb-1">151,520.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
                             <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">ชำระคืนต้นเงินกู้ (4.0%)</div>
                         </div>
 
                         <!-- 4. Treasury Reserve Replenishment -->
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-5 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] transition-colors">
+                        <div class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#fbbf24] transition-colors">
                             <div class="font-sans text-amber-400 text-xl md:text-2xl font-bold tracking-tight mb-1">71,037.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
                             <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">ชดใช้เงินคงคลัง (1.9%)</div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Announcements Section - The Archives -->
-                <div class="lg:col-span-5 flex flex-col text-left">
-                    <div class="flex items-end justify-between mb-6 border-b border-white/10 pb-4">
-                        <div>
-                            <h3 class="font-sans text-2xl font-bold text-slate-200 tracking-wide">The Archives</h3>
-                            <p class="text-[10px] font-sans text-slate-500 uppercase tracking-[0.2em] mt-1">Latest Official Gazettes & News</p>
-                        </div>
-                        <a href="https://www.bb.go.th/topic.php?gid=91&mid=200" target="_blank" class="text-xs text-[#d4af37] hover:text-white transition-all flex items-center gap-2 group">
-                            View All <i class="fa-solid fa-arrow-right-long transform group-hover:translate-x-1 transition-transform"></i>
-                        </a>
+            <!-- 2. Announcements Section - The Archives (Full Width below Overview) -->
+            <div class="w-full max-w-6xl glass-card-premium rounded-2xl p-8 relative overflow-hidden flex flex-col text-left fade-in-up" style="animation-delay: 1.1s;">
+                <div class="flex items-end justify-between mb-6 border-b border-white/10 pb-4">
+                    <div>
+                        <h3 class="font-sans text-2xl font-bold text-slate-200 tracking-wide">The Archives</h3>
+                        <p class="text-[10px] font-sans text-slate-500 uppercase tracking-[0.2em] mt-1">Latest Official Gazettes & News</p>
                     </div>
-                    
-                    <div id="rss-container" class="space-y-2 flex-grow overflow-y-auto max-h-[320px] pr-4 custom-scrollbar">
-                        <div class="flex flex-col items-center justify-center py-20 bg-white/[0.02] rounded-xl border border-white/5 italic text-slate-500 text-sm">
-                            <i class="fa-solid fa-spinner fa-spin text-xl mb-3 opacity-40"></i>
-                            Consulting the archives...
-                        </div>
+                    <a href="https://www.bb.go.th/topic.php?gid=91&mid=200" target="_blank" class="text-xs text-[#d4af37] hover:text-white transition-all flex items-center gap-2 group">
+                        View All <i class="fa-solid fa-arrow-right-long transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+                
+                <!-- Make it a beautiful 2-column grid layout for full-width presentation -->
+                <div id="rss-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    <div class="col-span-full flex flex-col items-center justify-center py-20 bg-white/[0.02] rounded-xl border border-white/5 italic text-slate-500 text-sm">
+                        <i class="fa-solid fa-spinner fa-spin text-xl mb-3 opacity-40"></i>
+                        Consulting the archives...
                     </div>
                 </div>
-
             </div>
             
         </div>
@@ -1786,7 +2056,7 @@
                     }
                     
                     html += `
-                        <a href="${link}" target="_blank" class="flex items-start gap-4 group p-4 hover:bg-white/[0.03] rounded-lg transition-all border-b border-white/5 last:border-0">
+                        <a href="${link}" target="_blank" class="flex items-start gap-4 group p-4 bg-white/[0.01] hover:bg-white/[0.04] border border-white/5 hover:border-[#d4af37]/30 rounded-xl transition-all duration-300">
                             <i class="fa-regular fa-file-lines text-xl text-slate-500 group-hover:text-[#d4af37] transition-colors mt-1"></i>
                             <div>
                                 <h4 class="font-sans text-slate-200 font-bold text-sm leading-snug group-hover:text-white transition-colors line-clamp-2">${title}</h4>
@@ -1797,7 +2067,7 @@
                 });
                 container.innerHTML = html;
             } else {
-                container.innerHTML = '<div class="text-center py-12 text-slate-600 italic font-sans">The archives are currently silent.</div>';
+                container.innerHTML = '<div class="col-span-full text-center py-12 text-slate-600 italic font-sans">The archives are currently silent.</div>';
             }
         }
 
