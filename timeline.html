@@ -1,4 +1,35 @@
-<div id="timeline-root" class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10 text-slate-700 font-sans">
+<div id="timeline-root" class="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10 text-slate-700 font-sans">
+    <!-- Animated Premium Background (Fixed behind the content) -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden" style="z-index: -1;" aria-hidden="true">
+        <!-- Blurry stage-themed gradient mesh blobs -->
+        <div class="absolute top-[5%] left-[-5%] w-[35rem] h-[35rem] rounded-full bg-teal-200/20 blur-[120px] animate-blob-1"></div>
+        <div class="absolute top-[35%] right-[-10%] w-[40rem] h-[40rem] rounded-full bg-blue-200/20 blur-[140px] animate-blob-2"></div>
+        <div class="absolute bottom-[20%] left-[-5%] w-[38rem] h-[38rem] rounded-full bg-purple-200/20 blur-[130px] animate-blob-3"></div>
+        <div class="absolute bottom-[-10%] right-[10%] w-[30rem] h-[30rem] rounded-full bg-rose-200/20 blur-[100px] animate-blob-1"></div>
+        <div class="absolute top-[20%] left-[40%] w-[25rem] h-[25rem] rounded-full bg-amber-200/10 blur-[110px] animate-blob-2"></div>
+        
+        <!-- Elegant Flowing Timeline Bezier Curves -->
+        <svg class="absolute inset-0 w-full h-full opacity-40" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="curve-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0d9488" stop-opacity="0.25"/>
+                    <stop offset="50%" stop-color="#2563eb" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.25"/>
+                </linearGradient>
+                <linearGradient id="curve-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#e11d48" stop-opacity="0.25"/>
+                    <stop offset="50%" stop-color="#d97706" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.25"/>
+                </linearGradient>
+            </defs>
+            
+            <!-- Sweeping bezier curves that flow behind the content -->
+            <path d="M -100 150 C 400 50, 200 600, 800 450 C 1400 300, 1000 1000, 1600 800" 
+                  fill="none" stroke="url(#curve-grad-1)" stroke-width="2" stroke-dasharray="12 16" class="animate-svg-dash"/>
+            <path d="M 200 2000 C 600 1700, 400 2500, 1000 2200 C 1600 1900, 1200 2800, 1800 2600" 
+                  fill="none" stroke="url(#curve-grad-2)" stroke-width="2" stroke-dasharray="10 14" class="animate-svg-dash-reverse"/>
+        </svg>
+    </div>
     <style>
         /* Modern SaaS Light Theme Style Definitions */
         .text-slate-800 {
@@ -214,7 +245,7 @@
             height: 2.2rem;
             width: 2.2rem;
             /* Circular by default */
-            padding-left: 0.35rem;
+            padding-left: calc(0.35rem - 1px);
             padding-right: 0;
             border-radius: 9999px;
             font-size: 0.8rem;
@@ -378,17 +409,52 @@
         }
 
         @media (max-width: 767px) {
-            .sticky-date-indicator .indicator-box {
-                left: -3rem;
-                /* Align to the left inside mobile padding */
-                transform: translateY(-50%) rotate(-90deg);
-                /* Rotate 90 degrees counter-clockwise from horizontal */
-                border-left: none;
-                border-bottom: 4px solid var(--accent-color, #0d9488);
-                /* Bottom border faces the timeline line when rotated */
-                border-radius: 6px;
-                padding: 0.4rem 0.8rem;
+            .sticky-date-indicator {
+                display: none !important;
             }
+        }
+
+        /* Animated background blobs */
+        @keyframes blob-float-1 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes blob-float-2 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-40px, 40px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes blob-float-3 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(40px, 20px) scale(0.95); }
+            66% { transform: translate(-30px, -40px) scale(1.05); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        .animate-blob-1 {
+            animation: blob-float-1 25s infinite ease-in-out;
+        }
+        .animate-blob-2 {
+            animation: blob-float-2 30s infinite ease-in-out;
+        }
+        .animate-blob-3 {
+            animation: blob-float-3 28s infinite ease-in-out;
+        }
+
+        /* SVG flow animations */
+        @keyframes svg-dash-flow {
+            to { stroke-dashoffset: -1000; }
+        }
+        @keyframes svg-dash-flow-reverse {
+            to { stroke-dashoffset: 1000; }
+        }
+        .animate-svg-dash {
+            animation: svg-dash-flow 60s linear infinite;
+        }
+        .animate-svg-dash-reverse {
+            animation: svg-dash-flow-reverse 80s linear infinite;
         }
     </style>
 

@@ -1,4 +1,77 @@
 <div class="max-w-7xl mx-auto px-4 pb-16 fade-in pt-8">
+    <!-- Animated Premium Light-Theme Background (Fixed behind the content) -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-[-1]" aria-hidden="true">
+        <!-- Soft Blurry Pastel Blobs -->
+        <div class="absolute top-[10%] left-[-15%] w-[35rem] h-[35rem] rounded-full bg-sky-200/20 blur-[120px] animate-blob-float-1"></div>
+        <div class="absolute top-[45%] right-[-15%] w-[42rem] h-[42rem] rounded-full bg-indigo-200/15 blur-[140px] animate-blob-float-2"></div>
+        <div class="absolute bottom-[15%] left-[-5%] w-[38rem] h-[38rem] rounded-full bg-blue-200/20 blur-[130px] animate-blob-float-3"></div>
+        <div class="absolute bottom-[-10%] right-[10%] w-[30rem] h-[30rem] rounded-full bg-rose-200/15 blur-[100px] animate-blob-float-1"></div>
+
+        <!-- Elegant Flowing Light SVG Curves -->
+        <svg class="absolute inset-0 w-full h-full opacity-60" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="light-curve-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
+                    <stop offset="50%" stop-color="#6366f1" stop-opacity="0.15"/>
+                    <stop offset="100%" stop-color="#ec4899" stop-opacity="0.15"/>
+                </linearGradient>
+                <linearGradient id="light-curve-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.12"/>
+                    <stop offset="50%" stop-color="#eab308" stop-opacity="0.12"/>
+                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0.12"/>
+                </linearGradient>
+            </defs>
+            <path d="M -100 200 C 300 100, 100 800, 700 650 C 1300 500, 900 1200, 1500 1000" 
+                  fill="none" stroke="url(#light-curve-grad-1)" stroke-width="1.5" stroke-dasharray="15 20" class="animate-svg-flow-1"/>
+            <path d="M 100 1800 C 500 1500, 300 2300, 900 2000 C 1500 1700, 1100 2600, 1700 2400" 
+                  fill="none" stroke="url(#light-curve-grad-2)" stroke-width="1.5" stroke-dasharray="12 16" class="animate-svg-flow-2"/>
+        </svg>
+    </div>
+
+    <style>
+        /* Light-theme background floating animation blobs */
+        @keyframes blob-float-1 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(40px, -60px) scale(1.05); }
+            66% { transform: translate(-30px, 30px) scale(0.95); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes blob-float-2 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(0.92); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes blob-float-3 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(50px, 30px) scale(0.96); }
+            66% { transform: translate(-40px, -50px) scale(1.03); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob-float-1 {
+            animation: blob-float-1 30s infinite ease-in-out;
+        }
+        .animate-blob-float-2 {
+            animation: blob-float-2 35s infinite ease-in-out;
+        }
+        .animate-blob-float-3 {
+            animation: blob-float-3 32s infinite ease-in-out;
+        }
+
+        /* SVG flow animations */
+        @keyframes svg-flow-1 {
+            to { stroke-dashoffset: -1000; }
+        }
+        @keyframes svg-flow-2 {
+            to { stroke-dashoffset: 1000; }
+        }
+        .animate-svg-flow-1 {
+            animation: svg-flow-1 80s linear infinite;
+        }
+        .animate-svg-flow-2 {
+            animation: svg-flow-2 100s linear infinite;
+        }
+    </style>
+
     <div class="bg-white rounded-3xl p-6 md:p-10 shadow-xl border-t-8 border-blue-600 relative overflow-hidden text-slate-800">
         <!-- Title Section -->
         <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-3 relative z-10 flex items-center gap-3">

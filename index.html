@@ -1154,14 +1154,9 @@
                 const contentArea = document.getElementById('content-area');
                 contentArea.style.display = 'block';
                 
-                // สำหรับหน้าที่มีพื้นหลังสีเข้ม (Dark Mode Pages)
-                if(pageUrl === 'Criteria-cover.html' || pageUrl === 'guideline.html' || pageUrl === 'HR.html' || pageUrl === 'transfer.html') {
-                    document.body.classList.remove('bg-slate-50');
-                    document.body.classList.add('bg-[#050b14]');
-                } else {
-                    document.body.classList.remove('bg-[#050b14]');
-                    document.body.classList.add('bg-slate-50');
-                }
+                // สำหรับหน้าย่อยทั้งหมด ให้ใช้พื้นหลังธีมสว่างเสมอ
+                document.body.classList.remove('bg-[#050b14]');
+                document.body.classList.add('bg-slate-50');
                 
                 contentArea.innerHTML = html;
                 window.scrollTo({ top: 0, behavior: 'smooth' });
