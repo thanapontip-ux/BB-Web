@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หลักเกณฑ์การจัดสรรงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. 2570</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Sarabun', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#3b82f6',
+                        accent: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { scroll-behavior: smooth; }
+        
+        /* Diverse Highlight Colors */
+        .hl-blue { font-weight: 700; color: #1d4ed8; } .dark .hl-blue { color: #60a5fa; }
+        .hl-red { font-weight: 700; color: #b91c1c; } .dark .hl-red { color: #f87171; }
+        .hl-green { font-weight: 700; color: #15803d; } .dark .hl-green { color: #4ade80; }
+        .hl-amber { font-weight: 700; color: #b45309; } .dark .hl-amber { color: #fbbf24; }
+        .hl-purple { font-weight: 700; color: #7e22ce; } .dark .hl-purple { color: #c084fc; }
+        .hl-teal { font-weight: 700; color: #0f766e; } .dark .hl-teal { color: #2dd4bf; }
+
+        /* New Nav Button Styles */
+        .nav-btn {
+            display: inline-block;
+            white-space: nowrap;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            background-color: #ffffff;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+            transform: translateY(0);
+        }
+        .dark .nav-btn {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            border-color: #334155;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .nav-btn:hover {
+            background-color: #f8fafc;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .dark .nav-btn:hover {
+            background-color: #334155;
+            color: #f8fafc;
+        }
+        .nav-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .nav-btn.active {
+            background: linear-gradient(145deg, #3b82f6, #2563eb);
+            color: #ffffff;
+            border-color: #1d4ed8;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .dark .nav-btn.active {
+            background: linear-gradient(145deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            border-color: #1e40af;
+        }
+        /* Hide scrollbar for top nav */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .accordion-content {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.expanded {
+            max-height: 5000px;
+            opacity: 1;
+        }
+        .rotated {
+            transform: rotate(180deg);
+        }
+        .page-meta {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-align: right;
+            margin-top: 2rem;
+            border-top: 1px dashed #e5e7eb;
+            padding-top: 0.5rem;
+        }
+
+        /* Watermark Background */
+        .watermark-bg {
+            position: relative;
+            background-color: #ffffff;
+        }
+        .watermark-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* คุณสามารถเปลี่ยน URL รูปภาพด้านล่างเป็นโลโก้ของหน่วยงานได้ครับ */
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Garuda_Emblem_of_Thailand.svg/500px-Garuda_Emblem_of_Thailand.svg.png');
+            background-repeat: no-repeat;
+            background-position: center 30%;
+            background-attachment: fixed;
+            background-size: 400px;
+            opacity: 0.04; /* ความจางของลายน้ำภาพ (0.04 = 4%) */
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300">
+
+    <!-- Top Navigation Area -->
+    <div class="fixed top-0 w-full z-50 flex flex-col shadow-lg">
+        <!-- Navbar Header -->
+        <nav class="w-full bg-white dark:bg-slate-900 border-b dark:border-slate-800 transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 flex items-center">
+                            <svg class="h-8 w-8 text-primary dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+                            <span class="ml-3 font-bold text-lg text-slate-900 dark:text-white">4.3 งบลงทุน</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Tab Navigation -->
+        <div class="w-full bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex space-x-3 overflow-x-auto py-3 hide-scrollbar items-center">
+                    <a href="#section-orders" class="nav-btn active">ข้อสั่งการนายกฯ</a>
+                    <a href="#section-4-3-1" class="nav-btn">ค่าครุภัณฑ์</a>
+                    <a href="#section-vehicle" class="nav-btn">ยานพาหนะ</a>
+                    <a href="#section-computer" class="nav-btn">คอมพิวเตอร์</a>
+                    <a href="#section-4-3-2" class="nav-btn">ค่าที่ดินและสิ่งก่อสร้าง</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="pt-36 pb-20 max-w-7xl mx-auto flex justify-center">
+        
+        <!-- Main Content -->
+        <main class="flex-1 min-w-0 p-4 md:p-8 w-full max-w-5xl transition-all duration-300">
+            <div class="watermark-bg dark:bg-slate-800 shadow-lg rounded-xl p-6 md:p-10 document-content leading-relaxed relative overflow-hidden">
+                
+                <!-- Section 4.3 -->
+                <section id="section-4-3" class="mb-12 scroll-mt-36 relative z-10">
+                    <div class="mb-6">
+                        <p class="mb-4 indent-8">
+                            1) การพิจารณางบประมาณ <strong class="hl-blue">“งบลงทุน”</strong> ให้ใช้หลักงบประมาณแบบฐานศูนย์ (<strong class="hl-purple">Zero - Based Budgeting</strong>) เป็นรายการที่<strong class="hl-blue">สอดคล้องกับภารกิจ</strong>ของหน่วยรับงบประมาณ และเป็นไปตาม<strong class="hl-blue">ความต้องการของประชาชนในพื้นที่</strong> โดยกำหนดเป้าหมายและงบประมาณให้เหมาะสมตามความจำเป็น เป็นรายการที่มี<strong class="hl-green">ความพร้อมในการดำเนินงาน ไม่สร้างภาระรายจ่ายประจำเพิ่มขึ้น</strong>โดยไม่จำเป็น ให้มีการตรวจสอบและดำเนินการตามกฎหมาย ระเบียบ และมติคณะรัฐมนตรีที่เกี่ยวข้องให้ครบถ้วน รวมทั้งให้ความสำคัญกับการใช้<strong class="hl-amber">แหล่งเงินอื่น</strong> เพื่อดำเนินโครงการภาครัฐ เช่น เงินรายได้/เงินสะสม เงินกู้ การร่วมลงทุนระหว่างภาครัฐและเอกชน (<strong class="hl-purple">Public Private Partnership : PPP</strong>) หรือกองทุนรวมโครงสร้างพื้นฐานเพื่ออนาคตประเทศไทย (<strong class="hl-purple">Thailand Future Fund : TFFIF</strong>) เป็นต้น ทั้งนี้ รายการที่เสนอตั้งใน “งบลงทุน” ที่มีวงเงินตั้งแต่ <strong class="hl-red">500 ล้านบาทขึ้นไป</strong> ที่มีการจัดซื้อจัดจ้าง ต้องมี<strong class="hl-red">แบบการประเมินความเสี่ยงการทุจริต</strong> พร้อมมาตรการในการบริหารจัดการความเสี่ยง ตามคู่มือการประเมินที่จัดทำโดยสำนักงานคณะกรรมการป้องกันและปราบปรามการทุจริตในภาครัฐ
+                        </p>
+                    </div>
+
+                    <!-- Accordion: ข้อสั่งการนายกรัฐมนตรี -->
+                    <div id="section-orders" class="mb-8 border border-yellow-300 dark:border-yellow-700 rounded-xl shadow-md overflow-hidden bg-gradient-to-br from-yellow-100 to-amber-100 dark:from-yellow-900/50 dark:to-amber-900/30 scroll-mt-36 transition-all duration-300 hover:shadow-lg">
+                        <button class="accordion-header w-full flex justify-between items-center p-4 focus:outline-none bg-gradient-to-r from-yellow-300 to-amber-300 dark:from-yellow-600 dark:to-amber-600 text-yellow-900 dark:text-yellow-50 hover:from-yellow-400 hover:to-amber-400 transition-colors" onclick="toggleAccordion('content-orders', 'icon-orders')">
+                            <span class="font-bold text-lg">ข้อสั่งการนายกรัฐมนตรี</span>
+                            <svg id="icon-orders" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="content-orders" class="accordion-content expanded p-5 space-y-3 text-slate-800 dark:text-slate-200">
+                            <p>• ขอให้<strong class="hl-red">ชะลอการก่อสร้างอาคารสำนักงานใหม่</strong></p>
+                            <p>• เสนอของบลงทุน<strong class="hl-amber">เท่าที่จำเป็น</strong> โดยเฉพาะเส้นทางคมนาคม ให้เน้น<strong class="hl-green">ซ่อมบำรุงเส้นทางเดิม</strong> มากกว่าขยายเส้นทางใหม่</p>
+                            <p>• ขอให้หน่วยงาน<strong class="hl-green">ติดตั้ง Solar Rooftop</strong> ในทุกพื้นที่ที่สามารถทำได้ เพื่อให้สอดคล้องกับเป้าหมาย <strong class="hl-green">Net Zero</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 space-y-4">
+                        <p class="indent-8">
+                            2) ควรให้ความสำคัญกับการจัดทำ<strong class="hl-teal">ระบบภูมิสารสนเทศการงบประมาณ</strong> ในรายการค่าที่ดินและสิ่งก่อสร้าง เพื่อให้เกิดการกระจายงบประมาณอย่างเหมาะสม และลดความซ้ำซ้อนในการจัดสรรงบประมาณระหว่างหน่วยรับงบประมาณ โดยให้มีการ<strong class="hl-teal">ระบุค่าพิกัด (Global Positioning System : GPS)</strong> ของพื้นที่ดำเนินงานให้ชัดเจน
+                        </p>
+                        <p class="indent-8">
+                            สำหรับการดำเนินงานในปีงบประมาณ พ.ศ. 2570 ให้มีการตรวจสอบรายการค่าที่ดินและสิ่งก่อสร้าง <strong class="hl-blue">“รายการใหม่”</strong> ที่เสนอตั้งงบประมาณในปี 2570 (ไม่ว่าตั้งไว้ในงบรายจ่ายใด) วงเงินรวมทั้งสิ้น <strong class="hl-red">50 ล้านบาทขึ้นไป</strong> ต้องมีการบันทึกข้อมูลระดับรายการในระบบ e-Budgeting โดยระบุพื้นที่ที่จะดำเนินการ พร้อมทั้ง<strong class="hl-teal">ระบุค่าพิกัด (GPS)</strong> ให้ชัดเจน ทั้งนี้ หากรายการดังกล่าวไม่ได้มีการระบุค่าพิกัดเห็นควรให้<strong class="hl-red">ชะลอโครงการออกไปก่อน</strong> เพื่อให้หน่วยรับงบประมาณกลับไปดำเนินการเรื่องความพร้อม/ความชัดเจนของพื้นที่ให้เรียบร้อยและสอดคล้องกับข้อเท็จจริง
+                        </p>
+                        <p class="indent-8">
+                            การระบุค่าพิกัด (GPS) เป็นส่วนหนึ่งของความพร้อมในการดำเนินโครงการ ซึ่งจะถูกพิจารณาในการจัดทำงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. 2570
+                        </p>
+                    </div>
+
+                    <div class="mb-6 space-y-4">
+                        <p class="indent-8">
+                            3) การเสนอตั้งงบประมาณ<strong class="hl-blue">รายการผูกพันข้ามปีงบประมาณรายการใหม่</strong> ควร<strong class="hl-green">กำหนดวงเงินให้มีความเหมาะสม</strong>โดยคำนึงถึงกรอบวงเงินในภาพรวมของหน่วยรับงบประมาณ และให้ปฏิบัติตาม<strong class="hl-amber">หลักเกณฑ์การก่อหนี้ผูกพันข้ามปีงบประมาณ</strong> ตามมติคณะรัฐมนตรีเมื่อวันที่ 10 กุมภาพันธ์ 2552 และมติคณะรัฐมนตรีเมื่อวันที่ 11 มีนาคม 2568 เรื่อง ปรับปรุงมติคณะรัฐมนตรีเมื่อวันที่ 10 กุมภาพันธ์ 2552 เกี่ยวกับหลักเกณฑ์การก่อหนี้ผูกพันข้ามปีงบประมาณ และมาตรการอื่นที่เกี่ยวข้อง (ภาคผนวก 18) อย่างเคร่งครัด โดยรายจ่ายลงทุนที่จะขออนุมัติผูกพันข้ามปีงบประมาณทุกรายการต้องได้รับการจัดสรรงบประมาณแผ่นดิน<strong class="hl-red">ในปีแรกเป็นจำนวนเงินไม่ต่ำกว่าร้อยละ 15</strong> ของวงเงินรายจ่ายส่วนที่เป็นเงินงบประมาณทั้งสิ้นของรายจ่ายลงทุนนั้น ๆ (ไม่รวมวงเงินเผื่อเหลือเผื่อขาด) และควร<strong class="hl-blue">กำหนดระยะเวลาผูกพันให้สอดคล้อง</strong>กับระยะเวลาที่ใช้ดำเนินการโดยคำนึงถึงปัจจัยต่าง ๆ ที่เกี่ยวข้อง รวมถึงการวางแผนการปฏิบัติงานที่เหมาะสม เพื่อเพิ่มประสิทธิภาพในการดำเนินงาน ทั้งนี้ ไม่นับรวมถึงรายจ่ายที่เป็นลักษณะต้องจ่ายเป็นประจำในแต่ละเดือนหรือในรอบระยะเวลาในจำนวนเงินที่เท่ากัน เช่น ค่าเช่ารถยนต์ เป็นต้น หากรายการใดมีความจำเป็นต้องดำเนินการ ให้จัดทำคำชี้แจงเหตุผลความจำเป็น เพื่อขอยกเว้นการดำเนินการตามมติคณะรัฐมนตรี
+                        </p>
+                        <p class="indent-8">
+                            นอกจากนี้ รายการก่อหนี้ผูกพันข้ามปีงบประมาณที่เป็นรายจ่ายลงทุนใหม่ทั้งหมดในแต่ละปีงบประมาณ เมื่อรวมกับภาระผูกพันเฉพาะรายจ่ายลงทุนที่กำหนดไว้ก่อนแล้วทุกกรณี จะต้องมียอดภาระงบประมาณที่จะผูกพันในปีงบประมาณถัดไป เปรียบเทียบกับรายจ่ายลงทุนที่ทุกหน่วยรับงบประมาณได้รับในปีงบประมาณนั้น <strong class="hl-red">ไม่เกินร้อยละหกสิบ</strong> ตามหลักเกณฑ์การก่อหนี้ผูกพันข้ามปีงบประมาณ (ภาคผนวก 19)
+                        </p>
+                        
+                        <!-- Table Wrapper -->
+                        <div class="my-6 overflow-x-auto rounded-lg border dark:border-gray-700">
+                            <p class="font-bold text-center py-2 bg-gray-100 dark:bg-gray-700">ตัวอย่างการคำนวณสัดส่วนภาระผูกพันงบประมาณรายจ่ายเปรียบเทียบกับรายจ่ายลงทุนของหน่วยรับงบประมาณ</p>
+                            <table class="w-full text-sm text-left whitespace-nowrap">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-300 border-b dark:border-gray-600">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">หน่วยรับงบประมาณ</th>
+                                        <th scope="col" class="px-6 py-3 text-center">รายจ่ายลงทุน ปี 2570<br>(ปีเดียว+ผูกพัน)</th>
+                                        <th scope="col" class="px-6 py-3 text-center">MTEF<br>ปี 2571</th>
+                                        <th scope="col" class="px-6 py-3 text-center">ร้อยละ<br>ของปีฐาน</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tr class="bg-white dark:bg-gray-800 font-bold">
+                                        <td class="px-6 py-4">หน่วยงาน ก.</td>
+                                        <td class="px-6 py-4 text-center"><div class="relative inline-block"><span class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 text-xs font-bold text-red-600 dark:text-red-400">3</span><span class="border-2 border-red-500 rounded-full px-3 py-1 inline-block">500.0000</span></div></td>
+                                        <td class="px-6 py-4 text-center"></td>
+                                        <td class="px-6 py-4 text-center"></td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4 pl-10 font-bold">(1) ปีเดียว</td>
+                                        <td class="px-6 py-4 text-center font-bold">176.0000</td>
+                                        <td class="px-6 py-4 text-center"></td>
+                                        <td class="px-6 py-4 text-center"></td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4 pl-10 font-bold">(2) ผูกพัน</td>
+                                        <td class="px-6 py-4 text-center font-bold">324.0000</td>
+                                        <td class="px-6 py-4 text-center">347.0000</td>
+                                        <td class="px-6 py-4 text-center">69.4</td>
+                                    </tr>
+                                    <tr class="bg-gray-50 dark:bg-gray-800/50">
+                                        <td class="px-6 py-4 pl-14 text-gray-600 dark:text-gray-400">ผูกพันใหม่ (เริ่มปี 70)</td>
+                                        <td class="px-6 py-4 text-center">24.0000</td>
+                                        <td class="px-6 py-4 text-center"><div class="relative inline-block"><span class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 text-xs font-bold text-red-600 dark:text-red-400">1</span><span class="border-2 border-red-500 rounded-full px-3 py-1 inline-block">97.0000</span></div></td>
+                                        <td class="px-6 py-4 text-center"></td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4 pl-16 text-xs">- ค่าเช่ารถยนต์</td>
+                                        <td class="px-6 py-4 text-center">9.0000</td>
+                                        <td class="px-6 py-4 text-center">12.0000</td>
+                                        <td class="px-6 py-4 text-center"></td>
+                                    </tr>
+                                    <tr class="bg-white dark:bg-gray-800">
+                                        <td class="px-6 py-4 pl-16 text-xs">- ค่าก่อสร้างอาคาร</td>
+                                        <td class="px-6 py-4 text-center">15.0000</td>
+                                        <td class="px-6 py-4 text-center">85.0000</td>
+                                        <td class="px-6 py-4 text-center"></td>
+                                    </tr>
+                                    <tr class="bg-gray-50 dark:bg-gray-800/50">
+                                        <td class="px-6 py-4 pl-14 text-gray-600 dark:text-gray-400">ผูกพันเดิม (ก่อนปี 70)</td>
+                                        <td class="px-6 py-4 text-center">300.0000</td>
+                                        <td class="px-6 py-4 text-center"><div class="relative inline-block"><span class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 text-xs font-bold text-red-600 dark:text-red-400">2</span><span class="border-2 border-red-500 rounded-full px-3 py-1 inline-block">250.0000</span></div></td>
+                                        <td class="px-6 py-4 text-center"></td>
+                                    </tr>
+                                    <tr class="bg-yellow-50 dark:bg-yellow-900/30 border-t-2 border-yellow-200 dark:border-yellow-700 font-bold">
+                                        <td class="px-6 py-4 text-right" colspan="3">หลักเกณฑ์การก่อหนี้ผูกพันข้ามปีงบประมาณ (ร้อยละ)</td>
+                                        <td class="px-6 py-4 text-center">60</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-cyan-100 to-blue-200 dark:from-cyan-900/40 dark:to-blue-900/40 p-5 rounded-xl shadow-md border border-blue-300 dark:border-blue-700 mt-4 transition-all duration-300 hover:shadow-lg">
+                            <p class="font-bold mb-4 text-blue-900 dark:text-blue-300 text-lg flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                                วิธีการคำนวณ
+                            </p>
+                            <div class="font-mono text-sm overflow-x-auto p-4 bg-white/90 dark:bg-slate-800/90 rounded-lg shadow-inner border border-blue-200 dark:border-slate-700 text-slate-800 dark:text-slate-200">
+                                <p class="mt-2">สัดส่วนภาระผูกพัน = (<span class="relative inline-block"><span class="absolute -top-4 left-1/2 transform -translate-x-1/2 inline-flex items-center justify-center w-4 h-4 text-[10px] font-bold text-white bg-red-500 rounded-full shadow-sm">1</span>MTEF ปี 71 ของรายการผูกพันใหม่</span> + <span class="relative inline-block"><span class="absolute -top-4 left-1/2 transform -translate-x-1/2 inline-flex items-center justify-center w-4 h-4 text-[10px] font-bold text-white bg-red-500 rounded-full shadow-sm">2</span>MTEF ปี 71 ของรายการผูกพันเดิม</span>) X 100</p>
+                                <p class="text-center mt-1 text-slate-400">-------------------------------------------------------------------------</p>
+                                <p class="text-center mt-1">รายจ่ายลงทุนทั้งหมดในปี 2570 (ปีเดียว+ผูกพัน) <span class="inline-flex items-center justify-center w-4 h-4 ml-1 text-[10px] font-bold text-white bg-red-500 rounded-full shadow-sm">3</span></p>
+                                <br>
+                                <p>สัดส่วนปี 2571 = <span class="whitespace-nowrap">(97.0000 + 250.0000) X 100 / 500.0000</span></p>
+                                <p class="pl-24">= <span class="whitespace-nowrap font-bold text-blue-700 dark:text-blue-400">347.0000 X 100 / 500.0000 = 69.4</span></p>
+                            </div>
+                        </div>
+
+                        <p class="indent-8 mt-6">
+                            ตามหลักเกณฑ์การก่อหนี้ผูกพัน หน่วยงาน ก. จะต้องมียอดภาระงบประมาณที่จะผูกพันในปีงบประมาณถัดไป <strong class="hl-red">ไม่เกินร้อยละ 60</strong> ของรายจ่ายลงทุนปี 2570 คือ 300.0000 ล้านบาท (500.0000 x 60%) แต่จากการคำนวณพบว่า หน่วยงาน ก. มีสัดส่วนการผูกพันงบประมาณในปีถัดไปสูงถึงร้อยละ 69.4 ดังนั้น
+                        </p>
+                        <p class="indent-8 mt-4">
+                            หน่วยงาน ก. <strong class="hl-red">ควรชะลอ/ยกเลิก</strong> การก่อหนี้ผูกพันงบประมาณรายจ่ายลงทุนใหม่ในปี 2570 หรือพิจารณาทบทวนงวดงานของรายการผูกพันเดิม เพื่อให้การคำนวณเป็นไปตามหลักเกณฑ์การก่อหนี้ผูกพันฯ
+                        </p>
+                        <p class="indent-8">
+                            ทั้งนี้ ในปีงบประมาณ พ.ศ. 2569 มีหน่วยรับงบประมาณจำนวน <strong class="hl-amber">65 แห่ง</strong> ไม่สามารถดำเนินการได้ตามหลักเกณฑ์ ในจำนวนดังกล่าว มีหน่วยรับงบประมาณ <strong class="hl-amber">31 แห่ง</strong> มีภาระผูกพันเดิมสะสมเป็นจำนวนมาก (หากคิดสัดส่วนเฉพาะภาระผูกพันรายจ่ายลงทุนเดิม พบว่ามีสัดส่วนสูงกว่าร้อยละ 60 แล้ว) (ภาคผนวก 20) ดังนั้น การพิจารณาจัดสรรงบประมาณในปีงบประมาณ พ.ศ. 2570 ของหน่วยรับงบประมาณทั้ง 65 แห่ง โดยเฉพาะหน่วยรับงบประมาณ 31 แห่งดังกล่าวข้างต้น ควรพิจารณาตั้งงบประมาณรายการผูกพันงบประมาณเฉพาะรายจ่ายลงทุนใหม่<strong class="hl-amber">อย่างระมัดระวัง</strong> เพื่อไม่ให้มีภาระงบประมาณสะสมจนอาจกระทบสัดส่วนภาระผูกพันงบประมาณรายจ่ายลงทุนในภาพรวมได้ในอนาคต
+                        </p>
+                        <p class="indent-8">
+                            สำหรับรายการผูกพันใหม่ที่มีวงเงินตั้งแต่ <strong class="hl-red">1,000 ล้านบาทขึ้นไป</strong> ให้พิจารณาจัดสรรเฉพาะรายการที่คณะรัฐมนตรีอนุมัติหลักการไว้ตามนัยมาตรา 26 แห่งพระราชบัญญัติวิธีการงบประมาณ พ.ศ. 2561
+                        </p>
+                    </div>
+
+                    <div class="mb-6 space-y-4">
+                        <p class="indent-8">
+                            4) การตั้งงบประมาณ<strong class="hl-purple">รายการผูกพันเดิม</strong> (ผูกพันสัญญา ม.41 และ ม.42) ให้คำนึงถึงศักยภาพการดำเนินงานของหน่วยงาน และเงินที่กันไว้เบิกเหลื่อมปี กรณีรายการที่ลงนามในสัญญาได้สิ้นสุดแล้ว แต่มีความจำเป็นต้องตั้งงบประมาณเพื่อชดเชยงบประมาณที่พับไป ให้พิจารณานำเงินนอกงบประมาณไปชดเชยตามจำนวนที่พับไปในโอกาสแรก และต้องได้รับการอนุมัติจากรัฐมนตรีเจ้าสังกัดให้ขยายระยะเวลาก่อหนี้ผูกพันแล้ว
+                        </p>
+                        <p>หลักเกณฑ์และแนวทางการพิจารณา ดังนี้</p>
+                    </div>
+                </section>
+
+                <!-- Section 4.3.1 -->
+                <section id="section-4-3-1" class="mb-12 scroll-mt-36">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 bg-slate-100 dark:bg-slate-700 inline-block px-3 py-1 rounded">
+                        <strong class="hl-blue">4.3.1 ค่าครุภัณฑ์</strong>
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <p>1) <strong class="hl-green">ความพร้อม</strong> : ครุภัณฑ์ทุกรายการที่เสนอตั้งงบประมาณ ต้องมีความพร้อมในการดำเนินงาน และให้จัดเตรียมเอกสารแสดงความพร้อมประกอบการพิจารณา ดังนี้</p>
+                        <ul class="list-disc pl-8 space-y-2 text-slate-700 dark:text-slate-300">
+                            <li>แผน/กรอบความต้องการครุภัณฑ์ พร้อมเหตุผลความจำเป็น กรณีซื้อทดแทนให้แสดงจำนวนที่มีอยู่ในปัจจุบัน พร้อมระบุอายุการใช้งาน และรายการที่ต้องการทดแทน</li>
+                            <li>คุณลักษณะเฉพาะของครุภัณฑ์ (Spec) ประมาณราคา หรือขอบเขตและรายละเอียดของการจัดหาครุภัณฑ์ (Term of Reference : TOR)</li>
+                            <li>ค่าครุภัณฑ์ให้เป็นไปตามบัญชีราคามาตรฐานที่สำนักงบประมาณกำหนด สำหรับกรณีครุภัณฑ์นอกบัญชีราคามาตรฐาน ให้เป็นไปตามราคาที่เคยตกลงกับสำนักงบประมาณ หรือตามราคาที่เคยอนุมัติ (ราคาที่เคยจัดซื้อไม่เกิน 2 ปี) หรือตามผลการสืบราคา (ใบเสนอราคาอย่างน้อย 3 ราย) และราคาที่หน่วยงานของรัฐกำหนด เช่น
+                                <ul class="list-circle pl-6 mt-2 space-y-1">
+                                    <li>• ครุภัณฑ์การแพทย์ตามบัญชีรายการครุภัณฑ์สำนักงานปลัดกระทรวงสาธารณสุข</li>
+                                    <li>• ครุภัณฑ์คอมพิวเตอร์ตามเกณฑ์ราคากลาง และคุณลักษณะพื้นฐานการจัดหาอุปกรณ์และระบบคอมพิวเตอร์</li>
+                                </ul>
+                            </li>
+                            <li>มีสถานที่/พื้นที่พร้อมรองรับครุภัณฑ์</li>
+                        </ul>
+
+                        <p>2) การตั้งรายการผูกพันงบประมาณ (ผูกพันเดิม) สำหรับค่าครุภัณฑ์และค่าจ้างที่ปรึกษาเพื่อให้ได้มาซึ่งครุภัณฑ์ ให้ตรวจสอบสถานะในปัจจุบัน และพิจารณาผลการดำเนินงาน/ผลการใช้จ่ายกับงวดงานตามสัญญา และแผนการใช้จ่ายตามสถานการณ์จริง ดังนี้</p>
+                        
+                        <div class="bg-gradient-to-r from-sky-100 to-blue-100 dark:from-sky-900/30 dark:to-blue-900/30 p-5 border-l-4 border-blue-500 rounded-r-xl ml-4 mb-5 shadow-sm hover:shadow-md transition-shadow">
+                            <p class="font-bold mb-2 text-blue-900 dark:text-blue-300 text-lg flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                <strong class="hl-blue">รายการผูกพันตามสัญญา :</strong>
+                            </p>
+                            <p class="text-slate-800 dark:text-slate-200">ตรวจสอบผลการดำเนินงาน และผลการใช้จ่ายจริงในปีงบประมาณ พ.ศ. 2569 และเงินที่กันไว้เบิกเหลื่อมปีในปีงบประมาณ 2568 โดยให้ตั้งงบประมาณปี 2570 ตามแผนการใช้จ่ายจริงของงวดงานในสัญญาที่เบิกจ่ายได้ภายในเดือนกันยายนปี 2570 (หากล่าช้าให้ปรับลดเงินให้สอดคล้องกับงบประมาณที่ยังไม่ได้จ่าย) กรณีงวดงานในสัญญาสิ้นสุดเดือนสิงหาคม - กันยายน 2570 ให้ตั้งงบประมาณไม่เกินเดือนกรกฎาคม 2570 (เผื่อระยะเวลาสำหรับการตรวจรับงาน)</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 p-5 border-l-4 border-purple-500 rounded-r-xl ml-4 mb-6 shadow-sm hover:shadow-md transition-shadow">
+                            <p class="font-bold mb-2 text-purple-900 dark:text-purple-300 text-lg flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <strong class="hl-purple">รายการผูกพันตามมาตรา 41 และ 42 :</strong>
+                            </p>
+                            <p class="text-slate-800 dark:text-slate-200">ตรวจสอบ TOR สัญญาที่คาดว่าจะใช้ดำเนินงาน มีแผนการดำเนินงาน/แผนการใช้จ่ายอย่างไร สามารถจัดซื้อจัดจ้างและลงนามได้เดือนใด<br>โดยตั้งงบประมาณ ปี 2570 ตามแผนการใช้จ่าย กรณีงวดงานในสัญญาสิ้นสุดเดือนสิงหาคม - กันยายน 2570 ให้ตั้งงบประมาณไม่เกินเดือนกรกฎาคม 2570 (เผื่อระยะเวลาสำหรับการตรวจรับงาน)</p>
+                        </div>
+
+                        <p class="indent-8">3) การจัดหาครุภัณฑ์เพื่อรองรับการปฏิบัติงานใหม่ (ภารกิจใหม่) ที่ไม่เคยดำเนินงานมาก่อน ต้องมีนโยบายของรัฐบาลหรือมติคณะรัฐมนตรีรองรับ การจัดหาครุภัณฑ์ใหม่เพื่อ<strong class="hl-green">เพิ่มประสิทธิภาพการทำงาน</strong>จะต้องแสดงให้เห็นถึงกลุ่มเป้าหมายหรือปริมาณงานที่เพิ่มขึ้นอย่างชัดเจน สำหรับการจัดหาครุภัณฑ์เพื่อ<strong class="hl-amber">ทดแทนครุภัณฑ์ที่เสื่อมสภาพ</strong> ต้องแสดงสภาพการใช้งานของครุภัณฑ์เดิม ความจำเป็นที่ต้องจัดหาใหม่แทนการซ่อมของเดิม และคาดการณ์ผู้ใช้งาน/ผู้ใช้ประโยชน์ภายหลังการจัดหาเสร็จสิ้น</p>
+                        
+                        <p class="indent-8">4) กรณีเป็นการจัดหาครุภัณฑ์ที่<strong class="hl-red">ต้องนำเข้าจากต่างประเทศ</strong> ขอให้พิจารณาว่ามีความจำเป็นอย่างหลีกเลี่ยงไม่ได้ หรือเพื่อเสริมมูลค่าและตอบสนองต่อนโยบายสำคัญของรัฐบาลโดยตรง โดยให้พิจารณา<strong class="hl-red">อย่างเข้มงวด</strong> และควรมีแผนการติดตั้งและฝึกอบรมบุคลากรให้สามารถปฏิบัติงานกับครุภัณฑ์ดังกล่าว</p>
+
+                        <p class="indent-8">5) การจัดซื้อครุภัณฑ์สำหรับสำนักงานที่อยู่ในต่างประเทศ <strong class="hl-green">ควรจัดซื้อในประเทศที่หน่วยรับงบประมาณนั้นตั้งอยู่</strong> เพราะมีการรับประกันอุปกรณ์ในประเทศนั้น ๆ ไม่ควรจัดซื้อจากประเทศไทยเพราะจะเสียค่าขนส่ง ทำให้สิ้นเปลืองงบประมาณ</p>
+
+                        <p class="indent-8">6) ค่าจ้างที่ปรึกษาเพื่อการจัดหาหรือปรับปรุงครุภัณฑ์ ให้พิจารณาตั้งงบประมาณในขอบเขตของงานที่สามารถเบิกจ่ายได้ภายในปีงบประมาณ และระยะเวลาดำเนินการ<strong class="hl-red">ไม่เกิน 9 เดือน</strong> โดยให้พิจารณาอัตราค่าใช้จ่ายให้เป็นไป<strong class="hl-green">อย่างประหยัด</strong> และเป็นไปตามหนังสือสำนักงานบริหารหนี้สาธารณะกระทรวงการคลัง ที่ กค 0910/ว 16 ลงวันที่ 9 มีนาคม 2569 เรื่อง หลักเกณฑ์ราคากลางการจ้างที่ปรึกษา(มีนาคม 2569) ทั้งนี้ หากลักษณะงานไม่มีความจำเป็นต้องใช้ผู้เชี่ยวชาญเฉพาะด้านหรือใช้เทคโนโลยีขั้นสูงหรือใช้กำลังคนจำนวนมาก ให้ปรับลดหรือให้หน่วยรับงบประมาณดำเนินการเอง</p>
+
+                        <p class="indent-8 scroll-mt-36" id="section-machine">7) การซ่อมใหญ่เครื่องจักร/เครื่องมือ หากค่าซ่อม<strong class="hl-red">เกินร้อยละ 50</strong> ของราคาเครื่องจักร/เครื่องมือ ควรพิจารณา<strong class="hl-amber">จัดหาเครื่องจักร/เครื่องมือใหม่</strong>ทดแทนของเดิม</p>
+
+                        <div id="section-vehicle" class="scroll-mt-36 space-y-4 pt-4">
+                            <p class="indent-8">8) <strong class="hl-blue">ครุภัณฑ์ยานพาหนะ</strong> ให้ทบทวนการจัดหาด้วยวิธีการซื้อหรือวิธีเช่า โดยยึดหลักเกณฑ์ตามที่กองมาตรฐานงบประมาณ 1 กำหนด ทั้งนี้ หากจำเป็นต้องจัดซื้อทดแทนให้ตั้งงบประมาณเฉพาะรถยนต์(ในประเทศ) ที่มีอายุการใช้งาน<strong class="hl-red">ไม่น้อยกว่า 12 ปี</strong> (จัดซื้อไม่เกินปีงบประมาณ พ.ศ. 2558) ยกเว้นเพื่อดำเนินนโยบายเร่งด่วนของรัฐบาล หรือหน่วยรับงบประมาณที่จำเป็นต้องใช้ยานพาหนะเป็นเครื่องมือสำคัญในการปฏิบัติภารกิจในพื้นที่</p>
+
+                            <p class="indent-8">นอกจากนี้ ขอให้สนับสนุน ส่งเสริม และพิจารณาเปลี่ยนเป็น<strong class="hl-green">จัดหารถยนต์ไฟฟ้า (Electric Vehicle: EV)</strong> มาใช้ในราชการแทนรถยนต์เดิมที่หมดอายุการใช้งาน หรือที่จะต้องจัดซื้อจัดจ้างขึ้นใหม่เพื่อรองรับภารกิจใหม่ หรือผู้ดำรงตำแหน่งใหม่ แจ้งตามหนังสือสำนักเลขาธิการคณะรัฐมนตรี ด่วนที่สุดที่ นร 0505/ว 3253 ลงวันที่ 25 สิงหาคม 2564 และหนังสือสำนักเลขาธิการคณะรัฐมนตรี ด่วนที่สุดที่ นร 0505/ว 3441 ลงวันที่ 2 ธันวาคม 2564 และหนังสือสำนักเลขาธิการคณะรัฐมนตรี ด่วนที่สุดที่ นร 0505/ว 426 ลงวันที่ 18 ตุลาคม 2566 (ภาคผนวก 21)</p>
+
+                            <p class="indent-8">สำหรับการจัดหารถนั่งส่วนกลางทดแทน หรือรองรับภารกิจใหม่ หรือจัดหารถประจำตำแหน่งสำหรับผู้ดำรงตำแหน่งใหม่ เป็นรถยนต์ไฟฟ้าประเภทแบตเตอรี่ (<strong class="hl-green">Battery Electric Vehicle: BEV</strong>) ให้ใช้ราคามาตรฐานครุภัณฑ์ ตามที่กำหนดไว้ในบัญชีราคามาตรฐานครุภัณฑ์ ฉบับธันวาคม 2568</p>
+                        </div>
+
+                        <div id="section-computer" class="scroll-mt-36 mt-8 border border-fuchsia-200 dark:border-fuchsia-900/50 bg-gradient-to-br from-fuchsia-50 to-pink-100 dark:from-fuchsia-900/20 dark:to-pink-900/20 rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+                            <p class="font-bold mb-4 text-xl text-fuchsia-900 dark:text-fuchsia-300 flex items-center border-b border-fuchsia-200 dark:border-fuchsia-800 pb-3">
+                                <svg class="w-6 h-6 mr-2 text-fuchsia-600 dark:text-fuchsia-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                9) <strong class="ml-1">ครุภัณฑ์คอมพิวเตอร์</strong> ให้พิจารณาดังนี้
+                            </p>
+                            <ul class="space-y-3 text-slate-800 dark:text-slate-200 mt-4">
+                                <li>(1) การจัดหาครุภัณฑ์คอมพิวเตอร์และโปรแกรมสำนักงานพื้นฐาน ให้เป็นไปตามเกณฑ์ราคากลางและคุณลักษณะพื้นฐานครุภัณฑ์คอมพิวเตอร์ ที่กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคมกำหนด(ตามประกาศล่าสุด ซึ่งมีการปรับปรุงราคาและคุณลักษณะใหม่ทุกปี) ตามหนังสือสำนักเลขาธิการคณะรัฐมนตรีด่วนที่สุด ที่ นร 0504/4956 ลงวันที่ 31 มีนาคม 2547 47 และหลักเกณฑ์ราคากลางและคุณลักษณะพื้นฐานของระบบกล้องวงจรปิด ของกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม</li>
+                                <li>(2) กรณีกำหนดราคาและคุณลักษณะที่ไม่เป็นไปตามประกาศของกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม ให้ใช้ราคาตลาด ณ ปัจจุบัน และเปรียบเทียบราคา <strong class="hl-amber">2 ยี่ห้อ</strong> เป็นอย่างน้อย โดยมีใบเสนอราคา<strong class="hl-amber">ไม่น้อยกว่า 3 ราย</strong> หรือใช้ราคาที่เคยจัดซื้อครั้งหลังสุดภายในระยะเวลา <strong class="hl-amber">2 ปีงบประมาณ</strong> โดยในการจัดหาครุภัณฑ์คอมพิวเตอร์ควรคำนึงถึงภาระงบประมาณที่ต้องจ่ายในอนาคต เช่น ค่าบำรุงรักษา ค่าบริหารจัดการและค่าไฟฟ้า เป็นต้น</li>
+                                <li>(3) สำหรับครุภัณฑ์คอมพิวเตอร์ทดแทน ให้เสนอตั้งงบประมาณเฉพาะรายการที่มีอายุการใช้งาน<strong class="hl-red">ไม่น้อยกว่า 7 ปี</strong> (จัดซื้อไม่เกินปีงบประมาณ พ.ศ. 2563) และการจัดหาคอมพิวเตอร์ให้ใช้<strong class="hl-green">วิธีการซื้อแทนการเช่า</strong> ยกเว้นรายการที่ใช้ในภารกิจเฉพาะกิจ</li>
+                                <li>(4) การตั้งชื่อรายการควรตั้งให้ตรงตามที่กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคมกำหนดและกรณีจัดหาเครื่องคอมพิวเตอร์พร้อมระบบปฏิบัติการและโปรแกรมสำนักงาน ให้<strong class="hl-amber">รวมรายการเป็น 1 รายการ</strong> ตัวอย่างเช่น “เครื่องคอมพิวเตอร์สำหรับงานประมวลผล แบบที่ 1 พร้อมระบบปฏิบัติการ และชุดโปรแกรมจัดการสำนักงาน แขวงพญาไท เขตพญาไท กรุงเทพมหานคร จำนวน 10 ชุด” เป็นต้น</li>
+                                <li>(5) รายการครุภัณฑ์คอมพิวเตอร์สำหรับระบบคอมพิวเตอร์ ระบบงาน การจัดการความปลอดภัย และระบบเครือข่าย เช่น เครื่องคอมพิวเตอร์แม่ข่าย การจัดเก็บข้อมูลจราจรของระบบเครือข่าย(Log File) อุปกรณ์ป้องกันเครือข่าย (Firewall) อุปกรณ์ป้องกันและตรวจจับการบุกรุก (Intrusion Prevention System) อุปกรณ์กระจายสัญญาณเครือข่าย (Network Switch) เป็นต้น ควรพิจารณาโดยใช้เกณฑ์และคุณลักษณะตามเกณฑ์ราคากลางและคุณลักษณะพื้นฐานครุภัณฑ์คอมพิวเตอร์ของกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคมเป็นลำดับแรก หากเป็นรายการครุภัณฑ์ที่มีราคาและคุณลักษณะที่แตกต่างจากเกณฑ์ดังกล่าว จะต้องมีคำชี้แจงที่ชัดเจนถึงเหตุผลความจำเป็น รายละเอียดคุณลักษณะและที่มาของค่าใช้จ่ายด้วย</li>
+                                <li>(6) ค่าใช้จ่ายเกี่ยวกับการจ้างบุคลากรด้านเทคโนโลยีสารสนเทศ ให้เป็นไปตามเกณฑ์ของสำนักงานบริหารหนี้สาธารณะ กระทรวงการคลัง ซึ่งเป็นเกณฑ์เกี่ยวกับค่าจ้างบุคลากรในการพัฒนาระบบการบำรุงรักษาระบบ การบริหารจัดการระบบ และค่าจ้างบุคลากรในการติดตั้งและทดสอบระบบ ทั้งนี้ ควรจัดทำรายละเอียดค่าใช้จ่ายให้เป็นไปตามหลักเกณฑ์ราคากลางการจ้างที่ปรึกษา (มีนาคม 2569) กลุ่มวิชาชีพเทคโนโลยีสารสนเทศและการสื่อสาร (ICT) เป็นต้น</li>
+                                <li>(7) ควรพิจารณา<strong class="hl-green">บูรณาการระบบร่วมกับหน่วยงานอื่น</strong> หรือ<strong class="hl-green">เลือกใช้บริการภาครัฐเป็นลำดับแรก</strong> เช่น แพลตฟอร์มภาครัฐเพื่อรองรับการปฏิบัติตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล (Government Platform for PDPA Compliance : GPPC) ของกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม แพลตฟอร์มกลางเพื่อสนับสนุนการจัดตั้ง Sectoral CERT แบบรวมศูนย์ ของสำนักงานคณะกรรมการการรักษาความมั่นคงปลอดภัยไซเบอร์แห่งชาติ รวมถึงค่าใช้จ่ายในการพัฒนาแอปพลิเคชัน ควรพิจารณาเหตุผลความจำเป็น ความซ้ำซ้อนกับระบบที่มีอยู่เดิม และต้องเชื่อมโยงกับแอปพลิเคชัน <strong class="hl-blue">“ทางรัฐ”</strong> ของสำนักงานพัฒนารัฐบาลดิจิทัล(องค์การมหาชน) เพื่อให้การพัฒนาและการให้บริการแอปพลิเคชันภาครัฐเป็นไปอย่างมีประสิทธิภาพ ประหยัดค่าใช้จ่าย และลดความซ้ำซ้อนของระบบในภาครัฐ</li>
+                                <li>(8) กรณีเป็นโครงการจัดหาด้านเทคโนโลยีสารสนเทศ และการสื่อสารที่มีการใช้งบประมาณ<strong class="hl-amber">ไม่เกิน 200 ล้านบาท</strong> ต้องได้รับความเห็นชอบจากผู้บริหารเทคโนโลยีสารสนเทศระดับสูงของกรม / กระทรวง ก่อนส่งคำขอตั้งงบประมาณ หากเป็นโครงการที่ใช้งบประมาณ<strong class="hl-red">เกินกว่า 200 ล้านบาท</strong> ต้องได้รับความเห็นชอบจากคณะกรรมการจัดหาระบบคอมพิวเตอร์ของรัฐ ตามหนังสือสำนักเลขาธิการคณะรัฐมนตรีที่ นร 0508/ว(ล) 6456 ลงวันที่ 12 มีนาคม 2568 (ภาคผนวก 22)</li>
+                                <li>(9) ค่าใช้จ่ายในการอบรมสัมมนาด้านเทคโนโลยีสารสนเทศ ให้พิจารณาวิธีการอบรมแบบ <strong class="hl-green">on-line เป็นอันดับแรก</strong> หรือหากเป็นแบบ on-site ให้พิจารณาค่าใช้จ่ายตามเกณฑ์ที่สำนักงบประมาณกำหนด</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4.3.2 -->
+                <section id="section-4-3-2" class="mb-12 scroll-mt-36">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 bg-slate-100 dark:bg-slate-700 inline-block px-3 py-1 rounded">
+                        <strong class="hl-blue">4.3.2 ค่าที่ดินและสิ่งก่อสร้าง</strong>
+                    </h3>
+                    
+                    <p class="mb-4">พิจารณาดำเนินการดังนี้</p>
+                    
+                    <div class="space-y-4">
+                        <p>1) <strong class="hl-green">ความพร้อม</strong> : ทุกรายการที่เสนอตั้งงบประมาณ ต้องมีความพร้อมในการดำเนินงาน และให้จัดเตรียมเอกสารแสดงความพร้อมประกอบการพิจารณา ได้แก่</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
+                            <!-- ค่าที่ดิน Box -->
+                            <div class="border border-emerald-200 dark:border-emerald-800/50 rounded-xl p-6 bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-emerald-900/20 dark:to-teal-900/20 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                                <p class="font-bold text-center text-emerald-900 dark:text-emerald-300 text-lg mb-4 border-b border-emerald-200 dark:border-emerald-800 pb-3 flex items-center justify-center">
+                                    <svg class="w-5 h-5 mr-2 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <strong class="hl-teal">ค่าที่ดิน</strong>
+                                </p>
+                                <ul class="list-disc pl-5 space-y-3 text-sm text-slate-800 dark:text-slate-200">
+                                    <li>มีพระราชกฤษฎีกาเวนคืนที่ดินหรือมีมติคณะรัฐมนตรี</li>
+                                    <li>มีการสำรวจประเมินค่าชดเชยที่ดินและสิ่งปลูกสร้างแล้ว</li>
+                                    <li>กรณีซื้อที่ดิน ต้องมีรายละเอียดของที่ดิน เนื้อที่ พิกัด ราคาประเมินของทางราชการและราคาซื้อขายที่ดินใกล้เคียงครั้งล่าสุดอย่างน้อย 3 ราย</li>
+                                    <li>ค่าจัดกรรมสิทธิ์ที่ดิน ให้หน่วยรับงบประมาณยืนยัน (เป็นทางการ) และให้พิจารณาตามความจำเป็นโดยสอดคล้องกับระยะเวลาตามแผนการดำเนินการเวนคืนซึ่งคณะรัฐมนตรีได้ให้ความเห็นชอบกรอบวงเงินค่าทดแทนและร่างพระราชกฤษฎีกาเวนคืน และตามพระราชบัญญัติว่าด้วยการเวนคืนและการได้มาซึ่งอสังหาริมทรัพย์ พ.ศ. 2562 หรือรายการที่ประชาชนยอมรับค่าชดเชยที่ดินหรือสิ่งก่อสร้างตามที่ได้เจรจาไว้กับหน่วยงานของรัฐ</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- สิ่งก่อสร้าง Box -->
+                            <div class="border border-orange-200 dark:border-orange-800/50 rounded-xl p-6 bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-900/20 dark:to-amber-900/20 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                                <p class="font-bold text-center text-orange-900 dark:text-orange-300 text-lg mb-4 border-b border-orange-200 dark:border-orange-800 pb-3 flex items-center justify-center">
+                                    <svg class="w-5 h-5 mr-2 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                    <strong class="hl-amber">สิ่งก่อสร้าง</strong>
+                                </p>
+                                <ul class="list-disc pl-5 space-y-3 text-sm text-slate-800 dark:text-slate-200">
+                                    <li>มีความพร้อมด้านสถานที่ดำเนินการ ให้แสดงพิกัดสถานที่ก่อสร้าง มีการสำรวจสถานที่ก่อสร้างจริงมีหนังสือแสดงกรรมสิทธิ์ หนังสือแสดงการอนุญาตเข้าทำประโยชน์ในพื้นที่ป่าไม้ หนังสือแสดงความยินยอมการใช้ที่ดิน หรือหนังสือรับรองอื่นใดที่แสดงถึงการได้รับอนุญาตให้เข้าใช้ที่ดินเพื่อการก่อสร้าง และหากสถานที่ที่จะก่อสร้างต้องมีการจ่ายเงินชดเชย ให้แสดงหลักฐานว่ามีการสำรวจประเมินค่าชดเชยที่ดิน/สิ่งปลูกสร้างแล้วรวมถึงสามารถระบุพื้นที่การจ่ายเงินชดเชยได้</li>
+                                    <li>มีรายละเอียดแบบรูปรายการ หรือแบบมาตรฐานตามบัญชีราคามาตรฐานสิ่งก่อสร้างของสำนักงบประมาณ หรือแบบมาตรฐานของทางราชการ ที่ได้ปรับแบบให้สอดคล้องกับสถานที่ก่อสร้างจริง</li>
+                                    <li>มีประมาณการราคาค่าก่อสร้าง (ปร.4 ปร.5) ที่เป็นปัจจุบันและพร้อมดำเนินการ</li>
+                                    <li>กรณีเป็นการดำเนินการร่วมกันระหว่างหลายหน่วยงาน ควรพิจารณาแผนการก่อสร้างที่ต้องบูรณาการร่วมกับหน่วยงานอื่น ๆ ที่เกี่ยวข้อง โดยพิจารณาถึงค่าใช้จ่ายที่แท้จริง ความพร้อมของหน่วยงานที่เกี่ยวข้องระยะเวลาที่จะสามารถเข้าไปดำเนินการได้ ตลอดจนพิจารณาถึงภาพรวมของการก่อสร้างในบริเวณดังกล่าว</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p class="mt-8">2) การเสนอตั้ง <strong class="hl-purple">“รายการผูกพันงบประมาณ”</strong> ดำเนินการ ดังนี้</p>
+                                </ul>
+                                <p>(2) กรณีรายการที่ลงนามในสัญญาไม่ทันเมื่อปีงบประมาณก่อนหน้า และงบประมาณถูกพับไป ให้พิจารณาข้อเสนอปีงบประมาณ พ.ศ. 2570 โดยคำนึงถึงศักยภาพในการดำเนินงานของหน่วยรับงบประมาณด้วย</p>
+                            </div>
+                        </div>
+
+                        <p class="indent-8 mt-6">3) การก่อสร้างที่มีระยะเวลาดำเนินการ<strong class="hl-amber">ไม่เกิน 270 วัน</strong> ให้เสนอตั้งงบประมาณเป็นรายการ <strong class="hl-blue">“ปีเดียว”</strong> สำหรับรายการที่มีระยะเวลาดำเนินการ<strong class="hl-amber">เกิน 270 วัน</strong> ให้เสนอตั้งงบประมาณเป็นรายการ<strong class="hl-purple">ผูกพันใหม่</strong> โดยให้ตั้งงบประมาณในปีแรก<strong class="hl-red">ไม่ต่ำกว่าร้อยละ 15</strong> ของวงเงินงบประมาณรวมของแต่ละรายการ</p>
+
+                        <p class="indent-8">4) รายการผูกพัน <strong class="hl-purple">“ใหม่”</strong> เห็นควรให้พิจารณาอย่างรอบคอบ ตามความจำเป็นเร่งด่วน โดยพิจารณาความพร้อมในการดำเนินงาน ความสามารถเบิกจ่ายงบประมาณ และไม่เป็นเหตุให้งบประมาณต้องพับไป รวมถึงคำนึงถึงภาระผูกพันโดยรวมของประเทศ ทั้งนี้ เพื่อให้การจัดสรรงบประมาณ “ภาพรวมประเทศ” เป็นไปตามประกาศคณะกรรมการนโยบายการเงินการคลังของรัฐ เรื่อง กำหนดสัดส่วนต่าง ๆ เพื่อใช้เป็นกรอบวินัยการเงินการคลังของรัฐ พ.ศ. 2561 ที่กำหนดไว้ต้อง<strong class="hl-red">ไม่เกินร้อยละ 10</strong> ของงบประมาณรายจ่ายประจำปี(เงินงบประมาณและเงินสำรองเผื่อเหลือเผื่อขาด)</p>
+
+                        <p class="indent-8">5) การก่อสร้างอาคารใหม่ ให้คำนึงถึง<strong class="hl-green">ความจำเป็น ความคุ้มค่า และภารกิจหลัก</strong>ของหน่วยงานเป็นสำคัญ โดยตรวจสอบอัตราค่าใช้จ่ายให้เป็นไปตามมาตรฐานการออกแบบอาคารที่ทำการ อาคารอยู่อาศัยรวมและบ้านพัก ตามมติคณะรัฐมนตรีเมื่อวันที่ 5 เมษายน 2559 แจ้งตามหนังสือสำนักเลขาธิการคณะรัฐมนตรีด่วนที่สุด ที่ นร 0505/ว 115 ลงวันที่ 7 เมษายน 2559 (ภาคผนวก 23) และบัญชีราคามาตรฐานสิ่งก่อสร้างที่สำนักงบประมาณกำหนด</p>
+                        <p class="indent-8">ทั้งนี้ สำหรับการก่อสร้างอาคาร และการดัดแปลงอาคารที่มีพื้นที่รวมทุกชั้นในอาคารหลังเดียวกัน ตั้งแต่ <strong class="hl-amber">2,000 ตารางเมตรขึ้นไป</strong> ต้องได้รับการตรวจประเมินการออกแบบอาคารให้เป็นไปตามมาตรฐานหลักเกณฑ์ และวิธีในการออกแบบเพื่อการอนุรักษ์พลังงาน ตามมติคณะรัฐมนตรีเมื่อวันที่ 4 ตุลาคม 2554 เรื่อง มติคณะกรรมการนโยบายพลังงานแห่งชาติ ครั้ง 5/2554 (ครั้งที่ 138) และกฎกระทรวงกำหนดประเภทหรือขนาดของอาคาร และมาตรฐาน หลักเกณฑ์ และวิธีการในการออกแบบอาคารเพื่อการอนุรักษ์พลังงาน พ.ศ. 2563 (ภาคผนวก 24)</p>
+
+                        <p class="indent-8">6) การก่อสร้างเพื่อทดแทนสิ่งก่อสร้างเดิมที่เสื่อมสภาพหรือเสียหายจากอุบัติภัย ต้องแสดงสภาพและการใช้งานสิ่งก่อสร้างเดิม ความจำเป็นที่ต้องสร้างใหม่แทนการปรับปรุงให้กลับคืนสู่สภาพเดิมและคาดการณ์ผู้รับประโยชน์ภายหลังการก่อสร้างเสร็จสิ้น</p>
+
+                        <p class="indent-8">7) การก่อสร้างเพิ่มเติมเพื่อรองรับปริมาณงานที่เพิ่มมากขึ้นหรือการปรับปรุงสิ่งก่อสร้างเดิมเพื่อเพิ่มประสิทธิภาพ/คุณภาพ/มาตรฐานของการปฏิบัติงานของหน่วยรับงบประมาณ ต้องมีแผนการขยายหรือเพิ่มปริมาณกลุ่มเป้าหมายหรือปริมาณงานอย่างชัดเจน</p>
+
+                        <p class="indent-8">8) ค่าก่อสร้างในส่วนการปรับปรุงซ่อมแซมอาคารสำนักงาน<strong class="hl-red">ไม่ควรตั้งงบประมาณผูกพัน</strong> โดยเฉพาะหน่วยงานที่ให้บริการประชาชน ควรเร่งรัดการปรับปรุงสิ่งอำนวยความสะดวกแก่ประชาชนเช่น ห้องสุขา ให้แล้วเสร็จภายในปีงบประมาณ</p>
+
+                        <p class="indent-8">4) ค่าจ้างที่ปรึกษาเพื่อการจัดหาหรือปรับปรุงสิ่งก่อสร้าง ควรกำหนดแผนการปฏิบัติงานและแผนการใช้จ่ายงบประมาณให้สามารถก่อหนี้ผูกพันได้ภายในไตรมาสที่ 1 ของปีงบประมาณและพิจารณาตั้งงบประมาณในขอบเขตของงานที่สามารถเบิกจ่ายได้ในปีงบประมาณ โดยระยะเวลา<strong class="hl-red">ไม่เกิน 9 เดือน</strong> และพิจารณาอัตราค่าใช้จ่ายให้เป็นไปอย่างประหยัด และเป็นไปตามหลักเกณฑ์ราคากลางการจ้างที่ปรึกษา(มีนาคม 2569) แจ้งตามหนังสือสำนักงานบริหารหนี้สาธารณะ กระทรวงการคลัง ที่ กค 0910/ว 16 ลงวันที่ 9 มีนาคม 2569</p>
+                        <p class="indent-8">ทั้งนี้ หากลักษณะงานไม่มีความจำเป็นต้องใช้ผู้เชี่ยวชาญเฉพาะด้านหรือใช้เทคโนโลยีชั้นสูงหรือใช้กำลังคนจำนวนมาก ให้ปรับลด หรือให้หน่วยรับงบประมาณดำเนินการเอง รวมทั้งต้องมีการกำหนดเงื่อนไขรายละเอียดในการจัดจ้าง (TOR) และประมาณการค่าใช้จ่ายที่แสดงรายละเอียด (Man - Month) อย่างชัดเจน</p>
+
+                        <p class="indent-8">10) การจ้างที่ปรึกษาโครงการขนาดใหญ่ เช่น ศึกษาผลกระทบสิ่งแวดล้อม ออกแบบระบบโครงสร้างพื้นฐาน ควรคำนึงถึงความเหมาะสมและความคุ้มค่า โดยพิจารณาเชิญบุคลากรที่เชี่ยวชาญจากสถาบันการศึกษาหรือมหาวิทยาลัย ทั้งภาครัฐและภาคเอกชนในลำดับแรก ก่อนพิจารณาจ้างบริษัทเอกชนสำหรับโครงการขนาดเล็กควรใช้บุคลากรของหน่วยงาน</p>
+
+                        <p class="indent-8">11) การพัฒนาและการก่อสร้างในบริเวณกรุงรัตนโกสินทร์และเมืองเก่าที่ขอรับการจัดสรรงบประมาณ ควรพิจารณาให้สอดคล้องตามระเบียบสำนักนายกรัฐมนตรีว่าด้วยการอนุรักษ์และพัฒนากรุงรัตนโกสินทร์และเมืองเก่า และมติคณะรัฐมนตรีเมื่อวันที่ 10 กุมภาพันธ์ 2558 เรื่อง มาตรการในการควบคุมการก่อสร้างอาคารของภาครัฐบาล รัฐวิสาหกิจ และหน่วยงานของรัฐอย่างอื่นที่อาจพึงมีในบริเวณกรุงรัตนโกสินทร์และเมืองเก่า รวมทั้งปฏิบัติตามมติคณะอนุกรรมการกลั่นกรองและพิจารณาแผนการดำเนินงานในพื้นที่เมืองเก่า และมติคณะกรรมการอนุรักษ์และพัฒนากรุงรัตนโกสินทร์ และเมืองเก่า (ภาคผนวก 25)</p>
+
+                        <p class="indent-8">12) การก่อสร้างในพื้นที่แหล่งมรดกโลกทางธรรมชาติ และมรดกโลกทางวัฒนธรรม จะต้องได้รับการอนุญาตอย่างถูกต้องตามขั้นตอนจากหน่วยงานที่เกี่ยวข้องก่อนการเสนอของบประมาณรายจ่ายประจำปี</p>
+
+                        <p class="indent-8">13) การใช้ที่ราชพัสดุ ให้สำนักงบประมาณพิจารณาจัดสรรงบประมาณ เพื่อก่อสร้างหรือปลูกสร้างอาคารที่ทำการในที่ราชพัสดุเฉพาะหน่วยรับงบประมาณที่ได้รับอนุญาตให้ใช้ที่ราชพัสดุ ตามกฎกระทรวงว่าด้วยหลักเกณฑ์และวิธีการปกครอง ดูแล บำรุงรักษา ใช้ และจัดหาประโยชน์เกี่ยวกับที่ราชพัสดุ พ.ศ. 2545 และที่แก้ไขเพิ่มเติม ข้อ 14 (ภาคผนวก 26)</p>
+                    </div>
+                </section>
+                
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Highlight active section on scroll
+        const sections = document.querySelectorAll('section, #section-orders, #section-machine, #section-vehicle, #section-computer');
+        const navLinks = document.querySelectorAll('.nav-btn');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Accordion Toggle
+        function toggleAccordion(contentId, iconId) {
+            const content = document.getElementById(contentId);
+            const icon = document.getElementById(iconId);
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                icon.classList.remove('rotated');
+            } else {
+                content.classList.add('expanded');
+                icon.classList.add('rotated');
+            }
+        }
+    </script>
+</body>
+</html>
