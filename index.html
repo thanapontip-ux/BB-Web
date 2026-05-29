@@ -448,6 +448,32 @@
 </head>
 <body class="bg-[#050b14] text-slate-800 antialiased pt-20 flex flex-col min-h-screen">
 
+    <!-- Global 3D Galaxy Background Elements -->
+    <div class="fixed inset-0 z-0 overflow-hidden bg-[#050b14]">
+        <!-- Dynamic Dot Pattern for Impact -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(253,205,14,0.15)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-40"></div>
+        
+        <!-- Abstract Architecture / Flow Lines -->
+        <div class="absolute top-[10%] left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/20 to-transparent"></div>
+        <div class="absolute top-[30%] left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-500/10 to-transparent"></div>
+        <div class="absolute top-[70%] left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/10 to-transparent"></div>
+
+        <!-- Dark Gradient Overlay for Depth -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050b14]/60 to-[#050b14]"></div>
+        
+        <div class="archive-texture"></div>
+        
+        <!-- Parallax background wrapper -->
+        <div id="parallax-bg" class="absolute inset-0 transition-transform duration-500 ease-out z-0 pointer-events-none">
+            <!-- Majestic Soft Glows -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-sky-900/10 rounded-full blur-[150px] subtle-glow"></div>
+            <div class="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[#d4af37]/10 rounded-full blur-[120px] subtle-glow" style="animation-delay: -4s;"></div>
+
+            <!-- Three.js 3D Galaxy Canvas -->
+            <canvas id="galaxy-canvas" class="absolute inset-0 z-0 pointer-events-none"></canvas>
+        </div>
+    </div>
+
     <!-- Navigation Menu (Redesigned with Dropdowns) -->
     <nav class="fixed top-0 left-0 right-0 bg-[#0f172a]/95 backdrop-blur-md shadow-2xl z-50 transition-all duration-300 border-b border-white/10">
         <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -705,36 +731,7 @@
     </nav>
 
     <!-- DRAMATIC LANDING PAGE - THE GRAND ARCHIVE -->
-    <header id="landing-page" class="relative text-white flex-grow flex flex-col justify-center items-center text-center overflow-hidden bg-[#050b14] w-full min-h-[calc(100vh-5rem)]">
-        
-        <!-- Background Elements -->
-        <div class="fixed inset-0 z-0 overflow-hidden bg-[#050b14]">
-            <!-- Dynamic Dot Pattern for Impact -->
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(253,205,14,0.15)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-40"></div>
-            
-            <!-- Abstract Architecture / Flow Lines -->
-            <div class="absolute top-[10%] left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/20 to-transparent"></div>
-            <div class="absolute top-[30%] left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-500/10 to-transparent"></div>
-            <div class="absolute top-[70%] left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/10 to-transparent"></div>
-
-            <!-- Dark Gradient Overlay for Depth -->
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050b14]/60 to-[#050b14]"></div>
-            
-            <div class="archive-texture"></div>
-            
-            <!-- Parallax background wrapper -->
-            <div id="parallax-bg" class="absolute inset-0 transition-transform duration-500 ease-out z-0 pointer-events-none">
-                <!-- Majestic Soft Glows -->
-                <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-sky-900/10 rounded-full blur-[150px] subtle-glow"></div>
-                <div class="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[#d4af37]/10 rounded-full blur-[120px] subtle-glow" style="animation-delay: -4s;"></div>
-
-
-
-                <!-- Three.js 3D Galaxy Canvas -->
-                <canvas id="galaxy-canvas" class="absolute inset-0 z-0 pointer-events-none"></canvas>
-            </div>
-        </div>
-
+    <header id="landing-page" class="relative text-white flex-grow flex flex-col justify-center items-center text-center overflow-hidden w-full min-h-[calc(100vh-5rem)]">
         <div class="relative z-20 max-w-[1400px] mx-auto px-4 lg:px-8 py-16 flex flex-col items-center justify-center h-full w-full">
             
             <!-- Official Seal - The Anchor of Trust -->
@@ -2140,6 +2137,7 @@
             });
 
             galaxyPoints = new THREE.Points(geometry, material);
+            galaxyPoints.position.y = 1.1; // Shift center right beneath the logo
             galaxyScene.add(galaxyPoints);
 
             // 5. Blinking & Hover Glow Foreground Stars (Custom ShaderMaterial)
@@ -2259,6 +2257,7 @@
             });
 
             blinkingPoints = new THREE.Points(blinkGeometry, blinkMaterial);
+            blinkingPoints.position.y = 1.1; // Shift center right beneath the logo
             galaxyScene.add(blinkingPoints);
 
             // 6. Nebula Dust Clouds (extremely soft, faint gas clouds)
@@ -2316,6 +2315,7 @@
             });
 
             dustPoints = new THREE.Points(dustGeometry, dustMaterial);
+            dustPoints.position.y = 1.1; // Shift center right beneath the logo
             galaxyScene.add(dustPoints);
 
             // 7. Mouse/Touch Drag Interactivity (Locked to X-axis, ignoring Y-axis)
@@ -2433,6 +2433,8 @@
                                     
                                     // Rotate vector with mesh's current Y rotation
                                     tempV.applyEuler(blinkingPoints.rotation);
+                                    // Add the Y offset
+                                    tempV.y += blinkingPoints.position.y;
                                     // Project to 2D normalized screen space
                                     tempV.project(galaxyCamera);
 
