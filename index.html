@@ -2432,7 +2432,7 @@
             galaxyRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
             // 4. Galaxy Math Setup (Spiral Arms)
-            const particleCount = 10000;
+            const particleCount = 6000; // Optimized from 10000 to 6000 to save GPU fill rate and overdraw
             const galaxyRadius = 5.2;
             const branchCount = 3;
             const spinAmount = 0.95;
@@ -2454,13 +2454,13 @@
             for (let i = 0; i < particleCount; i++) {
                 const i3 = i * 3;
 
-                // Reduce the intensity of particles in the middle of the galaxy, keep outer the same
+                // Reduce the intensity of particles in the middle of the galaxy to prevent dense clumping (12% baseline core density)
                 let r;
                 let keep = false;
                 while (!keep) {
                     r = Math.random() * galaxyRadius;
                     const coreRatio = 1.0 - (r / galaxyRadius);
-                    const keepProb = 0.25 + 0.75 * (1.0 - Math.pow(coreRatio, 1.8)); // 25% density at core, ramping up to 100% at edges
+                    const keepProb = 0.12 + 0.88 * (1.0 - Math.pow(coreRatio, 2.5)); // Ramps up more strongly at outer edges
                     if (Math.random() < keepProb) {
                         keep = true;
                     }
@@ -2513,15 +2513,70 @@
             starCtx.fillRect(0, 0, 16, 16);
             const starTexture = new THREE.CanvasTexture(starCanvas);
 
-            // Shrunk particle size (size: 0.022 instead of 0.04) for subtlety
-            const material = new THREE.PointsMaterial({
-                size: 0.022,
+            // Custom shaders for the background galaxy points to enable mouse-interactive brightening
+            const galaxyVertexShader = `
+                uniform float uSize;
+                uniform vec2 uMouse;
+                uniform vec2 uResolution;
+                varying vec3 vColor;
+                varying float vGlow;
+                void main() {
+                    vColor = color;
+                    
+                    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                    gl_Position = projectionMatrix * mvPosition;
+                    
+                    // GPU vertex noise size generator for organic variation (size varies from 70% to 130% of uSize)
+                    float randSize = 0.7 + 0.6 * fract(sin(dot(position.xyz, vec3(12.9898, 78.233, 45.164))) * 43758.5453);
+                    gl_PointSize = uSize * randSize * (300.0 / -mvPosition.z);
+                    
+                    // Calculate NDC (Normalized Device Coordinates) for screen space proximity check
+                    vec2 ndc = gl_Position.xy / gl_Position.w;
+                    
+                    // Convert to pixel coordinates
+                    vec2 screenPixels = (ndc * 0.5 + 0.5) * uResolution;
+                    vec2 mousePixels = (uMouse * 0.5 + 0.5) * uResolution;
+                    
+                    // GPU OPTIMIZATION: Check squared distance first to completely bypass expensive sqrt() on 99% of particles
+                    vec2 delta = screenPixels - mousePixels;
+                    float distSq = dot(delta, delta);
+                    
+                    float glow = 1.0;
+                    if (uMouse.x > -9000.0 && distSq < 14400.0) { // 120px * 120px = 14400px squared
+                        float dist = sqrt(distSq);
+                        float factor = 1.0 - (dist / 120.0);
+                        glow = 1.0 + 2.5 * factor;
+                    }
+                    vGlow = glow;
+                }
+            `;
+
+            const galaxyFragmentShader = `
+                uniform sampler2D uTexture;
+                varying vec3 vColor;
+                varying float vGlow;
+                void main() {
+                    vec4 texColor = texture2D(uTexture, gl_PointCoord);
+                    if (texColor.a < 0.05) discard;
+                    // Boost the opacity when glowing so it stands out against the subtle background
+                    float finalOpacity = clamp(0.35 * vGlow, 0.35, 0.85);
+                    gl_FragColor = vec4(vColor * vGlow, texColor.a * finalOpacity);
+                }
+            `;
+
+            const material = new THREE.ShaderMaterial({
                 transparent: true,
-                opacity: 0.35, // Keep background stars subtle
                 depthWrite: false,
                 blending: THREE.AdditiveBlending,
                 vertexColors: true,
-                map: starTexture
+                uniforms: {
+                    uSize: { value: 0.082 }, // Increased from 0.022 to 0.082 so normal background stars are clearly visible
+                    uMouse: { value: new THREE.Vector2(-9999, -9999) },
+                    uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+                    uTexture: { value: starTexture }
+                },
+                vertexShader: galaxyVertexShader,
+                fragmentShader: galaxyFragmentShader
             });
 
             galaxyPoints = new THREE.Points(geometry, material);
