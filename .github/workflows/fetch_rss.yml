@@ -1,0 +1,30 @@
+name: Fetch RSS Feed
+
+on:
+  schedule:
+    - cron: '0 */3 * * *' # runs every 3 hours
+  workflow_dispatch:      # allows manual trigger from GitHub UI
+  push:
+    branches:
+      - main              # runs when code is pushed to main
+
+permissions:
+  contents: write         # allows the action to commit and push changes
+
+jobs:
+  fetch-rss:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch RSS file
+        run: |
+          curl -sSL -o rss.xml "https://www.bb.go.th/rss-topic.php?gid=91&mid=200" || echo "Fetch failed"
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rss.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update RSS feed data" && git push)

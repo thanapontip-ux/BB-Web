@@ -1812,7 +1812,7 @@
         };
 
         // ===============================================
-        // FETCH RSS FEED (XML)
+        // FETCH RSS FEED (XML & JSON CORS Fallbacks)
         // ===============================================
         async function loadRSS() {
             const container = document.getElementById('rss-container');
@@ -1835,6 +1835,21 @@
                 try {
                     const response = await fetch(url);
                     if (!response.ok) return null;
+                    
+                    // Check content type or URL to decide if we parse as JSON or XML
+                    const contentType = response.headers.get('content-type') || '';
+                    if (contentType.includes('application/json') || url.includes('.json') || url.includes('api.json') || url.includes('convert?url=')) {
+                        const json = await response.json();
+                        if (json && Array.isArray(json.items)) {
+                            return json.items.map(item => ({
+                                title: item.title || 'ไม่มีหัวข้อ',
+                                link: item.link || item.url || '#',
+                                pubDate: item.pubDate || item.date_published || ''
+                            }));
+                        }
+                    }
+                    
+                    // Otherwise parse as XML
                     let xmlText = await response.text();
                     
                     // Deep clean XML: remove anything before the first <tag>
@@ -1845,8 +1860,14 @@
                             const parser = new DOMParser();
                             const xmlDoc = parser.parseFromString(xmlText, "text/xml");
                             if (xmlDoc.getElementsByTagName("parsererror").length === 0) {
-                                const items = xmlDoc.querySelectorAll("item");
-                                if (items && items.length > 0) return items;
+                                const xmlItems = xmlDoc.querySelectorAll("item");
+                                if (xmlItems && xmlItems.length > 0) {
+                                    return Array.from(xmlItems).map(item => ({
+                                        title: item.querySelector("title")?.textContent || "ไม่มีหัวข้อ",
+                                        link: item.querySelector("link")?.textContent || "#",
+                                        pubDate: item.querySelector("pubDate")?.textContent || ""
+                                    }));
+                                }
                             }
                         }
                     }
@@ -1858,13 +1879,17 @@
 
             let items = null;
 
-            // 1. If deployed on bb.go.th (production), try same-origin relative path to bypass CORS completely
-            if (window.location.hostname.includes('bb.go.th')) {
+            // 1. Try relative same-origin fetch for local/committed rss.xml (works on GitHub Pages, localhost, etc.)
+            console.log('Attempting relative same-origin fetch for local/committed rss.xml...');
+            items = await tryFetch('rss.xml');
+
+            // 2. If deployed on bb.go.th (production), try same-origin relative path to bypass CORS completely
+            if (!items && window.location.hostname.includes('bb.go.th')) {
                 console.log('Detected bb.go.th environment, attempting relative same-origin fetch...');
                 items = await tryFetch('/rss-topic.php?gid=91&mid=200');
             }
 
-            // 2. Try fetching via local Python server proxy if running locally (any local server running under HTTP/HTTPS)
+            // 3. Try fetching via local Python server proxy if running locally (any local server running under HTTP/HTTPS)
             if (!items && window.location.protocol.startsWith('http') && !window.location.hostname.includes('bb.go.th')) {
                 console.log('Attempting fetch via local dev server proxy...');
                 for (const targetUrl of candidateUrls) {
@@ -1877,7 +1902,7 @@
                 }
             }
 
-            // 3. Try direct fetch from the browser to the candidate URLs directly
+            // 4. Try direct fetch from the browser to the candidate URLs directly
             if (!items) {
                 console.log('Attempting direct fetch...');
                 for (const targetUrl of candidateUrls) {
@@ -1890,7 +1915,23 @@
                 }
             }
 
-            // 4. Try public CORS proxies sequentially as fallback for the candidate URLs
+            // 5. Try public RSS-to-JSON converters (often bypasses proxy/CORS blockages without using the word "proxy" in domains)
+            if (!items) {
+                console.log('Attempting public RSS-to-JSON converters...');
+                const converterUrls = [
+                    `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://www.bb.go.th/rss-topic.php?gid=91&mid=200')}`,
+                    `https://feed2json.org/convert?url=${encodeURIComponent('https://www.bb.go.th/rss-topic.php?gid=91&mid=200')}`
+                ];
+                for (const convUrl of converterUrls) {
+                    items = await tryFetch(convUrl);
+                    if (items) {
+                        console.log(`Successfully loaded RSS via converter: ${convUrl}`);
+                        break;
+                    }
+                }
+            }
+
+            // 6. Try public CORS proxies sequentially as fallback for the candidate URLs
             if (!items) {
                 const publicProxyTemplates = [
                     (url) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
@@ -1914,7 +1955,7 @@
             }
 
             if (items) {
-                renderRSSItems(Array.from(items).slice(0, 5), container);
+                renderRSSItems(items.slice(0, 5), container);
                 return;
             }
 
@@ -1932,9 +1973,9 @@
             if (items && items.length > 0) {
                 let html = '';
                 items.forEach(item => {
-                    const title = item.querySelector("title")?.textContent || "ไม่มีหัวข้อ";
-                    const link = item.querySelector("link")?.textContent || "#";
-                    const pubDateRaw = item.querySelector("pubDate")?.textContent || "";
+                    const title = item.title || "ไม่มีหัวข้อ";
+                    const link = item.link || "#";
+                    const pubDateRaw = item.pubDate || "";
                     
                     let pubDateFormatted = pubDateRaw;
                     try {
