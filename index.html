@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>สำนักงบประมาณ - Budget Bureau</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Sarabun:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Sarabun:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Three.js Library for 3D Galaxy Background -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -46,19 +49,45 @@
         }
     </script>
     <style>
-        body { -ms-overflow-style: none; scrollbar-width: none; }
-        body::-webkit-scrollbar { display: none; }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
         /* General Card Hover Effects for Content Pages */
-        .phase-card, .info-card, .law-card, .type-card, .eval-card { transition: all 0.3s ease; }
-        .phase-card:hover, .info-card:hover { transform: translateY(-5px); }
-        .law-card:hover, .type-card:hover, .eval-card:hover {
+        .phase-card,
+        .info-card,
+        .law-card,
+        .type-card,
+        .eval-card {
+            transition: all 0.3s ease;
+        }
+
+        .phase-card:hover,
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .law-card:hover,
+        .type-card:hover,
+        .eval-card:hover {
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
             transform: translateY(-3px);
         }
-        
+
         /* Navigation Styles - Dark Navy & Gold */
         .nav-link {
             position: relative;
@@ -68,34 +97,40 @@
             justify-content: center;
             height: 100%;
             padding: 0 1rem;
-            color: #94a3b8; 
+            color: #94a3b8;
             font-weight: 500;
             transition: all 0.3s ease;
             cursor: pointer;
             min-width: 80px;
         }
+
         .nav-link i.main-icon {
             font-size: 1.25rem;
             margin-bottom: 0.35rem;
-            color: #d4af37; 
+            color: #d4af37;
             transition: all 0.3s ease;
         }
+
         .nav-link:hover {
             color: #f8fafc;
             background-color: rgba(255, 255, 255, 0.03);
         }
+
         .nav-link:hover i.main-icon {
             color: #FDCD0E;
             transform: translateY(-2px);
         }
+
         .nav-link.active {
             color: #FDCD0E;
             font-weight: 700;
             background: linear-gradient(to bottom, transparent 40%, rgba(56, 189, 248, 0.08) 100%);
         }
+
         .nav-link.active i.main-icon {
             color: #FDCD0E;
         }
+
         .nav-link.active::after {
             content: '';
             position: absolute;
@@ -110,42 +145,88 @@
         }
 
         /* Mobile Nav Styles - Dark Theme */
-        .nav-link-mobile { cursor: pointer; color: #cbd5e1; }
-        .nav-link-mobile.active { 
-            background-color: rgba(253, 205, 14, 0.1); 
-            color: #FDCD0E; 
-            border-left: 4px solid #38bdf8; 
+        .nav-link-mobile {
+            cursor: pointer;
+            color: #cbd5e1;
         }
-        .nav-link-mobile.active i { color: #FDCD0E; }
-        .nav-link-mobile:hover { background-color: rgba(255, 255, 255, 0.05); }
+
+        .nav-link-mobile.active {
+            background-color: rgba(253, 205, 14, 0.1);
+            color: #FDCD0E;
+            border-left: 4px solid #38bdf8;
+        }
+
+        .nav-link-mobile.active i {
+            color: #FDCD0E;
+        }
+
+        .nav-link-mobile:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
 
         /* Dramatic Animations for Landing Page - Refined for The Grand Archive */
-        .fade-in { animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .fade-in {
+            animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
         @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Subtle Breathing Glow - Replacing erratic pulse */
-        .subtle-glow { animation: subtleGlow 8s ease-in-out infinite alternate; }
-        @keyframes subtleGlow {
-            0% { opacity: 0.3; filter: blur(40px); }
-            100% { opacity: 0.6; filter: blur(60px); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .float-anim { animation: float 10s ease-in-out infinite; }
+        /* Subtle Breathing Glow - Replacing erratic pulse */
+        .subtle-glow {
+            animation: subtleGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes subtleGlow {
+            0% {
+                opacity: 0.3;
+                filter: blur(40px);
+            }
+
+            100% {
+                opacity: 0.6;
+                filter: blur(60px);
+            }
+        }
+
+        .float-anim {
+            animation: float 10s ease-in-out infinite;
+        }
+
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
 
         /* Texture Overlay */
@@ -163,36 +244,44 @@
             width: 6px;
             height: 6px;
         }
+
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02); 
+            background: rgba(255, 255, 255, 0.02);
             border-radius: 10px;
         }
+
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(56, 189, 248, 0.3); 
+            background: rgba(56, 189, 248, 0.3);
             border-radius: 10px;
         }
+
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: rgba(56, 189, 248, 0.6); 
+            background: rgba(56, 189, 248, 0.6);
         }
+
         .glass-card {
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .glass-card:hover {
             border-color: rgba(56, 189, 248, 0.4);
             box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
         }
+
         .tab-btn {
             position: relative;
             transition: all 0.3s ease;
         }
+
         .tab-btn.active {
             color: #FDCD0E;
             background: rgba(255, 255, 255, 0.05);
             border-color: rgba(253, 205, 14, 0.5);
         }
+
         .tab-btn.active::after {
             content: '';
             position: absolute;
@@ -203,6 +292,7 @@
             background: #FDCD0E;
             box-shadow: 0 -2px 10px rgba(253, 205, 14, 0.5);
         }
+
         .flow-line {
             position: absolute;
             top: 50%;
@@ -213,6 +303,7 @@
             z-index: 0;
             opacity: 0.5;
         }
+
         @media (max-width: 768px) {
             .flow-line {
                 top: 50px;
@@ -222,11 +313,12 @@
                 height: auto;
             }
         }
-        
+
         /* Custom Sub-dropdown visibility and style */
         .group-sub {
             position: relative;
         }
+
         .sub-dropdown-box {
             position: absolute;
             left: 100%;
@@ -238,10 +330,12 @@
             transition: all 0.3s ease;
             z-index: 50;
         }
+
         .group-sub:hover .sub-dropdown-box {
             opacity: 1 !important;
             visibility: visible !important;
         }
+
         .group-sub:hover .fa-chevron-right {
             transform: translateX(4px);
         }
@@ -249,7 +343,7 @@
         /* ==========================================================================
            Slate & Navy Redesign Overrides for Law Pages
            ========================================================================== */
-        
+
         /* Set base background when content is shown */
         body.bg-slate-50 {
             background-color: #f8fafc !important;
@@ -263,24 +357,28 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.035) !important;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
+
         .section-card:hover {
             box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08) !important;
             transform: translateY(-2px) !important;
             border-color: #cbd5e1 !important;
         }
+
         .chapter-container {
             transition: opacity 0.3s ease !important;
         }
+
         .exact-text {
             line-height: 1.8 !important;
             font-size: 0.95rem !important;
         }
+
         .sec-text-content {
             font-size: 0.95rem !important;
             line-height: 1.8 !important;
             color: #334155 !important;
         }
-        
+
         /* Inline Highlighting Rules */
         .sec-text-content span.text-amber-600,
         .sec-text-content span.text-amber-700,
@@ -300,21 +398,21 @@
             vertical-align: baseline !important;
             border-width: 1px !important;
         }
-        
+
         .sec-text-content span.text-amber-600,
         .sec-text-content span.text-amber-700 {
             color: #b45309 !important;
             background-color: #fef3c7 !important;
             border-color: #fde68a !important;
         }
-        
+
         .sec-text-content span.text-emerald-600,
         .sec-text-content span.text-emerald-700 {
             color: #047857 !important;
             background-color: #d1fae5 !important;
             border-color: #a7f3d0 !important;
         }
-        
+
         .sec-text-content span.text-blue-600,
         .sec-text-content span.text-blue-700,
         .sec-text-content span.text-indigo-600,
@@ -344,7 +442,7 @@
             border-radius: 0 0.5rem 0.5rem 0 !important;
             font-weight: 700 !important;
             padding: 0.75rem 1rem !important;
-            box-shadow: inset 1px 0 0 rgba(0,0,0,0.02) !important;
+            box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.02) !important;
         }
 
         /* Glassmorphic Sidebar Navigation & Reading Progress */
@@ -358,6 +456,7 @@
             border-radius: 9999px;
             pointer-events: none;
         }
+
         .sidebar-progress-fill {
             position: absolute;
             left: 0;
@@ -374,33 +473,83 @@
                 opacity: 0;
                 transform: translateY(12px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         .section-card:not(.hidden) {
             animation: cardEntrance 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
-        
+
         /* Donut Chart Styling & Animations */
-        @keyframes drawDonut1 { from { stroke-dasharray: 0 503; } to { stroke-dasharray: 368.8 503; } }
-        @keyframes drawDonut2 { from { stroke-dasharray: 0 503; } to { stroke-dasharray: 104.6 503; } }
-        @keyframes drawDonut3 { from { stroke-dasharray: 0 503; } to { stroke-dasharray: 20.1 503; } }
-        @keyframes drawDonut4 { from { stroke-dasharray: 0 503; } to { stroke-dasharray: 9.5 503; } }
-        
+        @keyframes drawDonut1 {
+            from {
+                stroke-dasharray: 0 503;
+            }
+
+            to {
+                stroke-dasharray: 368.8 503;
+            }
+        }
+
+        @keyframes drawDonut2 {
+            from {
+                stroke-dasharray: 0 503;
+            }
+
+            to {
+                stroke-dasharray: 104.6 503;
+            }
+        }
+
+        @keyframes drawDonut3 {
+            from {
+                stroke-dasharray: 0 503;
+            }
+
+            to {
+                stroke-dasharray: 20.1 503;
+            }
+        }
+
+        @keyframes drawDonut4 {
+            from {
+                stroke-dasharray: 0 503;
+            }
+
+            to {
+                stroke-dasharray: 9.5 503;
+            }
+        }
+
         .donut-segment {
             transition: stroke-width 0.3s ease, filter 0.3s ease;
         }
+
         .donut-segment:hover {
             stroke-width: 24;
             filter: drop-shadow(0 0 8px rgba(253, 205, 14, 0.4));
             cursor: pointer;
         }
-        .donut-seg-1 { animation: drawDonut1 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .donut-seg-2 { animation: drawDonut2 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .donut-seg-3 { animation: drawDonut3 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .donut-seg-4 { animation: drawDonut4 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        .donut-seg-1 {
+            animation: drawDonut1 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .donut-seg-2 {
+            animation: drawDonut2 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .donut-seg-3 {
+            animation: drawDonut3 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .donut-seg-4 {
+            animation: drawDonut4 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
 
         /* --- 3D Galaxy Canvas Styling --- */
         #galaxy-canvas {
@@ -410,16 +559,29 @@
 
         /* --- Orbital Background Spinning Rings --- */
         @keyframes spinSlow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
+
         @keyframes spinReverseSlow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(-360deg);
+            }
         }
+
         .animate-spin-slow {
             animation: spinSlow 120s linear infinite;
         }
+
         .animate-spin-reverse-slow {
             animation: spinReverseSlow 160s linear infinite;
         }
@@ -430,44 +592,59 @@
             backdrop-filter: blur(16px) !important;
             -webkit-backdrop-filter: blur(16px) !important;
             border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            box-shadow: 
-                0 4px 30px rgba(0, 0, 0, 0.45), 
+            box-shadow:
+                0 4px 30px rgba(0, 0, 0, 0.45),
                 inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
+
         .glass-card-premium:hover {
             background: rgba(10, 25, 47, 0.55) !important;
-            border-color: rgba(212, 175, 55, 0.45) !important; /* Elegant gold border glow */
-            box-shadow: 
-                0 25px 45px -15px rgba(212, 175, 55, 0.15), 
+            border-color: rgba(212, 175, 55, 0.45) !important;
+            /* Elegant gold border glow */
+            box-shadow:
+                0 25px 45px -15px rgba(212, 175, 55, 0.15),
                 0 0 30px 2px rgba(212, 175, 55, 0.08),
                 inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
             transform: translateY(-5px) !important;
         }
     </style>
 </head>
+
 <body class="bg-[#050b14] text-slate-800 antialiased pt-20 flex flex-col min-h-screen">
 
     <!-- Global 3D Galaxy Background Elements -->
     <div class="fixed inset-0 z-0 overflow-hidden bg-[#050b14]">
         <!-- Dynamic Dot Pattern for Impact -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(253,205,14,0.15)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-40"></div>
-        
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(253,205,14,0.15)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-40">
+        </div>
+
         <!-- Abstract Architecture / Flow Lines -->
-        <div class="absolute top-[10%] left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/20 to-transparent"></div>
-        <div class="absolute top-[30%] left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-500/10 to-transparent"></div>
-        <div class="absolute top-[70%] left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/10 to-transparent"></div>
+        <div
+            class="absolute top-[10%] left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/20 to-transparent">
+        </div>
+        <div
+            class="absolute top-[30%] left-0 w-full h-px bg-gradient-to-r from-transparent via-sky-500/10 to-transparent">
+        </div>
+        <div
+            class="absolute top-[70%] left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/10 to-transparent">
+        </div>
 
         <!-- Dark Gradient Overlay for Depth -->
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050b14]/60 to-[#050b14]"></div>
-        
+
         <div class="archive-texture"></div>
-        
+
         <!-- Parallax background wrapper -->
-        <div id="parallax-bg" class="absolute inset-0 transition-transform duration-500 ease-out z-0 pointer-events-none">
+        <div id="parallax-bg"
+            class="absolute inset-0 transition-transform duration-500 ease-out z-0 pointer-events-none">
             <!-- Majestic Soft Glows -->
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-sky-900/10 rounded-full blur-[150px] subtle-glow"></div>
-            <div class="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[#d4af37]/10 rounded-full blur-[120px] subtle-glow" style="animation-delay: -4s;"></div>
+            <div
+                class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-sky-900/10 rounded-full blur-[150px] subtle-glow">
+            </div>
+            <div class="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[#d4af37]/10 rounded-full blur-[120px] subtle-glow"
+                style="animation-delay: -4s;"></div>
 
             <!-- Three.js 3D Galaxy Canvas -->
             <canvas id="galaxy-canvas" class="absolute inset-0 z-0 pointer-events-none"></canvas>
@@ -475,26 +652,34 @@
     </div>
 
     <!-- Navigation Menu (Redesigned with Dropdowns) -->
-    <nav class="fixed top-0 left-0 right-0 bg-[#0f172a]/95 backdrop-blur-md shadow-2xl z-50 transition-all duration-300 border-b border-white/10">
+    <nav
+        class="fixed top-0 left-0 right-0 bg-[#0f172a]/95 backdrop-blur-md shadow-2xl z-50 transition-all duration-300 border-b border-white/10">
         <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20 relative">
                 <!-- Clickable Logo -->
-                <div class="flex items-center gap-4 cursor-pointer shrink-0" onclick="showLanding(document.getElementById('nav-home'))">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg" alt="Budget Bureau Logo" class="h-11 w-11 md:h-12 md:w-12 object-contain drop-shadow-[0_0_8px_rgba(253,205,14,0.3)]">
+                <div class="flex items-center gap-4 cursor-pointer shrink-0"
+                    onclick="showLanding(document.getElementById('nav-home'))">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg"
+                        alt="Budget Bureau Logo"
+                        class="h-11 w-11 md:h-12 md:w-12 object-contain drop-shadow-[0_0_8px_rgba(253,205,14,0.3)]">
                     <div class="flex flex-col justify-center">
-                        <span class="font-extrabold text-[#FDCD0E] text-lg md:text-xl tracking-tight leading-none drop-shadow-md">สำนักงบประมาณ</span>
-                        <span class="text-amber-200/80 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] leading-none mt-1.5">Budget Bureau</span>
+                        <span
+                            class="font-extrabold text-[#FDCD0E] text-lg md:text-xl tracking-tight leading-none drop-shadow-md">สำนักงบประมาณ</span>
+                        <span
+                            class="text-amber-200/80 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] leading-none mt-1.5">Budget
+                            Bureau</span>
                     </div>
                 </div>
-                
+
                 <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="xl:hidden p-2 text-slate-300 hover:text-[#FDCD0E] focus:outline-none rounded-lg hover:bg-white/5 transition-colors">
+                <button onclick="toggleMobileMenu()"
+                    class="xl:hidden p-2 text-slate-300 hover:text-[#FDCD0E] focus:outline-none rounded-lg hover:bg-white/5 transition-colors">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
 
                 <!-- Desktop Navigation (Grouped with Dropdowns) -->
                 <div class="hidden xl:flex items-center h-full gap-2">
-                    
+
                     <!-- 1. หน้าหลัก (ไม่มี Drop-down) -->
                     <a id="nav-home" onclick="showLanding(this)" class="nav-link active">
                         <i class="fa-solid fa-house main-icon"></i>
@@ -505,16 +690,25 @@
                     <div class="relative h-full group">
                         <a class="nav-link">
                             <i class="fa-solid fa-arrows-spin main-icon"></i>
-                            <span class="text-[13px] font-semibold flex items-center gap-1">กระบวนการ <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></span>
+                            <span class="text-[13px] font-semibold flex items-center gap-1">กระบวนการ <i
+                                    class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></span>
                         </a>
                         <!-- Drop-down Box -->
-                        <div class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <div class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 overflow-hidden ring-1 ring-white/5">
-                                <a id="nav-cycle" onclick="loadPage('cycle.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-rotate w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> วงจรงบฯ
+                        <div
+                            class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div
+                                class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 overflow-hidden ring-1 ring-white/5">
+                                <a id="nav-cycle" onclick="loadPage('cycle.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-rotate w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    วงจรงบฯ
                                 </a>
-                                <a id="nav-timeline" onclick="loadPage('timeline.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-calendar-days w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> ไทม์ไลน์
+                                <a id="nav-timeline" onclick="loadPage('timeline.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-calendar-days w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    ไทม์ไลน์
                                 </a>
                             </div>
                         </div>
@@ -524,19 +718,31 @@
                     <div class="relative h-full group">
                         <a class="nav-link">
                             <i class="fa-solid fa-sitemap main-icon"></i>
-                            <span class="text-[13px] font-semibold flex items-center gap-1">หมวดหมู่งบประมาณ <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></span>
+                            <span class="text-[13px] font-semibold flex items-center gap-1">หมวดหมู่งบประมาณ <i
+                                    class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></span>
                         </a>
                         <!-- Drop-down Box -->
-                        <div class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <div class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 overflow-hidden ring-1 ring-white/5">
-                                <a id="nav-type" onclick="loadPage('type.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-layer-group w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> ประเภทงบ
+                        <div
+                            class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div
+                                class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 overflow-hidden ring-1 ring-white/5">
+                                <a id="nav-type" onclick="loadPage('type.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-layer-group w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    ประเภทงบ
                                 </a>
-                                <a id="nav-expense" onclick="loadPage('expense.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-coins w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> ประเภทรายจ่าย
+                                <a id="nav-expense" onclick="loadPage('expense.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-coins w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    ประเภทรายจ่าย
                                 </a>
-                                <a id="nav-account" onclick="loadPage('account.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-file-invoice-dollar w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> ชนิดบัญชี
+                                <a id="nav-account" onclick="loadPage('account.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-file-invoice-dollar w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    ชนิดบัญชี
                                 </a>
                             </div>
                         </div>
@@ -546,60 +752,106 @@
                     <div class="relative h-full group">
                         <a class="nav-link">
                             <i class="fa-solid fa-scale-balanced main-icon"></i>
-                            <span class="text-[13px] font-semibold flex items-center gap-1">กฎระเบียบและข้อสั่งการ <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></span>
+                            <span class="text-[13px] font-semibold flex items-center gap-1">กฎระเบียบและข้อสั่งการ <i
+                                    class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></span>
                         </a>
                         <!-- Drop-down Box -->
-                        <div class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <div class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 ring-1 ring-white/5">
-                                <a id="nav-budget" onclick="loadPage('budget.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-book w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> กรอบกฎหมาย
+                        <div
+                            class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div
+                                class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 ring-1 ring-white/5">
+                                <a id="nav-budget" onclick="loadPage('budget.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-book w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    กรอบกฎหมาย
                                 </a>
                                 <!-- กฎหมาย (Sub-Dropdown) -->
                                 <div class="relative group-sub">
-                                    <a id="nav-law" onclick="loadPage('law.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center justify-between group/item">
+                                    <a id="nav-law" onclick="loadPage('law.html', this)"
+                                        class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center justify-between group/item">
                                         <span class="flex items-center gap-3">
-                                            <i class="fa-solid fa-gavel w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> กฎหมาย
+                                            <i
+                                                class="fa-solid fa-gavel w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                            กฎหมาย
                                         </span>
-                                        <i class="fa-solid fa-chevron-right text-[10px] opacity-70 transition-transform duration-300"></i>
+                                        <i
+                                            class="fa-solid fa-chevron-right text-[10px] opacity-70 transition-transform duration-300"></i>
                                     </a>
                                     <!-- Sub-dropdown Box -->
-                                    <div class="sub-dropdown-box absolute left-[100%] top-0 pl-1 w-60 opacity-0 invisible transition-all duration-300 z-50">
-                                        <div class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 overflow-hidden ring-1 ring-white/5">
-                                            <a id="nav-law-overview" onclick="loadPage('law.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
-                                                <i class="fa-solid fa-list w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> ภาพรวมกฎหมาย
+                                    <div
+                                        class="sub-dropdown-box absolute left-[100%] top-0 pl-1 w-60 opacity-0 invisible transition-all duration-300 z-50">
+                                        <div
+                                            class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 overflow-hidden ring-1 ring-white/5">
+                                            <a id="nav-law-overview" onclick="loadPage('law.html', this)"
+                                                class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i
+                                                    class="fa-solid fa-list w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
+                                                ภาพรวมกฎหมาย
                                             </a>
-                                            <a id="nav-law-act" onclick="loadPage('law-act.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
-                                                <i class="fa-solid fa-file-shield w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> พ.ร.บ. วิธีการงบประมาณ
+                                            <a id="nav-law-act" onclick="loadPage('law-act.html', this)"
+                                                class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i
+                                                    class="fa-solid fa-file-shield w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
+                                                พ.ร.บ. วิธีการงบประมาณ
                                             </a>
-                                            <a id="nav-fiscal-act" onclick="loadPage('fiscal-act.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
-                                                <i class="fa-solid fa-building-columns w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> พ.ร.บ. วินัยการเงินการคลังของรัฐ
+                                            <a id="nav-fiscal-act" onclick="loadPage('fiscal-act.html', this)"
+                                                class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i
+                                                    class="fa-solid fa-building-columns w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
+                                                พ.ร.บ. วินัยการเงินการคลังของรัฐ
                                             </a>
-                                            <a id="nav-budget-reg" onclick="loadPage('budget-reg.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
-                                                <i class="fa-solid fa-file-invoice-dollar w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> ระเบียบว่าด้วยการบริหารงบประมาณ
+                                            <a id="nav-budget-reg" onclick="loadPage('budget-reg.html', this)"
+                                                class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i
+                                                    class="fa-solid fa-file-invoice-dollar w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
+                                                ระเบียบว่าด้วยการบริหารงบประมาณ
                                             </a>
-                                            <a id="nav-rule-transfer" onclick="loadPage('rule-transfer.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
-                                                <i class="fa-solid fa-money-bill-transfer w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> หลักเกณฑ์การใช้งบประมาณรายจ่ายการโอนเงิน
+                                            <a id="nav-rule-transfer" onclick="loadPage('rule-transfer.html', this)"
+                                                class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i
+                                                    class="fa-solid fa-money-bill-transfer w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
+                                                หลักเกณฑ์การใช้งบประมาณรายจ่ายการโอนเงิน
                                             </a>
-                                            <a id="nav-debt-commitment" onclick="loadPage('debt-commitment.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
-                                                <i class="fa-solid fa-file-contract w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> ระเบียบว่าด้วยการก่อหนี้ผูกพันงบประมาณ
+                                            <a id="nav-debt-commitment" onclick="loadPage('debt-commitment.html', this)"
+                                                class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i
+                                                    class="fa-solid fa-file-contract w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
+                                                ระเบียบว่าด้วยการก่อหนี้ผูกพันงบประมาณ
                                             </a>
-                                             <a id="nav-integration-transfer" onclick="loadPage('integration-transfer.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
-                                                 <i class="fa-solid fa-arrows-split-up-and-left w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> ระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการ
-                                             </a>
-                                             <a id="nav-procurement-act" onclick="loadPage('procurement-act.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
-                                                 <i class="fa-solid fa-file-signature w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> พ.ร.บ. จัดซื้อจัดจ้าง
-                                             </a>
-                                             <a id="nav-finance-reg" onclick="loadPage('finance-reg.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
-                                                 <i class="fa-solid fa-file-invoice w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i> ระเบียบกระทรวงการคลัง
-                                             </a>
+                                            <a id="nav-integration-transfer"
+                                                onclick="loadPage('integration-transfer.html', this)"
+                                                class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i
+                                                    class="fa-solid fa-arrows-split-up-and-left w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
+                                                ระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการ
+                                            </a>
+                                            <a id="nav-procurement-act" onclick="loadPage('procurement-act.html', this)"
+                                                class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i
+                                                    class="fa-solid fa-file-signature w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
+                                                พ.ร.บ. จัดซื้อจัดจ้าง
+                                            </a>
+                                            <a id="nav-finance-reg" onclick="loadPage('finance-reg.html', this)"
+                                                class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i
+                                                    class="fa-solid fa-file-invoice w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
+                                                ระเบียบกระทรวงการคลัง
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                                <a id="nav-order" onclick="loadPage('order.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-bullhorn w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> ข้อสั่งการ
+                                <a id="nav-order" onclick="loadPage('order.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-bullhorn w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    ข้อสั่งการ
                                 </a>
-                                <a id="nav-transfer" onclick="loadPage('transfer.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-money-bill-transfer w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> การโอนเงินจัดสรร
+                                <a id="nav-transfer" onclick="loadPage('transfer.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-money-bill-transfer w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    การโอนเงินจัดสรร
                                 </a>
                             </div>
                         </div>
@@ -609,22 +861,37 @@
                     <div class="relative h-full group">
                         <a class="nav-link">
                             <i class="fa-solid fa-list-check main-icon"></i>
-                            <span class="text-[13px] font-semibold flex items-center gap-1">หลักเกณฑ์ <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></span>
+                            <span class="text-[13px] font-semibold flex items-center gap-1">หลักเกณฑ์ <i
+                                    class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></span>
                         </a>
                         <!-- Drop-down Box -->
-                        <div class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <div class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 overflow-hidden ring-1 ring-white/5">
-                                <a id="nav-criteria-1-2" onclick="loadPage('guideline.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-book w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> แนวทางและหลักการ
+                        <div
+                            class="absolute top-[100%] left-1/2 -translate-x-1/2 pt-1 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div
+                                class="bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] py-2 overflow-hidden ring-1 ring-white/5">
+                                <a id="nav-criteria-1-2" onclick="loadPage('guideline.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-book w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    แนวทางและหลักการ
                                 </a>
-                                <a id="nav-criteria-personnel" onclick="loadPage('HR.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-users w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> งบรายจ่าย
+                                <a id="nav-criteria-personnel" onclick="loadPage('HR.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-users w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    งบรายจ่าย
                                 </a>
-                                <a id="nav-operation" onclick="loadPage('Operation.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-gears w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> งบดำเนินงาน
+                                <a id="nav-operation" onclick="loadPage('Operation.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-gears w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    งบดำเนินงาน
                                 </a>
-                                <a id="nav-investment" onclick="loadPage('investment.html', this)" class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
-                                    <i class="fa-solid fa-coins w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i> งบลงทุน
+                                <a id="nav-investment" onclick="loadPage('investment.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-coins w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    งบลงทุน
                                 </a>
                             </div>
                         </div>
@@ -641,161 +908,251 @@
         </div>
 
         <!-- Mobile Dropdown Menu (Grouped structure) -->
-        <div id="nav-menu-mobile" class="hidden xl:hidden absolute top-20 left-0 right-0 bg-[#0f172a]/95 backdrop-blur-xl shadow-2xl border-t border-white/10 flex-col p-2 space-y-1 max-h-[calc(100vh-5rem)] overflow-y-auto z-50">
-            
-            <a id="nav-home-mobile" onclick="showLanding(document.getElementById('nav-home')); closeMobileMenu();" class="nav-link-mobile active cursor-pointer p-3 px-5 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+        <div id="nav-menu-mobile"
+            class="hidden xl:hidden absolute top-20 left-0 right-0 bg-[#0f172a]/95 backdrop-blur-xl shadow-2xl border-t border-white/10 flex-col p-2 space-y-1 max-h-[calc(100vh-5rem)] overflow-y-auto z-50">
+
+            <a id="nav-home-mobile" onclick="showLanding(document.getElementById('nav-home')); closeMobileMenu();"
+                class="nav-link-mobile active cursor-pointer p-3 px-5 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-house text-lg w-6 text-center"></i> หน้าหลัก
             </a>
-            
+
             <!-- Group: กระบวนการ -->
             <div class="px-5 pt-4 pb-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest">กระบวนการ</div>
-            <a id="nav-cycle-mobile" onclick="loadPage('cycle.html', document.getElementById('nav-cycle')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-cycle-mobile"
+                onclick="loadPage('cycle.html', document.getElementById('nav-cycle')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-rotate text-md w-6 text-center opacity-80"></i> วงจรงบฯ
             </a>
-            <a id="nav-timeline-mobile" onclick="loadPage('timeline.html', document.getElementById('nav-timeline')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-timeline-mobile"
+                onclick="loadPage('timeline.html', document.getElementById('nav-timeline')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-calendar-days text-md w-6 text-center opacity-80"></i> ไทม์ไลน์
             </a>
 
             <!-- Group: หมวดหมู่งบประมาณ -->
-            <div class="px-5 pt-4 pb-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest border-t border-white/5 mt-2">หมวดหมู่งบประมาณ</div>
-            <a id="nav-type-mobile" onclick="loadPage('type.html', document.getElementById('nav-type')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <div
+                class="px-5 pt-4 pb-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest border-t border-white/5 mt-2">
+                หมวดหมู่งบประมาณ</div>
+            <a id="nav-type-mobile"
+                onclick="loadPage('type.html', document.getElementById('nav-type')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-layer-group text-md w-6 text-center opacity-80"></i> ประเภทงบ
             </a>
-            <a id="nav-expense-mobile" onclick="loadPage('expense.html', document.getElementById('nav-expense')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-expense-mobile"
+                onclick="loadPage('expense.html', document.getElementById('nav-expense')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-coins text-md w-6 text-center opacity-80"></i> ประเภทรายจ่าย
             </a>
-            <a id="nav-account-mobile" onclick="loadPage('account.html', document.getElementById('nav-account')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-account-mobile"
+                onclick="loadPage('account.html', document.getElementById('nav-account')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-file-invoice-dollar text-md w-6 text-center opacity-80"></i> ชนิดบัญชี
             </a>
 
             <!-- Group: กฎระเบียบและข้อสั่งการ -->
-            <div class="px-5 pt-4 pb-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest border-t border-white/5 mt-2">กฎระเบียบและข้อสั่งการ</div>
-            <a id="nav-budget-mobile" onclick="loadPage('budget.html', document.getElementById('nav-budget')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <div
+                class="px-5 pt-4 pb-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest border-t border-white/5 mt-2">
+                กฎระเบียบและข้อสั่งการ</div>
+            <a id="nav-budget-mobile"
+                onclick="loadPage('budget.html', document.getElementById('nav-budget')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-book text-md w-6 text-center opacity-80"></i> กรอบกฎหมาย
             </a>
-            <a id="nav-law-mobile" onclick="loadPage('law.html', document.getElementById('nav-law-overview') || document.getElementById('nav-law')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-law-mobile"
+                onclick="loadPage('law.html', document.getElementById('nav-law-overview') || document.getElementById('nav-law')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-gavel text-md w-6 text-center opacity-80"></i> กฎหมาย (ภาพรวม)
             </a>
-            <a id="nav-law-act-mobile" onclick="loadPage('law-act.html', document.getElementById('nav-law-act')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+            <a id="nav-law-act-mobile"
+                onclick="loadPage('law-act.html', document.getElementById('nav-law-act')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
                 <i class="fa-solid fa-file-shield text-xs w-4 text-center opacity-70"></i> พ.ร.บ. วิธีการงบประมาณ
             </a>
-            <a id="nav-fiscal-act-mobile" onclick="loadPage('fiscal-act.html', document.getElementById('nav-fiscal-act')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
-                <i class="fa-solid fa-building-columns text-xs w-4 text-center opacity-70"></i> พ.ร.บ. วินัยการเงินการคลังของรัฐ
+            <a id="nav-fiscal-act-mobile"
+                onclick="loadPage('fiscal-act.html', document.getElementById('nav-fiscal-act')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-building-columns text-xs w-4 text-center opacity-70"></i> พ.ร.บ.
+                วินัยการเงินการคลังของรัฐ
             </a>
-            <a id="nav-budget-reg-mobile" onclick="loadPage('budget-reg.html', document.getElementById('nav-budget-reg')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
-                <i class="fa-solid fa-file-invoice-dollar text-xs w-4 text-center opacity-70"></i> ระเบียบว่าด้วยการบริหารงบประมาณ
+            <a id="nav-budget-reg-mobile"
+                onclick="loadPage('budget-reg.html', document.getElementById('nav-budget-reg')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-file-invoice-dollar text-xs w-4 text-center opacity-70"></i>
+                ระเบียบว่าด้วยการบริหารงบประมาณ
             </a>
-            <a id="nav-rule-transfer-mobile" onclick="loadPage('rule-transfer.html', document.getElementById('nav-rule-transfer')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
-                <i class="fa-solid fa-money-bill-transfer text-xs w-4 text-center opacity-70"></i> หลักเกณฑ์การใช้งบประมาณรายจ่ายการโอนเงิน
+            <a id="nav-rule-transfer-mobile"
+                onclick="loadPage('rule-transfer.html', document.getElementById('nav-rule-transfer')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-money-bill-transfer text-xs w-4 text-center opacity-70"></i>
+                หลักเกณฑ์การใช้งบประมาณรายจ่ายการโอนเงิน
             </a>
-            <a id="nav-debt-commitment-mobile" onclick="loadPage('debt-commitment.html', document.getElementById('nav-debt-commitment')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
-                <i class="fa-solid fa-file-contract text-xs w-4 text-center opacity-70"></i> ระเบียบว่าด้วยการก่อหนี้ผูกพันงบประมาณ
+            <a id="nav-debt-commitment-mobile"
+                onclick="loadPage('debt-commitment.html', document.getElementById('nav-debt-commitment')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-file-contract text-xs w-4 text-center opacity-70"></i>
+                ระเบียบว่าด้วยการก่อหนี้ผูกพันงบประมาณ
             </a>
-            <a id="nav-integration-transfer-mobile" onclick="loadPage('integration-transfer.html', document.getElementById('nav-integration-transfer')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
-                <i class="fa-solid fa-arrows-split-up-and-left text-xs w-4 text-center opacity-70"></i> ระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการ
+            <a id="nav-integration-transfer-mobile"
+                onclick="loadPage('integration-transfer.html', document.getElementById('nav-integration-transfer')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-arrows-split-up-and-left text-xs w-4 text-center opacity-70"></i>
+                ระเบียบว่าด้วยการโอนงบประมาณรายจ่ายบูรณาการ
             </a>
-            <a id="nav-procurement-act-mobile" onclick="loadPage('procurement-act.html', document.getElementById('nav-procurement-act')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+            <a id="nav-procurement-act-mobile"
+                onclick="loadPage('procurement-act.html', document.getElementById('nav-procurement-act')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
                 <i class="fa-solid fa-file-signature text-xs w-4 text-center opacity-70"></i> พ.ร.บ. จัดซื้อจัดจ้าง
             </a>
-            <a id="nav-finance-reg-mobile" onclick="loadPage('finance-reg.html', document.getElementById('nav-finance-reg')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+            <a id="nav-finance-reg-mobile"
+                onclick="loadPage('finance-reg.html', document.getElementById('nav-finance-reg')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
                 <i class="fa-solid fa-file-invoice text-xs w-4 text-center opacity-70"></i> ระเบียบกระทรวงการคลัง
             </a>
-            <a id="nav-order-mobile" onclick="loadPage('order.html', document.getElementById('nav-order')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-order-mobile"
+                onclick="loadPage('order.html', document.getElementById('nav-order')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-bullhorn text-md w-6 text-center opacity-80"></i> ข้อสั่งการ
             </a>
-            <a id="nav-transfer-mobile" onclick="loadPage('transfer.html', document.getElementById('nav-transfer')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-transfer-mobile"
+                onclick="loadPage('transfer.html', document.getElementById('nav-transfer')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-money-bill-transfer text-md w-6 text-center opacity-80"></i> การโอนเงินจัดสรร
             </a>
 
             <!-- Group: หลักเกณฑ์ -->
-            <div class="px-5 pt-4 pb-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest border-t border-white/5 mt-2">หลักเกณฑ์</div>
-            <a id="nav-criteria-1-2-mobile" onclick="loadPage('guideline.html', document.getElementById('nav-criteria-1-2')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <div
+                class="px-5 pt-4 pb-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest border-t border-white/5 mt-2">
+                หลักเกณฑ์</div>
+            <a id="nav-criteria-1-2-mobile"
+                onclick="loadPage('guideline.html', document.getElementById('nav-criteria-1-2')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-book text-md w-6 text-center opacity-80"></i> แนวทางและหลักการ
             </a>
-            <a id="nav-criteria-personnel-mobile" onclick="loadPage('HR.html', document.getElementById('nav-criteria-personnel')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-criteria-personnel-mobile"
+                onclick="loadPage('HR.html', document.getElementById('nav-criteria-personnel')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-users text-md w-6 text-center opacity-80"></i> งบรายจ่าย
             </a>
-            <a id="nav-operation-mobile" onclick="loadPage('Operation.html', document.getElementById('nav-operation')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-operation-mobile"
+                onclick="loadPage('Operation.html', document.getElementById('nav-operation')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-gears text-md w-6 text-center opacity-80"></i> งบดำเนินงาน
             </a>
-            <a id="nav-investment-mobile" onclick="loadPage('investment.html', document.getElementById('nav-investment')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+            <a id="nav-investment-mobile"
+                onclick="loadPage('investment.html', document.getElementById('nav-investment')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-coins text-md w-6 text-center opacity-80"></i> งบลงทุน
             </a>
-            
+
             <!-- Group: ประเมินผล -->
             <div class="px-5 pt-4 pb-2 border-t border-white/5 mt-2"></div>
-            <a id="nav-evaluation-mobile" onclick="loadPage('evaluation.html', document.getElementById('nav-evaluation')); closeMobileMenu();" class="nav-link-mobile cursor-pointer p-3 px-5 rounded-xl flex items-center gap-3 transition-colors font-semibold mt-1">
+            <a id="nav-evaluation-mobile"
+                onclick="loadPage('evaluation.html', document.getElementById('nav-evaluation')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 px-5 rounded-xl flex items-center gap-3 transition-colors font-semibold mt-1">
                 <i class="fa-solid fa-magnifying-glass-chart text-lg w-6 text-center"></i> ประเมินผล
             </a>
         </div>
     </nav>
 
     <!-- DRAMATIC LANDING PAGE - THE GRAND ARCHIVE -->
-    <header id="landing-page" class="relative text-white flex-grow flex flex-col justify-center items-center text-center overflow-hidden w-full min-h-[calc(100vh-5rem)]">
-        <div class="relative z-20 max-w-[1400px] mx-auto px-4 lg:px-8 py-16 flex flex-col items-center justify-center h-full w-full">
-            
+    <header id="landing-page"
+        class="relative text-white flex-grow flex flex-col justify-center items-center text-center overflow-hidden w-full min-h-[calc(100vh-5rem)]">
+        <div
+            class="relative z-20 max-w-[1400px] mx-auto px-4 lg:px-8 py-16 flex flex-col items-center justify-center h-full w-full">
+
             <!-- Official Seal - The Anchor of Trust -->
             <div class="relative mb-10 fade-in-up" style="animation-delay: 0.1s;">
                 <div class="absolute inset-0 bg-[#FDCD0E]/20 rounded-full blur-[60px] subtle-glow"></div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg" alt="Official Seal" class="relative z-10 w-32 h-32 md:w-44 md:h-44 object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] float-anim">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg"
+                    alt="Official Seal"
+                    class="relative z-10 w-32 h-32 md:w-44 md:h-44 object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] float-anim">
             </div>
-            
-            <h1 class="font-sans text-5xl md:text-7xl lg:text-[6rem] font-bold mb-3 tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-[#fef3c7] via-[#d4af37] to-[#92400e] drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)] fade-in-up" style="animation-delay: 0.3s;">
+
+            <h1 class="font-sans text-5xl md:text-7xl lg:text-[6rem] font-bold mb-3 tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-[#fef3c7] via-[#d4af37] to-[#92400e] drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)] fade-in-up"
+                style="animation-delay: 0.3s;">
                 สำนักงบประมาณ
             </h1>
-            <h2 class="font-sans text-sm md:text-xl lg:text-2xl font-bold mb-10 tracking-[0.5em] text-slate-400 uppercase fade-in-up" style="animation-delay: 0.4s;">
+            <h2 class="font-sans text-sm md:text-xl lg:text-2xl font-bold mb-10 tracking-[0.5em] text-slate-400 uppercase fade-in-up"
+                style="animation-delay: 0.4s;">
                 Budget Bureau
             </h2>
-            
+
             <div class="fade-in-up mb-16 max-w-3xl" style="animation-delay: 0.5s;">
-                <div class="h-px w-24 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mb-6"></div>
-                <h3 class="font-sans italic text-2xl md:text-4xl text-slate-200 drop-shadow-md tracking-wide leading-relaxed">
+                <div class="h-px w-24 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mb-6">
+                </div>
+                <h3
+                    class="font-sans italic text-2xl md:text-4xl text-slate-200 drop-shadow-md tracking-wide leading-relaxed">
                     "GG-BOB : ระบบดี คนดี และมีการจัดการที่ดี"
                 </h3>
-                <div class="h-px w-24 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mt-6"></div>
+                <div class="h-px w-24 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mt-6">
+                </div>
             </div>
-            
+
             <!-- Values Section - The Three Pillars -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl mb-20 fade-in-up" style="animation-delay: 0.7s;">
-                
-                <div class="group relative flex flex-col items-center text-center gap-4 glass-card-premium rounded-2xl p-8 overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <i class="fa-solid fa-landmark text-4xl text-[#d4af37] mb-2 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"></i>
-                    <span class="font-sans text-white font-bold text-2xl tracking-wide">ระบบดี <span class="block text-xs font-sans text-slate-500 uppercase tracking-widest mt-1">System</span></span>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed relative z-10">มาตรฐานสากล เทคโนโลยีล้ำสมัย กระบวนการโปร่งใส และการติดตามที่แม่นยำ</p>
-                    <i class="fa-solid fa-landmark absolute -right-6 -bottom-6 text-[150px] opacity-[0.03] text-white pointer-events-none group-hover:scale-110 group-hover:text-[#d4af37] group-hover:opacity-[0.05] transition-all duration-700"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl mb-20 fade-in-up"
+                style="animation-delay: 0.7s;">
+
+                <div
+                    class="group relative flex flex-col items-center text-center gap-4 glass-card-premium rounded-2xl p-8 overflow-hidden">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <i
+                        class="fa-solid fa-landmark text-4xl text-[#d4af37] mb-2 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"></i>
+                    <span class="font-sans text-white font-bold text-2xl tracking-wide">ระบบดี <span
+                            class="block text-xs font-sans text-slate-500 uppercase tracking-widest mt-1">System</span></span>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed relative z-10">มาตรฐานสากล
+                        เทคโนโลยีล้ำสมัย กระบวนการโปร่งใส และการติดตามที่แม่นยำ</p>
+                    <i
+                        class="fa-solid fa-landmark absolute -right-6 -bottom-6 text-[150px] opacity-[0.03] text-white pointer-events-none group-hover:scale-110 group-hover:text-[#d4af37] group-hover:opacity-[0.05] transition-all duration-700"></i>
                 </div>
 
-                <div class="group relative flex flex-col items-center text-center gap-4 glass-card-premium rounded-2xl p-8 overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <i class="fa-solid fa-user-tie text-4xl text-[#d4af37] mb-2 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"></i>
-                    <span class="font-sans text-white font-bold text-2xl tracking-wide">คนดี <span class="block text-xs font-sans text-slate-500 uppercase tracking-widest mt-1">People</span></span>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed relative z-10">บุคลากรเปี่ยมคุณธรรม ซื่อสัตย์สุจริต มีสมรรถนะสูง และยึดประชาชนเป็นศูนย์กลาง</p>
-                    <i class="fa-solid fa-user-tie absolute -right-6 -bottom-6 text-[150px] opacity-[0.03] text-white pointer-events-none group-hover:scale-110 group-hover:text-[#d4af37] group-hover:opacity-[0.05] transition-all duration-700"></i>
+                <div
+                    class="group relative flex flex-col items-center text-center gap-4 glass-card-premium rounded-2xl p-8 overflow-hidden">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <i
+                        class="fa-solid fa-user-tie text-4xl text-[#d4af37] mb-2 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"></i>
+                    <span class="font-sans text-white font-bold text-2xl tracking-wide">คนดี <span
+                            class="block text-xs font-sans text-slate-500 uppercase tracking-widest mt-1">People</span></span>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed relative z-10">บุคลากรเปี่ยมคุณธรรม
+                        ซื่อสัตย์สุจริต มีสมรรถนะสูง และยึดประชาชนเป็นศูนย์กลาง</p>
+                    <i
+                        class="fa-solid fa-user-tie absolute -right-6 -bottom-6 text-[150px] opacity-[0.03] text-white pointer-events-none group-hover:scale-110 group-hover:text-[#d4af37] group-hover:opacity-[0.05] transition-all duration-700"></i>
                 </div>
 
-                <div class="group relative flex flex-col items-center text-center gap-4 glass-card-premium rounded-2xl p-8 overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <i class="fa-solid fa-shield-halved text-4xl text-[#d4af37] mb-2 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"></i>
-                    <span class="font-sans text-white font-bold text-2xl tracking-wide">การจัดการที่ดี <span class="block text-xs font-sans text-slate-500 uppercase tracking-widest mt-1">Management</span></span>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed relative z-10">บริหารทรัพยากรอย่างคุ้มค่า บูรณาการรอบด้าน และการตัดสินใจบนหลักเหตุผล</p>
-                    <i class="fa-solid fa-shield-halved absolute -right-6 -bottom-6 text-[150px] opacity-[0.03] text-white pointer-events-none group-hover:scale-110 group-hover:text-[#d4af37] group-hover:opacity-[0.05] transition-all duration-700"></i>
+                <div
+                    class="group relative flex flex-col items-center text-center gap-4 glass-card-premium rounded-2xl p-8 overflow-hidden">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <i
+                        class="fa-solid fa-shield-halved text-4xl text-[#d4af37] mb-2 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"></i>
+                    <span class="font-sans text-white font-bold text-2xl tracking-wide">การจัดการที่ดี <span
+                            class="block text-xs font-sans text-slate-500 uppercase tracking-widest mt-1">Management</span></span>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed relative z-10">
+                        บริหารทรัพยากรอย่างคุ้มค่า บูรณาการรอบด้าน และการตัดสินใจบนหลักเหตุผล</p>
+                    <i
+                        class="fa-solid fa-shield-halved absolute -right-6 -bottom-6 text-[150px] opacity-[0.03] text-white pointer-events-none group-hover:scale-110 group-hover:text-[#d4af37] group-hover:opacity-[0.05] transition-all duration-700"></i>
                 </div>
 
             </div>
 
             <!-- Data Visualization Section - The Ledger Room -->
             <!-- 1. Fiscal Year 2570 Overview (Full Width) -->
-            <div class="w-full max-w-6xl glass-card-premium rounded-2xl p-8 relative overflow-hidden flex flex-col mb-12 fade-in-up" style="animation-delay: 0.9s;">
+            <div class="w-full max-w-6xl glass-card-premium rounded-2xl p-8 relative overflow-hidden flex flex-col mb-12 fade-in-up"
+                style="animation-delay: 0.9s;">
                 <div class="flex items-center justify-between mb-8">
                     <div class="flex gap-2">
                         <div class="w-3 h-3 rounded-full bg-sky-500/50"></div>
                         <div class="w-3 h-3 rounded-full bg-emerald-500/50"></div>
                         <div class="w-3 h-3 rounded-full bg-rose-500/50"></div>
                     </div>
-                    <span class="text-[10px] font-sans text-slate-500 uppercase tracking-[0.2em]">Fiscal Year 2570 Overview</span>
+                    <span class="text-[10px] font-sans text-slate-500 uppercase tracking-[0.2em]">Fiscal Year 2570
+                        Overview</span>
                 </div>
-                
+
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <!-- Left: Donut Chart -->
                     <div class="lg:col-span-5 flex flex-col items-center justify-center p-4">
@@ -803,42 +1160,46 @@
                             <!-- SVG Donut -->
                             <svg class="w-full h-full transform -rotate-90" viewBox="0 0 200 200">
                                 <!-- Background Track -->
-                                <circle cx="100" cy="100" r="80" fill="transparent" stroke="rgba(255,255,255,0.02)" stroke-width="18" />
-                                
+                                <circle cx="100" cy="100" r="80" fill="transparent" stroke="rgba(255,255,255,0.02)"
+                                    stroke-width="18" />
+
                                 <!-- 1. Current Expenditure (73.3% - Sky Blue): starts from 0 to 73.3% -->
                                 <!-- Circumference = 2 * pi * 80 = 502.65 ~ 503 -->
                                 <!-- 73.3% of 503 = 368.8 -->
                                 <!-- Offset = 0 -->
                                 <circle cx="100" cy="100" r="80" fill="transparent" stroke="#38bdf8" stroke-width="18"
-                                        stroke-dasharray="368.8 503" stroke-dashoffset="0" stroke-linecap="round"
-                                        class="donut-segment donut-seg-1 origin-center" />
-                                        
+                                    stroke-dasharray="368.8 503" stroke-dashoffset="0" stroke-linecap="round"
+                                    class="donut-segment donut-seg-1 origin-center" />
+
                                 <!-- 2. Investment Expenditure (20.8% - Emerald Green): starts from 73.3% to 94.1% -->
                                 <!-- 20.8% of 503 = 104.6 -->
                                 <!-- Offset = -368.8 -->
                                 <circle cx="100" cy="100" r="80" fill="transparent" stroke="#34d399" stroke-width="18"
-                                        stroke-dasharray="104.6 503" stroke-dashoffset="-368.8" stroke-linecap="round"
-                                        class="donut-segment donut-seg-2 origin-center" />
-                                        
+                                    stroke-dasharray="104.6 503" stroke-dashoffset="-368.8" stroke-linecap="round"
+                                    class="donut-segment donut-seg-2 origin-center" />
+
                                 <!-- 3. Principal Repayment (4.0% - Rose Red): starts from 94.1% to 98.1% -->
                                 <!-- 4.0% of 503 = 20.1 -->
                                 <!-- Offset = -473.4 (-368.8 - 104.6) -->
                                 <circle cx="100" cy="100" r="80" fill="transparent" stroke="#f43f5e" stroke-width="18"
-                                        stroke-dasharray="20.1 503" stroke-dashoffset="-473.4" stroke-linecap="round"
-                                        class="donut-segment donut-seg-3 origin-center" />
-                                        
+                                    stroke-dasharray="20.1 503" stroke-dashoffset="-473.4" stroke-linecap="round"
+                                    class="donut-segment donut-seg-3 origin-center" />
+
                                 <!-- 4. Treasury Reserve Replenishment (1.9% - Amber Yellow): starts from 98.1% to 100% -->
                                 <!-- 1.9% of 503 = 9.5 -->
                                 <!-- Offset = -493.5 (-473.4 - 20.1) -->
                                 <circle cx="100" cy="100" r="80" fill="transparent" stroke="#fbbf24" stroke-width="18"
-                                        stroke-dasharray="9.5 503" stroke-dashoffset="-493.5" stroke-linecap="round"
-                                        class="donut-segment donut-seg-4 origin-center" />
-                             </svg>
-                            
+                                    stroke-dasharray="9.5 503" stroke-dashoffset="-493.5" stroke-linecap="round"
+                                    class="donut-segment donut-seg-4 origin-center" />
+                            </svg>
+
                             <!-- Central Text Overlay -->
                             <div class="absolute text-center flex flex-col items-center justify-center">
-                                <span class="text-[9px] uppercase tracking-[0.2em] text-slate-500 font-bold mb-0.5">งบประมาณรวม</span>
-                                <span class="font-sans text-[#d4af37] text-2xl md:text-3xl font-extrabold tracking-tight">฿ 3.788</span>
+                                <span
+                                    class="text-[9px] uppercase tracking-[0.2em] text-slate-500 font-bold mb-0.5">งบประมาณรวม</span>
+                                <span
+                                    class="font-sans text-[#d4af37] text-2xl md:text-3xl font-extrabold tracking-tight">฿
+                                    3.788</span>
                                 <span class="text-[10px] text-slate-400 font-medium mt-0.5">ล้านล้านบาท</span>
                             </div>
                         </div>
@@ -847,64 +1208,90 @@
                     <!-- Right: Numeric Breakdown Grid -->
                     <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <!-- Total Budget Framework -->
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-5 flex flex-col justify-center relative group sm:col-span-2">
-                            <div class="absolute top-4 right-4 text-[#d4af37]/20 group-hover:text-[#d4af37]/40 transition-colors">
+                        <div
+                            class="bg-black/20 rounded-xl border border-white/5 p-5 flex flex-col justify-center relative group sm:col-span-2">
+                            <div
+                                class="absolute top-4 right-4 text-[#d4af37]/20 group-hover:text-[#d4af37]/40 transition-colors">
                                 <i class="fa-solid fa-vault text-2xl"></i>
                             </div>
-                            <div class="font-sans text-[#d4af37] text-3xl md:text-4xl font-bold tracking-tight mb-1">฿ 3,788,000 <span class="text-sm font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
-                            <div class="text-slate-400 text-xs font-medium uppercase tracking-widest">วงเงินงบประมาณรวม (Total Budget Framework)</div>
+                            <div class="font-sans text-[#d4af37] text-3xl md:text-4xl font-bold tracking-tight mb-1">฿
+                                3,788,000 <span class="text-sm font-sans text-slate-500 font-normal ml-1">ลบ.</span>
+                            </div>
+                            <div class="text-slate-400 text-xs font-medium uppercase tracking-widest">วงเงินงบประมาณรวม
+                                (Total Budget Framework)</div>
                         </div>
-                        
+
                         <!-- 1. Current Expenditure -->
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#38bdf8] transition-colors">
-                            <div class="font-sans text-sky-400 text-xl md:text-2xl font-bold tracking-tight mb-1">2,777,443.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
-                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">รายจ่ายประจำ (73.3%)</div>
+                        <div
+                            class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#38bdf8] transition-colors">
+                            <div class="font-sans text-sky-400 text-xl md:text-2xl font-bold tracking-tight mb-1">
+                                2,777,443.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span>
+                            </div>
+                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">รายจ่ายประจำ
+                                (73.3%)</div>
                         </div>
-                        
+
                         <!-- 2. Investment Expenditure -->
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#34d399] transition-colors">
-                            <div class="font-sans text-emerald-400 text-xl md:text-2xl font-bold tracking-tight mb-1">788,000.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
-                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">รายจ่ายลงทุน (20.8%)</div>
+                        <div
+                            class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#34d399] transition-colors">
+                            <div class="font-sans text-emerald-400 text-xl md:text-2xl font-bold tracking-tight mb-1">
+                                788,000.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span>
+                            </div>
+                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">รายจ่ายลงทุน
+                                (20.8%)</div>
                         </div>
 
                         <!-- 3. Principal Repayment -->
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#f43f5e] transition-colors">
-                            <div class="font-sans text-rose-400 text-xl md:text-2xl font-bold tracking-tight mb-1">151,520.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
-                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">ชำระคืนต้นเงินกู้ (4.0%)</div>
+                        <div
+                            class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#f43f5e] transition-colors">
+                            <div class="font-sans text-rose-400 text-xl md:text-2xl font-bold tracking-tight mb-1">
+                                151,520.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span>
+                            </div>
+                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">
+                                ชำระคืนต้นเงินกู้ (4.0%)</div>
                         </div>
 
                         <!-- 4. Treasury Reserve Replenishment -->
-                        <div class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#fbbf24] transition-colors">
-                            <div class="font-sans text-amber-400 text-xl md:text-2xl font-bold tracking-tight mb-1">71,037.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span></div>
-                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">ชดใช้เงินคงคลัง (1.9%)</div>
+                        <div
+                            class="bg-black/20 rounded-xl border border-white/5 p-4 flex flex-col justify-center relative group overflow-hidden hover:bg-white/[0.02] border-l-4 border-l-[#fbbf24] transition-colors">
+                            <div class="font-sans text-amber-400 text-xl md:text-2xl font-bold tracking-tight mb-1">
+                                71,037.0 <span class="text-xs font-sans text-slate-500 font-normal ml-1">ลบ.</span>
+                            </div>
+                            <div class="text-slate-400 text-[11px] font-medium uppercase tracking-widest">
+                                ชดใช้เงินคงคลัง (1.9%)</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- 2. Announcements Section - The Archives (Full Width below Overview) -->
-            <div class="w-full max-w-6xl glass-card-premium rounded-2xl p-8 relative overflow-hidden flex flex-col text-left fade-in-up" style="animation-delay: 1.1s;">
+            <div class="w-full max-w-6xl glass-card-premium rounded-2xl p-8 relative overflow-hidden flex flex-col text-left fade-in-up"
+                style="animation-delay: 1.1s;">
                 <div class="flex items-end justify-between mb-6 border-b border-white/10 pb-4">
                     <div>
                         <h3 class="font-sans text-2xl font-bold text-slate-200 tracking-wide">The Archives</h3>
-                        <p class="text-[10px] font-sans text-slate-500 uppercase tracking-[0.2em] mt-1">Latest Official Gazettes & News</p>
+                        <p class="text-[10px] font-sans text-slate-500 uppercase tracking-[0.2em] mt-1">Latest Official
+                            Gazettes & News</p>
                     </div>
-                    <a href="https://www.bb.go.th/topic.php?gid=91&mid=200" target="_blank" class="text-xs text-[#d4af37] hover:text-white transition-all flex items-center gap-2 group">
-                        View All <i class="fa-solid fa-arrow-right-long transform group-hover:translate-x-1 transition-transform"></i>
+                    <a href="https://www.bb.go.th/topic.php?gid=91&mid=200" target="_blank"
+                        class="text-xs text-[#d4af37] hover:text-white transition-all flex items-center gap-2 group">
+                        View All <i
+                            class="fa-solid fa-arrow-right-long transform group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
-                
+
                 <!-- Make it a beautiful 2-column grid layout for full-width presentation -->
                 <div id="rss-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                    <div class="col-span-full flex flex-col items-center justify-center py-20 bg-white/[0.02] rounded-xl border border-white/5 italic text-slate-500 text-sm">
+                    <div
+                        class="col-span-full flex flex-col items-center justify-center py-20 bg-white/[0.02] rounded-xl border border-white/5 italic text-slate-500 text-sm">
                         <i class="fa-solid fa-spinner fa-spin text-xl mb-3 opacity-40"></i>
                         Consulting the archives...
                     </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
     </header>
 
     <!-- Main Content Area (Hidden on Landing Page) -->
@@ -914,9 +1301,10 @@
 
     <footer class="bg-[#050b14] text-slate-400 py-10 text-center text-sm border-t border-white/5 mt-auto relative z-20">
         <div class="flex justify-center mb-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg" alt="Footer Logo" class="h-10 w-10 opacity-30 grayscale hover:grayscale-0 transition-all duration-300">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg"
+                alt="Footer Logo" class="h-10 w-10 opacity-30 grayscale hover:grayscale-0 transition-all duration-300">
         </div>
-        <p>&copy; 2569 สำนักงบประมาณ (Budget Bureau) - เอกสารสรุปความรู้วงจรการงบประมาณแผ่นดิน <br class="sm:hidden"> อัปเดตข้อมูลล่าสุด 21 มีนาคม 2569</p>
+        <p>&copy; 2569 สำนักงบประมาณ (Budget Bureau) <br class="sm:hidden"> </p>
     </footer>
 
     <!-- Global Scripts -->
@@ -940,13 +1328,13 @@
                 link.classList.add('text-slate-300', 'border-transparent');
             });
             document.querySelectorAll('.nav-link-mobile').forEach(link => link.classList.remove('active'));
-            
-            if(navElement) {
+
+            if (navElement) {
                 const baseId = navElement.id.replace('-mobile', '');
                 const deskEl = document.getElementById(baseId);
                 const mobEl = document.getElementById(baseId + '-mobile');
-                
-                if(deskEl) {
+
+                if (deskEl) {
                     if (deskEl.classList.contains('dropdown-item')) {
                         deskEl.classList.remove('text-slate-300', 'border-transparent');
                         deskEl.classList.add('text-[#FDCD0E]', 'bg-white/5', 'border-[#FDCD0E]', 'pl-7');
@@ -959,8 +1347,8 @@
                         deskEl.classList.add('active');
                     }
                 }
-                
-                if(mobEl) {
+
+                if (mobEl) {
                     mobEl.classList.add('active');
                 }
             }
@@ -979,12 +1367,12 @@
             document.getElementById('content-area').style.display = 'none';
             document.body.classList.remove('bg-slate-50');
             document.body.classList.add('bg-[#050b14]');
-            
+
             // Resume 3D Galaxy Animation
             if (typeof toggleGalaxy === 'function') {
                 toggleGalaxy(true);
             }
-            
+
             setActiveNav(navElement);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -1003,7 +1391,7 @@
                 const response = await fetch(pageUrl);
                 if (!response.ok) throw new Error('Network response was not ok');
                 const html = await response.text();
-                
+
                 // Pause 3D Galaxy Animation
                 if (typeof toggleGalaxy === 'function') {
                     toggleGalaxy(false);
@@ -1012,11 +1400,11 @@
                 document.getElementById('landing-page').style.display = 'none';
                 const contentArea = document.getElementById('content-area');
                 contentArea.style.display = 'block';
-                
+
                 // สำหรับหน้าย่อยทั้งหมด ให้ใช้พื้นหลังธีมสว่างเสมอ
                 document.body.classList.remove('bg-[#050b14]');
                 document.body.classList.add('bg-slate-50');
-                
+
                 contentArea.innerHTML = html;
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 setActiveNav(navElement);
@@ -1053,7 +1441,7 @@
                 contentArea.style.display = 'block';
                 document.body.classList.remove('bg-[#050b14]');
                 document.body.classList.add('bg-slate-50');
-                
+
                 contentArea.innerHTML = `
                     <div class="text-center py-24 text-red-500 max-w-lg mx-auto">
                         <i class="fa-solid fa-triangle-exclamation text-4xl mb-4"></i>
@@ -1066,7 +1454,7 @@
         // ===============================================
         // ฟังก์ชันระบบสลับแท็บส่วนกลาง (ใช้สำหรับ Criteria.html)
         // ===============================================
-        window.switchTab = function(tabId) {
+        window.switchTab = function (tabId) {
             document.querySelectorAll('.tab-content').forEach(el => {
                 el.classList.add('hidden');
                 el.classList.remove('animate-fade-in');
@@ -1078,7 +1466,7 @@
             const content = document.getElementById(`content-${tabId}`);
             if (content) {
                 content.classList.remove('hidden');
-                void content.offsetWidth; 
+                void content.offsetWidth;
                 content.classList.add('animate-fade-in');
             }
             const btn = document.getElementById(`tab-${tabId}`);
@@ -1091,20 +1479,20 @@
         // ===============================================
         // ฟังก์ชันสำหรับหน้า Timeline (timeline.html)
         // ===============================================
-        window.scrollToSection = function(id) {
+        window.scrollToSection = function (id) {
             const element = document.getElementById(id);
             if (element) {
                 const yOffset = -100; // Account for the sticky header
                 const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({top: y, behavior: 'smooth'});
+                window.scrollTo({ top: y, behavior: 'smooth' });
             }
         };
 
-        window.scrollToMonth = function(monthId) {
+        window.scrollToMonth = function (monthId) {
             window.scrollToSection(monthId);
         };
 
-        window.initTimelineObserver = function() {
+        window.initTimelineObserver = function () {
             // ตั้งเวลาดีเลย์เล็กน้อยเพื่อให้เบราว์เซอร์ Render โค้ด HTML ที่ดึงมาใหม่ให้เสร็จก่อน
             setTimeout(() => {
                 const timelineRoot = document.getElementById('timeline-root');
@@ -1160,16 +1548,16 @@
                 // 3. Scroll Date Tracking Listener
                 const dateIndicator = document.getElementById('sticky-date-indicator');
                 const nodes = document.querySelectorAll('#timeline-root .timeline-node');
-                
+
                 if (dateIndicator && nodes.length > 0) {
                     if (window._timelineDateHandler) {
                         window.removeEventListener('scroll', window._timelineDateHandler);
                     }
-                    
+
                     window._timelineDateHandler = () => {
                         const triggerPoint = window.innerHeight / 2; // focal trigger point at vertical center of screen
                         let activeNode = null;
-                        
+
                         for (let i = 0; i < nodes.length; i++) {
                             const rect = nodes[i].getBoundingClientRect();
                             if (rect.top <= triggerPoint) {
@@ -1178,11 +1566,11 @@
                                 break;
                             }
                         }
-                        
+
                         if (!activeNode) {
                             activeNode = nodes[0];
                         }
-                        
+
                         if (activeNode) {
                             // Extract date text
                             const dateSpan = activeNode.querySelector('.text-xs.font-black');
@@ -1193,11 +1581,11 @@
                                     textSpan.textContent = dateText;
                                 }
                             }
-                            
+
                             // Determine stage color
                             let accentColor = '#0d9488';
                             let stageClass = '';
-                            
+
                             if (activeNode.classList.contains('stage-1-node')) {
                                 accentColor = '#0d9488';
                                 stageClass = 'stage-1';
@@ -1214,12 +1602,12 @@
                                 accentColor = '#e11d48';
                                 stageClass = 'stage-5';
                             }
-                            
+
                             dateIndicator.style.setProperty('--accent-color', accentColor);
                             dateIndicator.setAttribute('data-stage', stageClass);
                         }
                     };
-                    
+
                     window.addEventListener('scroll', window._timelineDateHandler);
                     // Trigger once immediately
                     window._timelineDateHandler();
@@ -1227,7 +1615,7 @@
             }, 200);
         };
 
-        window.initLawAct = function() {
+        window.initLawAct = function () {
             setTimeout(() => {
                 const searchInput = document.getElementById('law-search');
                 const clearBtn = document.getElementById('clear-search-btn');
@@ -1236,22 +1624,22 @@
                 const cards = document.querySelectorAll('.section-card');
                 const chapters = document.querySelectorAll('.chapter-container');
                 const noResults = document.getElementById('no-search-results');
-                
+
                 if (!searchInput) return;
 
                 // 1. Search Filter
-                searchInput.addEventListener('input', function() {
+                searchInput.addEventListener('input', function () {
                     let query = searchInput.value.trim().toLowerCase();
                     // Convert Thai numbers to Arabic numbers in search query
-                    query = query.replace(/[๐-๙]/g, function(d) {
+                    query = query.replace(/[๐-๙]/g, function (d) {
                         return "๐๑๒๓๔๕๖๗๘๙".indexOf(d);
                     });
-                    
+
                     if (query === '') {
                         clearBtn.classList.add('hidden');
                         searchStatus.classList.add('hidden');
                         noResults.classList.add('hidden');
-                        
+
                         // Show all cards and chapters
                         cards.forEach(card => {
                             card.classList.remove('hidden');
@@ -1262,31 +1650,31 @@
                     }
 
                     clearBtn.classList.remove('hidden');
-                    
+
                     let matchCount = 0;
-                    
+
                     chapters.forEach(ch => {
                         let chHasMatch = false;
                         const chCards = ch.querySelectorAll('.section-card');
-                        
+
                         chCards.forEach(card => {
                             const secNum = card.getAttribute('data-section-num') || '';
                             const secNumThai = card.getAttribute('data-section-num-thai') || '';
                             const textContainer = card.querySelector('.exact-text');
                             const text = textContainer ? textContainer.textContent.toLowerCase() : '';
-                            
-                            const isNumMatch = secNum.includes(query) || secNumThai.includes(query) || 
-                                               `มาตรา${secNum}`.includes(query) || `มาตรา${secNumThai}`.includes(query) ||
-                                               `มาตรา ${secNum}`.includes(query) || `มาตรา ${secNumThai}`.includes(query) ||
-                                               `ข้อ${secNum}`.includes(query) || `ข้อ${secNumThai}`.includes(query) ||
-                                               `ข้อ ${secNum}`.includes(query) || `ข้อ ${secNumThai}`.includes(query);
+
+                            const isNumMatch = secNum.includes(query) || secNumThai.includes(query) ||
+                                `มาตรา${secNum}`.includes(query) || `มาตรา${secNumThai}`.includes(query) ||
+                                `มาตรา ${secNum}`.includes(query) || `มาตรา ${secNumThai}`.includes(query) ||
+                                `ข้อ${secNum}`.includes(query) || `ข้อ${secNumThai}`.includes(query) ||
+                                `ข้อ ${secNum}`.includes(query) || `ข้อ ${secNumThai}`.includes(query);
                             const isTextMatch = text.includes(query);
-                            
+
                             if (isNumMatch || isTextMatch) {
                                 card.classList.remove('hidden');
                                 chHasMatch = true;
                                 matchCount++;
-                                
+
                                 if (isTextMatch && textContainer) {
                                     highlightText(card, query);
                                 } else {
@@ -1297,17 +1685,17 @@
                                 removeHighlights(card);
                             }
                         });
-                        
+
                         if (chHasMatch) {
                             ch.classList.remove('hidden');
                         } else {
                             ch.classList.add('hidden');
                         }
                     });
-                    
+
                     searchCount.textContent = matchCount;
                     searchStatus.classList.remove('hidden');
-                    
+
                     if (matchCount === 0) {
                         noResults.classList.remove('hidden');
                     } else {
@@ -1315,7 +1703,7 @@
                     }
                 });
 
-                clearBtn.addEventListener('click', function() {
+                clearBtn.addEventListener('click', function () {
                     searchInput.value = '';
                     searchInput.dispatchEvent(new Event('input'));
                 });
@@ -1335,11 +1723,11 @@
                         if (!el.getAttribute('data-orig-html')) {
                             el.setAttribute('data-orig-html', el.innerHTML);
                         }
-                        
+
                         const origHTML = el.getAttribute('data-orig-html');
                         const tempDiv = document.createElement('div');
                         tempDiv.innerHTML = origHTML;
-                        
+
                         highlightNode(tempDiv, query);
                         el.innerHTML = tempDiv.innerHTML;
                     });
@@ -1354,7 +1742,7 @@
                             const parent = node.parentNode;
                             const frag = document.createDocumentFragment();
                             let lastIdx = 0;
-                            
+
                             let currentIdx = lowerText.indexOf(query, lastIdx);
                             while (currentIdx >= 0) {
                                 if (currentIdx > lastIdx) {
@@ -1364,15 +1752,15 @@
                                 mark.className = 'bg-blue-50 text-blue-600 font-bold px-1 py-0.5 rounded border border-blue-200/60 shadow-sm transition-all duration-300';
                                 mark.textContent = text.substring(currentIdx, currentIdx + query.length);
                                 frag.appendChild(mark);
-                                
+
                                 lastIdx = currentIdx + query.length;
                                 currentIdx = lowerText.indexOf(query, lastIdx);
                             }
-                            
+
                             if (lastIdx < text.length) {
                                 frag.appendChild(document.createTextNode(text.substring(lastIdx)));
                             }
-                            
+
                             parent.replaceChild(frag, node);
                         }
                     } else if (node.nodeType === 1 && node.childNodes && !/^(style|script)$/i.test(node.tagName)) {
@@ -1385,7 +1773,7 @@
                 // 2. Intelligent Scroll Spy & Sidebar Click
                 const sidebarLinks = document.querySelectorAll('.sidebar-law-link');
                 const chapterContainers = document.querySelectorAll('.chapter-container');
-                
+
                 const getActiveClasses = (el) => {
                     const attr = el.getAttribute('data-active-class');
                     return attr ? attr.split(' ') : ['border-blue-600', 'text-blue-600', 'bg-slate-50', 'pl-4'];
@@ -1403,14 +1791,14 @@
                 const sidebarNav = document.querySelector('.sidebar-law-link')?.parentElement;
                 if (sidebarNav && !sidebarNav.querySelector('.sidebar-progress-track')) {
                     sidebarNav.classList.add('relative', 'pl-4');
-                    
+
                     const track = document.createElement('div');
                     track.className = 'sidebar-progress-track';
-                    
+
                     const fill = document.createElement('div');
                     fill.className = 'sidebar-progress-fill';
                     track.appendChild(fill);
-                    
+
                     sidebarNav.appendChild(track);
                 }
 
@@ -1433,7 +1821,7 @@
                         const computedStyle = window.getComputedStyle(activeLink);
                         const activeColor = computedStyle.color;
                         fill.style.backgroundColor = activeColor;
-                        
+
                         // Parse rgb or other format to form rgba box shadow
                         if (activeColor.startsWith('rgb')) {
                             const rgba = activeColor.replace('rgb', 'rgba').replace(')', ', 0.4)');
@@ -1443,17 +1831,17 @@
                         }
                     }
                 };
-                
+
                 sidebarLinks.forEach(link => {
-                    link.addEventListener('click', function(e) {
+                    link.addEventListener('click', function (e) {
                         e.preventDefault();
                         const targetId = this.getAttribute('href').substring(1);
                         const targetEl = document.getElementById(targetId);
                         if (targetEl) {
                             const yOffset = -90;
                             const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                            window.scrollTo({top: y, behavior: 'smooth'});
-                            
+                            window.scrollTo({ top: y, behavior: 'smooth' });
+
                             removeActiveClasses();
                             const activeClasses = getActiveClasses(this);
                             this.classList.add(...activeClasses);
@@ -1495,24 +1883,24 @@
             }, 100);
         };
 
-        window.toggleMobileChaptersSheet = function() {
+        window.toggleMobileChaptersSheet = function () {
             const sheet = document.getElementById('mobile-chapters-sheet');
             if (sheet) {
                 sheet.classList.toggle('hidden');
             }
         };
 
-        window.selectMobileChapter = function(chapterId) {
+        window.selectMobileChapter = function (chapterId) {
             window.toggleMobileChaptersSheet();
             const targetEl = document.getElementById(chapterId);
             if (targetEl) {
                 const yOffset = -90;
                 const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({top: y, behavior: 'smooth'});
+                window.scrollTo({ top: y, behavior: 'smooth' });
             }
         };
 
-        window.initGlobalLawSearch = function() {
+        window.initGlobalLawSearch = function () {
             setTimeout(() => {
                 const searchInput = document.getElementById('global-law-search');
                 const clearBtn = document.getElementById('global-law-clear-btn');
@@ -1522,7 +1910,7 @@
                 const resultsContainer = document.getElementById('global-search-results-container');
                 const resultsList = document.getElementById('global-search-results-list');
                 const noResults = document.getElementById('global-search-no-results');
-                
+
                 const overviewGrid = document.getElementById('law-overview-grid');
                 const backBtnContainer = document.getElementById('law-back-btn-container');
 
@@ -1547,18 +1935,18 @@
                     if (isIndexed || isIndexing) return;
                     isIndexing = true;
                     searchLoading.classList.remove('hidden');
-                    
+
                     try {
                         const fetchPromises = lawPages.map(async (lp) => {
                             try {
                                 const response = await fetch(lp.file);
                                 if (!response.ok) throw new Error(`HTTP error ${response.status}`);
                                 const htmlText = await response.text();
-                                
+
                                 const parser = new DOMParser();
                                 const doc = parser.parseFromString(htmlText, 'text/html');
                                 const cards = doc.querySelectorAll('.section-card');
-                                
+
                                 const sections = Array.from(cards).map(card => {
                                     const secNum = card.getAttribute('data-section-num') || '';
                                     const secNumThai = card.getAttribute('data-section-num-thai') || '';
@@ -1566,7 +1954,7 @@
                                     const title = titleEl ? titleEl.textContent.trim() : '';
                                     const exactTextEl = card.querySelector('.exact-text');
                                     const text = exactTextEl ? exactTextEl.textContent.trim() : '';
-                                    
+
                                     const chapterEl = card.closest('.chapter-container');
                                     const chapterId = chapterEl ? chapterEl.getAttribute('id') : '';
                                     const chapterTitleEl = chapterEl ? chapterEl.querySelector('.chapter-header-title') : null;
@@ -1611,7 +1999,7 @@
                             const parent = node.parentNode;
                             const frag = document.createDocumentFragment();
                             let lastIdx = 0;
-                            
+
                             let currentIdx = lowerText.indexOf(query, lastIdx);
                             while (currentIdx >= 0) {
                                 if (currentIdx > lastIdx) {
@@ -1621,15 +2009,15 @@
                                 mark.className = 'bg-yellow-200 text-slate-900 font-bold px-0.5 rounded border border-yellow-300';
                                 mark.textContent = text.substring(currentIdx, currentIdx + query.length);
                                 frag.appendChild(mark);
-                                
+
                                 lastIdx = currentIdx + query.length;
                                 currentIdx = lowerText.indexOf(query, lastIdx);
                             }
-                            
+
                             if (lastIdx < text.length) {
                                 frag.appendChild(document.createTextNode(text.substring(lastIdx)));
                             }
-                            
+
                             parent.replaceChild(frag, node);
                         }
                     } else if (node.nodeType === 1 && node.childNodes && !/^(style|script)$/i.test(node.tagName)) {
@@ -1644,7 +2032,7 @@
                     await ensureIndexed();
 
                     let query = searchInput.value.trim().toLowerCase();
-                    query = query.replace(/[๐-๙]/g, function(d) {
+                    query = query.replace(/[๐-๙]/g, function (d) {
                         return "๐๑๒๓๔๕๖๗๘๙".indexOf(d);
                     });
 
@@ -1653,7 +2041,7 @@
                         searchStatus.classList.add('hidden');
                         resultsContainer.classList.add('hidden');
                         noResults.classList.add('hidden');
-                        
+
                         overviewGrid.classList.remove('hidden');
                         backBtnContainer.classList.remove('hidden');
                         return;
@@ -1669,11 +2057,11 @@
 
                     indexData.forEach(lp => {
                         const matches = lp.sections.filter(sec => {
-                            const isNumMatch = sec.secNum.includes(query) || sec.secNumThai.includes(query) || 
-                                               `มาตรา${sec.secNum}`.includes(query) || `มาตรา${sec.secNumThai}`.includes(query) ||
-                                               `มาตรา ${sec.secNum}`.includes(query) || `มาตรา ${sec.secNumThai}`.includes(query) ||
-                                               `ข้อ${sec.secNum}`.includes(query) || `ข้อ${sec.secNumThai}`.includes(query) ||
-                                               `ข้อ ${sec.secNum}`.includes(query) || `ข้อ ${sec.secNumThai}`.includes(query);
+                            const isNumMatch = sec.secNum.includes(query) || sec.secNumThai.includes(query) ||
+                                `มาตรา${sec.secNum}`.includes(query) || `มาตรา${sec.secNumThai}`.includes(query) ||
+                                `มาตรา ${sec.secNum}`.includes(query) || `มาตรา ${sec.secNumThai}`.includes(query) ||
+                                `ข้อ${sec.secNum}`.includes(query) || `ข้อ${sec.secNumThai}`.includes(query) ||
+                                `ข้อ ${sec.secNum}`.includes(query) || `ข้อ ${sec.secNumThai}`.includes(query);
                             const isTextMatch = sec.text.toLowerCase().includes(query) || sec.title.toLowerCase().includes(query);
                             return isNumMatch || isTextMatch;
                         });
@@ -1684,7 +2072,7 @@
                             // Create Group Header
                             const groupHeader = document.createElement('div');
                             groupHeader.className = 'mt-8 mb-4 p-4 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-between shadow-sm';
-                            
+
                             // Map color to tailwind classes
                             let badgeColor = 'bg-blue-100 text-blue-800 border-blue-200';
                             if (lp.color === 'indigo') badgeColor = 'bg-indigo-100 text-indigo-800 border-indigo-200';
@@ -1715,11 +2103,11 @@
                             // Create matching cards grid/list
                             const cardGrid = document.createElement('div');
                             cardGrid.className = 'grid grid-cols-1 md:grid-cols-2 gap-4';
-                            
+
                             matches.forEach(match => {
                                 const cardWrapper = document.createElement('div');
                                 cardWrapper.className = `bg-white border border-slate-200/80 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between`;
-                                
+
                                 // Insert card content
                                 cardWrapper.innerHTML = `
                                     <div>
@@ -1770,7 +2158,7 @@
 
                     // Attach click handlers to "Go to Section" buttons
                     document.querySelectorAll('.goto-section-btn').forEach(btn => {
-                        btn.addEventListener('click', async function() {
+                        btn.addEventListener('click', async function () {
                             const file = this.getAttribute('data-file');
                             const navId = this.getAttribute('data-nav-id');
                             const secNum = this.getAttribute('data-sec-num');
@@ -1785,7 +2173,7 @@
                                     const yOffset = -120;
                                     const y = card.getBoundingClientRect().top + window.pageYOffset + yOffset;
                                     window.scrollTo({ top: y, behavior: 'smooth' });
-                                    
+
                                     // Visual highlight effect
                                     card.classList.add('ring-4', 'ring-blue-500/50', 'border-blue-500');
                                     setTimeout(() => {
@@ -1801,7 +2189,7 @@
                 searchInput.addEventListener('focus', ensureIndexed);
                 searchInput.addEventListener('input', performSearch);
 
-                clearBtn.addEventListener('click', function() {
+                clearBtn.addEventListener('click', function () {
                     searchInput.value = '';
                     performSearch();
                 });
@@ -1813,7 +2201,7 @@
         // ===============================================
         async function loadRSS() {
             const container = document.getElementById('rss-container');
-            
+
             // List of candidate RSS URLs (HTTPS and HTTP, with and without www.)
             const candidateUrls = [
                 'https://www.bb.go.th/rss-topic.php?gid=91&mid=200',
@@ -1821,18 +2209,18 @@
                 'https://bb.go.th/rss-topic.php?gid=91&mid=200',
                 'http://bb.go.th/rss-topic.php?gid=91&mid=200'
             ];
-            
+
             container.innerHTML = `
                 <div class="flex flex-col items-center justify-center py-20 bg-white/[0.02] rounded-xl border border-white/5 italic text-slate-500 text-sm">
                     <i class="fa-solid fa-spinner fa-spin text-xl mb-3 opacity-40"></i>
                     Consulting the archives...
                 </div>`;
-            
+
             async function tryFetch(url) {
                 try {
                     const response = await fetch(url);
                     if (!response.ok) return null;
-                    
+
                     // Check content type or URL to decide if we parse as JSON or XML
                     const contentType = response.headers.get('content-type') || '';
                     if (contentType.includes('application/json') || url.includes('.json') || url.includes('api.json') || url.includes('convert?url=')) {
@@ -1845,10 +2233,10 @@
                             }));
                         }
                     }
-                    
+
                     // Otherwise parse as XML
                     let xmlText = await response.text();
-                    
+
                     // Deep clean XML: remove anything before the first <tag>
                     const startIndex = xmlText.indexOf('<');
                     if (startIndex !== -1) {
@@ -1973,7 +2361,7 @@
                     const title = item.title || "ไม่มีหัวข้อ";
                     const link = item.link || "#";
                     const pubDateRaw = item.pubDate || "";
-                    
+
                     let pubDateFormatted = pubDateRaw;
                     try {
                         const cleanDateString = pubDateRaw.replace(/-/g, '/');
@@ -1983,10 +2371,10 @@
                                 year: 'numeric', month: 'short', day: 'numeric'
                             });
                         }
-                    } catch(e) {
+                    } catch (e) {
                         console.error("Error parsing date:", e);
                     }
-                    
+
                     html += `
                         <a href="${link}" target="_blank" class="flex items-start gap-4 group p-4 bg-white/[0.01] hover:bg-white/[0.04] border border-white/5 hover:border-[#d4af37]/30 rounded-xl transition-all duration-300">
                             <i class="fa-regular fa-file-lines text-xl text-slate-500 group-hover:text-[#d4af37] transition-colors mt-1"></i>
@@ -2065,7 +2453,7 @@
 
             for (let i = 0; i < particleCount; i++) {
                 const i3 = i * 3;
-                
+
                 // Reduce the intensity of particles in the middle of the galaxy, keep outer the same
                 let r;
                 let keep = false;
@@ -2077,7 +2465,7 @@
                         keep = true;
                     }
                 }
-                
+
                 const branchAngle = ((i % branchCount) / branchCount) * Math.PI * 2;
                 const spinAngle = r * spinAmount;
 
@@ -2159,7 +2547,7 @@
 
             for (let i = 0; i < blinkCount; i++) {
                 const i3 = i * 3;
-                
+
                 // Thin out core blinking stars as well
                 let r;
                 let keep = false;
@@ -2171,9 +2559,9 @@
                         keep = true;
                     }
                 }
-                
+
                 const angle = Math.random() * Math.PI * 2;
-                
+
                 blinkPositions[i3] = Math.cos(angle) * r + (Math.random() - 0.5) * 0.4;
                 blinkPositions[i3 + 1] = (Math.random() - 0.5) * 0.2; // Flat
                 blinkPositions[i3 + 2] = Math.sin(angle) * r + (Math.random() - 0.5) * 0.4;
@@ -2276,7 +2664,7 @@
                 const i3 = i * 3;
                 const r = Math.random() * galaxyRadius * 1.35;
                 const angle = Math.random() * Math.PI * 2;
-                
+
                 dustPositions[i3] = Math.cos(angle) * r + (Math.random() - 0.5) * 1.5;
                 dustPositions[i3 + 1] = (Math.random() - 0.5) * 1.2;
                 dustPositions[i3 + 2] = Math.sin(angle) * r + (Math.random() - 0.5) * 1.5;
@@ -2430,7 +2818,7 @@
                                         blinkPositions[idx + 1],
                                         blinkPositions[idx + 2]
                                     );
-                                    
+
                                     // Rotate vector with mesh's current Y rotation
                                     tempV.applyEuler(blinkingPoints.rotation);
                                     // Add the Y offset
@@ -2484,4 +2872,5 @@
         });
     </script>
 </body>
+
 </html>
