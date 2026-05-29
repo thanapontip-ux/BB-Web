@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Sarabun:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js Library for 3D Galaxy Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
     <script>
         tailwind.config = {
@@ -400,39 +402,10 @@
         .donut-seg-3 { animation: drawDonut3 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .donut-seg-4 { animation: drawDonut4 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-        /* --- Constellation Plexus Background Decoration --- */
-        @keyframes floatPlexus {
-            0% { transform: translateY(0px) rotate(0deg) scale(1); }
-            50% { transform: translateY(-8px) rotate(1.2deg) scale(1.02); }
-            100% { transform: translateY(0px) rotate(0deg) scale(1); }
-        }
-        @keyframes pulseNode {
-            0%, 100% { r: 1.5px; opacity: 0.3; }
-            50% { r: 2.5px; opacity: 0.7; }
-        }
-        @keyframes pulseNodeAlt {
-            0%, 100% { r: 0.9px; opacity: 0.2; }
-            50% { r: 1.8px; opacity: 0.55; }
-        }
-        @keyframes drawLine {
-            0%, 100% { stroke-dashoffset: 0; opacity: 0.12; }
-            50% { stroke-dashoffset: 12; opacity: 0.28; }
-        }
-        .plexus-svg {
-            animation: floatPlexus 15s ease-in-out infinite alternate;
-            pointer-events: none;
-            filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.08));
-        }
-        .plexus-node {
-            animation: pulseNode 5s ease-in-out infinite;
-        }
-        .plexus-node-alt {
-            animation: pulseNodeAlt 4s ease-in-out infinite;
-            animation-delay: -2s;
-        }
-        .plexus-line {
-            stroke-dasharray: 6 3;
-            animation: drawLine 10s linear infinite;
+        /* --- 3D Galaxy Canvas Styling --- */
+        #galaxy-canvas {
+            mix-blend-mode: screen;
+            will-change: transform;
         }
 
         /* --- Orbital Background Spinning Rings --- */
@@ -735,7 +708,7 @@
     <header id="landing-page" class="relative text-white flex-grow flex flex-col justify-center items-center text-center overflow-hidden bg-[#050b14] w-full min-h-[calc(100vh-5rem)]">
         
         <!-- Background Elements -->
-        <div class="absolute inset-0 z-0 overflow-hidden bg-[#050b14]">
+        <div class="fixed inset-0 z-0 overflow-hidden bg-[#050b14]">
             <!-- Dynamic Dot Pattern for Impact -->
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(253,205,14,0.15)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-40"></div>
             
@@ -755,137 +728,10 @@
                 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-sky-900/10 rounded-full blur-[150px] subtle-glow"></div>
                 <div class="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-[#d4af37]/10 rounded-full blur-[120px] subtle-glow" style="animation-delay: -4s;"></div>
 
-                <!-- Concentric Rotating Orbital Rings (Central) -->
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] flex items-center justify-center pointer-events-none z-0 opacity-40">
-                    <!-- Outer Ring (Dashed, Cyan) -->
-                    <div class="absolute w-[800px] h-[800px] rounded-full border border-dashed border-[#38bdf8]/10 animate-spin-slow"></div>
-                    <!-- Middle Ring (Double line, Gold) -->
-                    <div class="absolute w-[620px] h-[620px] rounded-full border-2 border-double border-[#d4af37]/10 animate-spin-reverse-slow"></div>
-                    <!-- Inner Ring (Dashed, Blue) -->
-                    <div class="absolute w-[440px] h-[440px] rounded-full border border-dashed border-[#38bdf8]/15 animate-spin-slow"></div>
-                    <!-- Core Glow Ring (Solid Gold Accent) -->
-                    <div class="absolute w-[280px] h-[280px] rounded-full border border-[#d4af37]/20 opacity-60"></div>
-                </div>
 
-                <!-- Plexus Corner 1: Top-Left (Gold and Cyan mix) -->
-                <svg class="plexus-svg absolute top-[-5%] left-[-5%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] opacity-35" viewBox="0 0 200 200">
-                    <line x1="10" y1="20" x2="50" y2="15" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="10" y1="20" x2="35" y2="75" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="50" y1="15" x2="90" y2="45" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="50" y1="15" x2="35" y2="75" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="50" y1="15" x2="70" y2="70" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="90" y1="45" x2="70" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="90" y1="45" x2="130" y2="85" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="35" y1="75" x2="75" y2="110" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="35" y1="75" x2="20" y2="130" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="75" y1="110" x2="70" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="75" y1="110" x2="130" y2="85" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="75" y1="110" x2="80" y2="160" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="130" y1="85" x2="150" y2="140" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="20" y1="130" x2="80" y2="160" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="80" y1="160" x2="150" y2="140" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    
-                    <circle cx="10" cy="20" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="50" cy="15" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="90" cy="45" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="35" cy="75" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="70" cy="70" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="75" cy="110" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="130" cy="85" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="20" cy="130" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="80" cy="160" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="150" cy="140" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                </svg>
 
-                <!-- Plexus Corner 2: Top-Right (Gold and Cyan mix) -->
-                <svg class="plexus-svg absolute top-[-5%] right-[-5%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] opacity-35" viewBox="0 0 200 200">
-                    <line x1="190" y1="20" x2="150" y2="15" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="190" y1="20" x2="165" y2="75" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="150" y1="15" x2="110" y2="45" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="150" y1="15" x2="165" y2="75" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="150" y1="15" x2="130" y2="70" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="110" y1="45" x2="130" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="110" y1="45" x2="70" y2="85" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="165" y1="75" x2="125" y2="110" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="165" y1="75" x2="180" y2="130" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="125" y1="110" x2="130" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="125" y1="110" x2="70" y2="85" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="125" y1="110" x2="120" y2="160" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="70" y1="85" x2="50" y2="140" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="180" y1="130" x2="120" y2="160" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="120" y1="160" x2="50" y2="140" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    
-                    <circle cx="190" cy="20" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="150" cy="15" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="110" cy="45" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="165" cy="75" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="130" cy="70" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="125" cy="110" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="70" cy="85" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="180" cy="130" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="120" cy="160" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="50" cy="140" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                </svg>
-
-                <!-- Plexus Corner 3: Bottom-Left (Gold and Cyan mix) -->
-                <svg class="plexus-svg absolute bottom-[-5%] left-[-5%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] opacity-35" viewBox="0 0 200 200">
-                    <line x1="20" y1="180" x2="60" y2="175" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="20" y1="180" x2="45" y2="125" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="60" y1="175" x2="100" y2="145" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="60" y1="175" x2="45" y2="125" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="60" y1="175" x2="75" y2="120" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="100" y1="145" x2="75" y2="120" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="100" y1="145" x2="140" y2="105" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="45" y1="125" x2="85" y2="80" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="45" y1="125" x2="30" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="85" y1="80" x2="75" y2="120" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="85" y1="80" x2="140" y2="105" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="85" y1="80" x2="90" y2="40" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="140" y1="105" x2="160" y2="50" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="30" y1="70" x2="90" y2="40" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="90" y1="40" x2="160" y2="50" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    
-                    <circle cx="20" cy="180" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="60" cy="175" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="100" cy="145" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="45" cy="125" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="75" cy="120" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="85" cy="80" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="140" cy="105" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="30" cy="70" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="90" cy="40" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="160" cy="50" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                </svg>
-
-                <!-- Plexus Corner 4: Bottom-Right (Gold and Cyan mix) -->
-                <svg class="plexus-svg absolute bottom-[-5%] right-[-5%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] opacity-35" viewBox="0 0 200 200">
-                    <line x1="180" y1="180" x2="140" y2="175" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="180" y1="180" x2="155" y2="125" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="140" y1="175" x2="100" y2="145" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="140" y1="175" x2="155" y2="125" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="140" y1="175" x2="125" y2="120" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="100" y1="145" x2="125" y2="120" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="100" y1="145" x2="60" y2="105" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="155" y1="125" x2="115" y2="80" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="155" y1="125" x2="170" y2="70" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="115" y1="80" x2="125" y2="120" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="115" y1="80" x2="60" y2="105" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="115" y1="80" x2="110" y2="40" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="60" y1="105" x2="40" y2="50" stroke="#38bdf8" stroke-width="0.5" class="plexus-line" />
-                    <line x1="170" y1="70" x2="110" y2="40" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    <line x1="110" y1="40" x2="40" y2="50" stroke="#d4af37" stroke-width="0.5" class="plexus-line" />
-                    
-                    <circle cx="180" cy="180" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="140" cy="175" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="100" cy="145" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="155" cy="125" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="125" cy="120" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="115" cy="80" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="60" cy="105" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="170" cy="70" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                    <circle cx="110" cy="40" r="1.5" fill="#d4af37" class="plexus-node" />
-                    <circle cx="40" cy="50" r="0.9" fill="#38bdf8" class="plexus-node-alt" />
-                </svg>
+                <!-- Three.js 3D Galaxy Canvas -->
+                <canvas id="galaxy-canvas" class="absolute inset-0 z-0 opacity-35 pointer-events-none"></canvas>
             </div>
         </div>
 
@@ -1137,6 +983,11 @@
             document.body.classList.remove('bg-slate-50');
             document.body.classList.add('bg-[#050b14]');
             
+            // Resume 3D Galaxy Animation
+            if (typeof toggleGalaxy === 'function') {
+                toggleGalaxy(true);
+            }
+            
             setActiveNav(navElement);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -1156,6 +1007,11 @@
                 if (!response.ok) throw new Error('Network response was not ok');
                 const html = await response.text();
                 
+                // Pause 3D Galaxy Animation
+                if (typeof toggleGalaxy === 'function') {
+                    toggleGalaxy(false);
+                }
+
                 document.getElementById('landing-page').style.display = 'none';
                 const contentArea = document.getElementById('content-area');
                 contentArea.style.display = 'block';
@@ -1190,6 +1046,11 @@
                 }
 
             } catch (error) {
+                // Pause 3D Galaxy Animation
+                if (typeof toggleGalaxy === 'function') {
+                    toggleGalaxy(false);
+                }
+
                 document.getElementById('landing-page').style.display = 'none';
                 const contentArea = document.getElementById('content-area');
                 contentArea.style.display = 'block';
@@ -2104,18 +1965,457 @@
             }
         }
 
-        function initParallax() {
-            const landingHeader = document.getElementById('landing-page');
-            const bg = document.getElementById('parallax-bg');
-            if (landingHeader && bg) {
-                landingHeader.addEventListener('mousemove', (e) => {
-                    const x = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
-                    const y = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
-                    bg.style.transform = `translate3d(${x * -20}px, ${y * -20}px, 0)`;
-                });
-                landingHeader.addEventListener('mouseleave', () => {
-                    bg.style.transform = 'translate3d(0, 0, 0)';
-                });
+
+
+        // ===============================================
+        // 3D GALAXY BACKGROUND (THREE.JS WEBGL)
+        // ===============================================
+        let galaxyScene, galaxyCamera, galaxyRenderer, galaxyPoints, dustPoints, blinkingPoints;
+        let galaxyAnimationFrameId = null;
+        let isDraggingGalaxy = false;
+        let prevMouseX = 0;
+        let galaxyVelX = 0.0002;
+        const galaxyTargetVelX = 0.0002; // Very slow and stable baseline rotation speed
+        let mouseX = -9999, mouseY = -9999;
+        let blinkMetadata = [];
+        let blinkPositions = null;
+        const blinkCount = 150;
+
+        function initGalaxyBackground() {
+            const canvas = document.getElementById('galaxy-canvas');
+            const container = document.getElementById('landing-page');
+            if (!canvas || !container) return;
+
+            // 1. Scene Setup
+            galaxyScene = new THREE.Scene();
+
+            // 2. Camera Setup
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            galaxyCamera = new THREE.PerspectiveCamera(55, width / height, 0.1, 100);
+            galaxyCamera.position.set(0, 1.6, 4.8); // Zoomed in closer to cover the screen
+            galaxyCamera.lookAt(0, 0, 0);
+
+            // 3. Renderer Setup
+            galaxyRenderer = new THREE.WebGLRenderer({
+                canvas: canvas,
+                alpha: true,
+                antialias: true
+            });
+            galaxyRenderer.setSize(width, height);
+            galaxyRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // 4. Galaxy Math Setup (Spiral Arms)
+            const particleCount = 10000;
+            const galaxyRadius = 5.2;
+            const branchCount = 3;
+            const spinAmount = 0.95;
+            const randomnessPower = 4.2;
+            const randomnessAmount = 0.58;
+
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            // Subtle color palette for background
+            const colorPalette = [
+                new THREE.Color('#38bdf8'), // Blue
+                new THREE.Color('#7c3aed'), // Purple
+                new THREE.Color('#ec4899'), // Pink
+                new THREE.Color('#fbbf24')  // Pink-Gold (Amber/Gold)
+            ];
+
+            for (let i = 0; i < particleCount; i++) {
+                const i3 = i * 3;
+                
+                // Reduce the intensity of particles in the middle of the galaxy, keep outer the same
+                let r;
+                let keep = false;
+                while (!keep) {
+                    r = Math.random() * galaxyRadius;
+                    const coreRatio = 1.0 - (r / galaxyRadius);
+                    const keepProb = 0.25 + 0.75 * (1.0 - Math.pow(coreRatio, 1.8)); // 25% density at core, ramping up to 100% at edges
+                    if (Math.random() < keepProb) {
+                        keep = true;
+                    }
+                }
+                
+                const branchAngle = ((i % branchCount) / branchCount) * Math.PI * 2;
+                const spinAngle = r * spinAmount;
+
+                const dispX = Math.pow(Math.random(), randomnessPower) * (Math.random() < 0.5 ? 1 : -1) * randomnessAmount * r;
+                const dispY = Math.pow(Math.random(), randomnessPower) * (Math.random() < 0.5 ? 1 : -1) * randomnessAmount * r * 0.45;
+                const dispZ = Math.pow(Math.random(), randomnessPower) * (Math.random() < 0.5 ? 1 : -1) * randomnessAmount * r;
+
+                positions[i3] = Math.cos(branchAngle + spinAngle) * r + dispX;
+                positions[i3 + 1] = dispY;
+                positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * r + dispZ;
+
+                let blendedColor;
+                if (r < galaxyRadius * 0.22) {
+                    blendedColor = new THREE.Color('#fbbf24').clone(); // Gold core
+                } else if (r < galaxyRadius * 0.55) {
+                    blendedColor = colorPalette[2].clone().lerp(colorPalette[1], (r - galaxyRadius * 0.22) / (galaxyRadius * 0.33));
+                } else {
+                    blendedColor = colorPalette[1].clone().lerp(colorPalette[0], (r - galaxyRadius * 0.55) / (galaxyRadius * 0.45));
+                }
+
+                // Add slight color variation
+                if (Math.random() > 0.82) {
+                    blendedColor.addScalar((Math.random() - 0.5) * 0.08);
+                }
+
+                colors[i3] = blendedColor.r;
+                colors[i3 + 1] = blendedColor.g;
+                colors[i3 + 2] = blendedColor.b;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            // Create circular glowing star texture
+            const starCanvas = document.createElement('canvas');
+            starCanvas.width = 16;
+            starCanvas.height = 16;
+            const starCtx = starCanvas.getContext('2d');
+            const starGrad = starCtx.createRadialGradient(8, 8, 0, 8, 8, 8);
+            starGrad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+            starGrad.addColorStop(0.25, 'rgba(255, 255, 255, 0.8)');
+            starGrad.addColorStop(0.6, 'rgba(255, 255, 255, 0.1)');
+            starGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            starCtx.fillStyle = starGrad;
+            starCtx.fillRect(0, 0, 16, 16);
+            const starTexture = new THREE.CanvasTexture(starCanvas);
+
+            // Shrunk particle size (size: 0.022 instead of 0.04) for subtlety
+            const material = new THREE.PointsMaterial({
+                size: 0.022,
+                transparent: true,
+                depthWrite: false,
+                blending: THREE.AdditiveBlending,
+                vertexColors: true,
+                map: starTexture
+            });
+
+            galaxyPoints = new THREE.Points(geometry, material);
+            galaxyScene.add(galaxyPoints);
+
+            // 5. Blinking & Hover Glow Foreground Stars (Custom ShaderMaterial)
+            const blinkGeometry = new THREE.BufferGeometry();
+            blinkPositions = new Float32Array(blinkCount * 3);
+            const blinkColors = new Float32Array(blinkCount * 3);
+
+            const blinkPhases = new Float32Array(blinkCount);
+            const blinkSpeeds = new Float32Array(blinkCount);
+            const blinkBaseSizes = new Float32Array(blinkCount);
+            const blinkGlowScales = new Float32Array(blinkCount);
+
+            const blinkPalette = [
+                new THREE.Color('#ffffff'), // White
+                new THREE.Color('#fbbf24'), // Gold
+                new THREE.Color('#e879f9'), // Light Pink
+                new THREE.Color('#38bdf8')  // Cyan Blue
+            ];
+
+            for (let i = 0; i < blinkCount; i++) {
+                const i3 = i * 3;
+                
+                // Thin out core blinking stars as well
+                let r;
+                let keep = false;
+                while (!keep) {
+                    r = Math.random() * galaxyRadius * 1.1;
+                    const coreRatio = 1.0 - (r / (galaxyRadius * 1.1));
+                    const keepProb = 0.35 + 0.65 * (1.0 - Math.pow(coreRatio, 1.8)); // Reduce core blinking star density
+                    if (Math.random() < keepProb) {
+                        keep = true;
+                    }
+                }
+                
+                const angle = Math.random() * Math.PI * 2;
+                
+                blinkPositions[i3] = Math.cos(angle) * r + (Math.random() - 0.5) * 0.4;
+                blinkPositions[i3 + 1] = (Math.random() - 0.5) * 0.2; // Flat
+                blinkPositions[i3 + 2] = Math.sin(angle) * r + (Math.random() - 0.5) * 0.4;
+
+                const color = blinkPalette[i % blinkPalette.length].clone();
+                blinkColors[i3] = color.r;
+                blinkColors[i3 + 1] = color.g;
+                blinkColors[i3 + 2] = color.b;
+
+                // Twinkle properties
+                blinkPhases[i] = Math.random() * Math.PI * 2;
+                blinkSpeeds[i] = 1.5 + Math.random() * 2.5; // Blinking frequency
+                blinkBaseSizes[i] = 0.08 + Math.random() * 0.08; // Delicate sizes
+                blinkGlowScales[i] = 1.0;
+            }
+
+            blinkGeometry.setAttribute('position', new THREE.BufferAttribute(blinkPositions, 3));
+            blinkGeometry.setAttribute('color', new THREE.BufferAttribute(blinkColors, 3));
+            blinkGeometry.setAttribute('aPhase', new THREE.BufferAttribute(blinkPhases, 1));
+            blinkGeometry.setAttribute('aSpeed', new THREE.BufferAttribute(blinkSpeeds, 1));
+            blinkGeometry.setAttribute('aBaseSize', new THREE.BufferAttribute(blinkBaseSizes, 1));
+            blinkGeometry.setAttribute('aGlowScale', new THREE.BufferAttribute(blinkGlowScales, 1));
+
+            // Custom Shaders for individual blinking and hover scaling
+            const blinkVertexShader = `
+                uniform float uTime;
+                attribute float aPhase;
+                attribute float aSpeed;
+                attribute float aBaseSize;
+                attribute float aGlowScale;
+                varying vec3 vColor;
+                varying float vBlink;
+                void main() {
+                    vColor = color;
+                    // Sinusoidal twinkling loop
+                    float blink = 0.6 + 0.4 * sin(uTime * aSpeed + aPhase);
+                    vBlink = blink;
+                    
+                    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                    // Star size scales up smoothly with aGlowScale when mouse hovers near
+                    gl_PointSize = aBaseSize * blink * aGlowScale * (300.0 / -mvPosition.z);
+                    gl_Position = projectionMatrix * mvPosition;
+                }
+            `;
+
+            const blinkFragmentShader = `
+                uniform sampler2D uTexture;
+                varying vec3 vColor;
+                varying float vBlink;
+                void main() {
+                    vec4 texColor = texture2D(uTexture, gl_PointCoord);
+                    if (texColor.a < 0.05) discard;
+                    // Boost center brightness
+                    gl_FragColor = vec4(vColor * (0.8 + 0.45 * vBlink), texColor.a * vBlink);
+                }
+            `;
+
+            const blinkMaterial = new THREE.ShaderMaterial({
+                vertexColors: true,
+                transparent: true,
+                depthWrite: false,
+                blending: THREE.AdditiveBlending,
+                uniforms: {
+                    uTime: { value: 0 },
+                    uTexture: { value: starTexture }
+                },
+                vertexShader: blinkVertexShader,
+                fragmentShader: blinkFragmentShader
+            });
+
+            blinkingPoints = new THREE.Points(blinkGeometry, blinkMaterial);
+            galaxyScene.add(blinkingPoints);
+
+            // 6. Nebula Dust Clouds (extremely soft, faint gas clouds)
+            const dustCount = 200;
+            const dustGeometry = new THREE.BufferGeometry();
+            const dustPositions = new Float32Array(dustCount * 3);
+            const dustColors = new Float32Array(dustCount * 3);
+
+            const dustPalette = [
+                new THREE.Color('#1e1b4b'), // indigo-950 (fainter blue)
+                new THREE.Color('#500724'), // pink-950 (fainter magenta)
+                new THREE.Color('#2e1065')  // purple-950 (fainter violet)
+            ];
+
+            for (let i = 0; i < dustCount; i++) {
+                const i3 = i * 3;
+                const r = Math.random() * galaxyRadius * 1.35;
+                const angle = Math.random() * Math.PI * 2;
+                
+                dustPositions[i3] = Math.cos(angle) * r + (Math.random() - 0.5) * 1.5;
+                dustPositions[i3 + 1] = (Math.random() - 0.5) * 1.2;
+                dustPositions[i3 + 2] = Math.sin(angle) * r + (Math.random() - 0.5) * 1.5;
+
+                const color = dustPalette[i % dustPalette.length].clone();
+                color.addScalar((Math.random() - 0.5) * 0.04);
+
+                dustColors[i3] = color.r;
+                dustColors[i3 + 1] = color.g;
+                dustColors[i3 + 2] = color.b;
+            }
+
+            dustGeometry.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3));
+            dustGeometry.setAttribute('color', new THREE.BufferAttribute(dustColors, 3));
+
+            const dustCanvas = document.createElement('canvas');
+            dustCanvas.width = 64;
+            dustCanvas.height = 64;
+            const dustCtx = dustCanvas.getContext('2d');
+            const dustGrad = dustCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+            dustGrad.addColorStop(0, 'rgba(255, 255, 255, 0.04)'); // Fainter dust
+            dustGrad.addColorStop(0.6, 'rgba(255, 255, 255, 0.01)');
+            dustGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            dustCtx.fillStyle = dustGrad;
+            dustCtx.fillRect(0, 0, 64, 64);
+            const dustTexture = new THREE.CanvasTexture(dustCanvas);
+
+            const dustMaterial = new THREE.PointsMaterial({
+                size: 1.4,
+                transparent: true,
+                depthWrite: false,
+                blending: THREE.AdditiveBlending,
+                vertexColors: true,
+                map: dustTexture
+            });
+
+            dustPoints = new THREE.Points(dustGeometry, dustMaterial);
+            galaxyScene.add(dustPoints);
+
+            // 7. Mouse/Touch Drag Interactivity (Locked to X-axis, ignoring Y-axis)
+            container.addEventListener('mousedown', (e) => {
+                isDraggingGalaxy = true;
+                prevMouseX = e.clientX;
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDraggingGalaxy = false;
+            });
+
+            // Track mouse positions relative to viewport for screen-space hover glow calculations
+            container.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+
+                if (isDraggingGalaxy) {
+                    const deltaX = e.clientX - prevMouseX;
+                    // Lesser mouse drag influence (0.0001 multiplier instead of 0.0003)
+                    galaxyVelX += deltaX * 0.0001;
+                    prevMouseX = e.clientX;
+                }
+            });
+
+            container.addEventListener('mouseleave', () => {
+                mouseX = -9999;
+                mouseY = -9999;
+                isDraggingGalaxy = false;
+            });
+
+            container.addEventListener('touchstart', (e) => {
+                if (e.touches.length === 1) {
+                    isDraggingGalaxy = true;
+                    prevMouseX = e.touches[0].clientX;
+                    mouseX = e.touches[0].clientX;
+                    mouseY = e.touches[0].clientY;
+                }
+            }, { passive: true });
+
+            window.addEventListener('touchend', () => {
+                isDraggingGalaxy = false;
+                mouseX = -9999;
+                mouseY = -9999;
+            });
+
+            container.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1) {
+                    mouseX = e.touches[0].clientX;
+                    mouseY = e.touches[0].clientY;
+
+                    if (isDraggingGalaxy) {
+                        const deltaX = e.touches[0].clientX - prevMouseX;
+                        galaxyVelX += deltaX * 0.0001;
+                        prevMouseX = e.touches[0].clientX;
+                    }
+                }
+            }, { passive: true });
+
+            // 8. Window Resize Listener
+            window.addEventListener('resize', () => {
+                if (!galaxyCamera || !galaxyRenderer) return;
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                galaxyCamera.aspect = w / h;
+                galaxyCamera.updateProjectionMatrix();
+                galaxyRenderer.setSize(w, h);
+            });
+
+            // Trigger rendering
+            toggleGalaxy(true);
+        }
+
+        function toggleGalaxy(show) {
+            const canvas = document.getElementById('galaxy-canvas');
+            if (!canvas) return;
+
+            if (show) {
+                canvas.style.display = 'block';
+                if (!galaxyAnimationFrameId) {
+                    const render = () => {
+                        galaxyAnimationFrameId = requestAnimationFrame(render);
+
+                        // Rotate only around Y-axis (Yaw) for a stable, non-dizzying rotation
+                        if (galaxyPoints && dustPoints && blinkingPoints) {
+                            galaxyPoints.rotation.y += galaxyVelX;
+                            dustPoints.rotation.y += galaxyVelX * 0.65;
+                            blinkingPoints.rotation.y += galaxyVelX;
+
+                            // Dampen rotation speeds back to baseline (0.0002)
+                            galaxyVelX += (galaxyTargetVelX - galaxyVelX) * 0.04;
+                        }
+
+                        // Project 3D blinking points to Screen-space 2D coordinates for hover scaling
+                        if (blinkingPoints && galaxyCamera && galaxyRenderer) {
+                            const blinkMat = blinkingPoints.material;
+                            if (blinkMat && blinkMat.uniforms) {
+                                blinkMat.uniforms.uTime.value = performance.now() * 0.001;
+                            }
+
+                            const width = window.innerWidth;
+                            const height = window.innerHeight;
+                            const tempV = new THREE.Vector3();
+                            const geom = blinkingPoints.geometry;
+                            const glowAttr = geom.getAttribute('aGlowScale');
+
+                            if (glowAttr && blinkPositions) {
+                                for (let i = 0; i < blinkCount; i++) {
+                                    const idx = i * 3;
+                                    tempV.set(
+                                        blinkPositions[idx],
+                                        blinkPositions[idx + 1],
+                                        blinkPositions[idx + 2]
+                                    );
+                                    
+                                    // Rotate vector with mesh's current Y rotation
+                                    tempV.applyEuler(blinkingPoints.rotation);
+                                    // Project to 2D normalized screen space
+                                    tempV.project(galaxyCamera);
+
+                                    // Convert normalized space to canvas pixels (viewport coordinates)
+                                    const sx = (tempV.x * 0.5 + 0.5) * width;
+                                    const sy = (1.0 - (tempV.y * 0.5 + 0.5)) * height;
+
+                                    // Compute screen distance to mouse cursor
+                                    const dx = sx - mouseX;
+                                    const dy = sy - mouseY;
+                                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                                    let targetScale = 1.0;
+                                    if (mouseX !== -9999 && dist < 85) {
+                                        // Soft interactive glow boost up to 2.2x scale when mouse is nearby
+                                        targetScale = 1.0 + (1.2 * (1.0 - dist / 85));
+                                    }
+
+                                    const currentScale = glowAttr.getX(i);
+                                    const nextScale = currentScale + (targetScale - currentScale) * 0.12;
+                                    glowAttr.setX(i, nextScale);
+                                }
+                                glowAttr.needsUpdate = true;
+                            }
+                        }
+
+                        if (galaxyRenderer && galaxyScene && galaxyCamera) {
+                            galaxyRenderer.render(galaxyScene, galaxyCamera);
+                        }
+                    };
+                    render();
+                }
+            } else {
+                canvas.style.display = 'none';
+                if (galaxyAnimationFrameId) {
+                    cancelAnimationFrame(galaxyAnimationFrameId);
+                    galaxyAnimationFrameId = null;
+                }
             }
         }
 
@@ -2123,7 +2423,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             showLanding(document.getElementById('nav-home'));
             loadRSS();
-            initParallax();
+            initGalaxyBackground();
         });
     </script>
 </body>
