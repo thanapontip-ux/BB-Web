@@ -2204,10 +2204,10 @@
 
             // List of candidate RSS URLs (HTTPS and HTTP, with and without www.)
             const candidateUrls = [
-                'https://www.bb.go.th/rss-topic.php?gid=91&mid=200',
-                'http://www.bb.go.th/rss-topic.php?gid=91&mid=200',
-                'https://bb.go.th/rss-topic.php?gid=91&mid=200',
-                'http://bb.go.th/rss-topic.php?gid=91&mid=200'
+                'https://www.bb.go.th/rss.php',
+                'http://www.bb.go.th/rss.php',
+                'https://bb.go.th/rss.php',
+                'http://bb.go.th/rss.php'
             ];
 
             container.innerHTML = `
@@ -2264,17 +2264,13 @@
 
             let items = null;
 
-            // 1. Try relative same-origin fetch for local/committed rss.xml (works on GitHub Pages, localhost, etc.)
-            console.log('Attempting relative same-origin fetch for local/committed rss.xml...');
-            items = await tryFetch('rss.xml');
-
-            // 2. If deployed on bb.go.th (production), try same-origin relative path to bypass CORS completely
-            if (!items && window.location.hostname.includes('bb.go.th')) {
+            // 1. If deployed on bb.go.th (production), try same-origin relative path to bypass CORS completely
+            if (window.location.hostname.includes('bb.go.th')) {
                 console.log('Detected bb.go.th environment, attempting relative same-origin fetch...');
-                items = await tryFetch('/rss-topic.php?gid=91&mid=200');
+                items = await tryFetch('/rss.php');
             }
 
-            // 3. Try fetching via local Python server proxy if running locally (any local server running under HTTP/HTTPS)
+            // 2. Try fetching via local Python server proxy if running locally (any local server running under HTTP/HTTPS)
             if (!items && window.location.protocol.startsWith('http') && !window.location.hostname.includes('bb.go.th')) {
                 console.log('Attempting fetch via local dev server proxy...');
                 for (const targetUrl of candidateUrls) {
@@ -2287,7 +2283,7 @@
                 }
             }
 
-            // 4. Try direct fetch from the browser to the candidate URLs directly
+            // 3. Try direct fetch from the browser to the candidate URLs directly
             if (!items) {
                 console.log('Attempting direct fetch...');
                 for (const targetUrl of candidateUrls) {
@@ -2300,12 +2296,12 @@
                 }
             }
 
-            // 5. Try public RSS-to-JSON converters (often bypasses proxy/CORS blockages without using the word "proxy" in domains)
+            // 4. Try public RSS-to-JSON converters (often bypasses proxy/CORS blockages without using the word "proxy" in domains)
             if (!items) {
                 console.log('Attempting public RSS-to-JSON converters...');
                 const converterUrls = [
-                    `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://www.bb.go.th/rss-topic.php?gid=91&mid=200')}`,
-                    `https://feed2json.org/convert?url=${encodeURIComponent('https://www.bb.go.th/rss-topic.php?gid=91&mid=200')}`
+                    `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://www.bb.go.th/rss.php')}`,
+                    `https://feed2json.org/convert?url=${encodeURIComponent('https://www.bb.go.th/rss.php')}`
                 ];
                 for (const convUrl of converterUrls) {
                     items = await tryFetch(convUrl);
@@ -2316,7 +2312,7 @@
                 }
             }
 
-            // 6. Try public CORS proxies sequentially as fallback for the candidate URLs
+            // 5. Try public CORS proxies sequentially as fallback for the candidate URLs
             if (!items) {
                 const publicProxyTemplates = [
                     (url) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
@@ -2337,6 +2333,12 @@
                         }
                     }
                 }
+            }
+
+            // 6. Final fallback: Try relative same-origin fetch for local/committed rss.xml (works on GitHub Pages, localhost, offline, etc.)
+            if (!items) {
+                console.log('Attempting relative same-origin fetch for local/committed rss.xml as fallback...');
+                items = await tryFetch('rss.xml');
             }
 
             if (items) {
