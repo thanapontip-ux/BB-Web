@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.4 งบเงินอุดหนุน</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Sarabun', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#3b82f6',
+                        accent: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { scroll-behavior: smooth; }
+        
+        /* Highlight Colors matching PDF bold words */
+        .hl-blue { color: #1d4ed8; } 
+        
+        /* Premium Nav Button Styles */
+        .subsidy-tab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #475569;
+            background-color: rgba(248, 250, 252, 0.6);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+        .subsidy-tab-btn svg, .subsidy-tab-btn i {
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .subsidy-tab-btn:hover {
+            color: #1e3a8a;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-color: rgba(148, 163, 184, 0.5);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .subsidy-tab-btn:hover i {
+            transform: scale(1.05);
+            color: #1e3a8a;
+        }
+        .subsidy-tab-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+        .subsidy-tab-btn.active {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 12px -2px rgba(30, 58, 138, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        .subsidy-tab-btn.active i {
+            color: #ffffff !important;
+        }
+        
+        /* Hide scrollbar */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Custom Scrollbar for top menu */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(59, 130, 246, 0.6);
+        }
+        
+        /* Interactive Flowchart/Selector Card Styles */
+        .flow-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+        
+        .flow-card-active-general {
+            border-color: #3b82f6 !important;
+            background: linear-gradient(135deg, rgba(239, 246, 255, 0.95) 0%, rgba(219, 234, 254, 0.95) 100%) !important;
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.15), 0 4px 6px -2px rgba(59, 130, 246, 0.05) !important;
+            transform: translateY(-2px);
+        }
+
+        .flow-card-active-specific {
+            border-color: #f59e0b !important;
+            background: linear-gradient(135deg, rgba(255, 251, 235, 0.95) 0%, rgba(254, 243, 199, 0.95) 100%) !important;
+            box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.15), 0 4px 6px -2px rgba(245, 158, 11, 0.05) !important;
+            transform: translateY(-2px);
+        }
+        
+        /* Active highlight for Boxcards */
+        .boxcard-active {
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.1), 0 4px 6px -2px rgba(59, 130, 246, 0.05) !important;
+        }
+        
+        /* Color-specific Active highlights for Boxcards (Premium Light Themes) */
+        .active-general {
+            border-color: #3b82f6 !important; /* Blue-500 */
+            background: linear-gradient(135deg, rgba(239, 246, 255, 0.95) 0%, rgba(219, 234, 254, 0.95) 100%) !important;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.12), 0 4px 6px -2px rgba(59, 130, 246, 0.06) !important;
+        }
+        .active-specific {
+            border-color: #f59e0b !important; /* Amber-500 */
+            background: linear-gradient(135deg, rgba(255, 251, 235, 0.95) 0%, rgba(254, 243, 199, 0.95) 100%) !important;
+            box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.12), 0 4px 6px -2px rgba(245, 158, 11, 0.06) !important;
+        }
+
+        /* Light-theme background floating animation blobs */
+        @keyframes blob-float-1 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(40px, -60px) scale(1.05); }
+            66% { transform: translate(-30px, 30px) scale(0.95); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes blob-float-2 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(0.92); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes blob-float-3 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(50px, 30px) scale(0.96); }
+            66% { transform: translate(-40px, -50px) scale(1.03); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob-float-1 {
+            animation: blob-float-1 30s infinite ease-in-out;
+        }
+        .animate-blob-float-2 {
+            animation: blob-float-2 35s infinite ease-in-out;
+        }
+        .animate-blob-float-3 {
+            animation: blob-float-3 32s infinite ease-in-out;
+        }
+
+        /* SVG flow animations */
+        @keyframes svg-flow-1 {
+            to { stroke-dashoffset: -1000; }
+        }
+        @keyframes svg-flow-2 {
+            to { stroke-dashoffset: 1000; }
+        }
+        .animate-svg-flow-1 {
+            animation: svg-flow-1 80s linear infinite;
+        }
+        .animate-svg-flow-2 {
+            animation: svg-flow-2 100s linear infinite;
+        }
+
+        @keyframes subsidyFade {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Sticky Nav Scroll Effects */
+        #subsidy-sticky-nav { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        #subsidy-sticky-header { transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease; overflow: hidden; max-height: 150px; opacity: 1; }
+        
+        #subsidy-sticky-nav.scrolled {
+            position: fixed !important;
+            top: 50vh !important;
+            left: 1rem !important;
+            transform: translateY(-50%) !important;
+            padding: 0.5rem !important;
+            border-radius: 3rem !important;
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(16px) !important;
+            border-color: rgba(226, 232, 240, 1) !important;
+            width: max-content !important;
+            height: max-content !important;
+            margin: 0 !important;
+            z-index: 2147483647 !important;
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(59, 130, 246, 0.1) !important;
+            animation: slideInNav 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+        }
+        @keyframes slideInNav {
+            0% { opacity: 0; transform: translate(-2rem, -50%); }
+            100% { opacity: 1; transform: translate(0, -50%); }
+        }
+        @media (max-width: 768px) {
+            #subsidy-sticky-nav.scrolled {
+                left: 0.5rem !important;
+                padding: 0.35rem !important;
+            }
+        }
+        #subsidy-sticky-nav.scrolled #subsidy-sticky-header {
+            max-height: 0 !important;
+            opacity: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            display: none !important;
+        }
+        #subsidy-sticky-nav.scrolled .btn-text { display: none !important; }
+        #subsidy-sticky-nav.scrolled > div:last-child {
+            flex-direction: column !important;
+            overflow: visible !important;
+            max-height: none !important;
+            height: max-content !important;
+            gap: 0.5rem !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        #subsidy-sticky-nav.scrolled > div:last-child::-webkit-scrollbar { display: none !important; }
+        #subsidy-sticky-nav.scrolled .subsidy-tab-btn { padding: 0 !important; border-radius: 50% !important; width: 3rem !important; height: 3rem !important; justify-content: center !important; margin: 0 !important; }
+        @media (max-width: 768px) {
+            #subsidy-sticky-nav.scrolled .subsidy-tab-btn { width: 2.5rem !important; height: 2.5rem !important; }
+            #subsidy-sticky-nav.scrolled .subsidy-tab-btn i { font-size: 1.1rem !important; margin: 0 !important; }
+        }
+        #subsidy-sticky-nav.scrolled .subsidy-tab-btn i { font-size: 1.25rem !important; margin: 0 !important; }
+    </style>
+</head>
+<body class="bg-white text-slate-700 antialiased min-h-screen relative overflow-x-hidden">
+    <!-- Animated Premium Light-Theme Background (Fixed behind the content) -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-[-1]" aria-hidden="true">
+        <!-- Soft Blurry Pastel Blobs -->
+        <div class="absolute top-[10%] left-[-15%] w-[35rem] h-[35rem] rounded-full bg-sky-200/20 blur-[120px] animate-blob-float-1"></div>
+        <div class="absolute top-[45%] right-[-15%] w-[42rem] h-[42rem] rounded-full bg-indigo-200/15 blur-[140px] animate-blob-float-2"></div>
+        <div class="absolute bottom-[15%] left-[-5%] w-[38rem] h-[38rem] rounded-full bg-blue-200/20 blur-[130px] animate-blob-float-3"></div>
+        <div class="absolute bottom-[-10%] right-[10%] w-[30rem] h-[30rem] rounded-full bg-rose-200/15 blur-[100px] animate-blob-float-1"></div>
+
+        <!-- Elegant Flowing Light SVG Curves -->
+        <svg class="absolute inset-0 w-full h-full opacity-60" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="light-curve-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
+                    <stop offset="50%" stop-color="#6366f1" stop-opacity="0.15"/>
+                    <stop offset="100%" stop-color="#ec4899" stop-opacity="0.15"/>
+                </linearGradient>
+                <linearGradient id="light-curve-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.12"/>
+                    <stop offset="50%" stop-color="#eab308" stop-opacity="0.12"/>
+                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0.12"/>
+                </linearGradient>
+            </defs>
+            <path d="M -100 200 C 300 100, 100 800, 700 650 C 1300 500, 900 1200, 1500 1000" 
+                  fill="none" stroke="url(#light-curve-grad-1)" stroke-width="1.5" stroke-dasharray="15 20" class="animate-svg-flow-1"/>
+            <path d="M 100 1800 C 500 1500, 300 2300, 900 2000 C 1500 1700, 1100 2600, 1700 2400" 
+                  fill="none" stroke="url(#light-curve-grad-2)" stroke-width="1.5" stroke-dasharray="12 16" class="animate-svg-flow-2"/>
+        </svg>
+    </div>
+
+    <!-- Main Content Container -->
+    <div id="subsidy-root" class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 text-slate-700 pt-8">
+        
+        <!-- Placeholder for fixed nav to prevent jumping -->
+        <div id="subsidy-nav-placeholder" style="display: none;"></div>
+        
+        <!-- Compact Sticky Header & Nav Menu -->
+        <div id="subsidy-sticky-nav" class="sticky top-16 md:top-20 z-40 bg-white/95 backdrop-blur-xl shadow-sm hover:shadow-md rounded-xl md:rounded-2xl border border-slate-200 mb-8 px-3 py-3 md:px-4 md:py-4 max-w-full transition-all duration-300">
+            <div id="subsidy-sticky-header" class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2 md:mb-3 border-b border-slate-100 pb-2 md:pb-3 px-1">
+                <h1 class="text-lg md:text-xl font-bold text-slate-800 flex items-center gap-2">
+                    4.4 งบเงินอุดหนุน
+                </h1>
+                <span class="text-[11px] md:text-xs text-slate-500 font-medium bg-slate-50 px-2 py-1 rounded-md border border-slate-200 hidden sm:inline-flex items-center">
+                    <i class="fa-solid fa-hand-pointer mr-1 text-slate-400"></i> เลือกหัวข้อเพื่อเปิดอ่าน
+                </span>
+            </div>
+            
+            <div class="flex flex-nowrap justify-start gap-2 overflow-x-auto custom-scrollbar pb-1 px-1">
+                <button id="nav-intro" title="ภาพรวม" onclick="scrollToSection('intro-section')" class="subsidy-tab-btn active whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-circle-info"></i> <span class="btn-text">ภาพรวม</span>
+                </button>
+                <button id="nav-general" title="เงินอุดหนุนทั่วไป" onclick="scrollToSection('general-subsidy')" class="subsidy-tab-btn whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-briefcase"></i> <span class="btn-text">เงินอุดหนุนทั่วไป</span>
+                </button>
+                <button id="nav-specific" title="เงินอุดหนุนเฉพาะกิจ" onclick="scrollToSection('specific-subsidy')" class="subsidy-tab-btn whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-award"></i> <span class="btn-text">เงินอุดหนุนเฉพาะกิจ</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="subsidy-content-wrapper" class="pb-20 transition-all duration-300">
+            <!-- Section: Intro -->
+            <section id="intro-section" class="mb-14 scroll-mt-36 relative z-10">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                        <i class="fa-solid fa-piggy-bank text-2xl text-blue-600"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800">4.4 งบเงินอุดหนุน</h2>
+                </div>
+                
+                <!-- Intro Statement -->
+                    <div class="bg-gradient-to-br from-slate-50 to-slate-100/50 border border-slate-200 rounded-xl p-6 shadow-sm mb-8">
+                        <p class="text-slate-700 text-lg leading-relaxed indent-8">
+                            พิจารณาตั้งงบประมาณภายใต้งบเงินอุดหนุน ให้เป็นไปตาม<strong class="hl-blue font-bold">หลักการจำแนกประเภทรายจ่าย</strong> และจัดสรรงบประมาณให้ตามความจำเป็นอย่างแท้จริง หากมีการอุดหนุนเป็นเงินตราต่างประเทศ ให้ใช้อัตราแลกเปลี่ยนตามที่สำนักงบประมาณกำหนด ทั้งนี้ การเบิกจ่ายงบเงินอุดหนุนที่เบิกจ่ายในลักษณะงบรายจ่ายใด ให้ใช้จ่ายตามหลักเกณฑ์ของงบรายจ่ายนั้นโดยอนุโลม
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Interactive Comparison Dashboard / Flowchart -->
+                <section class="mb-16 relative z-10">
+                    <div class="border border-slate-200 rounded-xl p-6 bg-white shadow-sm space-y-6">
+                        <div class="flex items-center space-x-3 pb-4 border-b border-slate-100">
+                            <div class="p-2 bg-blue-50 rounded-lg text-blue-600">
+                                <!-- Flowchart Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900">แผนภาพตัดสินใจและเปรียบเทียบประเภทงบเงินอุดหนุน</h3>
+                                <p class="text-xs text-slate-500">คลิกเลือกเพื่อดูรายละเอียดและเปรียบเทียบเงื่อนไขการตั้งงบประมาณ</p>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Flowchart Component -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- General Option -->
+                            <div id="flow-general" onclick="selectFlow('general')" class="flow-card cursor-pointer border border-slate-200 bg-slate-50 rounded-xl p-5 hover:border-blue-400 hover:bg-blue-50/10">
+                                <div class="flex items-start justify-between">
+                                    <div class="space-y-1.5">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">เงินอุดหนุนทั่วไป</span>
+                                        <h4 class="font-bold text-slate-900 text-base">อุดหนุนนิติบุคคล/รูปแบบพิเศษ/บำรุงค่าสมาชิก</h4>
+                                    </div>
+                                    <div class="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center bg-white check-icon text-blue-600 font-bold">1</div>
+                                </div>
+                                <p class="text-xs text-slate-500 mt-3 border-t border-slate-200/50 pt-2.5">
+                                    ไม่มีข้อกำหนดรายละเอียดโครงการจำเพาะเจาะจงรายโครงการ
+                                </p>
+                            </div>
+
+                            <!-- Specific Option -->
+                            <div id="flow-specific" onclick="selectFlow('specific')" class="flow-card cursor-pointer border border-slate-200 bg-slate-50 rounded-xl p-5 hover:border-amber-400 hover:bg-amber-50/10">
+                                <div class="flex items-start justify-between">
+                                    <div class="space-y-1.5">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700">เงินอุดหนุนเฉพาะกิจ</span>
+                                        <h4 class="font-bold text-slate-900 text-base">กำหนดรายละเอียดและรายการจำเพาะเจาะจง</h4>
+                                    </div>
+                                    <div class="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center bg-white check-icon text-amber-600 font-bold">2</div>
+                                </div>
+                                <p class="text-xs text-slate-500 mt-3 border-t border-slate-200/50 pt-2.5">
+                                    ต้องกำหนดเป็นรายการและระบุว่าจะให้ดำเนินการเรื่องใดโดยเฉพาะ
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Comparison Detail Box -->
+                        <div id="flow-detail-box" class="hidden border rounded-xl p-5 transition-all duration-300">
+                            <div class="flex items-start space-x-3">
+                                <div id="detail-icon" class="p-2 rounded-lg mt-0.5"></div>
+                                <div class="space-y-2 flex-1">
+                                    <h4 id="detail-title" class="font-bold text-slate-900 text-lg"></h4>
+                                    <div id="detail-desc" class="text-sm text-slate-700 space-y-2"></div>
+                                    <a id="detail-link" href="#" class="inline-flex items-center text-xs font-semibold mt-3 text-blue-600 hover:text-blue-800 transition-colors">
+                                        อ่านรายละเอียดหลักเกณฑ์ข้อนี้ 
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 1: เงินอุดหนุนทั่วไป -->
+                <section id="general-subsidy" class="mb-14 scroll-mt-36 relative z-10 space-y-4">
+                    <!-- Header Boxcard (Standout Gradient) -->
+                    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl p-6 shadow-md flex items-center space-x-4 transition-all duration-300 hover:shadow-lg">
+                        <div class="p-3 bg-white/10 rounded-lg text-white">
+                            <!-- Briefcase Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold">เงินอุดหนุนทั่วไป</h2>
+                            <p class="text-blue-100 text-sm">การจัดตั้งงบประมาณสำหรับนิติบุคคล รูปแบบพิเศษ และบำรุงค่าสมาชิก</p>
+                        </div>
+                    </div>
+
+                    <!-- Details Boxcard -->
+                    <div id="card-general" class="border border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-xl p-6 shadow-sm transition-all duration-300 space-y-6">
+                        <div>
+                            <p class="text-lg font-medium text-slate-700 pl-1">มีหลักเกณฑ์ ดังนี้</p>
+                        </div>
+
+                        <!-- Items List -->
+                        <div class="space-y-6">
+                        <!-- Item (1) -->
+                        <div class="border border-slate-200 hover:border-blue-300 bg-white/70 hover:bg-blue-50/5 rounded-xl p-6 shadow-sm transition-all duration-300 group">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 group-hover:bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm flex-shrink-0 transition-colors">
+                                    1
+                                </div>
+                                <div class="space-y-4 flex-1">
+                                    <p class="text-slate-700 leading-relaxed">
+                                        <strong class="hl-blue font-bold">หน่วยรับงบประมาณ</strong> ที่มีพันธกิจในการอุดหนุนนิติบุคคล เอกชน กิจการอันเป็นสาธารณประโยชน์ หรือองค์กรต่าง ๆ ที่มิใช่ส่วนราชการหรือรัฐวิสาหกิจ <strong class="hl-blue font-bold">ให้ตั้งงบประมาณในงบเงินอุดหนุน ประเภทเงินอุดหนุนทั่วไปเท่านั้น</strong> เพื่ออุดหนุนให้เป็นไปตามวัตถุประสงค์ในการขอรับเงินอุดหนุน รวมทั้งให้กำหนดหลักเกณฑ์และวิธีการติดตามผลการใช้จ่ายเงินอุดหนุนนั้นด้วย
+                                    </p>
+                                    <p class="text-slate-600 text-sm leading-relaxed ml-4 py-0.5">
+                                        กรณีรัฐวิสาหกิจที่มีกฎหมายหรือระเบียบกำหนดให้รัฐพึงจ่ายเงินกรณีรายได้ไม่เพียงพอ หรือเงินอุดหนุนบริการสาธารณะให้ตั้งงบประมาณในงบเงินอุดหนุน
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item (2) -->
+                        <div class="border border-slate-200 hover:border-blue-300 bg-white/70 hover:bg-blue-50/5 rounded-xl p-6 shadow-sm transition-all duration-300 group">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 group-hover:bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm flex-shrink-0 transition-colors">
+                                    2
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-slate-700 leading-relaxed">
+                                        <strong class="hl-blue font-bold">หน่วยงานรูปแบบพิเศษ</strong> ที่มีกฎหมายบัญญัติให้ตั้งงบประมาณเป็นงบเงินอุดหนุน เพื่อเป็นรายรับหรือรายได้ของหน่วยงานนั้น ๆ เช่น หน่วยงานอิสระของรัฐ หน่วยงานในกำกับของรัฐ หน่วยงานของศาล องค์การมหาชน องค์กรปกครองส่วนท้องถิ่น เป็นต้น
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item (3) -->
+                        <div class="border border-slate-200 hover:border-blue-300 bg-white/70 hover:bg-blue-50/5 rounded-xl p-6 shadow-sm transition-all duration-300 group">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 group-hover:bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm flex-shrink-0 transition-colors">
+                                    3
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-slate-700 leading-relaxed">
+                                        สำหรับเงินบำรุงและค่าสมาชิกให้แก่องค์การระหว่างประเทศ สถาบัน สมาคม ให้ตั้งตามข้อผูกพันและข้อตกลง หรือตามมติคณะรัฐมนตรี ควรให้ความสำคัญกับการทบทวนสถานภาพการเป็นสมาชิก โดยตั้งงบประมาณเฉพาะรายการที่คาดว่าประเทศจะได้รับผลประโยชน์ตอบแทนอย่างคุ้มค่าเท่านั้น
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item (4) -->
+                        <div class="border border-slate-200 hover:border-blue-300 bg-white/70 hover:bg-blue-50/5 rounded-xl p-6 shadow-sm transition-all duration-300 group">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 group-hover:bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm flex-shrink-0 transition-colors">
+                                    4
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-slate-700 leading-relaxed">
+                                        ในกรณีเงินอุดหนุนสมาชิกองค์กร สถาบัน หรือสมาคมเดียวกันที่มีหลายหน่วยงานเป็นสมาชิก ให้พิจารณาตั้งงบประมาณดังกล่าวให้เป็นมาตรฐานเดียวกันทุกหน่วยงาน และตรวจสอบไม่ให้มีการตั้งงบประมาณซ้ำซ้อนกัน
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item (5) -->
+                        <div class="border border-slate-200 hover:border-blue-300 bg-white/70 hover:bg-blue-50/5 rounded-xl p-6 shadow-sm transition-all duration-300 group">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 group-hover:bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm flex-shrink-0 transition-colors">
+                                    5
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-slate-700 leading-relaxed">
+                                        กรณีเงินอุดหนุนให้หน่วยงานรูปแบบพิเศษ ให้คำนึงถึงประสิทธิภาพของการใช้จ่ายงบประมาณและภาระของงบประมาณภาครัฐในระยะยาว รวมทั้งความเป็นธรรมเมื่อเทียบเคียงกับหน่วยงานภาครัฐอื่น และให้นำงบการเงินมาประกอบการพิจารณาด้วย
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                <!-- Section 2: เงินอุดหนุนเฉพาะกิจ -->
+                <section id="specific-subsidy" class="mb-8 scroll-mt-36 relative z-10 space-y-4">
+                    <!-- Header Boxcard (Standout Gradient) -->
+                    <div class="bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl p-6 shadow-md flex items-center space-x-4 transition-all duration-300 hover:shadow-lg">
+                        <div class="p-3 bg-white/10 rounded-lg text-white">
+                            <!-- Target/Badge Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold">เงินอุดหนุนเฉพาะกิจ</h2>
+                            <p class="text-amber-100 text-sm">การจัดตั้งงบประมาณกำหนดรายการและวัตถุประสงค์เฉพาะเจาะจง</p>
+                        </div>
+                    </div>
+
+                    <!-- Details Boxcard -->
+                    <div id="card-specific" class="border border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-xl p-6 shadow-sm transition-all duration-300 space-y-6">
+                        <!-- Paragraph Cards -->
+                        <div class="space-y-6">
+                        <div class="border border-slate-200 hover:border-amber-300 bg-white/70 hover:bg-amber-50/5 rounded-xl p-6 shadow-sm transition-all duration-300 group">
+                            <p class="text-slate-700 leading-relaxed indent-8">
+                                หน่วยรับงบประมาณที่มีพันธกิจในการอุดหนุนนิติบุคคล เอกชน กิจการอันเป็นสาธารณประโยชน์ หรือองค์กรต่าง ๆ ที่มิใช่ส่วนราชการหรือรัฐวิสาหกิจ โดยกำหนดเป็นรายการและมีรายละเอียดอย่างจำเพาะว่าจะให้ดำเนินการในเรื่องใด <strong class="hl-blue font-bold">ให้ตั้งงบประมาณในงบเงินอุดหนุน ประเภทเงินอุดหนุนเฉพาะกิจเท่านั้น</strong> และรายการใดเข้าลักษณะตามงบรายจ่ายใด ให้ใช้จ่ายตามหลักเกณฑ์ของงบรายจ่ายนั้น
+                            </p>
+                        </div>
+
+                        <div class="border border-slate-200 hover:border-amber-300 bg-white/70 hover:bg-amber-50/5 rounded-xl p-6 shadow-sm transition-all duration-300 group">
+                            <p class="text-slate-700 leading-relaxed indent-8">
+                                นอกจากนี้ การตั้งงบประมาณอุดหนุนให้รัฐวิสาหกิจเป็นผู้ดำเนินการให้ตั้งเป็นรายการเงินอุดหนุนที่จะใช้จ่ายนั้นเอง เช่น รัฐวิสาหกิจตั้งเงินอุดหนุนการบริหารงานของรัฐวิสาหกิจเอง และหน่วยงานรูปแบบพิเศษที่มีกฎหมายกำหนดให้ตั้งเป็นเงินอุดหนุน ได้แก่ หน่วยงานในกำกับ มหาวิทยาลัยในกำกับ องค์การมหาชน และสภากาชาดไทย ให้ตั้งงบประมาณเป็นเงินอุดหนุนตามการจำแนกงบรายจ่าย
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+                
+            </div> <!-- end of #subsidy-content-wrapper -->
+        </div> <!-- end of #subsidy-root -->
+
+        <!-- Scroll to Top Button -->
+        <button id="scroll-to-top" class="fixed bottom-6 right-6 p-3 rounded-full bg-primary text-white shadow-lg opacity-0 pointer-events-none hover:bg-blue-800 transition-all duration-300 focus:outline-none z-50">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </button>
+
+        <!-- Hidden GIF to attach JS Functions ensuring execution when injected via innerHTML -->
+        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" style="display:none;" onload="
+            // Cleanup any existing subsidy nav from body root to avoid duplicates on re-injection
+            Array.from(document.body.children).forEach(child => {
+                if (child.id === 'subsidy-sticky-nav') child.remove();
+            });
+
+            window.scrollToSection = function(sectionId) {
+                const targetSec = document.getElementById(sectionId);
+                if(targetSec) {
+                    const nav = document.getElementById('subsidy-sticky-nav');
+                    const wasScrolled = nav ? nav.classList.contains('scrolled') : false;
+                    
+                    requestAnimationFrame(() => {
+                        let y = wasScrolled ? 
+                            targetSec.getBoundingClientRect().top + window.pageYOffset - 120 : 
+                            targetSec.getBoundingClientRect().top + window.pageYOffset - 130;
+                        
+                        window.scrollTo({top: y, behavior: 'smooth'});
+                    });
+                }
+            };
+
+            if (window.subsidyScrollListener) {
+                window.removeEventListener('scroll', window.subsidyScrollListener);
+            }
+            window.subsidyScrollListener = function() {
+                const nav = document.getElementById('subsidy-sticky-nav');
+                const placeholder = document.getElementById('subsidy-nav-placeholder');
+                const wrapper = document.getElementById('subsidy-content-wrapper');
+                const root = document.getElementById('subsidy-root');
+                if(!nav) return;
+                
+                const threshold = root ? root.offsetTop + 100 : 200;
+                
+                if(window.scrollY > threshold) {
+                    if (!nav.classList.contains('scrolled')) {
+                        if (placeholder) {
+                            placeholder.style.height = nav.offsetHeight + 'px';
+                            placeholder.style.marginBottom = '2rem';
+                            placeholder.style.display = 'block';
+                        }
+                        nav.classList.add('scrolled');
+                        document.body.appendChild(nav);
+                        
+                        if (wrapper && window.innerWidth < 1400) {
+                            wrapper.style.paddingLeft = window.innerWidth < 768 ? '3.5rem' : '4.5rem';
+                        }
+                    }
+                } else {
+                    if (nav.classList.contains('scrolled')) {
+                        nav.classList.remove('scrolled');
+                        if (root && placeholder) root.insertBefore(nav, placeholder.nextSibling);
+                        
+                        if (placeholder) placeholder.style.display = 'none';
+                        if (wrapper) wrapper.style.paddingLeft = '0';
+                    }
+                }
+
+                // Sync Active Navigation highlights & Sync Boxcards
+                const sections = [
+                    document.getElementById('intro-section'),
+                    document.getElementById('general-subsidy'),
+                    document.getElementById('specific-subsidy')
+                ];
+                const navMap = {
+                    'intro-section': document.getElementById('nav-intro'),
+                    'general-subsidy': document.getElementById('nav-general'),
+                    'specific-subsidy': document.getElementById('nav-specific')
+                };
+                const cardMap = {
+                    'general-subsidy': 'card-general',
+                    'specific-subsidy': 'card-specific'
+                };
+                const activeClasses = {
+                    'card-general': 'active-general',
+                    'card-specific': 'active-specific'
+                };
+
+                let activeSectionId = null;
+                const triggerPoint = window.innerHeight / 3;
+                
+                sections.forEach(sec => {
+                    if (!sec) return;
+                    const rect = sec.getBoundingClientRect();
+                    if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
+                        activeSectionId = sec.id;
+                    }
+                });
+
+                if (activeSectionId) {
+                    Object.values(navMap).forEach(btn => {
+                        if (btn) btn.classList.remove('active');
+                    });
+                    const activeBtn = navMap[activeSectionId];
+                    if (activeBtn) {
+                        activeBtn.classList.add('active');
+                        if (!nav.classList.contains('scrolled')) {
+                            activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                        }
+                    }
+
+                    // Sync Boxcard active highlights
+                    Object.keys(activeClasses).forEach(cardId => {
+                        const cardEl = document.getElementById(cardId);
+                        if (cardEl) cardEl.classList.remove('boxcard-active', activeClasses[cardId]);
+                    });
+                    const targetCardId = cardMap[activeSectionId];
+                    if (targetCardId) {
+                        const targetCard = document.getElementById(targetCardId);
+                        if (targetCard) targetCard.classList.add('boxcard-active', activeClasses[targetCardId]);
+                    }
+                }
+            };
+            window.addEventListener('scroll', window.subsidyScrollListener);
+            window.subsidyScrollListener();
+
+            if (window.subsidyResizeListener) {
+                window.removeEventListener('resize', window.subsidyResizeListener);
+            }
+            window.subsidyResizeListener = function() {
+                const nav = document.getElementById('subsidy-sticky-nav');
+                const wrapper = document.getElementById('subsidy-content-wrapper');
+                if(nav && nav.classList.contains('scrolled') && wrapper) {
+                    wrapper.style.paddingLeft = window.innerWidth < 1400 ? (window.innerWidth < 768 ? '3.5rem' : '4.5rem') : '0';
+                }
+            };
+            window.addEventListener('resize', window.subsidyResizeListener);
+
+            // Back to Top Button
+            const scrollToTopBtn = document.getElementById('scroll-to-top');
+            if (scrollToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        scrollToTopBtn.classList.add('opacity-100');
+                    } else {
+                        scrollToTopBtn.classList.remove('opacity-100');
+                        scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                });
+                scrollToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // selectFlow implementation
+            window.selectFlow = function(type) {
+                const flowGen = document.getElementById('flow-general');
+                const flowSpec = document.getElementById('flow-specific');
+                const detailBox = document.getElementById('flow-detail-box');
+                const detailIcon = document.getElementById('detail-icon');
+                const detailTitle = document.getElementById('detail-title');
+                const detailDesc = document.getElementById('detail-desc');
+                const detailLink = document.getElementById('detail-link');
+
+                if (!flowGen || !flowSpec || !detailBox) return;
+
+                flowGen.classList.remove('flow-card-active-general');
+                flowSpec.classList.remove('flow-card-active-specific');
+                
+                flowGen.querySelector('.check-icon').classList.replace('bg-blue-600', 'bg-white');
+                flowGen.querySelector('.check-icon').classList.replace('text-white', 'text-blue-600');
+                flowSpec.querySelector('.check-icon').classList.replace('bg-amber-600', 'bg-white');
+                flowSpec.querySelector('.check-icon').classList.replace('text-white', 'text-amber-600');
+
+                detailBox.classList.remove('hidden');
+
+                if (type === 'general') {
+                    flowGen.classList.add('flow-card-active-general');
+                    flowGen.querySelector('.check-icon').classList.replace('bg-white', 'bg-blue-600');
+                    flowGen.querySelector('.check-icon').classList.replace('text-blue-600', 'text-white');
+                    
+                    detailBox.style.borderColor = '#93c5fd';
+                    detailBox.style.backgroundColor = '#eff6ff';
+                    detailIcon.style.backgroundColor = '#dbeafe';
+                    detailIcon.style.color = '#1d4ed8';
+                    
+                    detailIcon.innerHTML = `
+                        <svg xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-6 w-6&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;currentColor&quot;>
+                            <path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z&quot; />
+                        </svg>
+                    `;
+                    detailTitle.innerText = 'เงื่อนไขและหลักเกณฑ์: เงินอุดหนุนทั่วไป';
+                    detailDesc.innerHTML = `
+                        <ul class=&quot;list-disc pl-5 space-y-1 text-slate-700&quot;>
+                            <li>ใช้สำหรับอุดหนุนตามพันธกิจแก่นิติบุคคล เอกชน กิจการที่เป็นสาธารณประโยชน์ หรือองค์การต่าง ๆ</li>
+                            <li>ครอบคลุมหน่วยงานรูปแบบพิเศษ เช่น หน่วยงานอิสระ, ศาล, ในกำกับ, องค์การมหาชน, อปท. เพื่อตั้งเป็นรายรับ</li>
+                            <li>รวมถึงเงินบำรุงและค่าสมาชิกแก่องค์การระหว่างประเทศ สมาคม หรือสถาบันต่างๆ</li>
+                            <li>เน้นการควบรวมงบประมาณให้มีมาตรฐานเดียวกันในกรณีสมาชิกซ้ำซ้อนกัน และประเมินประสิทธิภาพในระยะยาว</li>
+                        </ul>
+                    `;
+                    detailLink.onclick = function(e) { e.preventDefault(); scrollToSection('general-subsidy'); };
+                } else if (type === 'specific') {
+                    flowSpec.classList.add('flow-card-active-specific');
+                    flowSpec.querySelector('.check-icon').classList.replace('bg-white', 'bg-amber-600');
+                    flowSpec.querySelector('.check-icon').classList.replace('text-amber-600', 'text-white');
+                    
+                    detailBox.style.borderColor = '#fde047';
+                    detailBox.style.backgroundColor = '#fffbeb';
+                    detailIcon.style.backgroundColor = '#fef3c7';
+                    detailIcon.style.color = '#b45309';
+                    
+                    detailIcon.innerHTML = `
+                        <svg xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-6 w-6&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;currentColor&quot;>
+                            <path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z&quot; />
+                        </svg>
+                    `;
+                    detailTitle.innerText = 'เงื่อนไขและหลักเกณฑ์: เงินอุดหนุนเฉพาะกิจ';
+                    detailDesc.innerHTML = `
+                        <ul class=&quot;list-disc pl-5 space-y-1 text-slate-700&quot;>
+                            <li>ตั้งงบประมาณเมื่อมีการกำหนดรายการและมีรายละเอียดอย่างจำเพาะเจาะจงว่าจะให้ดำเนินงานในเรื่องใด</li>
+                            <li>หากเป็นเงินอุดหนุนที่รัฐวิสาหกิจเป็นผู้ดำเนินการ ต้องตั้งเป็นรายการเงินอุดหนุนที่จะใช้จ่ายนั้นเอง (เช่น บริหารงานของตนเอง)</li>
+                            <li>หน่วยงานรูปแบบพิเศษ ได้แก่ หน่วยงานในกำกับ มหาวิทยาลัยในกำกับ องค์การมหาชน และสภากาชาดไทย ให้จำแนกงบเงินอุดหนุนตามการจำแนกงบรายจ่าย</li>
+                        </ul>
+                    `;
+                    detailLink.onclick = function(e) { e.preventDefault(); scrollToSection('specific-subsidy'); };
+                }
+            };
+
+            // Initial trigger
+            setTimeout(() => {
+                window.subsidyScrollListener();
+            }, 100);
+        ">
+</body>
+</html>

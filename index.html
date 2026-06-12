@@ -801,6 +801,18 @@
                                                     class="fa-solid fa-building-columns w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
                                                 พ.ร.บ. วินัยการเงินการคลังของรัฐ
                                             </a>
+                                            <a id="nav-nacc-act" onclick="loadPage('nacc-act.html', this)"
+                                                class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i
+                                                    class="fa-solid fa-scale-balanced w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
+                                                พ.ร.ป. ป.ป.ช. พ.ศ. 2561
+                                            </a>
+                                            <a id="nav-nacc-cases" onclick="loadPage('nacc-cases.html', this)"
+                                                class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
+                                                <i
+                                                    class="fa-solid fa-gavel w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
+                                                กรณีศึกษาคดีทุจริต ป.ป.ช.
+                                            </a>
                                             <a id="nav-budget-reg" onclick="loadPage('budget-reg.html', this)"
                                                 class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
                                                 <i
@@ -893,6 +905,12 @@
                                         class="fa-solid fa-coins w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
                                     งบลงทุน
                                 </a>
+                                <a id="nav-subsidy" onclick="loadPage('Subsidy.html', this)"
+                                    class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/item">
+                                    <i
+                                        class="fa-solid fa-hand-holding-dollar w-4 text-center transition-transform duration-300 group-hover/item:scale-125"></i>
+                                    งบเงินอุดหนุน
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -974,6 +992,11 @@
                 <i class="fa-solid fa-building-columns text-xs w-4 text-center opacity-70"></i> พ.ร.บ.
                 วินัยการเงินการคลังของรัฐ
             </a>
+            <a id="nav-nacc-act-mobile"
+                onclick="loadPage('nacc-act.html', document.getElementById('nav-nacc-act')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
+                <i class="fa-solid fa-scale-balanced text-xs w-4 text-center opacity-70"></i> พ.ร.ป. ป.ป.ช. พ.ศ. 2561
+            </a>
             <a id="nav-budget-reg-mobile"
                 onclick="loadPage('budget-reg.html', document.getElementById('nav-budget-reg')); closeMobileMenu();"
                 class="nav-link-mobile cursor-pointer p-2.5 pl-14 rounded-xl flex items-center gap-3 transition-colors font-semibold text-slate-400 hover:text-white">
@@ -1042,6 +1065,11 @@
                 onclick="loadPage('investment.html', document.getElementById('nav-investment')); closeMobileMenu();"
                 class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
                 <i class="fa-solid fa-coins text-md w-6 text-center opacity-80"></i> งบลงทุน
+            </a>
+            <a id="nav-subsidy-mobile"
+                onclick="loadPage('Subsidy.html', document.getElementById('nav-subsidy')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 pl-8 rounded-xl flex items-center gap-3 transition-colors font-semibold">
+                <i class="fa-solid fa-hand-holding-dollar text-md w-6 text-center opacity-80"></i> งบเงินอุดหนุน
             </a>
 
             <!-- Group: ประเมินผล -->
@@ -1355,7 +1383,7 @@
         }
 
         function cleanupOrphanedNavs() {
-            ['personnel-sticky-nav', 'operation-sticky-nav', 'investment-sticky-nav'].forEach(id => {
+            ['personnel-sticky-nav', 'operation-sticky-nav', 'investment-sticky-nav', 'subsidy-sticky-nav'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.remove();
             });
@@ -1376,6 +1404,33 @@
             setActiveNav(navElement);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        window.goToLawSection = function (pageUrl, sectionNum) {
+            const navId = pageUrl === 'nacc-act.html' ? 'nav-nacc-act' : 'nav-law-act';
+            const navEl = document.getElementById(navId);
+            return loadPage(pageUrl, navEl).then(() => {
+                setTimeout(() => {
+                    const cards = document.querySelectorAll('.section-card');
+                    let targetCard = null;
+                    for (let card of cards) {
+                        if (card.getAttribute('data-section-num') === String(sectionNum)) {
+                            targetCard = card;
+                            break;
+                        }
+                    }
+                    if (targetCard) {
+                        const yOffset = -100;
+                        const y = targetCard.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+
+                        targetCard.classList.add('ring-4', 'ring-amber-500/30', 'border-amber-500');
+                        setTimeout(() => {
+                            targetCard.classList.remove('ring-4', 'ring-amber-500/30', 'border-amber-500');
+                        }, 3000);
+                    }
+                }, 400);
+            });
+        };
 
         async function loadPage(pageUrl, navElement) {
             try {
@@ -1424,9 +1479,16 @@
                 }
 
                 // เริ่มการทำงานของ Law Search & Navigation หากเปิดหน้า law-act.html, fiscal-act.html, budget-reg.html, rule-transfer.html หรือ debt-commitment.html
-                if (pageUrl === 'law-act.html' || pageUrl === 'fiscal-act.html' || pageUrl === 'budget-reg.html' || pageUrl === 'rule-transfer.html' || pageUrl === 'debt-commitment.html' || pageUrl === 'integration-transfer.html' || pageUrl === 'procurement-act.html' || pageUrl === 'finance-reg.html') {
+                if (pageUrl === 'law-act.html' || pageUrl === 'fiscal-act.html' || pageUrl === 'budget-reg.html' || pageUrl === 'rule-transfer.html' || pageUrl === 'debt-commitment.html' || pageUrl === 'integration-transfer.html' || pageUrl === 'procurement-act.html' || pageUrl === 'finance-reg.html' || pageUrl === 'nacc-act.html') {
                     if (typeof window.initLawAct === 'function') {
                         window.initLawAct();
+                    }
+                }
+
+                // เริ่มการทำงานของ NACC Cases Search & Filter หากเปิดหน้า nacc-cases.html
+                if (pageUrl === 'nacc-cases.html') {
+                    if (typeof window.initNaccCases === 'function') {
+                        window.initNaccCases();
                     }
                 }
 
@@ -1883,6 +1945,216 @@
             }, 100);
         };
 
+        window.initNaccCases = function () {
+            setTimeout(() => {
+                const searchInput = document.getElementById('case-search');
+                const clearBtn = document.getElementById('case-clear-btn');
+                const searchStatus = document.getElementById('case-search-status');
+                const searchCount = document.getElementById('case-search-count');
+                const cards = document.querySelectorAll('.case-card');
+                const noResults = document.getElementById('no-case-results');
+                const categoryBtns = document.querySelectorAll('.category-btn');
+                const sidebarLinks = document.querySelectorAll('.sidebar-case-link');
+
+                if (!searchInput) return;
+
+                let activeCategory = 'all';
+
+                // Helper to filter and search cases
+                function applyFilterAndSearch() {
+                    let query = searchInput.value.trim().toLowerCase();
+                    // Convert Thai numbers to Arabic numbers in search query
+                    query = query.replace(/[๐-๙]/g, function (d) {
+                        return "๐๑๒๓๔๕๖๗๘๙".indexOf(d);
+                    });
+
+                    let matchCount = 0;
+
+                    cards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category') || '';
+                        const secNum = card.getAttribute('data-section-num') || '';
+                        const secNumThai = card.getAttribute('data-section-num-thai') || '';
+                        const text = card.textContent.toLowerCase();
+
+                        const matchesCategory = activeCategory === 'all' || cardCategory === activeCategory;
+                        
+                        let matchesSearch = true;
+                        if (query !== '') {
+                            const isNumMatch = secNum.includes(query) || secNumThai.includes(query) ||
+                                `มาตรา${secNum}`.includes(query) || `มาตรา${secNumThai}`.includes(query) ||
+                                `มาตรา ${secNum}`.includes(query) || `มาตรา ${secNumThai}`.includes(query);
+                            const isTextMatch = text.includes(query);
+                            matchesSearch = isNumMatch || isTextMatch;
+                        }
+
+                        if (matchesCategory && matchesSearch) {
+                            card.classList.remove('hidden');
+                            matchCount++;
+                            if (query !== '') {
+                                highlightText(card, query);
+                            } else {
+                                removeHighlights(card);
+                            }
+                        } else {
+                            card.classList.add('hidden');
+                            removeHighlights(card);
+                        }
+                    });
+
+                    // Update count
+                    if (query !== '' || activeCategory !== 'all') {
+                        searchCount.textContent = matchCount;
+                        searchStatus.classList.remove('hidden');
+                    } else {
+                        searchStatus.classList.add('hidden');
+                    }
+
+                    if (matchCount === 0) {
+                        noResults.classList.remove('hidden');
+                    } else {
+                        noResults.classList.add('hidden');
+                    }
+                }
+
+                // Search Input listener
+                searchInput.addEventListener('input', function () {
+                    if (searchInput.value.trim() !== '') {
+                        clearBtn.classList.remove('hidden');
+                    } else {
+                        clearBtn.classList.add('hidden');
+                    }
+                    applyFilterAndSearch();
+                });
+
+                // Clear button listener
+                clearBtn.addEventListener('click', function () {
+                    searchInput.value = '';
+                    clearBtn.classList.add('hidden');
+                    applyFilterAndSearch();
+                });
+
+                // Category Buttons listener
+                categoryBtns.forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        // Reset active classes
+                        categoryBtns.forEach(b => {
+                            b.className = 'category-btn px-4 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-300 bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100';
+                        });
+                        // Set active class to this button
+                        this.className = 'category-btn px-4 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-300 bg-amber-500 text-white border-amber-500 shadow-sm shadow-amber-500/10';
+                        
+                        activeCategory = this.getAttribute('data-category');
+                        applyFilterAndSearch();
+                    });
+                });
+
+                // Text Highlights management
+                function removeHighlights(card) {
+                    const textElements = card.querySelectorAll('.sec-text-content');
+                    textElements.forEach(el => {
+                        if (el.getAttribute('data-orig-html')) {
+                            el.innerHTML = el.getAttribute('data-orig-html');
+                        }
+                    });
+                }
+
+                function highlightText(card, query) {
+                    const textElements = card.querySelectorAll('.sec-text-content');
+                    textElements.forEach(el => {
+                        if (!el.getAttribute('data-orig-html')) {
+                            el.setAttribute('data-orig-html', el.innerHTML);
+                        }
+
+                        const origHTML = el.getAttribute('data-orig-html');
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = origHTML;
+
+                        highlightNode(tempDiv, query);
+                        el.innerHTML = tempDiv.innerHTML;
+                    });
+                }
+
+                function highlightNode(node, query) {
+                    if (node.nodeType === 3) {
+                        const text = node.nodeValue;
+                        const lowerText = text.toLowerCase();
+                        let currentIdx = lowerText.indexOf(query);
+
+                        if (currentIdx !== -1) {
+                            const frag = document.createDocumentFragment();
+                            let lastIdx = 0;
+
+                            while (currentIdx !== -1) {
+                                if (currentIdx > lastIdx) {
+                                    frag.appendChild(document.createTextNode(text.substring(lastIdx, currentIdx)));
+                                }
+                                const mark = document.createElement('mark');
+                                mark.className = 'bg-amber-50 text-amber-700 font-bold px-1 py-0.5 rounded border border-amber-200/60 shadow-sm transition-all duration-300';
+                                mark.textContent = text.substring(currentIdx, currentIdx + query.length);
+                                frag.appendChild(mark);
+
+                                lastIdx = currentIdx + query.length;
+                                currentIdx = lowerText.indexOf(query, lastIdx);
+                            }
+
+                            if (lastIdx < text.length) {
+                                frag.appendChild(document.createTextNode(text.substring(lastIdx)));
+                            }
+
+                            node.parentNode.replaceChild(frag, node);
+                        }
+                    } else if (node.nodeType === 1 && node.childNodes && !/^(style|script)$/i.test(node.tagName)) {
+                        for (let i = node.childNodes.length - 1; i >= 0; i--) {
+                            highlightNode(node.childNodes[i], query);
+                        }
+                    }
+                }
+
+                // Sidebar navigation clicking
+                sidebarLinks.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetEl = document.getElementById(targetId);
+                        if (targetEl) {
+                            const yOffset = -90;
+                            const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                            window.scrollTo({ top: y, behavior: 'smooth' });
+
+                            sidebarLinks.forEach(l => {
+                                l.className = 'sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200';
+                            });
+                            this.className = 'sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-amber-600 text-amber-600 bg-amber-50/50 pl-4 font-semibold transition-all duration-200';
+                        }
+                    });
+                });
+
+                // Scroll Spy for sidebar links
+                if (cards.length > 0 && sidebarLinks.length > 0) {
+                    const scrollSpyOptions = {
+                        root: null,
+                        rootMargin: '-10% 0px -60% 0px',
+                        threshold: 0
+                    };
+
+                    const scrollSpy = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && !entry.target.classList.contains('hidden')) {
+                                sidebarLinks.forEach(link => {
+                                    link.className = 'sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200';
+                                    if (link.getAttribute('href') === `#${entry.target.id}`) {
+                                        link.className = 'sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-amber-600 text-amber-600 bg-amber-50/50 pl-4 font-semibold transition-all duration-200';
+                                    }
+                                });
+                            }
+                        });
+                    }, scrollSpyOptions);
+
+                    cards.forEach(card => scrollSpy.observe(card));
+                }
+            }, 100);
+        };
+
         window.toggleMobileChaptersSheet = function () {
             const sheet = document.getElementById('mobile-chapters-sheet');
             if (sheet) {
@@ -1919,6 +2191,8 @@
                 const lawPages = [
                     { file: 'law-act.html', title: 'พ.ร.บ. วิธีการงบประมาณ พ.ศ. 2561', icon: 'fa-solid fa-file-shield', color: 'blue', navId: 'nav-law-act' },
                     { file: 'fiscal-act.html', title: 'พ.ร.บ. วินัยการเงินการคลังของรัฐ พ.ศ. 2561', icon: 'fa-solid fa-building-columns', color: 'indigo', navId: 'nav-fiscal-act' },
+                    { file: 'nacc-act.html', title: 'พ.ร.ป. ป.ป.ช. พ.ศ. 2561', icon: 'fa-solid fa-scale-balanced', color: 'amber', navId: 'nav-nacc-act' },
+                    { file: 'nacc-cases.html', title: 'กรณีศึกษาคดีทุจริต ป.ป.ช. (คำพิพากษาและชี้มูลความผิด)', icon: 'fa-solid fa-gavel', color: 'amber', navId: 'nav-nacc-cases' },
                     { file: 'budget-reg.html', title: 'ระเบียบว่าด้วยการบริหารงบประมาณ พ.ศ. 2562 และที่แก้ไขเพิ่มเติม', icon: 'fa-solid fa-file-invoice-dollar', color: 'teal', navId: 'nav-budget-reg' },
                     { file: 'rule-transfer.html', title: 'หลักเกณฑ์การใช้งบประมาณรายจ่ายการโอนเงิน พ.ศ. 2562', icon: 'fa-solid fa-money-bill-transfer', color: 'emerald', navId: 'nav-rule-transfer' },
                     { file: 'debt-commitment.html', title: 'ระเบียบว่าด้วยการก่อหนี้ผูกพันงบประมาณข้ามปี พ.ศ. 2562', icon: 'fa-solid fa-file-contract', color: 'amber', navId: 'nav-debt-commitment' },

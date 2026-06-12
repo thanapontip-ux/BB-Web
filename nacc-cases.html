@@ -1,0 +1,765 @@
+
+<div class="space-y-8 animate-fade-in relative pb-16 lg:pb-0 font-sans">
+    <!-- Animated Premium Light-Theme Background (Fixed behind the content) -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-[-1]" aria-hidden="true">
+        <!-- Soft Blurry Pastel Blobs -->
+        <div class="absolute top-[10%] left-[-15%] w-[35rem] h-[35rem] rounded-full bg-amber-200/20 blur-[120px] animate-blob-float-1"></div>
+        <div class="absolute top-[45%] right-[-15%] w-[42rem] h-[42rem] rounded-full bg-amber-100/15 blur-[140px] animate-blob-float-2"></div>
+        <div class="absolute bottom-[15%] left-[-5%] w-[38rem] h-[38rem] rounded-full bg-yellow-100/20 blur-[130px] animate-blob-float-3"></div>
+        <div class="absolute bottom-[-10%] right-[10%] w-[30rem] h-[30rem] rounded-full bg-amber-200/15 blur-[100px] animate-blob-float-1"></div>
+
+        <!-- Elegant Flowing Light SVG Curves -->
+        <svg class="absolute inset-0 w-full h-full opacity-60" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="light-curve-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#d97706" stop-opacity="0.15"/>
+                    <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.15"/>
+                    <stop offset="100%" stop-color="#b45309" stop-opacity="0.15"/>
+                </linearGradient>
+                <linearGradient id="light-curve-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#b45309" stop-opacity="0.12"/>
+                    <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.12"/>
+                    <stop offset="100%" stop-color="#d97706" stop-opacity="0.12"/>
+                </linearGradient>
+            </defs>
+            <path d="M -100 200 C 300 100, 100 800, 700 650 C 1300 500, 900 1200, 1500 1000" 
+                  fill="none" stroke="url(#light-curve-grad-1)" stroke-width="1.5" stroke-dasharray="15 20" class="animate-svg-flow-1"/>
+            <path d="M 100 1800 C 500 1500, 300 2300, 900 2000 C 1500 1700, 1100 2600, 1700 2400" 
+                  fill="none" stroke="url(#light-curve-grad-2)" stroke-width="1.5" stroke-dasharray="12 16" class="animate-svg-flow-2"/>
+        </svg>
+    </div>
+
+    <style>
+        /* Light-theme background floating animation blobs */
+        @keyframes blob-float-1 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(40px, -60px) scale(1.05); }
+            66% { transform: translate(-30px, 30px) scale(0.95); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes blob-float-2 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(0.92); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes blob-float-3 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(50px, 30px) scale(0.96); }
+            66% { transform: translate(-40px, -50px) scale(1.03); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob-float-1 {
+            animation: blob-float-1 30s infinite ease-in-out;
+        }
+        .animate-blob-float-2 {
+            animation: blob-float-2 35s infinite ease-in-out;
+        }
+        .animate-blob-float-3 {
+            animation: blob-float-3 32s infinite ease-in-out;
+        }
+
+        /* SVG flow animations */
+        @keyframes svg-flow-1 {
+            to { stroke-dashoffset: -1000; }
+        }
+        @keyframes svg-flow-2 {
+            to { stroke-dashoffset: 1000; }
+        }
+        .animate-svg-flow-1 {
+            animation: svg-flow-1 80s linear infinite;
+        }
+        .animate-svg-flow-2 {
+            animation: svg-flow-2 100s linear infinite;
+        }
+    </style>
+
+    <!-- Ambient amber glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-gradient-to-b from-amber-500/5 to-transparent rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    
+    <!-- Header Hero Card -->
+    <div class="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-[2rem] p-8 md:p-12 shadow-2xl border border-white/10 relative overflow-hidden">
+        <!-- Accent circles -->
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl"></div>
+        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl"></div>
+        
+        <div class="relative flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="px-4 py-1.5 bg-amber-500/20 border border-amber-500/30 text-amber-400 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> กรณีศึกษาจริง
+                    </span>
+                    <span class="px-4 py-1.5 bg-white/5 border border-white/10 text-slate-300 rounded-full text-xs font-semibold">
+                        พ.ร.ป. ป้องกันและปราบปรามการทุจริต
+                    </span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight font-sans">
+                    กรณีศึกษาคดีทุจริตคดีจริง<br>ตามพระราชบัญญัติประกอบรัฐธรรมนูญ <span class="text-amber-400">ป.ป.ช.</span>
+                </h1>
+                <p class="text-slate-400 text-sm md:text-base max-w-2xl font-light font-sans">
+                    รวบรวมและวิเคราะห์ 10 กรณีศึกษาคดีทุจริตที่เกิดขึ้นจริงในประเทศไทย เทียบเคียงมาตราสำคัญตาม พ.ร.ป. ป.ป.ช. พ.ศ. 2561 เพื่อเป็นอุทาหรณ์และแนวทางปฏิบัติราชการอย่างโปร่งใสและถูกต้อง
+                </p>
+            </div>
+            <div class="flex-shrink-0">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
+                    <i class="fa-solid fa-gavel text-3xl md:text-4xl text-slate-950"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Metadata Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 pt-8 border-t border-white/10 text-slate-300 text-xs md:text-sm">
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">แหล่งข้อมูลอ้างอิง</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-scale-balanced text-amber-400"></i> ศาลฎีกาฯ / ป.ป.ช.
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">เกณฑ์พิจารณา</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-check-double text-amber-400"></i> คำพิพากษาถึงที่สุด / ชี้มูลความผิด
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">จำนวนกรณีศึกษา</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-folder-open text-amber-400"></i> 10 คดีสำคัญ
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="text-slate-500 font-medium">การเชื่อมโยงกฎหมาย</div>
+                <div class="font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-link text-amber-400"></i> ระบุมาตราฐานความผิดชัดเจน
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search & Filters Container -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.03)] space-y-6">
+        <!-- Search bar -->
+        <div class="relative max-w-3xl mx-auto">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i class="fa-solid fa-magnifying-glass text-slate-400 text-md"></i>
+            </div>
+            <input type="text" id="case-search" placeholder="ค้นหาชื่อคดี มาตรา ข้อมูลพฤติการณ์ หรือผู้เกี่ยวข้อง (เช่น รถดับเพลิง, มาตรา 128)..." 
+                   class="w-full pl-11 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm md:text-base text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-500/15 transition-all duration-300">
+            <button id="case-clear-btn" class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors hidden">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Filter Badges -->
+        <div class="flex flex-col md:flex-row gap-4 items-center justify-between pt-2 border-t border-slate-100">
+            <div class="flex flex-wrap gap-2 items-center w-full" id="category-filter-container">
+                <span class="text-xs font-bold text-slate-400 uppercase mr-1">หมวดหมู่คดี:</span>
+                <button data-category="all" class="category-btn px-4 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-300 bg-amber-500 text-white border-amber-500 shadow-sm shadow-amber-500/10">
+                    ทั้งหมด
+                </button>
+                <button data-category="conflict" class="category-btn px-4 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-300 bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100">
+                    ขัดกันแห่งผลประโยชน์
+                </button>
+                <button data-category="bribe" class="category-btn px-4 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-300 bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100">
+                    รับสินบน/ของขวัญ
+                </button>
+                <button data-category="duty" class="category-btn px-4 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-300 bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100">
+                    ทุจริตต่อหน้าที่
+                </button>
+                <button data-category="wealth" class="category-btn px-4 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-300 bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100">
+                    ร่ำรวยผิดปกติ
+                </button>
+                <button data-category="conceal" class="category-btn px-4 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-300 bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100">
+                    ปกปิดทรัพย์สิน
+                </button>
+            </div>
+            <div id="case-search-status" class="text-xs md:text-sm text-slate-500 font-medium whitespace-nowrap hidden">
+                พบ <span id="case-search-count" class="text-amber-500 font-bold">10</span> รายการ
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Layout Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <!-- Sidebar Navigation (Col 1) -->
+        <div class="hidden lg:block lg:col-span-1">
+            <div class="sticky top-24 space-y-4">
+                <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-[0_8px_30px_rgba(0,0,0,0.03)] space-y-4">
+                    <div class="font-bold text-slate-800 text-sm flex items-center gap-2 uppercase tracking-wider pb-3 border-b border-slate-100">
+                        <i class="fa-solid fa-list-ol text-amber-500"></i> รายชื่อคดีศึกษา
+                    </div>
+                    <nav class="space-y-1 max-h-[55vh] overflow-y-auto custom-scrollbar text-xs">
+                        <a href="#case-1" class="sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
+                            1. ซื้อที่ดินรัชดาภิเษก
+                        </a>
+                        <a href="#case-2" class="sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
+                            2. ปลัดคมนาคมรับรถหรู
+                        </a>
+                        <a href="#case-3" class="sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
+                            3. ทุจริตระบายข้าว G2G
+                        </a>
+                        <a href="#case-4" class="sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
+                            4. สนามฟุตซอลโรงเรียน
+                        </a>
+                        <a href="#case-5" class="sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
+                            5. สินบน Rolls-Royce
+                        </a>
+                        <a href="#case-6" class="sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
+                            6. ร่ำรวยผิดปกติ นายก อบจ.
+                        </a>
+                        <a href="#case-7" class="sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
+                            7. ปกปิดทรัพย์สิน รมช.
+                        </a>
+                        <a href="#case-8" class="sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
+                            8. สินบนโรงไฟฟ้าขนอม
+                        </a>
+                        <a href="#case-9" class="sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
+                            9. นายก อบต. เอื้อพวกพ้อง
+                        </a>
+                        <a href="#case-10" class="sidebar-case-link block py-2.5 px-3 rounded-lg border-l-2 border-transparent text-slate-500 hover:text-amber-600 hover:bg-slate-50 font-medium transition-all duration-200">
+                            10. รถและเรือดับเพลิง กทม.
+                        </a>
+                    </nav>
+                </div>
+                
+                <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-800 space-y-2">
+                    <div class="font-bold flex items-center gap-1.5 text-amber-900">
+                        <i class="fa-solid fa-circle-info"></i> ข้อมูลอ้างอิงเชิงวิชาการ
+                    </div>
+                    <p class="leading-relaxed">
+                        กรณีศึกษาเหล่านี้เป็นเหตุการณ์จริงที่ศาลมีคำพิพากษาถึงที่สุด หรือคณะกรรมการ ป.ป.ช. มีมติชี้มูลความผิดเด็ดขาดแล้ว นำมาเพื่อประโยชน์ทางการศึกษาข้อกฎหมายเท่านั้น
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area (Col 2) -->
+        <div class="lg:col-span-3 space-y-8" id="case-studies-container">
+            
+            <!-- Case 1 -->
+            <div id="case-1" class="section-card case-card bg-white border border-slate-200/80 border-l-4 border-l-rose-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-rose-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group scroll-mt-24" data-category="conflict" data-section-num="126" data-section-num-thai="๑๒๖">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <span class="px-3 py-1 bg-rose-50 border border-rose-100 text-rose-600 rounded-full text-xs font-semibold">
+                        <i class="fa-solid fa-circle-nodes mr-1"></i> การขัดกันแห่งผลประโยชน์
+                    </span>
+                    <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                        มาตรา 126
+                    </span>
+                </div>
+                
+                <h4 class="text-xl font-extrabold text-slate-800 mb-4 font-sans tracking-tight">
+                    กรณีศึกษาที่ 1: คดีจัดซื้อที่ดินรัชดาภิเษก (การขัดกันระหว่างผลประโยชน์ส่วนบุคคลและส่วนรวม)
+                </h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-slate-50 p-4 rounded-xl text-sm border border-slate-100">
+                    <div>
+                        <span class="text-slate-400 font-medium">ผู้เกี่ยวข้องหลัก:</span>
+                        <span class="text-slate-700 font-semibold ml-1">อดีตนายกรัฐมนตรี และภริยา</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 font-medium">ฐานความผิดที่เกี่ยวข้อง:</span>
+                        <span class="text-slate-700 font-semibold ml-1">เจ้าพนักงานของรัฐเป็นคู่สัญญาหรือมีส่วนได้เสียในสัญญา</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-700 leading-relaxed font-sans exact-text">
+                    <div>
+                        <strong class="text-slate-900 block mb-1">พฤติการณ์ย่อ:</strong>
+                        <p class="sec-text-content">
+                            อดีตนายกรัฐมนตรีในขณะดำรงตำแหน่งหัวหน้าฝ่ายบริหาร ได้ลงนามยินยอมให้ภริยาเข้าร่วมประมูลซื้อที่ดินย่านรัชดาภิเษกเนื้อที่กว่า 33 ไร่ จากกองทุนเพื่อการฟื้นฟูและพัฒนาสถาบันการเงิน ซึ่งเป็นหน่วยงานในกำกับดูแลของรัฐบาลและธนาคารแห่งประเทศไทย การกระทำดังกล่าวเข้าข่ายกรณีที่เจ้าหน้าที่รัฐเข้าไปมีส่วนได้เสียในสัญญาหรือกิจการที่อยู่ในอำนาจหน้าที่กำกับดูแลของตนเอง
+                        </p>
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block mb-1">คำพิพากษา / ผลการพิจารณา:</strong>
+                        <p class="sec-text-content">
+                            ศาลฎีกาแผนกคดีอาญาของผู้ดำรงตำแหน่งทางการเมืองพิพากษาตัดสินจำคุกอดีตนายกรัฐมนตรีเป็นเวลา 2 ปี โดยวินิจฉัยว่า ตำแหน่งนายกรัฐมนตรีเป็นหัวหน้าผู้บริหารสูงสุด มีหน้าที่ดูแลผลประโยชน์สาธารณะและควบคุมหน่วยงานรัฐ การปล่อยให้ภริยาเป็นคู่สัญญากับหน่วยงานรัฐที่เป็นคู่สัญญาจึงเป็นการขัดกันแห่งผลประโยชน์ตามมาตรา 100 ของ พ.ร.ป. ป.ป.ช. ปี 2542 (ซึ่งเทียบเคียงได้กับ <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 126</span> ใน พ.ร.ป. ป.ป.ช. ฉบับปี 2561)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-3">
+                    <button onclick="window.goToLawSection('nacc-act.html', 126)" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-open"></i> อ่านมาตรา 126
+                    </button>
+                    <a href="https://www.isranews.org/article/isranews-article/79017-ratchada.html" target="_blank" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> อ่านคดีอ้างอิงจากสำนักข่าวอิศรา
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case 2 -->
+            <div id="case-2" class="section-card case-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group scroll-mt-24" data-category="bribe" data-section-num="128" data-section-num-thai="๑๒๘">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <span class="px-3 py-1 bg-amber-50 border border-amber-100 text-amber-600 rounded-full text-xs font-semibold">
+                        <i class="fa-solid fa-gift mr-1"></i> การรับสินบนและของขวัญ
+                    </span>
+                    <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                        มาตรา 128
+                    </span>
+                </div>
+                
+                <h4 class="text-xl font-extrabold text-slate-800 mb-4 font-sans tracking-tight">
+                    กรณีศึกษาที่ 2: คดีรับรถยนต์หรูอดีตปลัดคมนาคม (การรับทรัพย์สินหรือประโยชน์อื่นใด)
+                </h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-slate-50 p-4 rounded-xl text-sm border border-slate-100">
+                    <div>
+                        <span class="text-slate-400 font-medium">ผู้เกี่ยวข้องหลัก:</span>
+                        <span class="text-slate-700 font-semibold ml-1">อดีตปลัดกระทรวงคมนาคม</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 font-medium">ฐานความผิดที่เกี่ยวข้อง:</span>
+                        <span class="text-slate-700 font-semibold ml-1">รับของขวัญมูลค่าเกินกว่า 3,000 บาท</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-700 leading-relaxed font-sans exact-text">
+                    <div>
+                        <strong class="text-slate-900 block mb-1">พฤติการณ์ย่อ:</strong>
+                        <p class="sec-text-content">
+                            อดีตปลัดกระทรวงคมนาคม ได้รับมอบรถยนต์ส่วนบุคคลยี่ห้อ Volkswagen Multivan มูลค่าประมาณ 3 ล้านบาทเศษ จากบริษัทเอกชนรายหนึ่งซึ่งเป็นคู่สัญญากับหน่วยงานราชการในสังกัดของกระทรวงคมนาคม โดยผู้ถูกกล่าวหาอ้างว่าเป็นรถยนต์ที่ยืมมาใช้งานชั่วคราวแต่ไม่มีการทำสัญญาเช่าซื้อหรือส่งคืนรถยนต์ในเวลาที่เหมาะสม
+                        </p>
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block mb-1">คำพิพากษา / ผลการพิจารณา:</strong>
+                        <p class="sec-text-content">
+                            ศาลฎีกาแผนกคดีอาญาของผู้ดำรงตำแหน่งทางการเมืองมีคำพิพากษาจำคุกอดีตปลัดกระทรวงคมนาคม โดยชี้ว่าพฤติการณ์การรับรถยนต์หรูดังกล่าวเป็นการรับทรัพย์สินหรือประโยชน์อื่นใดจากบุคคลอื่นซึ่งไม่ใช่ญาติ และมีมูลค่าเกินกว่า 3,000 บาท ตามข้อห้ามทางกฎหมาย (ซึ่งเทียบเคียงได้กับ <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 128</span> ใน พ.ร.ป. ป.ป.ช. พ.ศ. 2561) ทำให้ไม่สามารถปฏิเสธความผิดได้
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-3">
+                    <button onclick="window.goToLawSection('nacc-act.html', 128)" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-open"></i> อ่านมาตรา 128
+                    </button>
+                    <a href="https://www.isranews.org/article/isranews/102927-isranews-111.html" target="_blank" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> อ่านคดีอ้างอิงจากสำนักข่าวอิศรา
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case 3 -->
+            <div id="case-3" class="section-card case-card bg-white border border-slate-200/80 border-l-4 border-l-blue-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-blue-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group scroll-mt-24" data-category="duty" data-section-num="172" data-section-num-thai="๑๗๒">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <span class="px-3 py-1 bg-blue-50 border border-blue-100 text-blue-600 rounded-full text-xs font-semibold">
+                        <i class="fa-solid fa-shield-halved mr-1"></i> การทุจริตต่อหน้าที่
+                    </span>
+                    <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                        มาตรา 172 & 173
+                    </span>
+                </div>
+                
+                <h4 class="text-xl font-extrabold text-slate-800 mb-4 font-sans tracking-tight">
+                    กรณีศึกษาที่ 3: คดีทุจริตระบายข้าวแบบรัฐต่อรัฐ (G2G) ในโครงการรับจำนำข้าว
+                </h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-slate-50 p-4 rounded-xl text-sm border border-slate-100">
+                    <div>
+                        <span class="text-slate-400 font-medium">ผู้เกี่ยวข้องหลัก:</span>
+                        <span class="text-slate-700 font-semibold ml-1">อดีตรัฐมนตรีว่าการกระทรวงพาณิชย์ และพวก</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 font-medium">ฐานความผิดที่เกี่ยวข้อง:</span>
+                        <span class="text-slate-700 font-semibold ml-1">ปฏิบัติหน้าที่โดยทุจริต และกระทำผิดต่อกฎหมาย ป.ป.ช.</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-700 leading-relaxed font-sans exact-text">
+                    <div>
+                        <strong class="text-slate-900 block mb-1">พฤติการณ์ย่อ:</strong>
+                        <p class="sec-text-content">
+                            การทุจริตระบายข้าวแบบรัฐต่อรัฐ (G2G) โดยจัดทำสัญญาขายข้าวในคลังของรัฐให้แก่รัฐวิสาหกิจจีนโดยไม่มีการส่งออกข้าวจริง แต่กลับร่วมมือกับบริษัทเอกชนในประเทศนำข้าวดังกล่าวออกมาขายเวียนในตลาดภายในประเทศ ทำให้ไม่มีการแข่งขันราคาอย่างเป็นระบบและทำให้รัฐสูญเสียรายได้จำนวนมหาศาล เอื้อประโยชน์ส่วนตนและบริษัทพวกพ้อง
+                        </p>
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block mb-1">คำพิพากษา / ผลการพิจารณา:</strong>
+                        <p class="sec-text-content">
+                            ศาลฎีกาแผนกคดีอาญาของผู้ดำรงตำแหน่งทางการเมืองพิพากษาจำคุกอดีตรัฐมนตรีว่าการกระทรวงพาณิชย์เป็นเวลา 42 ปี (ต่อมาเพิ่มโทษเป็น 48 ปี) และจำคุกอดีตข้าราชการกับผู้บริหารเอกชนอีกหลายราย พร้อมสั่งให้ผู้กระทำผิดร่วมกันชดใช้ค่าเสียหายแก่กระทรวงการคลัง ถือเป็นการลงโทษตามบทกฎหมายปฏิบัติหน้าที่โดยทุจริต (สอดคล้องกับ <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 172</span> และ <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 173</span> ตาม พ.ร.ป. ป.ป.ช. ฉบับปี 2561)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-3">
+                    <button onclick="window.goToLawSection('nacc-act.html', 172)" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-open"></i> อ่านมาตรา 172
+                    </button>
+                    <a href="https://www.isranews.org/article/isranews-article/105553-riceg2g.html" target="_blank" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> อ่านคดีอ้างอิงจากสำนักข่าวอิศรา
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case 4 -->
+            <div id="case-4" class="section-card case-card bg-white border border-slate-200/80 border-l-4 border-l-blue-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-blue-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group scroll-mt-24" data-category="duty" data-section-num="172" data-section-num-thai="๑๗๒">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <span class="px-3 py-1 bg-blue-50 border border-blue-100 text-blue-600 rounded-full text-xs font-semibold">
+                        <i class="fa-solid fa-shield-halved mr-1"></i> การทุจริตต่อหน้าที่
+                    </span>
+                    <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                        มาตรา 172
+                    </span>
+                </div>
+                
+                <h4 class="text-xl font-extrabold text-slate-800 mb-4 font-sans tracking-tight">
+                    กรณีศึกษาที่ 4: คดีทุจริตงบประมาณก่อสร้างสนามฟุตซอลโรงเรียนในจังหวัดนครราชสีมา
+                </h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-slate-50 p-4 rounded-xl text-sm border border-slate-100">
+                    <div>
+                        <span class="text-slate-400 font-medium">ผู้เกี่ยวข้องหลัก:</span>
+                        <span class="text-slate-700 font-semibold ml-1">อดีต ส.ส., เจ้าหน้าที่สำนักงานเขตพื้นที่การศึกษา</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 font-medium">ฐานความผิดที่เกี่ยวข้อง:</span>
+                        <span class="text-slate-700 font-semibold ml-1">ร่วมกันทุจริตแปรญัตติและล็อกสเปกการจัดซื้อจัดจ้าง</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-700 leading-relaxed font-sans exact-text">
+                    <div>
+                        <strong class="text-slate-900 block mb-1">พฤติการณ์ย่อ:</strong>
+                        <p class="sec-text-content">
+                            การร่วมกันล็อกสเปกผ่านกระบวนการแปรญัตติงบประมาณพัฒนาท้องถิ่นปี 2555 เพื่อจัดทำโครงการสร้างสนามฟุตซอลในโรงเรียนหลายแห่ง โดยกำหนดรายละเอียดคุณลักษณะเฉพาะ (TOR) ที่เอื้อต่อบริษัทเอกชนกลุ่มเดียวกัน วัสดุปูพื้นสนามยางสังเคราะห์ที่ส่งมอบไม่ได้มาตรฐาน ไม่สามารถใช้ปูกลางแจ้งได้จริง ส่งผลให้ชำรุดเสียหายเกือบทั้งหมดในเวลาอันรวดเร็ว
+                        </p>
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block mb-1">คำพิพากษา / ผลการพิจารณา:</strong>
+                        <p class="sec-text-content">
+                            ศาลฎีกาแผนกคดีอาญาของผู้ดำรงตำแหน่งทางการเมืองมีคำพิพากษาตัดสินจำคุก ส.ส. และข้าราชการที่ร่วมกระทำผิด พร้อมกับสั่งให้ชดใช้ค่าเสียหายร่วมกันหลายร้อยล้านบาท เนื่องจากพฤติการณ์ชี้ว่าเป็นการทุจริตต่อหน้าที่และปฏิบัติหน้าที่โดยมิชอบอย่างร้ายแรง ตาม <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 172</span> แห่ง พ.ร.ป. ป.ป.ช. พ.ศ. 2561
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-3">
+                    <button onclick="window.goToLawSection('nacc-act.html', 172)" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-open"></i> อ่านมาตรา 172
+                    </button>
+                    <a href="https://www.isranews.org/article/isranews/113887-futsal-korat.html" target="_blank" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> อ่านคดีอ้างอิงจากสำนักข่าวอิศรา
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case 5 -->
+            <div id="case-5" class="section-card case-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group scroll-mt-24" data-category="bribe" data-section-num="173" data-section-num-thai="๑๗๓">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <span class="px-3 py-1 bg-amber-50 border border-amber-100 text-amber-600 rounded-full text-xs font-semibold">
+                        <i class="fa-solid fa-gift mr-1"></i> การรับสินบนและของขวัญ
+                    </span>
+                    <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                        มาตรา 173 & 176
+                    </span>
+                </div>
+                
+                <h4 class="text-xl font-extrabold text-slate-800 mb-4 font-sans tracking-tight">
+                    กรณีศึกษาที่ 5: คดีสินบนข้ามชาติ Rolls-Royce (การบินไทย และ ปตท.)
+                </h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-slate-50 p-4 rounded-xl text-sm border border-slate-100">
+                    <div>
+                        <span class="text-slate-400 font-medium">ผู้เกี่ยวข้องหลัก:</span>
+                        <span class="text-slate-700 font-semibold ml-1">ผู้บริหารและพนักงานการบินไทย และ ปตท.</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 font-medium">ฐานความผิดที่เกี่ยวข้อง:</span>
+                        <span class="text-slate-700 font-semibold ml-1">เรียก รับ หรือยอมจะรับสินบน และผู้ให้สินบนเจ้าหน้าที่รัฐ</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-700 leading-relaxed font-sans exact-text">
+                    <div>
+                        <strong class="text-slate-900 block mb-1">พฤติการณ์ย่อ:</strong>
+                        <p class="sec-text-content">
+                            หน่วยงานตรวจสอบและปราบปรามการทุจริตของประเทศอังกฤษและสหรัฐอเมริกา ได้ตรวจสอบและชี้ว่า บริษัท Rolls-Royce ได้จ่ายเงินค่านายหน้าและเงินสินบนรวมกันเป็นเงินจำนวนหลายล้านปอนด์ (กว่า 1,200 ล้านบาท) ให้แก่เจ้าหน้าที่ของรัฐไทย รวมถึงผู้มีส่วนเกี่ยวข้องในการตัดสินใจจัดซื้อจัดจ้างเครื่องยนต์เครื่องบินของการบินไทย และโครงการสร้างท่อส่งก๊าซของ ปตท. เพื่อให้เลือกซื้อเครื่องยนต์ของบริษัท Rolls-Royce
+                        </p>
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block mb-1">คำพิพากษา / ผลการพิจารณา:</strong>
+                        <p class="sec-text-content">
+                            คณะกรรมการ ป.ป.ช. มีมติชี้มูลความผิดและส่งให้อัยการฟ้องดำเนินคดีอาญาตามขั้นตอนต่อศาลอาญาคดีทุจริตและประพฤติมิชอบกลาง ซึ่งมีความผิดตามข้อกฎหมายเจ้าพนักงานเรียกรับทรัพย์สินโดยมิชอบและผู้ให้สินบนเจ้าหน้าที่รัฐ (สอดคล้องกับความผิดตาม <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 173</span> และ <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 176</span> ใน พ.ร.ป. ป.ป.ช. พ.ศ. 2561)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-3">
+                    <button onclick="window.goToLawSection('nacc-act.html', 173)" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-open"></i> อ่านมาตรา 173
+                    </button>
+                    <a href="https://www.isranews.org/article/isranews/116982-rolls-royce-corruption.html" target="_blank" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> อ่านคดีอ้างอิงจากสำนักข่าวอิศรา
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case 6 -->
+            <div id="case-6" class="section-card case-card bg-white border border-slate-200/80 border-l-4 border-l-emerald-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-emerald-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group scroll-mt-24" data-category="wealth" data-section-num="156" data-section-num-thai="๑๕๖">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <span class="px-3 py-1 bg-emerald-50 border border-emerald-100 text-emerald-600 rounded-full text-xs font-semibold">
+                        <i class="fa-solid fa-money-bill-wave mr-1"></i> ร่ำรวยผิดปกติ
+                    </span>
+                    <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                        มาตรา 156
+                    </span>
+                </div>
+                
+                <h4 class="text-xl font-extrabold text-slate-800 mb-4 font-sans tracking-tight">
+                    กรณีศึกษาที่ 6: คดีร่ำรวยผิดปกติและริบทรัพย์สินตกเป็นของแผ่นดินอดีตนายก อบจ. นครราชสีมา
+                </h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-slate-50 p-4 rounded-xl text-sm border border-slate-100">
+                    <div>
+                        <span class="text-slate-400 font-medium">ผู้เกี่ยวข้องหลัก:</span>
+                        <span class="text-slate-700 font-semibold ml-1">อดีตนายก อบจ. นครราชสีมา</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 font-medium">ฐานความผิดที่เกี่ยวข้อง:</span>
+                        <span class="text-slate-700 font-semibold ml-1">มีทรัพย์สินเพิ่มขึ้นผิดปกติโดยไม่สามารถแสดงที่มาได้</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-700 leading-relaxed font-sans exact-text">
+                    <div>
+                        <strong class="text-slate-900 block mb-1">พฤติการณ์ย่อ:</strong>
+                        <p class="sec-text-content">
+                            การตรวจสอบบัญชีทรัพย์สินและหนี้สินของอดีตนายกองค์การบริหารส่วนจังหวัดนครราชสีมา โดยคณะกรรมการ ป.ป.ช. พบว่ามีเงินฝากธนาคาร รวมถึงที่ดินและทรัพย์สินต่างๆ เพิ่มขึ้นจำนวนมากอย่างผิดปกติในระหว่างการดำรงตำแหน่งทางการเมือง โดยที่รายได้จากการประกอบอาชีพสุจริตและเงินเดือนประจำตำแหน่งไม่สามารถชี้แจงครอบคลุมเงินจำนวนดังกล่าวได้
+                        </p>
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block mb-1">คำพิพากษา / ผลการพิจารณา:</strong>
+                        <p class="sec-text-content">
+                            ศาลอาญาคดีทุจริตและประพฤติมิชอบภาค 3 ได้พิจารณาและมีคำพิพากษาให้ทรัพย์สินมูลค่ารวมกว่า 100 ล้านบาท พร้อมดอกผล ตกเป็นของแผ่นดินตามคำร้องของอัยการสูงสุดและ ป.ป.ช. เนื่องจากผู้ถูกกล่าวหาไม่สามารถพิสูจน์ที่มาของทรัพย์สินได้อย่างชอบด้วยกฎหมายตามกฎระเบียบของ <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 156</span> แห่ง พ.ร.ป. ป.ป.ช. พ.ศ. 2561
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-3">
+                    <button onclick="window.goToLawSection('nacc-act.html', 156)" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-open"></i> อ่านมาตรา 156
+                    </button>
+                    <a href="https://www.nacc.go.th/preview_link.php?keepThis=true&TB_iframe=true&height=500&width=850&UsrFolderID=0000000010" target="_blank" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> อ่านประกาศคดีจากสำนักงาน ป.ป.ช.
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case 7 -->
+            <div id="case-7" class="section-card case-card bg-white border border-slate-200/80 border-l-4 border-l-violet-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-violet-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group scroll-mt-24" data-category="conceal" data-section-num="114" data-section-num-thai="๑๑๔">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <span class="px-3 py-1 bg-violet-50 border border-violet-100 text-violet-600 rounded-full text-xs font-semibold">
+                        <i class="fa-solid fa-eye-slash mr-1"></i> การปกปิดบัญชีทรัพย์สิน
+                    </span>
+                    <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                        มาตรา 114
+                    </span>
+                </div>
+                
+                <h4 class="text-xl font-extrabold text-slate-800 mb-4 font-sans tracking-tight">
+                    กรณีศึกษาที่ 7: คดีปกปิดบัญชีทรัพย์สินและหนี้สินของอดีตรัฐมนตรี
+                </h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-slate-50 p-4 rounded-xl text-sm border border-slate-100">
+                    <div>
+                        <span class="text-slate-400 font-medium">ผู้เกี่ยวข้องหลัก:</span>
+                        <span class="text-slate-700 font-semibold ml-1">อดีตรัฐมนตรีช่วยว่าการกระทรวงพาณิชย์</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 font-medium">ฐานความผิดที่เกี่ยวข้อง:</span>
+                        <span class="text-slate-700 font-semibold ml-1">จงใจยื่นบัญชีทรัพย์สินด้วยข้อความอันเป็นเท็จหรือปกปิด</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-700 leading-relaxed font-sans exact-text">
+                    <div>
+                        <strong class="text-slate-900 block mb-1">พฤติการณ์ย่อ:</strong>
+                        <p class="sec-text-content">
+                            อดีตรัฐมนตรีฯ ได้ยื่นบัญชีแสดงรายการทรัพย์สินและหนี้สินต่อคณะกรรมการ ป.ป.ช. ในช่วงพ้นจากตำแหน่งทางการเมือง โดยไม่ได้รายงานมูลค่าหุ้นและกรรมสิทธิ์ในบริษัทพัฒนาอสังหาริมทรัพย์หลายแห่งซึ่งตนเองถือครองอยู่จริง แต่ใช้วิธีเปลี่ยนแปลงชื่อผู้ถือหุ้นเพื่ออำพรางและซุกหุ้นไว้ในชื่อของพนักงานในบ้านพัก คนขับรถยนต์ และคนสนิท เพื่อบิดเบือนข้อมูลทรัพย์สินแท้จริง
+                        </p>
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block mb-1">คำพิพากษา / ผลการพิจารณา:</strong>
+                        <p class="sec-text-content">
+                            ศาลรัฐธรรมนูญมีวินิจฉัยชี้ขาดว่า อดีตรัฐมนตรีช่วยฯ จงใจยื่นบัญชีแสดงรายการทรัพย์สินและหนี้สินด้วยข้อความอันเป็นเท็จ หรือปกปิดข้อเท็จจริงที่ควรแจ้งให้ทราบ ให้ผู้ถูกกล่าวหาพ้นจากตำแหน่งรัฐมนตรีและห้ามดำรงตำแหน่งทางการเมืองใดๆ เป็นเวลา 5 ปี นับจากวันที่ศาลมีคำวินิจฉัย (สอดคล้องกับข้อห้ามการยื่นทรัพย์สินเท็จใน <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 114</span> แห่ง พ.ร.ป. ป.ป.ช. พ.ศ. 2561)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-3">
+                    <button onclick="window.goToLawSection('nacc-act.html', 114)" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-open"></i> อ่านมาตรา 114
+                    </button>
+                    <a href="https://www.isranews.org/article/isranews-article/78921-conceal-assets.html" target="_blank" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> อ่านคดีอ้างอิงจากสำนักข่าวอิศรา
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case 8 -->
+            <div id="case-8" class="section-card case-card bg-white border border-slate-200/80 border-l-4 border-l-amber-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-amber-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group scroll-mt-24" data-category="bribe" data-section-num="173" data-section-num-thai="๑๗๓">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <span class="px-3 py-1 bg-amber-50 border border-amber-100 text-amber-600 rounded-full text-xs font-semibold">
+                        <i class="fa-solid fa-gift mr-1"></i> การรับสินบนและของขวัญ
+                    </span>
+                    <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                        มาตรา 173 & 176
+                    </span>
+                </div>
+                
+                <h4 class="text-xl font-extrabold text-slate-800 mb-4 font-sans tracking-tight">
+                    กรณีศึกษาที่ 8: คดีเรียกรับสินบนข้ามชาติโครงการก่อสร้างโรงไฟฟ้าขนอม
+                </h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-slate-50 p-4 rounded-xl text-sm border border-slate-100">
+                    <div>
+                        <span class="text-slate-400 font-medium">ผู้เกี่ยวข้องหลัก:</span>
+                        <span class="text-slate-700 font-semibold ml-1">อดีตเจ้าหน้าที่กรมเจ้าท่า และข้าราชการท้องถิ่น</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 font-medium">ฐานความผิดที่เกี่ยวข้อง:</span>
+                        <span class="text-slate-700 font-semibold ml-1">เรียกรับเงินสินบนจากนิติบุคคลต่างประเทศ</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-700 leading-relaxed font-sans exact-text">
+                    <div>
+                        <strong class="text-slate-900 block mb-1">พฤติการณ์ย่อ:</strong>
+                        <p class="sec-text-content">
+                            เจ้าหน้าที่รัฐของไทยหลายรายได้ร่วมกันเรียกรับเงินสินบนจำนวน 20 ล้านบาท จากผู้แทนบริษัทญี่ปุ่นที่รับเหมาก่อสร้างระบบโรงไฟฟ้าขนอม เพื่ออำนวยความสะดวกและแลกกับการออกใบอนุญาตให้ใช้เรือลำเลียงเพื่อติดตั้งชิ้นส่วนโครงสร้างและใช้ท่าเทียบเรือชั่วคราวที่ไม่เป็นไปตามขั้นตอนทางกฎหมาย
+                        </p>
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block mb-1">คำพิพากษา / ผลการพิจารณา:</strong>
+                        <p class="sec-text-content">
+                            ศาลอาญาคดีทุจริตและประพฤติมิชอบกลางได้พิจารณาคดีความร่วมมือระหว่างประเทศ และมีคำพิพากษาจำคุกเจ้าหน้าที่รัฐไทยที่เป็นตัวการหลักในการเรียกรับสินบนดังกล่าว เนื่องจากเป็นการกระทำความผิดฐานเรียกรับทรัพย์สินสำหรับตนเองหรือผู้อื่นโดยมิชอบและทุจริตต่อหน้าที่ (สอดคล้องกับบทกำหนดโทษใน <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 173</span> และผู้ให้สินบนตาม <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 176</span> ของ พ.ร.ป. ป.ป.ช. พ.ศ. 2561)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-3">
+                    <button onclick="window.goToLawSection('nacc-act.html', 173)" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-open"></i> อ่านมาตรา 173
+                    </button>
+                    <a href="https://www.isranews.org/article/isranews/109852-khanom-bribe.html" target="_blank" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> อ่านคดีอ้างอิงจากสำนักข่าวอิศรา
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case 9 -->
+            <div id="case-9" class="section-card case-card bg-white border border-slate-200/80 border-l-4 border-l-rose-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-rose-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group scroll-mt-24" data-category="conflict" data-section-num="126" data-section-num-thai="๑๒๖">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <span class="px-3 py-1 bg-rose-50 border border-rose-100 text-rose-600 rounded-full text-xs font-semibold">
+                        <i class="fa-solid fa-circle-nodes mr-1"></i> การขัดกันแห่งผลประโยชน์
+                    </span>
+                    <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                        มาตรา 126
+                    </span>
+                </div>
+                
+                <h4 class="text-xl font-extrabold text-slate-800 mb-4 font-sans tracking-tight">
+                    กรณีศึกษาที่ 9: คดีนายก อบต. เอื้อประโยชน์และจัดฮั้วประมูลงานให้ห้างหุ้นส่วนพวกพ้อง
+                </h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-slate-50 p-4 rounded-xl text-sm border border-slate-100">
+                    <div>
+                        <span class="text-slate-400 font-medium">ผู้เกี่ยวข้องหลัก:</span>
+                        <span class="text-slate-700 font-semibold ml-1">อดีตนายกองค์การบริหารส่วนตำบล (อบต.)</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 font-medium">ฐานความผิดที่เกี่ยวข้อง:</span>
+                        <span class="text-slate-700 font-semibold ml-1">เป็นคู่สัญญากับหน่วยงานรัฐที่อยู่ในอำนาจกำกับดูแล</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-700 leading-relaxed font-sans exact-text">
+                    <div>
+                        <strong class="text-slate-900 block mb-1">พฤติการณ์ย่อ:</strong>
+                        <p class="sec-text-content">
+                            นายก อบต. ได้เข้าไปมีส่วนได้เสียในกิจการของห้างหุ้นส่วนจำกัดก่อสร้างรายหนึ่งที่เป็นของภริยาและญาติ โดยใช้อำนาจของตนเองในการชี้ช่องและเอื้อประโยชน์ในการจัดทำสัญญารับเหมาก่อสร้างและจัดซื้อจัดจ้างโครงการพัฒนาท้องถิ่นของ อบต. หลายแห่ง รวมมูลค่าความเสียหายทางเศรษฐกิจหลายรายการ
+                        </p>
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block mb-1">คำพิพากษา / ผลการพิจารณา:</strong>
+                        <p class="sec-text-content">
+                            ศาลอาญาคดีทุจริตและประพฤติมิชอบภาค 1 มีคำพิพากษาตัดสินจำคุกอดีตนายก อบต. รายนี้ โดยไม่มีการรอลงอาญา เนื่องจากเป็นการฝ่าฝืนกฎระเบียบการขัดกันแห่งผลประโยชน์ และทำสัญญากับหน่วยงานของตนเองซึ่งเป็นข้อห้ามเด็ดขาดของเจ้าหน้าที่ของรัฐตาม <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 126</span> แห่ง พ.ร.ป. ป.ป.ช. พ.ศ. 2561
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-3">
+                    <button onclick="window.goToLawSection('nacc-act.html', 126)" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-open"></i> อ่านมาตรา 126
+                    </button>
+                    <a href="https://www.nacc.go.th/preview_link.php?keepThis=true&TB_iframe=true&height=500&width=850&UsrFolderID=0000000216" target="_blank" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> อ่านประกาศคดีจากสำนักงาน ป.ป.ช.
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case 10 -->
+            <div id="case-10" class="section-card case-card bg-white border border-slate-200/80 border-l-4 border-l-blue-500 rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] hover:border-blue-400 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group scroll-mt-24" data-category="duty" data-section-num="172" data-section-num-thai="๑๗๒">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <span class="px-3 py-1 bg-blue-50 border border-blue-100 text-blue-600 rounded-full text-xs font-semibold">
+                        <i class="fa-solid fa-shield-halved mr-1"></i> การทุจริตต่อหน้าที่
+                    </span>
+                    <span class="px-2.5 py-0.5 bg-slate-100 text-slate-500 rounded-md text-xs font-semibold border border-slate-200/50">
+                        มาตรา 172
+                    </span>
+                </div>
+                
+                <h4 class="text-xl font-extrabold text-slate-800 mb-4 font-sans tracking-tight">
+                    กรณีศึกษาที่ 10: คดีทุจริตโครงการจัดซื้อรถดับเพลิงและเรือดับเพลิง กทม.
+                </h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-slate-50 p-4 rounded-xl text-sm border border-slate-100">
+                    <div>
+                        <span class="text-slate-400 font-medium">ผู้เกี่ยวข้องหลัก:</span>
+                        <span class="text-slate-700 font-semibold ml-1">อดีตรมว.มหาดไทย, อดีตผู้ว่าฯ กทม. และพวก</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 font-medium">ฐานความผิดที่เกี่ยวข้อง:</span>
+                        <span class="text-slate-700 font-semibold ml-1">ทุจริตหลีกเลี่ยงกระบวนการแข่งขันราคาอย่างถูกต้อง</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-700 leading-relaxed font-sans exact-text">
+                    <div>
+                        <strong class="text-slate-900 block mb-1">พฤติการณ์ย่อ:</strong>
+                        <p class="sec-text-content">
+                            การทุจริตผลประโยชน์ในการจัดทำโครงการความร่วมมือซื้อขายสินค้ารถยนต์ดับเพลิงและเรือบรรเทาสาธารณภัยระหว่างประเทศ โดยดำเนินการแบบกรณีพิเศษและมีการล็อกสเปกอย่างจงใจ ทำให้ราคาสินค้านั้นสูงกว่าการประมูลทั่วไปในตลาดต่างประเทศเป็นอย่างมาก และหลีกเลี่ยงระบบภาษีและอธิปไตยทางการแข่งขันราคาอย่างเป็นธรรม
+                        </p>
+                    </div>
+                    <div>
+                        <strong class="text-slate-900 block mb-1">คำพิพากษา / ผลการพิจารณา:</strong>
+                        <p class="sec-text-content">
+                            ศาลฎีกาแผนกคดีอาญาของผู้ดำรงตำแหน่งทางการเมืองมีคำพิพากษาจำคุกอดีตรัฐมนตรีว่าการกระทรวงมหาดไทยเป็นเวลา 12 ปี และจำคุกอดีตผู้บริหารระดับสูง กทม. เป็นเวลา 10 ปี โดยไม่มีการรอการลงโทษ เนื่องจากพฤติการณ์ชัดเจนว่าเป็นการปฏิบัติหน้าที่โดยมิชอบและร่วมมือกันเอื้อนิตินัยทุจริตทางการเงินตาม <span class="text-amber-600 bg-amber-50 border border-amber-200/60 font-semibold px-1 py-0.5 rounded">มาตรา 172</span> แห่ง พ.ร.ป. ป.ป.ช. พ.ศ. 2561
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-3">
+                    <button onclick="window.goToLawSection('nacc-act.html', 172)" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-open"></i> อ่านมาตรา 172
+                    </button>
+                    <a href="https://www.isranews.org/article/isranews-article/78854-fire-truck-bma.html" target="_blank" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> อ่านคดีอ้างอิงจากสำนักข่าวอิศรา
+                    </a>
+                </div>
+            </div>
+
+            <!-- No Results Card -->
+            <div id="no-case-results" class="bg-white border border-slate-200 rounded-2xl p-12 text-center shadow-sm hidden">
+                <div class="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200/50 flex items-center justify-center mx-auto mb-4 text-amber-500">
+                    <i class="fa-solid fa-magnifying-glass text-2xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 mb-1">ไม่พบผลการค้นหา</h3>
+                <p class="text-slate-500 text-sm max-w-md mx-auto">
+                    ไม่พบกรณีศึกษาที่ตรงกับคำสำคัญหรือหมวดหมู่ที่คุณเลือก โปรดลองค้นหาด้วยคำอื่น หรือยกเลิกการกรองหมวดหมู่
+                </p>
+                <button onclick="document.getElementById('case-search').value = ''; document.getElementById('case-search').dispatchEvent(new Event('input'));" class="mt-4 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-xl transition-all">
+                    ล้างการค้นหาทั้งหมด
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
