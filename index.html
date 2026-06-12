@@ -805,7 +805,7 @@
                                                 class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
                                                 <i
                                                     class="fa-solid fa-scale-balanced w-4 text-center transition-transform duration-300 group-hover/subitem:scale-125"></i>
-                                                พ.ร.ป. ป.ป.ช. พ.ศ. 2561
+                                                พ.ร.บ. ป้องกันและปราบปรามการทุจริต
                                             </a>
                                             <a id="nav-nacc-cases" onclick="loadPage('nacc-cases.html', this)"
                                                 class="dropdown-item cursor-pointer block pl-5 pr-4 py-3 text-sm text-slate-300 hover:text-[#FDCD0E] hover:bg-gradient-to-r hover:from-white/10 hover:to-transparent hover:pl-7 border-l-2 border-transparent hover:border-[#FDCD0E] transition-all duration-300 flex items-center gap-3 group/subitem">
@@ -1977,7 +1977,7 @@
                         const text = card.textContent.toLowerCase();
 
                         const matchesCategory = activeCategory === 'all' || cardCategory === activeCategory;
-                        
+
                         let matchesSearch = true;
                         if (query !== '') {
                             const isNumMatch = secNum.includes(query) || secNumThai.includes(query) ||
@@ -2042,7 +2042,7 @@
                         });
                         // Set active class to this button
                         this.className = 'category-btn px-4 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-300 bg-amber-500 text-white border-amber-500 shadow-sm shadow-amber-500/10';
-                        
+
                         activeCategory = this.getAttribute('data-category');
                         applyFilterAndSearch();
                     });
