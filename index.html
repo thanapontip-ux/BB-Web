@@ -2544,11 +2544,12 @@
                     const logoEnabled = qrLogoToggle.checked;
                     
                     preloadLogo(function (logo) {
-                        // Generate QR Code
+                        // Generate QR Code at 3x resolution for high-DPI crispness and high-quality prints
+                        const hdSize = size * 3;
                         QRCode.toCanvas(qrCanvasRaw, text, {
                             errorCorrectionLevel: 'H',
-                            width: size,
-                            margin: 4,
+                            width: hdSize,
+                            margin: 1, // Fit the QR code tightly by reducing the quiet zone margin
                             color: {
                                 dark: foregroundColor,
                                 light: '#ffffff'
@@ -2566,18 +2567,13 @@
                                 
                                 const cx = qrSizeVal / 2;
                                 const cy = qrSizeVal / 2;
-                                const backingRadius = (logoSize / 2) + 4; // Add padding of 4px
+                                const backingRadius = logoSize / 2; // Perfectly fit the size of the circular logo
                                 
                                 // Draw circular white backing card
                                 ctx.fillStyle = '#ffffff';
                                 ctx.beginPath();
                                 ctx.arc(cx, cy, backingRadius, 0, 2 * Math.PI);
                                 ctx.fill();
-                                
-                                // Draw subtle border around backing card
-                                ctx.strokeStyle = '#e2e8f0';
-                                ctx.lineWidth = 1.5;
-                                ctx.stroke();
                                 
                                 // Draw the logo image
                                 ctx.drawImage(logo, cx - (logoSize / 2), cy - (logoSize / 2), logoSize, logoSize);
