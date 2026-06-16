@@ -12,6 +12,8 @@
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- QR Code Generator Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.1/qrcode.min.js"></script>
     <!-- Three.js Library for 3D Galaxy Background -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
@@ -921,6 +923,12 @@
                         <span class="text-[13px] font-semibold">ประเมินผล</span>
                     </a>
 
+                    <!-- 7. สร้าง QR Code (ไม่มี Drop-down) -->
+                    <a id="nav-qr-generator" onclick="loadPage('qr-generator.html', this)" class="nav-link">
+                        <i class="fa-solid fa-qrcode main-icon"></i>
+                        <span class="text-[13px] font-semibold">สร้าง QR Code</span>
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -1078,6 +1086,11 @@
                 onclick="loadPage('evaluation.html', document.getElementById('nav-evaluation')); closeMobileMenu();"
                 class="nav-link-mobile cursor-pointer p-3 px-5 rounded-xl flex items-center gap-3 transition-colors font-semibold mt-1">
                 <i class="fa-solid fa-magnifying-glass-chart text-lg w-6 text-center"></i> ประเมินผล
+            </a>
+            <a id="nav-qr-generator-mobile"
+                onclick="loadPage('qr-generator.html', document.getElementById('nav-qr-generator')); closeMobileMenu();"
+                class="nav-link-mobile cursor-pointer p-3 px-5 rounded-xl flex items-center gap-3 transition-colors font-semibold mt-1">
+                <i class="fa-solid fa-qrcode text-lg w-6 text-center"></i> สร้าง QR Code
             </a>
         </div>
     </nav>
@@ -1489,6 +1502,13 @@
                 if (pageUrl === 'nacc-cases.html') {
                     if (typeof window.initNaccCases === 'function') {
                         window.initNaccCases();
+                    }
+                }
+
+                // เริ่มการทำงานของ QR Generator หากเปิดหน้า qr-generator.html
+                if (pageUrl === 'qr-generator.html') {
+                    if (typeof window.initQrGenerator === 'function') {
+                        window.initQrGenerator();
                     }
                 }
 
@@ -2467,6 +2487,224 @@
                     searchInput.value = '';
                     performSearch();
                 });
+            }, 100);
+        };
+        
+        // ===============================================
+        // QR CODE GENERATOR INITIALIZATION (qr-generator.html)
+        // ===============================================
+        window.initQrGenerator = function () {
+            setTimeout(() => {
+                const qrInput = document.getElementById('qr-input');
+                const qrSize = document.getElementById('qr-size');
+                const qrColor = document.getElementById('qr-color');
+                const qrLogoToggle = document.getElementById('qr-logo-toggle');
+                const qrCanvasPreview = document.getElementById('qr-canvas-preview');
+                const qrCanvasRaw = document.getElementById('qr-canvas-raw');
+                const qrDownloadBtn = document.getElementById('qr-download-btn');
+                const qrCopyBtn = document.getElementById('qr-copy-btn');
+                const qrToast = document.getElementById('qr-toast');
+                const qrToastMsg = document.getElementById('qr-toast-msg');
+                const colorDots = document.querySelectorAll('.color-dot');
+                
+                if (!qrInput || !qrCanvasPreview || !qrCanvasRaw) {
+                    console.error("Required QR Generator elements not found in DOM.");
+                    return;
+                }
+                
+                let logoImage = null;
+                function preloadLogo(callback) {
+                    if (logoImage) {
+                        callback(logoImage);
+                        return;
+                    }
+                    const img = new Image();
+                    img.src = 'Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg';
+                    img.onload = function () {
+                        logoImage = img;
+                        callback(logoImage);
+                    };
+                    img.onerror = function () {
+                        console.error("Failed to load logo SVG");
+                        callback(null);
+                    };
+                }
+                
+                function updatePreviewCanvas() {
+                    const previewCtx = qrCanvasPreview.getContext('2d');
+                    qrCanvasPreview.width = qrCanvasRaw.width;
+                    qrCanvasPreview.height = qrCanvasRaw.height;
+                    previewCtx.drawImage(qrCanvasRaw, 0, 0);
+                }
+                
+                function generateQr() {
+                    const text = qrInput.value.trim() || 'https://www.bb.go.th';
+                    const size = parseInt(qrSize.value, 10) || 350;
+                    const foregroundColor = qrColor.value || '#0a192f';
+                    const logoEnabled = qrLogoToggle.checked;
+                    
+                    preloadLogo(function (logo) {
+                        // Generate QR Code
+                        QRCode.toCanvas(qrCanvasRaw, text, {
+                            errorCorrectionLevel: 'H',
+                            width: size,
+                            margin: 4,
+                            color: {
+                                dark: foregroundColor,
+                                light: '#ffffff'
+                            }
+                        }, function (error) {
+                            if (error) {
+                                console.error("QR Code Generation failed:", error);
+                                return;
+                            }
+                            
+                            if (logoEnabled && logo) {
+                                const ctx = qrCanvasRaw.getContext('2d');
+                                const qrSizeVal = qrCanvasRaw.width;
+                                const logoSize = qrSizeVal * 0.22; // 22% of total size
+                                
+                                const cx = qrSizeVal / 2;
+                                const cy = qrSizeVal / 2;
+                                const backingRadius = (logoSize / 2) + 4; // Add padding of 4px
+                                
+                                // Draw circular white backing card
+                                ctx.fillStyle = '#ffffff';
+                                ctx.beginPath();
+                                ctx.arc(cx, cy, backingRadius, 0, 2 * Math.PI);
+                                ctx.fill();
+                                
+                                // Draw subtle border around backing card
+                                ctx.strokeStyle = '#e2e8f0';
+                                ctx.lineWidth = 1.5;
+                                ctx.stroke();
+                                
+                                // Draw the logo image
+                                ctx.drawImage(logo, cx - (logoSize / 2), cy - (logoSize / 2), logoSize, logoSize);
+                            }
+                            
+                            updatePreviewCanvas();
+                        });
+                    });
+                }
+                
+                let toastTimeout;
+                function showToast(message) {
+                    qrToastMsg.textContent = message;
+                    qrToast.classList.add('show');
+                    clearTimeout(toastTimeout);
+                    toastTimeout = setTimeout(() => {
+                        qrToast.classList.remove('show');
+                    }, 3000);
+                }
+                
+                // Setup Color Dots Selection
+                colorDots.forEach(dot => {
+                    dot.addEventListener('click', function () {
+                        const colorValue = this.getAttribute('data-color');
+                        qrColor.value = colorValue;
+                        
+                        // Update active class
+                        colorDots.forEach(d => d.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        generateQr();
+                    });
+                });
+                
+                // Setup Custom Color Picker Input
+                qrColor.addEventListener('input', function () {
+                    // Remove active class from dots since custom color is used
+                    colorDots.forEach(d => d.classList.remove('active'));
+                    generateQr();
+                });
+                
+                // Setup controls listeners
+                qrInput.addEventListener('input', generateQr);
+                qrSize.addEventListener('change', generateQr);
+                qrLogoToggle.addEventListener('change', generateQr);
+                
+                // Download PNG Action
+                qrDownloadBtn.addEventListener('click', function () {
+                    try {
+                        qrCanvasRaw.toBlob(function (blob) {
+                            if (!blob) {
+                                showToast('ไม่สามารถดาวน์โหลดรูปภาพได้');
+                                return;
+                            }
+                            
+                            const blobUrl = URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = blobUrl;
+                            
+                            // Parse filename from input URL if possible, otherwise default
+                            let filename = 'budget-bureau-qrcode.png';
+                            try {
+                                const url = new URL(qrInput.value.trim());
+                                const hostname = url.hostname.replace('www.', '').replace(/\./g, '-');
+                                if (hostname) {
+                                    filename = `qrcode-${hostname}.png`;
+                                }
+                            } catch (e) {
+                                // Fallback if not a valid URL
+                                const cleanText = qrInput.value.trim().replace(/[^a-z0-9]/gi, '-').toLowerCase().substring(0, 20);
+                                if (cleanText) {
+                                    filename = `qrcode-${cleanText}.png`;
+                                }
+                            }
+                            
+                            a.download = filename;
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                            
+                            // Revoke the URL to free up memory
+                            setTimeout(() => {
+                                URL.revokeObjectURL(blobUrl);
+                            }, 100);
+                            
+                            showToast('ดาวน์โหลดคิวอาร์โค้ดสำเร็จ');
+                        }, "image/png");
+                    } catch (err) {
+                        console.error("Failed to download image:", err);
+                        showToast('ไม่สามารถดาวน์โหลดรูปภาพได้');
+                    }
+                });
+                
+                // Copy to Clipboard Action
+                qrCopyBtn.addEventListener('click', function () {
+                    try {
+                        qrCanvasRaw.toBlob(function (blob) {
+                            if (!blob) {
+                                showToast('ไม่สามารถสร้างข้อมูลรูปภาพได้');
+                                return;
+                            }
+                            
+                            // Clipboard API check
+                            if (navigator.clipboard && window.ClipboardItem) {
+                                navigator.clipboard.write([
+                                    new ClipboardItem({
+                                        [blob.type]: blob
+                                    })
+                                ]).then(function () {
+                                    showToast('คัดลอกคิวอาร์โค้ดไปยังคลิปบอร์ดแล้ว');
+                                }).catch(function (err) {
+                                    console.error("Clipboard API failure:", err);
+                                    showToast('บราวเซอร์ไม่รองรับการคัดลอก กรุณาดาวน์โหลดเป็นไฟล์แทน');
+                                });
+                            } else {
+                                showToast('บราวเซอร์ของคุณไม่รองรับการคัดลอกรูปภาพอัตโนมัติ');
+                            }
+                        }, "image/png");
+                    } catch (err) {
+                        console.error("Copy failed:", err);
+                        showToast('เกิดข้อผิดพลาดในการคัดลอก');
+                    }
+                });
+                
+                // Generate on load
+                generateQr();
+                
             }, 100);
         };
 
