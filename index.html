@@ -2499,6 +2499,8 @@
                 const qrSize = document.getElementById('qr-size');
                 const qrColor = document.getElementById('qr-color');
                 const qrLogoToggle = document.getElementById('qr-logo-toggle');
+                const qrLogoOptions = document.getElementById('qr-logo-options');
+                const qrLogoTypeRadios = document.querySelectorAll('input[name="qr-logo-type"]');
                 const qrCanvasPreview = document.getElementById('qr-canvas-preview');
                 const qrCanvasRaw = document.getElementById('qr-canvas-raw');
                 const qrDownloadBtn = document.getElementById('qr-download-btn');
@@ -2512,17 +2514,17 @@
                     return;
                 }
                 
-                let logoImage = null;
-                function preloadLogo(callback) {
-                    if (logoImage) {
-                        callback(logoImage);
+                let loadedLogos = { bureau: null, drr: null };
+                function preloadLogo(type, callback) {
+                    if (loadedLogos[type]) {
+                        callback(loadedLogos[type]);
                         return;
                     }
                     const img = new Image();
-                    img.src = 'Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg';
+                    img.src = type === 'drr' ? 'DRR.svg' : 'Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg';
                     img.onload = function () {
-                        logoImage = img;
-                        callback(logoImage);
+                        loadedLogos[type] = img;
+                        callback(img);
                     };
                     img.onerror = function () {
                         console.error("Failed to load logo SVG");
@@ -2543,7 +2545,18 @@
                     const foregroundColor = qrColor.value || '#0a192f';
                     const logoEnabled = qrLogoToggle.checked;
                     
-                    preloadLogo(function (logo) {
+                    let selectedLogoType = 'bureau';
+                    if (qrLogoTypeRadios.length > 0) {
+                        qrLogoTypeRadios.forEach(radio => {
+                            if (radio.checked) selectedLogoType = radio.value;
+                        });
+                    }
+                    
+                    if (qrLogoOptions) {
+                        qrLogoOptions.style.display = logoEnabled ? 'flex' : 'none';
+                    }
+                    
+                    preloadLogo(selectedLogoType, function (logo) {
                         // Generate QR Code at 3x resolution for high-DPI crispness and high-quality prints
                         const hdSize = size * 3;
                         QRCode.toCanvas(qrCanvasRaw, text, {
@@ -2619,6 +2632,9 @@
                 qrInput.addEventListener('input', generateQr);
                 qrSize.addEventListener('change', generateQr);
                 qrLogoToggle.addEventListener('change', generateQr);
+                qrLogoTypeRadios.forEach(radio => {
+                    radio.addEventListener('change', generateQr);
+                });
                 
                 // Download PNG Action
                 qrDownloadBtn.addEventListener('click', function () {

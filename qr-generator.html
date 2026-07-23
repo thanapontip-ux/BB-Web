@@ -253,24 +253,38 @@
             </div>
 
             <!-- Logo Toggle Switch -->
-            <div class="flex items-center justify-between p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                <div class="flex items-center gap-3">
-                    <div
-                        class="bg-indigo-50 text-indigo-600 w-10 h-10 rounded-xl flex items-center justify-center shadow-inner">
-                        <i class="fa-solid fa-shield-halved text-base"></i>
+            <div class="flex flex-col gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-100 transition-all">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="bg-indigo-50 text-indigo-600 w-10 h-10 rounded-xl flex items-center justify-center shadow-inner">
+                            <i class="fa-solid fa-shield-halved text-base"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-800">ประทับตราตรงกลาง (Center Logo)</h4>
+                            <p class="text-xs text-slate-500">ใส่โลโก้ที่จุดกึ่งกลางคิวอาร์โค้ด</p>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="text-sm font-bold text-slate-800">ประทับตราตรงกลาง (Center Logo)</h4>
-                        <p class="text-xs text-slate-500">ใส่ตราสำนักนายกรัฐมนตรีที่จุดกึ่งกลางคิวอาร์โค้ด</p>
+                    <!-- Toggle -->
+                    <div class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="qr-logo-toggle" class="sr-only toggle-checkbox" checked>
+                        <label for="qr-logo-toggle"
+                            class="w-11 h-6 bg-slate-200 rounded-full block relative transition-colors duration-200 cursor-pointer toggle-label">
+                            <span
+                                class="toggle-dot w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5 shadow-sm transition-transform duration-200"></span>
+                        </label>
                     </div>
                 </div>
-                <!-- Toggle -->
-                <div class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" id="qr-logo-toggle" class="sr-only toggle-checkbox" checked>
-                    <label for="qr-logo-toggle"
-                        class="w-11 h-6 bg-slate-200 rounded-full block relative transition-colors duration-200 cursor-pointer toggle-label">
-                        <span
-                            class="toggle-dot w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5 shadow-sm transition-transform duration-200"></span>
+
+                <!-- Logo Selection Options -->
+                <div id="qr-logo-options" class="flex gap-4 mt-1 ml-14">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="qr-logo-type" value="bureau" class="w-4 h-4 text-indigo-600 bg-white border-slate-300 focus:ring-indigo-500" checked>
+                        <span class="text-sm text-slate-700">สำนักงบประมาณ</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="qr-logo-type" value="drr" class="w-4 h-4 text-indigo-600 bg-white border-slate-300 focus:ring-indigo-500">
+                        <span class="text-sm text-slate-700">กรมทางหลวงชนบท (DRR)</span>
                     </label>
                 </div>
             </div>
