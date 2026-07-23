@@ -2514,20 +2514,26 @@
                     return;
                 }
                 
-                let loadedLogos = { bureau: null, drr: null };
+                let loadedLogos = { bureau: null, drr_color: null, drr_bw: null };
                 function preloadLogo(type, callback) {
                     if (loadedLogos[type]) {
                         callback(loadedLogos[type]);
                         return;
                     }
                     const img = new Image();
-                    img.src = type === 'drr' ? 'DRR.svg' : 'Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg';
+                    if (type === 'drr_color') {
+                        img.src = 'DRR.svg';
+                    } else if (type === 'drr_bw') {
+                        img.src = 'drrlogo.png';
+                    } else {
+                        img.src = 'Seal_of_the_Office_of_the_Prime_Minister_of_Thailand.svg';
+                    }
                     img.onload = function () {
                         loadedLogos[type] = img;
                         callback(img);
                     };
                     img.onerror = function () {
-                        console.error("Failed to load logo SVG");
+                        console.error("Failed to load logo image");
                         callback(null);
                     };
                 }
